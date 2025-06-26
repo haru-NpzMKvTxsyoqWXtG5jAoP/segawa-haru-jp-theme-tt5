@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+
+  "settings": {
+    "color": {
+      "custom": false,
+      "palette": [
+        { "slug": "haru-green", "color": "#00d782", "name": "Haru Green" },
+        { "slug": "black",      "color": "#000000", "name": "Black" },
+        { "slug": "white",      "color": "#ffffff", "name": "White" },
+        { "slug": "gray",       "color": "#e7e7e7", "name": "Gray" }
+      ]
+    },
+
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "\"source-han-sans-japanese\", sans-serif",
+          "slug": "source-han-sans-japanese",
+          "name": "源ノ角ゴシック"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "ss", "size": "0.8125rem", "name": "SS" },
+        { "slug": "s",  "size": "0.875rem",  "name": "Base" },
+        { "slug": "m",  "size": "0.9375rem", "name": "M" }
+      ]
+    },
+
+    "layout": {
+      "contentSize": "700px"
+    }
+  },
+
+  "styles": {
+    "elements": {
+      "body": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)",
+          "fontWeight": "400"
+        }
+      }
+    }
+  }
+} 
