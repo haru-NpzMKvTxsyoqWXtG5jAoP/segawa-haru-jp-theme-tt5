@@ -725,31 +725,33 @@ html::after {
   box-sizing: border-box;
 }
 
-/* Masonry用グリッドサイザーとアイテムの基本設定 */
-.haru-masonry-gallery .haru-grid-sizer,
+/* Masonry用グリッドサイザー（幅基準）*/
+.haru-masonry-gallery .haru-grid-sizer {
+  /* モバイル：100%幅 */
+  width: 100% !important;
+  float: left;
+  box-sizing: border-box;
+  height: 0;
+  visibility: hidden;
+}
+
+/* Masonryアイテムの基本設定 */
 .haru-masonry-gallery .haru-masonry-gallery-item {
-  /* シンプルで美しい幅計算 */
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
+  /* モバイル：100%幅 */
+  width: 100% !important;
   margin-bottom: var(--gallery-gutter);
-  float: left; /* Masonry.jsがfloatベースの計算を期待する場合の保険 */
+  float: left;
   box-sizing: border-box;
 }
 
-/* ワイドアイテム：2列分の幅 */
+/* ワイドアイテム：モバイルでは通常アイテムと同じ */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
+  width: 100% !important; /* モバイル：通常アイテムと同じ100%幅 */
   margin-bottom: var(--gallery-gutter);
-  float: left; /* Masonry.jsがfloatベースの計算を期待する場合の保険 */
+  float: left;
   box-sizing: border-box;
 }
 
-/* モバイルでは全てのアイテムを100%幅に */
-@media (max-width: 717px) {
-  .haru-masonry-gallery .haru-masonry-gallery-item,
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-    width: 100% !important;
-  }
-}
 
 /* アイテムの基本スタイル */
 .haru-masonry-gallery .haru-masonry-gallery-item,
@@ -792,6 +794,15 @@ html::after {
     --gallery-cols: 2;
     --gallery-gutter: var(--gallery-gutter-tablet); /* 10px */
   }
+  
+  .haru-masonry-gallery .haru-grid-sizer,
+  .haru-masonry-gallery .haru-masonry-gallery-item {
+    width: calc((100% - 10px) / 2) !important; /* 2列：50%幅 - ガター調整 */
+  }
+  
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
+    width: calc(100% - 0px) !important; /* ワイドアイテム：100%幅 */
+  }
 }
 
 /* デスクトップ：3列 */
@@ -799,6 +810,15 @@ html::after {
   .haru-masonry-gallery {
     --gallery-cols: 3;
     --gallery-gutter: var(--gallery-gutter); /* 12px */
+  }
+  
+  .haru-masonry-gallery .haru-grid-sizer,
+  .haru-masonry-gallery .haru-masonry-gallery-item {
+    width: calc((100% - 24px) / 3) !important; /* 3列：33.33%幅 - ガター調整 */
+  }
+  
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
+    width: calc((100% - 12px) / 1.5) !important; /* ワイドアイテム：2列分の幅 */
   }
 }
 
