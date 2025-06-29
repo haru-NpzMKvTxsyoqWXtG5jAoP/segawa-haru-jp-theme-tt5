@@ -44,7 +44,10 @@ Template: twentytwentyfive
   --card-aspect-ratio: 1 / 1.05;                   /* カードの縦横比（やや縦長）*/
   
   /* ギャラリー関連：Masonryレイアウト用 */
-  --gallery-gutter: 1px;                           /* ギャラリーアイテム間の隙間 */
+  /* JavaScript側と統一した値を使用 */
+  --gallery-gutter: 12px;                         /* ギャラリーアイテム間の隙間（デスクトップ基準）*/
+  --gallery-gutter-tablet: 10px;                  /* タブレット用ギャラリー間隔 */
+  --gallery-gutter-mobile: 8px;                   /* モバイル用ギャラリー間隔 */
   
   /* プロフィールカード：3Dフリップカード用 */
   --haru-gap: clamp(12px, 2vw, 18px);             /* カード内要素間の余白 */
@@ -656,15 +659,55 @@ html::after {
   padding: 0;
   margin-bottom: clamp(2rem, 5vw, 4rem);
   max-width: none;
+  width: 100%;
+  overflow: visible;
 }
 
-/* WordPressのコンテンツ幅制限を解除 */
-.haru-gallery-container .is-layout-constrained {
+/* WordPressのコンテンツ幅制限を完全に解除 */
+.haru-gallery-container .is-layout-constrained,
+.haru-gallery-container .wp-block-group,
+.haru-gallery-container .wp-block-column,
+.haru-gallery-container .wp-block-columns {
   max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
-.haru-gallery-container .wp-block-group {
+/* WordPressブロックエディタのレイアウト制御を強制的に無効化 */
+/* Twenty Twenty-Fiveテーマのレイアウトクラス干渉を完全に解決 */
+.haru-masonry-gallery,
+.haru-masonry-gallery * {
+  /* すべてのWordPressレイアウト制約を無効化 */
   max-width: none !important;
+  width: auto !important;
+}
+
+.haru-masonry-gallery .has-global-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.haru-masonry-gallery .is-layout-constrained,
+.haru-masonry-gallery .is-layout-flow,
+.haru-masonry-gallery .is-layout-flex {
+  display: block !important;
+  max-width: none !important;
+  width: auto !important;
+  flex-direction: initial !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+}
+
+/* WordPress Gutenbergブロックの制約を完全に解除 */
+.haru-masonry-gallery .wp-block-group,
+.haru-masonry-gallery .wp-block-column,
+.haru-masonry-gallery .wp-block-columns {
+  max-width: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Masonryギャラリー：美しく保守性の高いアーキテクチャ（モバイルファースト） */
@@ -674,7 +717,12 @@ html::after {
   
   /* モバイルファースト：デフォルトは1列 */
   --gallery-cols: 1;
-  --gallery-gutter: 8px;
+  --gallery-gutter: var(--gallery-gutter-mobile); /* 8px */
+  
+  /* Masonryレイアウトを確実に動作させる基本設定 */
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Masonry用グリッドサイザーとアイテムの基本設定 */
@@ -683,12 +731,24 @@ html::after {
   /* シンプルで美しい幅計算 */
   width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
   margin-bottom: var(--gallery-gutter);
+  float: left; /* Masonry.jsがfloatベースの計算を期待する場合の保険 */
+  box-sizing: border-box;
 }
 
 /* ワイドアイテム：2列分の幅 */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
   width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
   margin-bottom: var(--gallery-gutter);
+  float: left; /* Masonry.jsがfloatベースの計算を期待する場合の保険 */
+  box-sizing: border-box;
+}
+
+/* モバイルでは全てのアイテムを100%幅に */
+@media (max-width: 717px) {
+  .haru-masonry-gallery .haru-masonry-gallery-item,
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
+    width: 100% !important;
+  }
 }
 
 /* アイテムの基本スタイル */
@@ -730,7 +790,7 @@ html::after {
 @media (min-width: 718px) {
   .haru-masonry-gallery {
     --gallery-cols: 2;
-    --gallery-gutter: 10px;
+    --gallery-gutter: var(--gallery-gutter-tablet); /* 10px */
   }
 }
 
@@ -738,7 +798,7 @@ html::after {
 @media (min-width: 1131px) {
   .haru-masonry-gallery {
     --gallery-cols: 3;
-    --gallery-gutter: 12px;
+    --gallery-gutter: var(--gallery-gutter); /* 12px */
   }
 }
 
