@@ -681,6 +681,14 @@ html::after {
   flex-direction: row !important;
 }
 
+/* Twenty Twenty-FiveのGlobal Paddingを無効化 */
+.haru-masonry-gallery .wp-block-group.has-global-padding.haru-masonry-gallery-item,
+.haru-masonry-gallery .wp-block-group.has-global-padding.haru-masonry-gallery-item--wide {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
 .haru-masonry-gallery .haru-grid-sizer,
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
@@ -697,6 +705,8 @@ html::after {
   /* WordPressのデフォルトクラスを上書き */
   max-width: none !important;
   flex-basis: auto !important;
+  float: left !important;
+  display: block !important;
 }
 
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
@@ -707,6 +717,8 @@ html::after {
   /* WordPressのデフォルトクラスを上書き */
   max-width: none !important;
   flex-basis: auto !important;
+  float: left !important;
+  display: block !important;
 }
 
 .haru-masonry-gallery .haru-masonry-gallery-item img,
