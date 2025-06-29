@@ -153,12 +153,20 @@ html::after {
   flex-direction: column;                             /* 縦方向配置 */
   justify-content: center;                            /* 中央配置 */
   align-items: center;                                /* 中央揃え */
-  gap: 80px;                                          /* メニュー項目間の間隔 */
+  gap: 60px;                                          /* モバイル：メニュー項目間の間隔 */
   height: 100%;                                       /* 親要素全体の高さ */
   list-style: none;                                   /* リストマーカー削除 */
-  padding: 20px 0;                                    /* 上下に20pxの余白を追加 */
+  padding: 15px 0;                                    /* モバイル：上下に15pxの余白 */
   margin: 0;                                          /* デフォルトmargin削除 */
   box-sizing: border-box;                             /* padding含めたサイズ計算 */
+}
+
+/* デスクトップでナビゲーション間隔拡大 */
+@media (min-width: 768px) {
+  .wp-block-navigation.haru-vertical-header .wp-block-navigation__container {
+    gap: 80px;                                        /* デスクトップ：間隔拡大 */
+    padding: 20px 0;                                  /* デスクトップ：余白拡大 */
+  }
 }
 
 /* 個別メニュー項目（li要素）*/
@@ -244,21 +252,21 @@ html::after {
   display: grid;                                      /* CSS Grid使用 */
   gap: var(--card-grid-gap);                          /* カード間の隙間（1px）*/
   padding: 0 var(--haru-padding-visual);              /* 左右にビジュアル幅の余白 */
-  grid-template-columns: repeat(3, 1fr);              /* デフォルト：3列均等配置 */
+  grid-template-columns: 1fr;                         /* モバイル：1列（デフォルト）*/
 }
 
-/* メディアクエリでレスポンシブ対応 */
+/* モバイルファーストによるレスポンシブ対応 */
 /* タブレット幅：2列に変更 */
-@media (max-width: 1130px) {
+@media (min-width: 718px) {
   .haru-service-cards-container {
     grid-template-columns: repeat(2, 1fr);            /* 2列均等配置 */
   }
 }
 
-/* モバイル幅：1列に変更 */
-@media (max-width: 717px) {
+/* デスクトップ幅：3列に変更 */
+@media (min-width: 1131px) {
   .haru-service-cards-container {
-    grid-template-columns: 1fr;                       /* 1列（フル幅）*/
+    grid-template-columns: repeat(3, 1fr);            /* 3列均等配置 */
   }
 }
 
@@ -435,26 +443,39 @@ html::after {
   width: 35px;
 }
 
-/* モバイル調整 */
-@media (max-width: 767px) {
+/* モバイル用スタイル（デフォルト）*/
+.haru-profile-card__front {
+  padding: 0;                                         /* モバイル：パディングなし */
+}
+
+.haru-profile-card__header {
+  position: relative;                                 /* モバイル：相対位置 */
+  top: -5px;                                          /* モバイル：微調整 */
+  margin-inline-start: -2px;                          /* モバイル：左余白調整 */
+}
+
+.haru-profile-card__image picture,
+.haru-profile-card__image img {
+  height: 99%;                                        /* モバイル：画像高さ調整 */
+}
+
+/* PC/タブレット表示（モバイルスタイルをリセット）*/
+@media (min-width: 768px) {
   .haru-profile-card__front {
-    padding: 0;
+    padding: var(--haru-gap);                         /* デスクトップ：パディング復活 */
   }
 
   .haru-profile-card__header {
-    position: relative;
-    top: -5px;
-    margin-inline-start: -2px;
+    position: static;                                 /* デスクトップ：通常位置 */
+    top: auto;                                        /* デスクトップ：top調整リセット */
+    margin-inline-start: 0;                           /* デスクトップ：左余白リセット */
   }
 
   .haru-profile-card__image picture,
   .haru-profile-card__image img {
-    height: 99%;
+    height: auto;                                     /* デスクトップ：自動高さ */
   }
-}
 
-/* PC/タブレット表示 */
-@media (min-width: 768px) {
   .haru-profile-card {
     width: 100%;
     max-width: 900px;
@@ -627,8 +648,8 @@ html::after {
 .haru-masonry-gallery {
   display: block !important;
   width: 100%;
-  --gallery-columns: 3;
-  --gallery-gap: 12px;
+  --gallery-columns: 1;                                /* モバイル：1列（デフォルト）*/
+  --gallery-gap: 8px;                                  /* モバイル：小さめのガップ */
 }
 
 .haru-masonry-gallery .grid-sizer,
@@ -680,22 +701,18 @@ html::after {
   font-weight: 500;
 }
 
-/* メディアクエリでレスポンシブ対応 */
-@media (max-width: 1130px) {
+/* モバイルファーストによるレスポンシブ対応 */
+@media (min-width: 718px) {
   .haru-masonry-gallery {
-    --gallery-columns: 2;
-    --gallery-gap: 10px;
+    --gallery-columns: 2;                              /* タブレット：2列 */
+    --gallery-gap: 10px;                               /* タブレット：中サイズガップ */
   }
 }
 
-@media (max-width: 717px) {
+@media (min-width: 1131px) {
   .haru-masonry-gallery {
-    --gallery-columns: 1;
-    --gallery-gap: 8px;
-  }
-  
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-    width: 100% !important;
+    --gallery-columns: 3;                              /* デスクトップ：3列 */
+    --gallery-gap: 12px;                               /* デスクトップ：大きめガップ */
   }
 }
 
@@ -913,20 +930,6 @@ html::after {
   border: 0 !important;               /* 境界線削除 */
 }
 
-/* ===========================================================
-   レスポンシブ調整
-=========================================================== */
-@media (max-width: 768px) {
-  /* モバイルでの縦型ヘッダー調整 */
-  .haru-vertical-header .wp-block-navigation .wp-block-navigation__container {
-    gap: 60px;
-    padding-top: 60px;
-  }
-  
-  .haru-vertical-header .wp-block-navigation-item__content {
-    font-size: clamp(11px, calc(10px + 0.5vw), 13px);
-  }
-}
 
 @media (min-width: 1200px) {
   /* 大画面での余白調整 */
