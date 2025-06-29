@@ -38,13 +38,9 @@
       "background": "var(--wp--preset--color--haru-green)",
       "text": "var(--wp--preset--color--black)"
     },
-    "elements": {
-      "body": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)",
-          "fontWeight": "400"
-        }
-      }
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)",
+      "fontWeight": "400"
     }
   }
 } 

@@ -1,0 +1,786 @@
+@charset "UTF-8";
+/*
+    Template: swell
+    Theme Name: SWELL CHILD
+    Theme URI: https://swell-theme.com/
+    Description: SWELLの子テーマ
+    Version: 1.0.0
+    Author: LOOS WEB STUDIO
+    Author URI: https://loos-web-studio.com/
+
+    License: GNU General Public License
+    License URI: http://www.gnu.org/licenses/gpl.html
+*/
+
+/* ===========================================================
+   共通設定
+=========================================================== */
+body {
+  font-family: "source-han-sans-japanese", sans-serif;
+  font-weight: 400; /* 基本の太さを400に */
+  container-type: inline-size; /* カード一覧のコンテナクエリ用 */
+  padding-top: 50px; /* ヘッダーを非表示にした分の上の余白 */
+}
+
+:root {
+/* メイン左右パディング */
+  --content-main-padding: clamp(15px, calc(2.5px + 3.3vw), 50px);
+
+/* サービスカード関連のCSS変数を定義 */
+  --card-image-padding: clamp(20px, 1.6vw, 50px);
+  --card-grid-gap: 1px;
+  --card-bg-color: #fff;
+  --card-border-radius: 20px;
+  --card-aspect-ratio: 1 / 1.05;             /* カードのアスペクト比 */
+
+/* ギャラリー関連のCSS変数を定義 */
+  --gallery-gutter: 1px;    /* JSのgutterと値を合わせる */
+  --gallery-columns-pc: 3;
+  --gallery-columns-tablet: 2;
+  --gallery-columns-mobile: 1;
+
+/* カスタム縦型サイドヘッダー */
+  --vertical-header-width: clamp(28px, calc(24px + 1.1vw), 40px);    /* J帯・固定メニュー・html右padding */
+  
+/* プロフィールカード */
+  --haru-gap: clamp(12px, 2vw, 18px);
+
+/* Contact Form 7 用パディング制御 */
+  --form-max-padding: 188px;   /* 左右パディングの最大値 */
+  --form-breakpoint : 1000px;  /* この幅から余白を滑らかに拡大 */
+}
+
+/* ===========================================================
+   カスタム縦型サイドヘッダー
+=========================================================== */
+
+/* 既存のSWELLヘッダーは常に非表示 */
+.l-header {
+  display: none !important;
+}
+
+/* ページ全体(html)に右パディングを追加 & グラデーション背景用の基準点を設定 */
+html {
+  position: relative; /* 疑似要素の基準点 */
+  padding-inline-end: var(--vertical-header-width);
+  box-sizing: border-box;
+}
+
+/* ページ全体に及ぶ縦長のグラデーション背景を疑似要素で作成 */
+html::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--vertical-header-width);
+  height: 100%;
+  background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4); 
+  pointer-events: none;          /* Safari のクリック貫通バグ対策 */
+  z-index: -1; /* コンテンツの背面に配置 */
+}
+
+/* 追従するヘッダー（メニューテキストのコンテナ） */
+.custom-vertical-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--vertical-header-width);
+  height: 100vh;
+  background: transparent; /* 背景は透明に */
+  z-index: 1000;
+  box-sizing: border-box;
+  pointer-events: none; /* ヘッダーが下の要素のクリックを邪魔しないように */
+}
+
+/* ナビゲーションコンテナ */
+.custom-vertical-nav {
+  display: flex;
+  height: 100%;
+}
+
+/* メニューリスト <ul> */
+.custom-vertical-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  gap: 80px; 
+  padding-top: 77px; 
+}
+
+/* メニュー項目 <li> */
+.custom-vertical-menu-list li {
+  pointer-events: auto; /* リンクはクリックできるように */
+}
+
+/* メニュー項目 <a> */
+.custom-vertical-menu-list li a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-size: clamp(13px, calc(12px + 0.28vw), 15px); 
+  font-weight: 400; 
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  transform: rotate(90deg); /* 回転方向を修正 */
+}
+
+.custom-vertical-menu-list li a:hover {
+  color: #fff;
+}
+
+/* ===========================================================
+   レスポンシブ・スペーサー
+=========================================================== */
+/*
+  使い方：
+  スペーサーブロックの「高度な設定」→「追加CSSクラス」に
+  `spacer-responsive-regular` のようにクラス名を入力します。
+  （ブロック側で設定した高さは無視されます）
+*/
+.wp-block-spacer.spacer-responsive-regular {
+  height: clamp(20px, calc(-1.1px + 5.6vw), 60px) !important;
+}
+
+/* ===========================================================
+   全幅グループ内の制約付きインナーコンテナの幅制限を解除
+   （harusegawa-title-svgの幅制限解除のため）
+=========================================================== */
+.wp-block-group.alignfull > .wp-block-group__inner-container.is-layout-constrained {
+  max-width: none !important; /* SWELLの最大幅制限を解除 */
+}
+
+/* ===========================================================
+   harusegawa-title-svg (カスタムHTML)
+=========================================================== */
+.alignfull .harusegawa-title-svg { 
+  padding: 0 var(--content-main-padding); 
+  margin-bottom: clamp(1em, calc(0.5em + 1vw), 2em); 
+}
+
+/* SVG本体
+---------------------------------------------------------- */
+.harusegawa-title-svg svg {
+  display: block;
+  width: 100%;   /* レスポンシブで横幅いっぱい */
+  height: auto;  /* 比率を保って縮む */
+  fill: #222;
+}
+
+/* ===========================================================
+   ロゴ下キャッチコピー
+=========================================================== */
+.post_content .harusegawa-title-caption {
+  padding: 0 var(--content-main-padding);
+  font-size: clamp(12px, calc(10px + 0.8vw), 20px); 
+  margin-top: 0;
+  line-height: 1.6;
+}
+
+/* ===========================================================
+   セクション見出しC
+=========================================================== */
+.post_content .section-c {
+  font-size: clamp(16px, calc(12px + 1vw), 22px); 
+  padding: 0 var(--content-main-padding);
+}
+
+/* ===========================================================
+   セクション見出しB
+=========================================================== */
+.post_content .section-b {
+  font-size: clamp(32px, 8vw, 5rem);
+  padding: 0 var(--content-main-padding);
+  margin: 0 0 0.5em;
+}
+
+/* ===========================================================
+   サービスカード：一覧
+=========================================================== */
+div.wp-block-group.card-grid {
+  display: grid;
+  gap: var(--card-grid-gap);
+  padding: 0 var(--content-main-padding);
+  
+  /* コンテナクエリ用に自身をサイズ基準のコンテナに指定 */
+  container-type: inline-size;  /* 親要素の横幅で条件分岐 */
+
+  /* デフォルト（標準 PC 幅）は 3 列 */
+  --card-cols: 3;
+  grid-template-columns: repeat(var(--card-cols), 1fr);
+}
+
+/* ── コンテナ幅が ↓px 以上なら 4 列 ───────────────── */
+@container (min-width: 1850px) {
+  div.wp-block-group.card-grid {
+    --card-cols: 4;
+  }
+  /* 文字サイズの微調整も従来仕様を踏襲 */
+  .card-item p {
+    font-size: 15px; 
+  }
+}
+
+/* ── コンテナ幅が ↓px 未満なら 2 列 ───────────────── */
+@container (max-width: 1130px) {
+  div.wp-block-group.card-grid {
+    --card-cols: 2;
+  }
+}
+
+/* ── コンテナ幅が ↓px 未満なら 1 列 ───────────────── */
+@container (max-width: 717px) {
+  div.wp-block-group.card-grid {
+    --card-cols: 1;
+  }
+}
+
+/* ===========================================================
+   サービスカード：本体
+=========================================================== */
+.card-item {
+  aspect-ratio: var(--card-aspect-ratio); /* アスペクト比を指定 */
+  overflow: hidden; /* はみ出た内容を隠す */
+  border-radius: var(--card-border-radius); /* 角丸 */
+  background-color: var(--card-bg-color); /* 背景色 */
+  transition: transform 0.15s ease-out; /* transformのアニメーション速度 */
+}
+
+.card-item:hover {
+  transform: scale(0.95); /* ホバー時にカードを少し縮小する */
+}
+
+/* ===========================================================
+   サービスカード：内の要素
+=========================================================== */
+
+/* カード内画像 */
+.card-item img {
+  width: calc(100% - (var(--card-image-padding) * 2)); 
+  display: block;
+  margin: var(--card-image-padding) auto 0; 
+  border-radius: calc(var(--card-border-radius) - 5px); 
+}
+
+/* カード内見出し (h3) */
+.card-item h3 {
+  margin: 1.2rem var(--card-image-padding) 1rem;   
+  font-size: clamp(17px, 2.2vw, 19px);
+  font-weight: 700;               /* フォントの太さ */
+}
+
+/* カード内テキスト (p) */
+.card-item p {
+  font-size: 14px; 
+  padding-right: var(--card-image-padding); 
+  padding-left: var(--card-image-padding);  
+  line-height: 1.6;           /* 行の高さ */
+  text-align: justify;        /* 均等割り付け */
+}
+
+/* ===========================================================
+   メイソンリーギャラリー：ベーススタイル
+=========================================================== */
+.masonry-gallery {
+  display: block !important; /* display:grid の上書きを試みる */
+  /* paddingを削除し、widthとmarginで余白を表現する */
+  width: calc(100% - (var(--content-main-padding) * 2));
+  margin-left: auto;
+  margin-right: auto;
+  container-type: inline-size; /* カードと同様にコンテナクエリ対応 */
+}
+
+.masonry-gallery .grid-sizer,
+.masonry-gallery .masonry-gallery-item {
+  margin-bottom: var(--gallery-gap);
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
+}
+
+.masonry-gallery .masonry-gallery-item--wide {
+  margin-bottom: var(--gallery-gap);
+  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
+}
+
+.masonry-gallery .masonry-gallery-item img,
+.masonry-gallery .masonry-gallery-item--wide img { 
+  width: 100%;
+  border-radius: var(--card-border-radius);
+}
+
+/* --- 余白リセット & アニメーション --- */
+.masonry-gallery .masonry-gallery-item,
+.masonry-gallery .masonry-gallery-item--wide {
+  padding: 0;
+  transition: transform 0.15s ease-out;
+}
+
+/* ===========================================================
+   メイソンリーギャラリー：アイテム幅と下余白
+=========================================================== */
+/* --- ベース値（PC想定: 3列・ギャップ12px） --- */
+.masonry-gallery {
+  --gallery-cols: var(--gallery-columns-pc);
+  --gallery-gap : 12px;
+}
+
+/* ────────────────────────────────────────────────
+   メイソンリーギャラリー：コンテナクエリで列数制御
+   カードグリッドと同じブレイクポイントを使用
+──────────────────────────────────────────────── */
+
+/* ── コンテナ幅が ↓px 以上なら 4 列 ───────────────── */
+@container (min-width: 1850px) {
+  .masonry-gallery {
+    --gallery-cols: 4;
+  }
+}
+
+/* ── コンテナ幅が ↓px 未満なら 2 列 ───────────────── */
+@container (max-width: 1130px) {
+  .masonry-gallery {
+    --gallery-cols: 2;
+    --gallery-gap: 10px;
+  }
+}
+
+/* ── コンテナ幅が ↓px 未満なら 1 列 ───────────────── */
+@container (max-width: 717px) {
+  .masonry-gallery {
+    --gallery-cols: 1;
+    --gallery-gap: 8px;
+  }
+  /* スマホではワイドカードも 1 列表示に合わせて100%幅に */
+  .masonry-gallery .masonry-gallery-item--wide {
+    width: 100% !important;
+  }
+}
+
+/* ===========================================================
+   メイソンリーギャラリー：ホバー効果
+=========================================================== */
+.masonry-gallery-item:hover,
+.masonry-gallery-item--wide:hover {
+  transform: scale(0.95); /* ホバー時に少し縮小 */
+}
+
+/* ===========================================================
+   メイソンリーギャラリー：カテゴリ見出し
+=========================================================== */
+.masonry-gallery-item .gallery-category-name {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+/* ===========================================================
+   Contact Form 7
+=========================================================== */
+/* --- フォーム全体のコンテナ + 前後説明文 --- */
+.wpcf7,
+.post_content p.text-b {
+  /* 狭い画面では --content-main-padding、画面が広がるにつれて
+     calc((100vw - var(--form-breakpoint)) / 2) が増加し、
+     最大でも --form-max-padding で頭打ち */
+  padding-left : clamp(var(--content-main-padding), calc((100vw - var(--form-breakpoint)) / 2), var(--form-max-padding));
+  padding-right: clamp(var(--content-main-padding), calc((100vw - var(--form-breakpoint)) / 2), var(--form-max-padding));
+}
+
+/* --- フォームのラッパー (背景色などを設定) --- */
+.wpcf7-form {
+  background-color: transparent; /* 背景色を透過に */
+  padding: 0; /* 親ブロックで余白を制御 */
+}
+
+/* --- 各フォーム要素のラッパー (pタグ) --- */
+.wpcf7-form p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 入力フィールド (input, textarea) --- */
+.wpcf7-form .wpcf7-form-control {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.8em 1em; 
+  border: none; /* 枠線をなしに */
+  margin-bottom: 20px; 
+  background-color: #fff;
+  border-radius: 5px; 
+}
+
+.wpcf7-form textarea.wpcf7-form-control {
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* 最後の入力欄の下には隙間をつけない */
+.wpcf7-form p:last-of-type .wpcf7-form-control {
+  margin-bottom: 0;
+}
+
+/* --- プレースホルダーの文字色 --- */
+.wpcf7-form .wpcf7-form-control::placeholder {
+  color: #b3b3b3;
+}
+
+/* --- 同意チェックボックス隣のテキスト --- */
+.wpcf7-form .wpcf7-acceptance {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* ===========================================================
+   共通ボタンスタイル
+=========================================================== */
+.wpcf7-form .wpcf7-submit,
+.wp-block-button__link {
+  /* --- 基本のスタイルリセット & 設定 --- */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 5px; 
+  display: block;
+  margin: 30px auto 0; 
+  width: fit-content; 
+  min-width: 220px; 
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none; 
+  
+  /* --- テキストのデザイン --- */
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  
+  /* --- 枠線と余白 --- */
+  border: 2px solid #000;
+  padding: 15px 25px; 
+
+  /* --- ホバーアニメーション --- */
+  color: #fff; 
+  background: linear-gradient(to left, #000 50%, transparent 50%); 
+  background-size: 200% 100%;
+  background-position: right bottom; 
+  transition: all .4s ease-out;
+}
+
+.wpcf7-form .wpcf7-submit:hover,
+.wp-block-button__link:hover {
+  color: #000; 
+  background-position: left bottom; 
+}
+
+/* ===========================================================
+   Google reCAPTCHAバッジを非表示にする
+=========================================================== */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ===========================================================
+   フッターを非表示にする
+=========================================================== */
+.l-footer {
+  display: none;
+}
+
+/* ===========================================================
+   プロフィールカード
+=========================================================== */
+
+/* カードコンテナ */
+.haru-card-container {
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  justify-content: center;
+}
+
+/* --- カード回転の土台 --- */
+.haru-card {
+  width: clamp(320px, 90vw, 420px);
+  /* スマホでは高さを程よく確保しつつ、以前より低めに */
+  aspect-ratio: 3 / 5;
+  /* iOS Safari のテキスト自動拡大を無効化 */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  /* "min-height" は aspect-ratio が使えない古いブラウザのみで適用 */
+  
+  
+  position: relative;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.2,.8,.2,1);
+  cursor: pointer;
+}
+.haru-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* =========================================================
+   aspect-ratio 非対応ブラウザ向けフォールバック
+   （Safari 14 以前 など）
+=========================================================== */
+@supports not (aspect-ratio: 3 / 5) {
+  .haru-card {
+    min-height: 500px; /* Safari 旧バグ対策 */
+  }
+}
+
+/* --- カード表面・裏面の共通スタイル --- */
+.haru-card__front,
+.haru-card__back {
+  
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+
+  background: #fff;
+  border-radius: calc(var(--card-border-radius) - 5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .12); /* 固定値に切替 */
+  overflow: hidden;
+  padding: var(--haru-gap);
+}
+
+/* ===========================================================
+   スマホ表示のレイアウト (< 768px)
+=========================================================== */
+.haru-card__front {
+  display: grid;
+  /* 左ロゴ列 : 右画像列 = 1.5 : 2.2 の固定比率 */
+  grid-template-columns: 1.5fr 2.2fr;
+  /* 1行目: ヘッダー+画像  2行目: 区切り線  3行目: JPテキスト  4行目: EN+矢印 */
+  grid-template-rows: auto 1.5px 1fr auto;
+  /* 行間を var(--haru-gap) に戻し、列間は 15px 固定 */
+  gap: var(--haru-gap) 15px;
+}
+
+.haru-card__logo img {
+  width: 100%;
+  height: auto;
+  display: block; /* 余白原因のインライン基準線を除去 */
+}
+
+.haru-card__header {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  line-height: 0; /* インライン要素の行ボックスを潰す */
+  align-items: stretch; /* ロゴを行全体の高さに伸ばす */
+  margin-bottom: 0; /* 行間gapで余白を管理するためリセット */
+}
+
+.haru-card__image {
+  grid-row: 1;
+  grid-column: 2;
+  /* 行高いっぱいに画像を伸ばす */
+  align-self: stretch;
+  /* グリッド計算で押し広げないように下限を解除 */
+  min-width: 0;
+  max-width: 100%;
+}
+/* picture 自体も stretch させたいので別々に指定 */
+.haru-card__image picture,
+.haru-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* 縦横比を保ちつつ塗りつぶす */
+  display: block;
+}
+
+.haru-card__divider {
+  grid-row: 2;
+  grid-column: 1 / 3;
+  background: #121212;
+}
+
+.haru-card__body {
+  grid-row: 3;
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 var(--haru-gap);
+  /* 列幅を押し広げない */
+  min-width: 0;
+}
+
+.haru-card__text--jp p { font-size: 14px; line-height: 1.6; margin: 0 0 1em; }
+.haru-card__text--jp p:last-child { margin-bottom: 0; }
+.haru-card__footer {
+  grid-column: 1 / 3; /* モバイルでも左右フル幅 */
+  grid-row: 4;        /* 4行目に固定 */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 var(--haru-gap) var(--haru-gap); /* カード内側の左右・下余白 */
+}
+.haru-card__text--en p { font-size: 13px; line-height: 1.5; margin: 0; }
+.haru-card__arrow img { width: 35px; }
+
+@media (max-width: 767px) {
+  .haru-card__front {
+    padding: 0;
+  }
+
+  /* スマホ専用：ロゴを少し上・左へ食い込ませる */
+  .haru-card__header {
+    position: relative;
+    top: -5px; /* 上へ食い込む */
+    margin-inline-start: -2px; /* 左へ食い込む */
+  }
+
+  /* スマホ専用：画像を 99% 高で収め、微妙な隙間を解消 */
+  .haru-card__image picture,
+  .haru-card__image img {
+    height: 99%;
+  }
+}
+
+/* ===========================================================
+   PC/タブレット表示のレイアウト (≥ 768px)
+=========================================================== */
+@media (min-width: 768px) {
+  .haru-card {
+    width: 100%;           /* コンテナ内でフル幅を使う */
+    max-width: 900px;      /* もっと広い画面でも 900px で頭打ち */
+    aspect-ratio: 5 / 3;   /* PC は少し横長に調整 */
+    min-height: unset;     /* 不要なら高さの固定値は外す */
+    padding: 0 var(--haru-gap) var(--haru-gap);
+  }
+  .haru-card__front {
+    display: grid;
+    /* 左列(画像)をカード幅に応じて可変に — 180px を下限に 35% まで伸張 */
+    grid-template-columns: clamp(180px, 36%, 380px) 1fr;
+    grid-template-rows: auto 1.5px 1fr auto;
+    padding: 0 var(--haru-gap) var(--haru-gap);
+  }
+  .haru-card__header {
+    grid-column: 1 / 3; /* ヘッダーは全幅 */
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-start; /* 左寄せ */
+    align-items: center;
+    padding-bottom: 0; /* 余白を削除 */
+    padding: 0;
+    margin-inline: calc(-1 * var(--haru-gap));
+    width: calc(100% + var(--haru-gap) * 2);
+    position: relative; /* グリッド位置のまま微調整 */
+    top: -1.5px;          /* 上へ食い込ませる */
+  }
+  .haru-card__divider {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    margin-left: calc(-1 * var(--haru-gap));
+    margin-right: calc(-1 * var(--haru-gap));
+  }
+
+  /* 画像は左列、正方形 */
+  .haru-card__image {
+    grid-column: 1;
+    grid-row: 3;
+    aspect-ratio: 1 / 1; /* 正方形 */
+  }
+
+  /* PC では元画像を完全表示（cropping しない）*/
+  .haru-card__image img {
+    object-fit: contain;
+    object-position: top center; /* 上揃えで余白を下側に寄せる */
+  }
+
+  /* JPテキスト列 */
+  .haru-card__body {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 0; /* 列gapで余白管理 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0; /* PC でも下限解除 */
+  }
+
+  /* ENテキスト+矢印（フッター）を4行目全幅に配置 */
+  .haru-card__footer {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0; /* 行gapとカードpaddingで余白管理 */
+  }
+
+  /* PC だけロゴ列をフル幅に */
+  .haru-card__logo{
+    display:block;
+    width:100%;
+  }
+
+  /* プロフィールカード表面：PC だけ本文フォントを +1px */
+  .haru-card__text--jp p {
+    font-size: 15px; /* 14px → 15px */
+  }
+  .haru-card__text--en p {
+    font-size: 14px; /* 13px → 14px */
+  }
+}
+
+/* ===========================================================
+   プロフィールカード裏面のスタイル
+=========================================================== */
+.haru-card__back {
+  transform: rotateY(180deg); 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--haru-gap);
+}
+
+/* SNS ブロックはカード下部に留まるように自動で押し下げる → ハッシュタグとペアで下げる */
+.haru-card__back-hashtags {
+  margin-top: auto; /* 残余スペースを吸収し、下端へ寄せる */
+}
+
+/* ハッシュタグとSNSの間隔は通常 gap で管理（約12〜20px） */
+.haru-card__back-text p { font-size: 14px; line-height: 1.7; margin: 0 0 1em; }
+.haru-card__back-text p:last-child { margin-bottom: 0; }
+.haru-card__back-separator { height: 0.5px; background: #000; }
+.haru-card__back-tools p, .haru-card__back-hashtags p { font-size: 14px; line-height: 1.6; margin: 0 0 1em; }
+.haru-card__back-tools p:last-child, .haru-card__back-hashtags p:last-child { margin-bottom: 0; }
+.haru-card__back-tools strong { font-weight: 700; }
+.haru-card__back-sns {
+  display: grid;                       /* 見出し +（アイコン | 矢印）の2行構成 */
+  gap: var(--haru-gap);
+  grid-template-columns: 1fr auto;    /* 左:可変  右:最小幅(矢印) */
+  grid-template-areas:
+    "heading heading"
+    "icons   arrow";
+}
+.haru-card__back-sns p {               /* 見出しテキスト */
+  grid-area: heading;
+}
+.haru-card__back-sns .sns-icons {      /* アイコン行 */
+  grid-area: icons;
+  display: flex;
+  gap: var(--haru-gap);
+}
+.haru-card__back-sns .haru-card__arrow {
+  grid-area: arrow;
+  justify-self: end;                  /* 右端に寄せる */
+  align-self: end;                    /* フッターと高さを合わせて下寄せ */
+}
+
+@media (min-width: 768px) {
+  /* プロフィールカード裏面：PC だけフォントを +1px */
+  .haru-card__back-text p,
+  .haru-card__back-tools p,
+  .haru-card__back-hashtags p {
+    font-size: 15px; /* 14px → 15px */
+  }
+}
