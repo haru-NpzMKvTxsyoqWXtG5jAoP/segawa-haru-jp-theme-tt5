@@ -11,26 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // オプション
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
         columnWidth: '.haru-grid-sizer',
-        gutter: (function() {
-          // レスポンシブ対応：現在の画面幅に応じて適切なgutter値を取得
-          const screenWidth = window.innerWidth;
-          let gutterVar;
-          
-          if (screenWidth >= 1131) {
-            gutterVar = '--gallery-gutter'; // 12px
-          } else if (screenWidth >= 718) {
-            gutterVar = '--gallery-gutter-tablet'; // 10px
-          } else {
-            gutterVar = '--gallery-gutter-mobile'; // 8px
-          }
-          
-          const gutterValue = getComputedStyle(document.documentElement)
-            .getPropertyValue(gutterVar).trim();
-          
-          const finalGutter = parseInt(gutterValue) || 12;
-          console.log('Masonry init - Screen width:', screenWidth, 'Using gutter var:', gutterVar, 'Final gutter:', finalGutter);
-          return finalGutter;
-        })(),
+        gutter: parseInt(getComputedStyle(document.documentElement)
+          .getPropertyValue('--gallery-gutter').trim()) || 12,
         percentPosition: true,
         transitionDuration: 0
       });
