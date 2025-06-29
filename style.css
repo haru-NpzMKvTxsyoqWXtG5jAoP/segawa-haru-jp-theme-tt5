@@ -338,6 +338,12 @@ html::after {
   cursor: pointer;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  outline: none;                                      /* クリック時の黒枠線を削除 */
+}
+
+.haru-profile-card:focus {
+  outline: 2px solid var(--wp--preset--color--haru-green); /* フォーカス時は緑枠 */
+  outline-offset: 4px;                                /* 少し離れた位置に表示 */
 }
 
 .haru-profile-card.is-flipped {

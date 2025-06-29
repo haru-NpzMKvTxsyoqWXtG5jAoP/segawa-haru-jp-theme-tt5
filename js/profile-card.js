@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('Profile card script loaded');
+  
   // プロフィールカード対応（haru-プレフィックス対応）
   const profileCardContainers = document.querySelectorAll('.haru-profile-card-container');
+  console.log('Found containers:', profileCardContainers.length);
   
   profileCardContainers.forEach(container => {
-    container.addEventListener('click', () => {
+    container.addEventListener('click', (e) => {
+      console.log('Container clicked');
       const card = container.querySelector('.haru-profile-card');
       if (card) {
+        console.log('Toggling flip on card');
         card.classList.toggle('is-flipped');
       }
     });
@@ -13,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 直接プロフィールカードをクリック対応
   const profileCards = document.querySelectorAll('.haru-profile-card');
+  console.log('Found cards:', profileCards.length);
   
   profileCards.forEach(card => {
     // クリックイベント
