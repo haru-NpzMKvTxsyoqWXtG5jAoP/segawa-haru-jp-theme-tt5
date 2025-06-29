@@ -146,13 +146,14 @@ html::after {
 .wp-block-navigation.haru-vertical-header .wp-block-navigation__container {
   display: flex;                                      /* フレックスレイアウト */
   flex-direction: column;                             /* 縦方向配置 */
-  justify-content: flex-start;                        /* 上寄せ */
+  justify-content: center;                            /* 中央配置 */
   align-items: center;                                /* 中央揃え */
   gap: 80px;                                          /* メニュー項目間の間隔 */
   height: 100%;                                       /* 親要素全体の高さ */
   list-style: none;                                   /* リストマーカー削除 */
-  padding: 0;                                         /* デフォルトpadding削除 */
+  padding: 20px 0;                                    /* 上下に20pxの余白を追加 */
   margin: 0;                                          /* デフォルトmargin削除 */
+  box-sizing: border-box;                             /* padding含めたサイズ計算 */
 }
 
 /* 個別メニュー項目（li要素）*/
