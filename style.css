@@ -244,7 +244,7 @@ html::after {
   display: grid;                                      /* CSS Grid使用 */
   gap: var(--card-grid-gap);                          /* カード間の隙間（1px）*/
   padding: 0 var(--haru-padding-visual);              /* 左右にビジュアル幅の余白 */
-  grid-template-columns: repeat(3, minmax(200px, 400px)); /* 3列、カードサイズ制限 */
+  grid-template-columns: repeat(3, 1fr);              /* デフォルト：3列均等配置 */
 }
 
 /* メディアクエリでレスポンシブ対応 */
@@ -265,7 +265,7 @@ html::after {
 /* 超大画面：4列に変更 */
 @media (min-width: 1800px) {
   .haru-service-cards-container {
-    grid-template-columns: repeat(4, minmax(200px, 400px)); /* 4列、カードサイズ制限 */
+    grid-template-columns: repeat(4, 1fr);            /* 4列均等配置 */
   }
 }
 
