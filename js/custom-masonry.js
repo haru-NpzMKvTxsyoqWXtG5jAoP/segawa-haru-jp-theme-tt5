@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('Masonry script loaded');
   // メイソンリーレイアウトを適用するコンテナ要素を取得
   var elem = document.querySelector('.haru-masonry-gallery');
+  console.log('Found masonry container:', elem);
   if (elem) {
     // まず、elem（.haru-masonry-gallery）の中の画像が全部読み込まれるのを待つ
     imagesLoaded( elem, function() {

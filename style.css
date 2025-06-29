@@ -654,6 +654,16 @@ html::after {
 .haru-gallery-container {
   padding: 0 var(--haru-padding-visual);
   margin-bottom: clamp(2rem, 5vw, 4rem);
+  max-width: none;                                    /* WordPressのmax-width制限を解除 */
+}
+
+/* WordPressのコンテンツ幅制限を解除 */
+.haru-gallery-container .is-layout-constrained {
+  max-width: none !important;
+}
+
+.haru-gallery-container .wp-block-group {
+  max-width: none !important;
 }
 
 .haru-masonry-gallery {
