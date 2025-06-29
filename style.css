@@ -118,8 +118,8 @@ html::after {
   display: none;                                       /* デフォルトヘッダーを隠す */
 }
 
-/* haru-vertical-header パターンのメインコンテナ */
-.wp-block-group.haru-vertical-header {
+/* haru-vertical-header ナビゲーションのメインコンテナ */
+.wp-block-navigation.haru-vertical-header {
   position: fixed;                                     /* 画面固定（スクロールしても動かない）*/
   top: 0;                                             /* 画面上端から */
   right: 0;                                           /* 画面右端から */
@@ -128,30 +128,22 @@ html::after {
   background: transparent;                             /* 背景透明（グラデーションは疑似要素）*/
   z-index: 1000;                                      /* 最前面に表示 */
   box-sizing: border-box;                             /* padding含めたサイズ計算 */
-  pointer-events: none;                               /* 基本はクリック無効 */
+  pointer-events: auto;                               /* ナビゲーションのクリック有効 */
   display: flex;                                      /* フレックスレイアウト */
   flex-direction: column;                             /* 縦方向配置 */
   justify-content: center;                            /* 中央配置 */
   align-items: center;                                /* 中央揃え */
 }
 
-/* グローバルメニューのメインコンテナ */
-.haru-vertical-header .wp-block-navigation {
-  pointer-events: auto;                               /* ナビゲーションのみクリック有効 */
-  height: 100%;                                       /* 親要素全体の高さ */
-  display: flex;                                      /* フレックスレイアウト */
-  flex-direction: column;                             /* 縦方向配置 */
-}
-
 /* レスポンシブナビゲーションのコンテナ */
-.haru-vertical-header .wp-block-navigation__responsive-container {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation__responsive-container {
   height: 100%;                                       /* 親要素全体の高さ */
   display: flex;                                      /* フレックスレイアウト */
   flex-direction: column;                             /* 縦方向配置 */
 }
 
 /* ナビゲーションメニューのリストコンテナ */
-.haru-vertical-header .wp-block-navigation .wp-block-navigation__container {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation__container {
   display: flex;                                      /* フレックスレイアウト */
   flex-direction: column;                             /* 縦方向配置 */
   justify-content: flex-start;                        /* 上寄せ */
@@ -164,12 +156,12 @@ html::after {
 }
 
 /* 個別メニュー項目（li要素）*/
-.haru-vertical-header .wp-block-navigation-item {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation-item {
   margin: 0;                                          /* デフォルトmargin削除 */
 }
 
 /* メニューリンクのスタイリング */
-.haru-vertical-header .wp-block-navigation-item__content {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation-item__content {
   display: inline-block;                              /* インラインブロック要素として表示 */
   color: var(--wp--preset--color--black);                          /* 文字色：黒 */
   text-decoration: none;                              /* 下線削除 */
@@ -183,20 +175,20 @@ html::after {
 }
 
 /* メニューリンクのホバー状態 */
-.haru-vertical-header .wp-block-navigation-item__content:hover {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation-item__content:hover {
   color: var(--wp--preset--color--white);                          /* ホバー時は白文字 */
 }
 
 /* Twenty Twenty-Five のデフォルトナビゲーションスタイルをリセット */
 /* WordPressデフォルトのリンクスタイルを無効化 */
-.haru-vertical-header .wp-block-navigation .wp-block-navigation-item a {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation-item a {
   padding: 0;                                         /* デフォルトpadding削除 */
   border-radius: 0;                                   /* デフォルト角丸削除 */
   background: transparent;                            /* デフォルト背景削除 */
 }
 
 /* ホバー時のデフォルトスタイルも無効化 */
-.haru-vertical-header .wp-block-navigation .wp-block-navigation-item a:hover {
+.wp-block-navigation.haru-vertical-header .wp-block-navigation-item a:hover {
   background: transparent;                            /* ホバー時も背景なし */
 }
 
