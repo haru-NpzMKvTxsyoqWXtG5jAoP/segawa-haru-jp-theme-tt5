@@ -66,9 +66,6 @@ body {
 
 html {
   position: relative;                                  /* 疑似要素の基準点として設定 */
-  /* bodyと同じく右側余白を確保（二重設定でより確実に）*/
-  padding-inline-end: var(--vertical-header-width);
-  box-sizing: border-box;
 }
 
 /* 右側の縦型ヘッダー背景をページ全体に疑似要素で生成 */
