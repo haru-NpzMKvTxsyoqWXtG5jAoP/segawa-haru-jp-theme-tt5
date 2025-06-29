@@ -131,9 +131,8 @@ html::after {
   pointer-events: none;                               /* 基本はクリック無効 */
   display: flex;                                      /* フレックスレイアウト */
   flex-direction: column;                             /* 縦方向配置 */
-  justify-content: flex-start;                        /* 上寄せ */
+  justify-content: center;                            /* 中央配置 */
   align-items: center;                                /* 中央揃え */
-  padding-top: 77px;                                  /* 上部に余白（ロゴ分など）*/
 }
 
 /* グローバルメニューのメインコンテナ */
@@ -179,9 +178,8 @@ html::after {
   font-weight: 400;                                   /* 通常の太さ */
   white-space: nowrap;                                /* 改行禁止 */
   transition: color 0.3s ease;                       /* ホバー時の色変化アニメーション */
-  writing-mode: vertical-rl;                          /* 縦書きモード */
-  text-orientation: upright;                          /* 文字を正立させる */
-  padding: 8px 4px;                                   /* 適切な余白を追加 */
+  transform: rotate(90deg);                           /* 90度回転（横書きテキストを縦配置）*/
+  transform-origin: center center;                    /* 回転の中心点 */
 }
 
 /* メニューリンクのホバー状態 */
