@@ -669,8 +669,16 @@ html::after {
 .haru-masonry-gallery {
   display: block !important;
   width: 100%;
-  --gallery-columns: 1;                                /* モバイル：1列（デフォルト）*/
-  --gallery-gutter: 8px;                              /* モバイル：小さめのガター */
+  --gallery-columns: 3;                                /* デスクトップ：3列（デフォルト）*/
+  --gallery-gutter: 12px;                             /* デスクトップ：適度なガター */
+}
+
+/* WordPressのデフォルトレイアウトクラスを強制オーバーライド */
+.haru-masonry-gallery.is-layout-constrained,
+.haru-masonry-gallery .haru-masonry-gallery-item.is-layout-constrained,
+.haru-masonry-gallery .haru-masonry-gallery-item--wide.is-layout-constrained {
+  display: block !important;
+  flex-direction: row !important;
 }
 
 .haru-masonry-gallery .haru-grid-sizer,
@@ -686,6 +694,9 @@ html::after {
   /* 例：3列の場合 = (100% - 2px) ÷ 3 ≈ 33.33% */
   /* !importantでMasonry.jsの動的スタイルを上書き */
   width: calc((100% - (var(--gallery-gutter) * (var(--gallery-columns) - 1))) / var(--gallery-columns)) !important;
+  /* WordPressのデフォルトクラスを上書き */
+  max-width: none !important;
+  flex-basis: auto !important;
 }
 
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
@@ -693,6 +704,9 @@ html::after {
   /* 通常アイテム2個分 + ガター1px = 約66.66% + 1px */
   /* !importantでMasonry.jsの動的スタイルを上書き */
   width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-columns) - 1))) / var(--gallery-columns)) * 2 + var(--gallery-gutter)) !important;
+  /* WordPressのデフォルトクラスを上書き */
+  max-width: none !important;
+  flex-basis: auto !important;
 }
 
 .haru-masonry-gallery .haru-masonry-gallery-item img,
@@ -723,17 +737,17 @@ html::after {
 }
 
 /* モバイルファーストによるレスポンシブ対応 */
-@media (min-width: 718px) {
+@media (max-width: 717px) {
   .haru-masonry-gallery {
-    --gallery-columns: 2;                              /* タブレット：2列 */
-    --gallery-gutter: 10px;                            /* タブレット：中サイズガター */
+    --gallery-columns: 1;                              /* モバイル：1列 */
+    --gallery-gutter: 8px;                             /* モバイル：小さめガター */
   }
 }
 
-@media (min-width: 1131px) {
+@media (min-width: 718px) and (max-width: 1130px) {
   .haru-masonry-gallery {
-    --gallery-columns: 3;                              /* デスクトップ：3列 */
-    --gallery-gutter: 12px;                            /* デスクトップ：大きめガター */
+    --gallery-columns: 2;                              /* タブレット：2列 */
+    --gallery-gutter: 10px;                            /* タブレット：中サイズガター */
   }
 }
 
