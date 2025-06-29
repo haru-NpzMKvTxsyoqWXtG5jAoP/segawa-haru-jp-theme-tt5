@@ -171,7 +171,7 @@ html::after {
 
 /* メニューリンクのスタイリング */
 .haru-vertical-header .wp-block-navigation-item__content {
-  display: block;                                     /* ブロック要素として表示 */
+  display: inline-block;                              /* インラインブロック要素として表示 */
   color: var(--wp--preset--color--black);                          /* 文字色：黒 */
   text-decoration: none;                              /* 下線削除 */
   /* フォントサイズ：13px（モバイル）〜 15px（PC）で可変 */
@@ -179,8 +179,9 @@ html::after {
   font-weight: 400;                                   /* 通常の太さ */
   white-space: nowrap;                                /* 改行禁止 */
   transition: color 0.3s ease;                       /* ホバー時の色変化アニメーション */
-  transform: rotate(90deg);                           /* 90度回転（縦書き風）*/
-  transform-origin: center;                           /* 回転の中心点 */
+  writing-mode: vertical-rl;                          /* 縦書きモード */
+  text-orientation: upright;                          /* 文字を正立させる */
+  padding: 8px 4px;                                   /* 適切な余白を追加 */
 }
 
 /* メニューリンクのホバー状態 */
