@@ -775,16 +775,18 @@ html::after {
   padding: 0 clamp(6px, 1vw, 12px); /* テキスト要素に適切な左右余白 */
 }
 
-/* 画像スタイル：SWELL方式（自然な美しさを重視・サイズ制限なし）*/
+/* 画像スタイル：細長く引き伸ばされる問題を解決（適切なサイズ制限）*/
 .haru-masonry-gallery .haru-masonry-gallery-item img,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
   width: 100%;
   height: auto; /* 縦横比を保持 */
   max-width: 100%; /* コンテナからはみ出し防止 */
+  max-height: 350px; /* 細長く引き伸ばされる問題を解決 */
   display: block; /* インラインのgapを除去 */
   border-radius: var(--card-border-radius);
   transition: transform var(--transition-fast);
-  /* 理想のイメージのような自然な美しさを実現するため、max-height制限を削除 */
+  object-fit: cover; /* 画像の美しい表示・アスペクト比保持 */
+  object-position: center; /* 中央配置でクロップ */
 }
 
 /* figureタグがある場合の調整 */
@@ -861,6 +863,12 @@ html::after {
     --gallery-cols: 2;
     --gallery-gap: 10px;
   }
+  
+  /* タブレット：画像サイズ調整 */
+  .haru-masonry-gallery .haru-masonry-gallery-item img,
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
+    max-height: 280px; /* タブレットで少し小さく */
+  }
 }
 
 @media (min-width: 1131px) {
@@ -868,12 +876,24 @@ html::after {
     --gallery-cols: 3;
     --gallery-gap: 12px;
   }
+  
+  /* デスクトップ：画像サイズ調整 */
+  .haru-masonry-gallery .haru-masonry-gallery-item img,
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
+    max-height: 240px; /* デスクトップでさらに小さく */
+  }
 }
 
 @media (min-width: 1850px) {
   .haru-masonry-gallery {
     --gallery-cols: 4;
     --gallery-gap: 12px;
+  }
+  
+  /* 大画面：画像サイズ調整 */
+  .haru-masonry-gallery .haru-masonry-gallery-item img,
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
+    max-height: 220px; /* 大画面で美しいプロポーション */
   }
 }
 
