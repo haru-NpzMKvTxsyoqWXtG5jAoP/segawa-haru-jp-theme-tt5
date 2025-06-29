@@ -663,13 +663,13 @@ html::after {
   --gallery-gap: 8px;                                  /* モバイル：小さめのガップ */
 }
 
-.haru-masonry-gallery .grid-sizer,
+.haru-masonry-gallery .haru-grid-sizer,
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
   margin-bottom: var(--gallery-gap);
 }
 
-.haru-masonry-gallery .grid-sizer,
+.haru-masonry-gallery .haru-grid-sizer,
 .haru-masonry-gallery .haru-masonry-gallery-item {
   /* 複雑な幅計算：(全体幅 - ガター合計) ÷ 列数 */
   /* ガター合計 = 1px × (列数-1) */
