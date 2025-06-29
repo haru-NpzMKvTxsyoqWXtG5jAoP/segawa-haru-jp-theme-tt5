@@ -660,13 +660,13 @@ html::after {
   display: block !important;
   width: 100%;
   --gallery-columns: 1;                                /* モバイル：1列（デフォルト）*/
-  --gallery-gap: 8px;                                  /* モバイル：小さめのガップ */
+  --gallery-gutter: 8px;                              /* モバイル：小さめのガター */
 }
 
 .haru-masonry-gallery .haru-grid-sizer,
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  margin-bottom: var(--gallery-gap);
+  margin-bottom: var(--gallery-gutter);
 }
 
 .haru-masonry-gallery .haru-grid-sizer,
@@ -716,14 +716,14 @@ html::after {
 @media (min-width: 718px) {
   .haru-masonry-gallery {
     --gallery-columns: 2;                              /* タブレット：2列 */
-    --gallery-gap: 10px;                               /* タブレット：中サイズガップ */
+    --gallery-gutter: 10px;                            /* タブレット：中サイズガター */
   }
 }
 
 @media (min-width: 1131px) {
   .haru-masonry-gallery {
     --gallery-columns: 3;                              /* デスクトップ：3列 */
-    --gallery-gap: 12px;                               /* デスクトップ：大きめガップ */
+    --gallery-gutter: 12px;                            /* デスクトップ：大きめガター */
   }
 }
 
