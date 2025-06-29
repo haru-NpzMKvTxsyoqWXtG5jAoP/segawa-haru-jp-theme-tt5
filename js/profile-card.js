@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // 既存のハルカード (haru-card) 対応
-  const haruCardContainers = document.querySelectorAll('.haru-card-container');
+  // プロフィールカード対応（haru-プレフィックス対応）
+  const profileCardContainers = document.querySelectorAll('.haru-profile-card-container');
   
-  haruCardContainers.forEach(container => {
+  profileCardContainers.forEach(container => {
     container.addEventListener('click', () => {
-      const card = container.querySelector('.haru-card');
+      const card = container.querySelector('.haru-profile-card');
       if (card) {
         card.classList.toggle('is-flipped');
       }
     });
   });
 
-  // 新しいプロフィールカード (profile-card) 対応
-  const profileCards = document.querySelectorAll('.profile-card');
+  // 直接プロフィールカードをクリック対応
+  const profileCards = document.querySelectorAll('.haru-profile-card');
   
   profileCards.forEach(card => {
     // クリックイベント
