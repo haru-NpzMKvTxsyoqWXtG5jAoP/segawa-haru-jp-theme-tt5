@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // オプション
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
         columnWidth: '.haru-grid-sizer',
-        gutter: parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gallery-gutter').trim()) || 15,
+        gutter: parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gallery-gutter').trim()) || 12,
         percentPosition: true,
         transitionDuration: 0
       });

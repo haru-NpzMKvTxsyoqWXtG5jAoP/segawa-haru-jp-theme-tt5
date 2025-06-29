@@ -651,10 +651,11 @@ html::after {
    ※ 全クラス名にharu-プレフィックス付与（名前空間保護）
    　 WordPress/プラグインとの競合を防ぐためのカスタムクラス識別
 =========================================================== */
+/* ギャラリーコンテナ：パディングなし（Masonryギャラリー側で制御） */
 .haru-gallery-container {
-  padding: 0 var(--haru-padding-visual);
+  padding: 0;
   margin-bottom: clamp(2rem, 5vw, 4rem);
-  max-width: none;                                    /* WordPressのmax-width制限を解除 */
+  max-width: none;
 }
 
 /* WordPressのコンテンツ幅制限を解除 */
@@ -666,68 +667,31 @@ html::after {
   max-width: none !important;
 }
 
+/* Masonryギャラリー：美しく保守性の高いアーキテクチャ（モバイルファースト） */
 .haru-masonry-gallery {
-  display: block !important;
-  width: 100%;
-  --gallery-columns: 3;                                /* デスクトップ：3列（デフォルト）*/
-  --gallery-gutter: 12px;                             /* デスクトップ：適度なガター */
+  /* 統一されたパディングシステムを使用 */
+  padding: 0 var(--haru-padding-visual);
+  
+  /* モバイルファースト：デフォルトは1列 */
+  --gallery-cols: 1;
+  --gallery-gutter: 8px;
 }
 
-/* WordPressのデフォルトレイアウトクラスを強制オーバーライド */
-.haru-masonry-gallery.is-layout-constrained,
-.haru-masonry-gallery .haru-masonry-gallery-item.is-layout-constrained,
-.haru-masonry-gallery .haru-masonry-gallery-item--wide.is-layout-constrained {
-  display: block !important;
-  flex-direction: row !important;
-}
-
-/* Twenty Twenty-FiveのGlobal Paddingを無効化 */
-.haru-masonry-gallery .wp-block-group.has-global-padding.haru-masonry-gallery-item,
-.haru-masonry-gallery .wp-block-group.has-global-padding.haru-masonry-gallery-item--wide {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box !important;
-}
-
+/* Masonry用グリッドサイザーとアイテムの基本設定 */
 .haru-masonry-gallery .haru-grid-sizer,
-.haru-masonry-gallery .haru-masonry-gallery-item,
-.haru-masonry-gallery .haru-masonry-gallery-item--wide {
+.haru-masonry-gallery .haru-masonry-gallery-item {
+  /* シンプルで美しい幅計算 */
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
   margin-bottom: var(--gallery-gutter);
 }
 
-.haru-masonry-gallery .haru-grid-sizer,
-.haru-masonry-gallery .haru-masonry-gallery-item {
-  /* 複雑な幅計算：(全体幅 - ガター合計) ÷ 列数 */
-  /* ガター合計 = 1px × (列数-1) */
-  /* 例：3列の場合 = (100% - 2px) ÷ 3 ≈ 33.33% */
-  /* !importantでMasonry.jsの動的スタイルを上書き */
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-columns) - 1))) / var(--gallery-columns)) !important;
-  /* WordPressのデフォルトクラスを上書き */
-  max-width: none !important;
-  flex-basis: auto !important;
-  float: left !important;
-  display: block !important;
-}
-
+/* ワイドアイテム：2列分の幅 */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  /* ワイドアイテムは2列分の幅＋間のガター1つ分 */
-  /* 通常アイテム2個分 + ガター1px = 約66.66% + 1px */
-  /* !importantでMasonry.jsの動的スタイルを上書き */
-  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-columns) - 1))) / var(--gallery-columns)) * 2 + var(--gallery-gutter)) !important;
-  /* WordPressのデフォルトクラスを上書き */
-  max-width: none !important;
-  flex-basis: auto !important;
-  float: left !important;
-  display: block !important;
+  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
+  margin-bottom: var(--gallery-gutter);
 }
 
-.haru-masonry-gallery .haru-masonry-gallery-item img,
-.haru-masonry-gallery .haru-masonry-gallery-item--wide img {
-  width: 100%;
-  border-radius: var(--card-border-radius);
-  transition: transform var(--transition-fast);
-}
-
+/* アイテムの基本スタイル */
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
   padding: 0;
@@ -735,12 +699,21 @@ html::after {
   cursor: pointer;
 }
 
+/* 画像スタイル */
+.haru-masonry-gallery .haru-masonry-gallery-item img,
+.haru-masonry-gallery .haru-masonry-gallery-item--wide img {
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  transition: transform var(--transition-fast);
+}
+
+/* ホバーエフェクト */
 .haru-masonry-gallery .haru-masonry-gallery-item:hover,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide:hover {
   transform: scale(0.95);
 }
 
-/* ギャラリーカテゴリ見出し */
+/* カテゴリ見出し */
 .haru-masonry-gallery-item .haru-gallery-category-name {
   font-size: 13px;
   margin-bottom: 0;
@@ -748,18 +721,24 @@ html::after {
   font-weight: 500;
 }
 
-/* モバイルファーストによるレスポンシブ対応 */
-@media (max-width: 717px) {
+/* ===========================================================
+   モバイルファーストによるレスポンシブ制御
+   サービスカードと同じブレイクポイントを使用
+=========================================================== */
+
+/* タブレット：2列 */
+@media (min-width: 718px) {
   .haru-masonry-gallery {
-    --gallery-columns: 1;                              /* モバイル：1列 */
-    --gallery-gutter: 8px;                             /* モバイル：小さめガター */
+    --gallery-cols: 2;
+    --gallery-gutter: 10px;
   }
 }
 
-@media (min-width: 718px) and (max-width: 1130px) {
+/* デスクトップ：3列 */
+@media (min-width: 1131px) {
   .haru-masonry-gallery {
-    --gallery-columns: 2;                              /* タブレット：2列 */
-    --gallery-gutter: 10px;                            /* タブレット：中サイズガター */
+    --gallery-cols: 3;
+    --gallery-gutter: 12px;
   }
 }
 
