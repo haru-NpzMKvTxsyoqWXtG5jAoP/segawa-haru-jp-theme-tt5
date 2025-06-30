@@ -43,12 +43,12 @@ Template: twentytwentyfive
   --card-border-radius: 20px;                      /* カードの角丸サイズ */
   --card-aspect-ratio: 1 / 1.05;                   /* カードの縦横比（やや縦長）*/
   
-  /* ギャラリー関連：Masonryレイアウト用（SWELL精密計算式採用）*/
+  /* ギャラリー関連：Masonryレイアウト用（理想のイメージに合わせた最小隙間）*/
   /* JavaScript側と統一した値を使用 */
-  --gallery-gutter: 12px;                         /* ギャラリーアイテム間の隙間（デスクトップ基準）*/
-  --gallery-gutter-tablet: 10px;                  /* タブレット用ギャラリー間隔 */
-  --gallery-gutter-mobile: 8px;                   /* モバイル用ギャラリー間隔 */
-  --gallery-gap: 12px;                            /* アイテム下余白（独立制御）*/
+  --gallery-gutter: 4px;                          /* ギャラリーアイテム間の隙間（最小限）*/
+  --gallery-gutter-tablet: 3px;                   /* タブレット用ギャラリー間隔 */
+  --gallery-gutter-mobile: 2px;                   /* モバイル用ギャラリー間隔 */
+  --gallery-gap: 4px;                             /* アイテム下余白（最小限）*/
   --gallery-columns-pc: 3;                        /* PC列数 */
   --gallery-columns-tablet: 2;                    /* タブレット列数 */
   --gallery-columns-mobile: 1;                    /* モバイル列数 */
@@ -726,7 +726,7 @@ html::after {
   
   /* PC基準値（SWELL方式）*/
   --gallery-cols: var(--gallery-columns-pc);
-  --gallery-gap: 12px;
+  --gallery-gap: 4px;
   
   /* Masonryレイアウトを確実に動作させる基本設定 */
   position: relative;
@@ -775,18 +775,15 @@ html::after {
   padding: 0 clamp(6px, 1vw, 12px); /* テキスト要素に適切な左右余白 */
 }
 
-/* 画像スタイル：細長く引き伸ばされる問題を解決（適切なサイズ制限）*/
+/* 画像スタイル：SWELL方式（自然なアスペクト比で本来のMasonryの美しさを実現）*/
 .haru-masonry-gallery .haru-masonry-gallery-item img,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
   width: 100%;
   height: auto; /* 縦横比を保持 */
-  max-width: 100%; /* コンテナからはみ出し防止 */
-  max-height: 350px; /* 細長く引き伸ばされる問題を解決 */
   display: block; /* インラインのgapを除去 */
   border-radius: var(--card-border-radius);
   transition: transform var(--transition-fast);
-  object-fit: cover; /* 画像の美しい表示・アスペクト比保持 */
-  object-position: center; /* 中央配置でクロップ */
+  /* SWELL方式：画像サイズ制限なし、自然な美しさを最優先 */
 }
 
 /* figureタグがある場合の調整 */
@@ -841,7 +838,7 @@ html::after {
 @container (max-width: 1130px) {
   .haru-masonry-gallery {
     --gallery-cols: 2;
-    --gallery-gap: 10px;
+    --gallery-gap: 3px;
   }
 }
 
@@ -849,7 +846,7 @@ html::after {
 @container (max-width: 717px) {
   .haru-masonry-gallery {
     --gallery-cols: 1;
-    --gallery-gap: 8px;
+    --gallery-gap: 2px;
   }
   /* スマホではワイドカードも 1 列表示に合わせて100%幅に */
   .haru-masonry-gallery .haru-masonry-gallery-item--wide {
@@ -861,39 +858,21 @@ html::after {
 @media (min-width: 718px) {
   .haru-masonry-gallery {
     --gallery-cols: 2;
-    --gallery-gap: 10px;
-  }
-  
-  /* タブレット：画像サイズ調整 */
-  .haru-masonry-gallery .haru-masonry-gallery-item img,
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
-    max-height: 280px; /* タブレットで少し小さく */
+    --gallery-gap: 3px;
   }
 }
 
 @media (min-width: 1131px) {
   .haru-masonry-gallery {
     --gallery-cols: 3;
-    --gallery-gap: 12px;
-  }
-  
-  /* デスクトップ：画像サイズ調整 */
-  .haru-masonry-gallery .haru-masonry-gallery-item img,
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
-    max-height: 240px; /* デスクトップでさらに小さく */
+    --gallery-gap: 4px;
   }
 }
 
 @media (min-width: 1850px) {
   .haru-masonry-gallery {
     --gallery-cols: 4;
-    --gallery-gap: 12px;
-  }
-  
-  /* 大画面：画像サイズ調整 */
-  .haru-masonry-gallery .haru-masonry-gallery-item img,
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
-    max-height: 220px; /* 大画面で美しいプロポーション */
+    --gallery-gap: 4px;
   }
 }
 
