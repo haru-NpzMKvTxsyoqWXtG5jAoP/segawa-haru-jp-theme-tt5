@@ -39,48 +39,38 @@ document.addEventListener('DOMContentLoaded', function () {
         
         console.log('Masonry initialized:', msnry);
         
-        // WordPress環境でのCSS干渉を強制的に解除
-        function forceResetStyles() {
+        // WordPress環境での最小限のCSS干渉解除（Masonryの邪魔はしない）
+        function resetOnlyWordPressInterference() {
           var items = elem.querySelectorAll('.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide');
           items.forEach(function(item) {
-            // position制約を完全除去
-            item.style.position = '';
-            item.style.transform = '';
-            item.style.top = '';
-            item.style.left = '';
-            // WordPress独自の制約を除去
+            // WordPress独自の制約のみ除去（Masonryの設定は保持）
             item.style.maxWidth = '';
-            item.style.width = '';
             item.style.flex = 'none';
             item.style.order = '';
-            // 確実にblock要素にする
             item.style.display = 'block';
-            item.style.float = 'left';
+            // Masonryのposition/top/left/transformには触らない！
           });
           
-          // コンテナスタイルも強制設定
+          // コンテナは相対配置のまま
           elem.style.position = 'relative';
-          elem.style.overflow = '';
           
-          console.log('Forced CSS reset completed');
+          console.log('Minimal WordPress interference reset completed');
         }
         
         // 初期リセット実行
-        forceResetStyles();
+        resetOnlyWordPressInterference();
         
         // グローバルに保存してデバッグ用にアクセス可能にする
         window.masonryInstance = msnry;
         
-        // 初期化直後に段階的なレイアウト更新
+        // 初期化直後にレイアウト更新（Masonryの邪魔はしない）
         setTimeout(function() {
-          forceResetStyles(); // スタイル再リセット
           msnry.layout();
           console.log('First layout update completed');
         }, 100);
         
         // さらに確実にするため追加のレイアウト更新
         setTimeout(function() {
-          forceResetStyles(); // 再度スタイルリセット
           msnry.layout();
           console.log('Second layout update completed');
           
@@ -132,8 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
               
               console.log('ResizeObserver triggered layout - Screen width:', screenWidth);
               
-              // リサイズ時にもスタイルをリセットしてレイアウト更新
-              forceResetStyles();
+              // リサイズ時はレイアウト更新のみ（Masonryの邪魔はしない）
               msnry.layout();
             }, 250); // 250msのデバウンス
           });
@@ -144,8 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('resize', function() {
           clearTimeout(window.masonryResizeTimer);
           window.masonryResizeTimer = setTimeout(function() {
-            console.log('Window resize - force layout update with style reset');
-            forceResetStyles(); // ウィンドウリサイズ時にもスタイルリセット
+            console.log('Window resize - layout update only');
             msnry.layout();
           }, 300);
         });
