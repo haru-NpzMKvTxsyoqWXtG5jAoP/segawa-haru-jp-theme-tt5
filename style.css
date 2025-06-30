@@ -685,12 +685,13 @@ html::after {
   max-width: none !important;
   width: 100% !important;
   margin: 0 !important;
-  padding-left: var(--haru-padding-visual) !important;
-  padding-right: var(--haru-padding-visual) !important;
   box-sizing: border-box !important;
   
   /* Masonryコンテナとして設定 */
   position: relative !important;
+  
+  /* サービスカードと同じパディング方式 */
+  padding-inline: var(--haru-padding-visual) !important;
   
   /* ギャップを一元管理 */
   --gallery-gap: 15px;
@@ -808,9 +809,9 @@ html::after {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   display: block !important;
-  width: auto !important;
   max-width: none !important;
   padding: 0 !important;
+  /* width: auto !important; ← 削除：Masonryの幅計算を妨害していた */
 }
 
 .haru-masonry-gallery .has-global-padding {
