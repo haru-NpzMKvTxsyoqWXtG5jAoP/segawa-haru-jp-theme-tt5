@@ -3,685 +3,213 @@ Theme Name: TT5 Child
 Template: twentytwentyfive
 */
 
-/* ===========================================================
-   CSS変数定義
-   全サイトで使用する基本設定をここで一元管理
-   カラーはtheme.jsonで管理（WordPress標準）
-=========================================================== */
+/* ============================================
+   CSS Variables
+============================================ */
 :root {
-  /* カラーパレット：theme.jsonで定義済み（WordPress標準変数を使用）*/
-  /* --wp--preset--color--haru-green: #00d782  メインカラー */
-  /* --wp--preset--color--black:      #000000  テキスト用 */
-  /* --wp--preset--color--white:      #ffffff  背景用 */
-  /* --wp--preset--color--gray:       #e7e7e7  アクセント用 */
-  
-  /* 縦型ヘッダー関連：右側の固定ヘッダー設定 */
-  /* 28px（モバイル）〜 40px（PC）まで画面幅に応じて可変 */
+  /* Layout */
   --vertical-header-width: clamp(28px, calc(24px + 1.1vw), 40px);
-  /* 理想イメージ通りの4色グラデーション：緑→黄→オレンジ→ピンク */
   --vertical-header-gradient: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
-  
-  /* レスポンシブ幅システム（ビジュアル幅基準）*/
-  /* 基準となるビジュアル幅：15px（モバイル）〜 50px（PC）で可変 */
-  /* 計算式：2.5px（固定値）+ 3.3vw（画面幅の3.3%）*/
   --haru-padding-visual: clamp(15px, calc(2.5px + 3.3vw), 50px);
+  --haru-padding-service: clamp(var(--haru-padding-visual), calc((100vw - 1000px) / 2), 188px);
   
-  /* サービス用の幅：ビジュアル幅より広め */
-  /* 1000px以下：ビジュアル幅と同じ */
-  /* 1000px以上：画面中央から1000pxを引いた残り幅の半分を追加余白として加算 */
-  /* 最大188pxまで（元のSwellコードと同じ見た目を維持）*/
-  --haru-padding-service: clamp(
-      var(--haru-padding-visual),
-      calc((100vw - 1000px) / 2),
-      188px
-  );
+  /* Components */
+  --card-image-padding: clamp(20px, 1.6vw, 50px);
+  --card-grid-gap: 1px;
+  --card-border-radius: 20px;
+  --card-aspect-ratio: 1 / 1.05;
+  --gallery-gap: 15px;
+  --haru-gap: clamp(12px, 2vw, 18px);
   
-  /* サービスカード関連：カード内要素の設定 */
-  --card-image-padding: clamp(20px, 1.6vw, 50px);  /* カード内画像の余白 */
-  --card-grid-gap: 1px;                            /* カード間の隙間（極小） */
-  --card-bg-color: var(--wp--preset--color--white);              /* カード背景色 */
-  --card-border-radius: 20px;                      /* カードの角丸サイズ */
-  --card-aspect-ratio: 1 / 1.05;                   /* カードの縦横比（やや縦長）*/
+  /* Colors */
+  --color-surface: #f8f8f8;
+  --color-border-dark: #121212;
   
-  /* ギャラリー関連：Masonryレイアウト用（理想のイメージに合わせた最小隙間）*/
-  /* JavaScript側と統一した値を使用 */
-  --gallery-gutter: 4px;                          /* ギャラリーアイテム間の隙間（最小限）*/
-  --gallery-gutter-tablet: 3px;                   /* タブレット用ギャラリー間隔 */
-  --gallery-gutter-mobile: 2px;                   /* モバイル用ギャラリー間隔 */
-  --gallery-gap: 4px;                             /* アイテム下余白（最小限）*/
-  --gallery-columns-pc: 3;                        /* PC列数 */
-  --gallery-columns-tablet: 2;                    /* タブレット列数 */
-  --gallery-columns-mobile: 1;                    /* モバイル列数 */
-  
-  /* プロフィールカード：3Dフリップカード用 */
-  --haru-gap: clamp(12px, 2vw, 18px);             /* カード内要素間の余白 */
-  
-  /* 共通カラー（ハードコード値を変数化）*/
-  --color-surface: #f8f8f8;                       /* フォーム背景色 */
-  --color-border-dark: #121212;                   /* 濃い境界線色 */
-  
-  /* 共通トランジション */
-  --transition-fast: 0.15s ease-out;              /* 高速アニメーション */
-  --transition-smooth: var(--transition-smooth);                 /* 滑らかアニメーション */
+  /* Transitions */
+  --transition-fast: 0.15s ease-out;
+  --transition-smooth: 0.3s ease-out;
 }
 
-/* ===========================================================
-   基本設定・レイアウト
-   サイト全体の基本的なスタイリングと縦型ヘッダー用の土台準備
-=========================================================== */
+/* ============================================
+   Base Layout
+============================================ */
 body {
-  /* Twenty Twenty-FiveのテーマJSONで定義された日本語フォント（源ノ角ゴシック）を使用 */
   font-family: var(--wp--preset--font-family--source-han-sans-japanese), sans-serif;
-  font-weight: 400;                                    /* 通常の太さ */
-  /* 右側に縦型ヘッダー分の余白を確保（縦型ヘッダーが内容に被らないように）*/
+  font-weight: 400;
   padding-inline-end: var(--vertical-header-width);
-  box-sizing: border-box;                              /* paddingを含めたサイズ計算 */
-  margin: 0;                                           /* ブラウザデフォルトmarginをリセット */
-}
-
-html {
-  position: relative;                                  /* 疑似要素の基準点として設定 */
-}
-
-/* 右側の縦型ヘッダー背景をページ全体に疑似要素で生成 */
-html::after {
-  content: '';                                         /* 疑似要素を表示するため必須 */
-  position: fixed;                                     /* 画面固定（スクロールしても動かない）*/
-  top: 0;                                             /* 画面上端から */
-  right: 0;                                           /* 画面右端から */
-  width: var(--vertical-header-width);                /* 縦型ヘッダーと同じ幅 */
-  height: 100vh;                                      /* 画面全体の高さ */
-  background: var(--vertical-header-gradient);        /* 4色グラデーション */
-  pointer-events: none;                               /* クリックイベントを通す（重要！）*/
-  z-index: 999;                                       /* ほぼ最前面に表示（ヘッダーは1000）*/
-}
-
-/* ===========================================================
-   幅ごとの共通ユーティリティクラス（padding 系）
-   サイト全体で統一した余白を適用するためのクラス群
-=========================================================== */
-/* Twenty Twenty-Five のデフォルト制約幅ブロックにビジュアル幅を適用 */
-/* WordPressが自動で付与する .is-layout-constrained クラスを上書き */
-.wp-block-post-content .is-layout-constrained {
-  padding-inline: var(--haru-padding-visual);          /* 左右にビジュアル幅の余白 */
-}
-
-/* ビジュアル幅用のユーティリティクラス（Tailwind風）*/
-/* 通常のコンテンツ（見出し、テキストなど）に使用 */
-.u-px-visual {
-  padding-inline: var(--haru-padding-visual);          /* 左右にビジュアル幅の余白 */
-}
-
-/* サービス幅用のユーティリティクラス */
-/* フォームなど、より中央寄せしたいコンテンツに使用 */
-.u-px-service {
-  padding-inline: var(--haru-padding-service);         /* 左右にサービス幅の余白 */
-}
-
-/* ===========================================================
-   カスタム縦型サイドヘッダー (haru-vertical-header パターン)
-   WordPressで作成したharu-vertical-headerパターン用のスタイリング
-   理想イメージの右側縦型ナビゲーションを実現
-=========================================================== */
-
-/* Twenty Twenty-Five のデフォルトヘッダーを完全に非表示 */
-/* テンプレートパーツのヘッダーを削除してカスタムヘッダーのみ表示 */
-.wp-block-template-part[data-wp-block-name="core/template-part"] {
-  display: none;                                       /* デフォルトヘッダーを隠す */
-}
-
-/* haru-vertical-header ナビゲーションのメインコンテナ */
-.wp-block-navigation.haru-vertical-header {
-  position: fixed;                                     /* 画面固定（スクロールしても動かない）*/
-  top: 0;                                             /* 画面上端から */
-  right: 0;                                           /* 画面右端から */
-  width: var(--vertical-header-width);                /* 縦型ヘッダーの幅 */
-  height: 100vh;                                      /* 画面全体の高さ */
-  background: transparent;                             /* 背景透明（グラデーションは疑似要素）*/
-  z-index: 1000;                                      /* 最前面に表示 */
-  box-sizing: border-box;                             /* padding含めたサイズ計算 */
-  pointer-events: auto;                               /* ナビゲーションのクリック有効 */
-  display: flex;                                      /* フレックスレイアウト */
-  flex-direction: column;                             /* 縦方向配置 */
-  justify-content: center;                            /* 中央配置 */
-  align-items: center;                                /* 中央揃え */
-}
-
-/* レスポンシブナビゲーションのコンテナ */
-.wp-block-navigation.haru-vertical-header .wp-block-navigation__responsive-container {
-  height: 100%;                                       /* 親要素全体の高さ */
-  display: flex;                                      /* フレックスレイアウト */
-  flex-direction: column;                             /* 縦方向配置 */
-}
-
-/* ナビゲーションメニューのリストコンテナ */
-.wp-block-navigation.haru-vertical-header .wp-block-navigation__container {
-  display: flex;                                      /* フレックスレイアウト */
-  flex-direction: column;                             /* 縦方向配置 */
-  justify-content: center;                            /* 中央配置 */
-  align-items: center;                                /* 中央揃え */
-  gap: 60px;                                          /* モバイル：メニュー項目間の間隔 */
-  height: 100%;                                       /* 親要素全体の高さ */
-  list-style: none;                                   /* リストマーカー削除 */
-  padding: 15px 0;                                    /* モバイル：上下に15pxの余白 */
-  margin: 0;                                          /* デフォルトmargin削除 */
-  box-sizing: border-box;                             /* padding含めたサイズ計算 */
-}
-
-/* デスクトップでナビゲーション間隔拡大 */
-@media (min-width: 768px) {
-  .wp-block-navigation.haru-vertical-header .wp-block-navigation__container {
-    gap: 80px;                                        /* デスクトップ：間隔拡大 */
-    padding: 20px 0;                                  /* デスクトップ：余白拡大 */
-  }
-}
-
-/* 個別メニュー項目（li要素）*/
-.wp-block-navigation.haru-vertical-header .wp-block-navigation-item {
-  margin: 0;                                          /* デフォルトmargin削除 */
-}
-
-/* メニューリンクのスタイリング */
-.wp-block-navigation.haru-vertical-header .wp-block-navigation-item__content {
-  display: inline-block;                              /* インラインブロック要素として表示 */
-  color: var(--wp--preset--color--black);                          /* 文字色：黒 */
-  text-decoration: none;                              /* 下線削除 */
-  /* フォントサイズ：13px（モバイル）〜 15px（PC）で可変 */
-  font-size: clamp(13px, calc(12px + 0.28vw), 15px);
-  font-weight: 400;                                   /* 通常の太さ */
-  white-space: nowrap;                                /* 改行禁止 */
-  transition: color var(--transition-smooth);                       /* ホバー時の色変化アニメーション */
-  transform: rotate(90deg);                           /* 90度回転（横書きテキストを縦配置）*/
-  transform-origin: center center;                    /* 回転の中心点 */
-}
-
-/* メニューリンクのホバー状態 */
-.wp-block-navigation.haru-vertical-header .wp-block-navigation-item__content:hover {
-  color: var(--wp--preset--color--white);                          /* ホバー時は白文字 */
-}
-
-/* Twenty Twenty-Five のデフォルトナビゲーションスタイルをリセット */
-/* WordPressデフォルトのリンクスタイルを無効化 */
-.wp-block-navigation.haru-vertical-header .wp-block-navigation-item a {
-  padding: 0;                                         /* デフォルトpadding削除 */
-  border-radius: 0;                                   /* デフォルト角丸削除 */
-  background: transparent;                            /* デフォルト背景削除 */
-}
-
-/* ホバー時のデフォルトスタイルも無効化 */
-.wp-block-navigation.haru-vertical-header .wp-block-navigation-item a:hover {
-  background: transparent;                            /* ホバー時も背景なし */
-}
-
-/* ===========================================================
-   レスポンシブ・スペーサー
-   WordPressのスペーサーブロックを画面幅に応じて可変サイズにする
-=========================================================== */
-.wp-block-spacer.haru-spacer-responsive-regular {
-  /* 20px（モバイル）〜 60px（PC）まで可変の高さ */
-  /* 計算式：-1.1px（調整値）+ 5.6vw（画面幅の5.6%）*/
-  /* !importantでWordPressデフォルトの高さ設定を上書き */
-  height: clamp(20px, calc(-1.1px + 5.6vw), 60px) !important;
-}
-
-/* ===========================================================
-   セクション見出しスタイル
-   理想イメージの各セクション用の見出しスタイル
-=========================================================== */
-/* 大見出し：メインタイトル用 */
-.haru-section-heading-large {
-  /* 32px（モバイル）〜 5rem（PC）まで大きく可変 */
-  /* 8vwは画面幅の8%でレスポンシブに対応 */
-  font-size: clamp(32px, 8vw, 5rem);
-  font-weight: 700;                                   /* 太字でインパクト */
-  margin: 0 0 0.5em;                                  /* 下に0.5文字分の余白 */
-  padding: 0 var(--haru-padding-visual);              /* 左右にビジュアル幅の余白 */
-}
-
-/* 中見出し：セクション見出し用 */
-.haru-section-heading-medium {
-  /* 16px（モバイル）〜 22px（PC）まで適度に可変 */
-  /* 計算式：12px（基準値）+ 1vw（画面幅の1%）*/
-  font-size: clamp(16px, calc(12px + 1vw), 22px);
-  font-weight: 600;                                   /* セミボールド */
-  margin: 0 0 1em;                                    /* 下に1文字分の余白 */
-  padding: 0 var(--haru-padding-visual);              /* 左右にビジュアル幅の余白 */
-}
-
-/* ===========================================================
-   サービスカード一覧 (レスポンシブグリッド)
-   理想イメージの白いカードを等間隔で並べるグリッドレイアウト
-   
-   ※ 全クラス名にharu-プレフィックス付与（名前空間保護）
-   　 WordPress/プラグインとの競合を防ぐためのカスタムクラス識別
-=========================================================== */
-.haru-service-cards-container {
-  display: grid;                                      /* CSS Grid使用 */
-  gap: var(--card-grid-gap);                          /* カード間の隙間（1px）*/
-  padding: 0 var(--haru-padding-visual);              /* 左右にビジュアル幅の余白 */
-  grid-template-columns: 1fr;                         /* モバイル：1列（デフォルト）*/
-}
-
-/* モバイルファーストによるレスポンシブ対応 */
-/* タブレット幅：2列に変更 */
-@media (min-width: 718px) {
-  .haru-service-cards-container {
-    grid-template-columns: repeat(2, 1fr);            /* 2列均等配置 */
-  }
-}
-
-/* デスクトップ幅：3列に変更 */
-@media (min-width: 1131px) {
-  .haru-service-cards-container {
-    grid-template-columns: repeat(3, 1fr);            /* 3列均等配置 */
-  }
-}
-
-/* 超大画面：4列に変更 */
-@media (min-width: 1800px) {
-  .haru-service-cards-container {
-    grid-template-columns: repeat(4, 1fr);            /* 4列均等配置 */
-  }
-}
-
-/* ===========================================================
-   サービスカード（個別カード）
-=========================================================== */
-.haru-service-card {
-  aspect-ratio: var(--card-aspect-ratio);
-  overflow: hidden;
-  border-radius: var(--card-border-radius);
-  background-color: var(--card-bg-color);
-  transition: transform var(--transition-fast);
-}
-
-.haru-service-card:hover {
-  transform: scale(0.95);
-}
-
-.haru-service-card .haru-card-image {
-  width: calc(100% - (var(--card-image-padding) * 2));
-  display: block;
-  margin: var(--card-image-padding) auto 0;
-  border-radius: calc(var(--card-border-radius) - 5px);
-  object-fit: cover;
-}
-
-.haru-service-card .haru-card-title {
-  margin: 1.2rem var(--card-image-padding) 1rem;
-  font-size: clamp(17px, 2.2vw, 19px);
-  font-weight: 700;
-  color: var(--wp--preset--color--black);
-}
-
-.haru-service-card .haru-card-description {
-  font-size: 14px;
-  padding-inline: var(--card-image-padding);
-  line-height: 1.6;
-  text-align: justify;
-  color: var(--wp--preset--color--black);
-  margin-bottom: var(--card-image-padding);
-}
-
-/* ===========================================================
-   プロフィールカード (3Dフリップカード)
-   
-   ※ 全クラス名にharu-プレフィックス付与（名前空間保護）
-   　 WordPress/プラグインとの競合を防ぐためのカスタムクラス識別
-=========================================================== */
-.haru-profile-card-container {
-  padding: clamp(2rem, 5vw, 4rem);
-  display: flex;
-  justify-content: center;
-}
-
-.haru-profile-card {
-  width: clamp(320px, 90vw, 420px);
-  aspect-ratio: 3 / 5;
-  position: relative;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  cursor: pointer;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  outline: none;                                      /* クリック時の黒枠線を削除 */
-}
-
-.haru-profile-card:focus {
-  outline: 2px solid var(--wp--preset--color--haru-green); /* フォーカス時は緑枠 */
-  outline-offset: 4px;                                /* 少し離れた位置に表示 */
-}
-
-.haru-profile-card.is-flipped {
-  transform: rotateY(180deg);
-}
-
-/* カード表面・裏面の共通スタイル */
-.haru-profile-card__front,
-.haru-profile-card__back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  background: var(--wp--preset--color--white);
-  border-radius: calc(var(--card-border-radius) - 5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  padding: var(--haru-gap);
-}
-
-/* 表面：初期状態は正面向き */
-.haru-profile-card__front {
-  transform: rotateY(0deg);
-}
-
-/* ===========================================================
-   プロフィールカード表面レイアウト
-=========================================================== */
-.haru-profile-card__front {
-  display: grid;
-  grid-template-columns: 1.5fr 2.2fr;
-  grid-template-rows: auto 1.5px 1fr auto;
-  gap: var(--haru-gap) 15px;
-}
-
-.haru-profile-card__header {
-  grid-row: 1;
-  grid-column: 1;
-  display: flex;
-  line-height: 0;
-  align-items: stretch;
-  margin-bottom: 0;
-}
-
-.haru-profile-card__logo img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.haru-profile-card__image {
-  grid-row: 1;
-  grid-column: 2;
-  align-self: stretch;
-  min-width: 0;
-  max-width: 100%;
-}
-
-.haru-profile-card__image picture,
-.haru-profile-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.haru-profile-card__divider {
-  grid-row: 2;
-  grid-column: 1 / 3;
-  background: var(--color-border-dark);
-}
-
-.haru-profile-card__body {
-  grid-row: 3;
-  grid-column: 1 / 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 var(--haru-gap);
-  min-width: 0;
-}
-
-.haru-profile-card__text--jp p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0 0 1em;
-}
-
-.haru-profile-card__text--jp p:last-child {
-  margin-bottom: 0;
-}
-
-.haru-profile-card__footer {
-  grid-column: 1 / 3;
-  grid-row: 4;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 var(--haru-gap) var(--haru-gap);
-}
-
-.haru-profile-card__text--en p {
-  font-size: 13px;
-  line-height: 1.5;
+  box-sizing: border-box;
   margin: 0;
 }
 
-.haru-profile-card__arrow img {
-  width: 35px;
+html {
+  position: relative;
 }
 
-/* モバイル用スタイル（デフォルト）*/
-.haru-profile-card__front {
-  padding: 0;                                         /* モバイル：パディングなし */
+html::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--vertical-header-width);
+  height: 100vh;
+  background: var(--vertical-header-gradient);
+  pointer-events: none;
+  z-index: 999;
 }
 
-.haru-profile-card__header {
-  position: relative;                                 /* モバイル：相対位置 */
-  top: -5px;                                          /* モバイル：微調整 */
-  margin-inline-start: -2px;                          /* モバイル：左余白調整 */
-}
+/* ============================================
+   Utilities
+============================================ */
+.wp-block-post-content .is-layout-constrained { padding-inline: var(--haru-padding-visual); }
+.u-px-visual { padding-inline: var(--haru-padding-visual); }
+.u-px-service { padding-inline: var(--haru-padding-service); }
 
-.haru-profile-card__image picture,
-.haru-profile-card__image img {
-  height: 99%;                                        /* モバイル：画像高さ調整 */
-}
+/* ============================================
+   Vertical Header
+============================================ */
+.wp-block-template-part[data-wp-block-name="core/template-part"] { display: none; }
 
-/* PC/タブレット表示（モバイルスタイルをリセット）*/
-@media (min-width: 768px) {
-  .haru-profile-card__front {
-    padding: var(--haru-gap);                         /* デスクトップ：パディング復活 */
-  }
-
-  .haru-profile-card__header {
-    position: static;                                 /* デスクトップ：通常位置 */
-    top: auto;                                        /* デスクトップ：top調整リセット */
-    margin-inline-start: 0;                           /* デスクトップ：左余白リセット */
-  }
-
-  .haru-profile-card__image picture,
-  .haru-profile-card__image img {
-    height: auto;                                     /* デスクトップ：自動高さ */
-  }
-
-  .haru-profile-card {
-    width: 100%;
-    max-width: 900px;
-    aspect-ratio: 5 / 3;
-    min-height: unset;
-    padding: 0 var(--haru-gap) var(--haru-gap);
-  }
-
-  .haru-profile-card__front {
-    display: grid;
-    grid-template-columns: clamp(180px, 36%, 380px) 1fr;
-    grid-template-rows: auto 1.5px 1fr auto;
-    padding: 0 var(--haru-gap) var(--haru-gap);
-  }
-
-  .haru-profile-card__header {
-    grid-column: 1 / 3;
-    grid-row: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0;
-    margin-inline: calc(-1 * var(--haru-gap));
-    width: calc(100% + var(--haru-gap) * 2);
-    position: relative;
-    top: -1.5px;
-  }
-
-  .haru-profile-card__divider {
-    grid-column: 1 / 3;
-    grid-row: 2;
-    margin-left: calc(-1 * var(--haru-gap));
-    margin-right: calc(-1 * var(--haru-gap));
-  }
-
-  .haru-profile-card__image {
-    grid-column: 1;
-    grid-row: 3;
-    aspect-ratio: 1 / 1;
-  }
-
-  .haru-profile-card__image img {
-    object-fit: contain;
-    object-position: top center;
-  }
-
-  .haru-profile-card__body {
-    grid-column: 2;
-    grid-row: 3;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 0;
-  }
-
-  .haru-profile-card__footer {
-    grid-column: 1 / 3;
-    grid-row: 4;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0;
-  }
-
-  .haru-profile-card__logo {
-    display: block;
-    width: 100%;
-  }
-
-  .haru-profile-card__text--jp p {
-    font-size: 15px;
-  }
-
-  .haru-profile-card__text--en p {
-    font-size: 14px;
-  }
-}
-
-/* ===========================================================
-   プロフィールカード裏面
-=========================================================== */
-.haru-profile-card__back {
-  transform: rotateY(180deg);
+.wp-block-navigation.haru-vertical-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--vertical-header-width);
+  height: 100vh;
+  background: transparent;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--haru-gap);
+  justify-content: center;
+  align-items: center;
 }
 
-.haru-profile-card__back-hashtags {
-  margin-top: auto;
-}
-
-.haru-profile-card__back-text p {
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0 0 1em;
-}
-
-.haru-profile-card__back-text p:last-child {
-  margin-bottom: 0;
-}
-
-.haru-profile-card__back-separator {
-  height: 0.5px;
-  background: var(--wp--preset--color--black);
-}
-
-.haru-profile-card__back-tools p,
-.haru-profile-card__back-hashtags p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0 0 1em;
-}
-
-.haru-profile-card__back-tools p:last-child,
-.haru-profile-card__back-hashtags p:last-child {
-  margin-bottom: 0;
-}
-
-.haru-profile-card__back-tools strong {
-  font-weight: 700;
-}
-
-.haru-profile-card__back-sns {
-  display: grid;
-  gap: var(--haru-gap);
-  grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "heading heading"
-    "icons   arrow";
-}
-
-.haru-profile-card__back-sns p {
-  grid-area: heading;
-}
-
-.haru-profile-card__back-sns .sns-icons {
-  grid-area: icons;
+.haru-vertical-header .wp-block-navigation__responsive-container,
+.haru-vertical-header .wp-block-navigation__container {
+  height: 100%;
   display: flex;
-  gap: var(--haru-gap);
-}
-
-.haru-profile-card__back-sns .haru-profile-card__arrow {
-  grid-area: arrow;
-  justify-self: end;
-  align-self: end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  list-style: none;
+  padding: 15px 0;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
-  .haru-profile-card__back-text p,
-  .haru-profile-card__back-tools p,
-  .haru-profile-card__back-hashtags p {
-    font-size: 15px;
+  .haru-vertical-header .wp-block-navigation__container {
+    gap: 80px;
+    padding: 20px 0;
   }
 }
 
-/* ===========================================================
-   ギャラリー（Masonryレイアウト）
-   
-   ※ 全クラス名にharu-プレフィックス付与（名前空間保護）
-   　 WordPress/プラグインとの競合を防ぐためのカスタムクラス識別
-=========================================================== */
-/* ギャラリーコンテナ：パディングなし（Masonryギャラリー側で制御） */
-.haru-gallery-container {
-  padding: 0;
-  margin-bottom: clamp(2rem, 5vw, 4rem);
-  max-width: none;
+.haru-vertical-header .wp-block-navigation-item { margin: 0; }
+
+.haru-vertical-header .wp-block-navigation-item__content {
+  display: inline-block;
+  color: var(--wp--preset--color--black);
+  text-decoration: none;
+  font-size: clamp(13px, calc(12px + 0.28vw), 15px);
+  font-weight: 400;
+  white-space: nowrap;
+  transition: color var(--transition-smooth);
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
+.haru-vertical-header .wp-block-navigation-item__content:hover {
+  color: var(--wp--preset--color--haru-green);
+}
+
+/* ============================================
+   Service Cards
+============================================ */
+.haru-service-cards-container {
+  display: grid;
+  gap: var(--card-grid-gap);
+  padding: 0 var(--haru-padding-visual);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 718px) { .haru-service-cards-container { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1131px) { .haru-service-cards-container { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1800px) { .haru-service-cards-container { grid-template-columns: repeat(4, 1fr); } }
+
+.haru-service-card {
+  background: var(--wp--preset--color--white);
+  border-radius: var(--card-border-radius);
+  aspect-ratio: var(--card-aspect-ratio);
+  padding: var(--card-image-padding);
+  transition: transform var(--transition-fast);
+}
+
+.haru-service-card:hover { transform: scale(0.95); }
+
+.haru-service-card .haru-card-image {
   width: 100%;
-  overflow: visible;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* WordPressのコンテンツ幅制限を完全に解除 */
-.haru-gallery-container .is-layout-constrained,
-.haru-gallery-container .wp-block-group,
-.haru-gallery-container .wp-block-column,
-.haru-gallery-container .wp-block-columns {
-  max-width: none !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
+.haru-service-card .haru-card-title {
+  font-size: var(--wp--preset--font-size--s);
+  font-weight: 400;
+  margin: var(--haru-gap) 0 calc(var(--haru-gap) * 0.5);
 }
 
-/* ===========================================================
-   Masonry Gallery - Clean & Simple
-=========================================================== */
+.haru-service-card .haru-card-description {
+  font-size: var(--wp--preset--font-size--ss);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   Profile Card
+============================================ */
+.haru-profile-card-container {
+  padding: 0 var(--haru-padding-visual);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.haru-profile-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 3/5;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) { .haru-profile-card { aspect-ratio: 5/3; } }
+
+.haru-profile-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.haru-profile-card.flipped .haru-profile-card__inner { transform: rotateY(180deg); }
+
+.haru-profile-card__front,
+.haru-profile-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--card-border-radius);
+  padding: var(--haru-gap);
+  box-sizing: border-box;
+  background: var(--wp--preset--color--white);
+}
+
+.haru-profile-card__back { transform: rotateY(180deg); }
+
+/* ============================================
+   Masonry Gallery
+============================================ */
 .haru-masonry-gallery {
   position: relative;
   padding: 0 var(--haru-padding-visual);
@@ -719,17 +247,12 @@ html::after {
   .haru-masonry-gallery-item--wide { width: calc(50% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
 }
 
-
-
 /* WordPress interference fix */
 .haru-masonry-gallery * { max-width: none !important; margin-block: 0 !important; }
 
-/* ===========================================================
-   メッセージフォーム (Contact Form 7)
-   
-   ※ 全クラス名にharu-プレフィックス付与（名前空間保護）
-   　 WordPress/プラグインとの競合を防ぐためのカスタムクラス識別
-=========================================================== */
+/* ============================================
+   Message Form
+============================================ */
 .haru-message-form-container {
   padding: clamp(2rem, 5vw, 4rem) var(--haru-padding-service);
   background-color: var(--color-surface);
@@ -738,32 +261,19 @@ html::after {
 
 .haru-message-form-description {
   margin-bottom: 2rem;
-  padding: 0;
   font-size: clamp(14px, calc(12px + 0.5vw), 16px);
   line-height: 1.7;
   color: var(--wp--preset--color--black);
 }
 
-/* Contact Form 7 全体のスタイリング */
-.wpcf7 {
-  padding: 0;
-}
-
 .wpcf7-form {
-  background-color: transparent;
-  padding: 0;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.wpcf7-form p {
-  margin: 0 0 20px 0;
-  padding: 0;
-}
+.wpcf7-form p { margin: 0 0 20px 0; }
 
-/* 入力フィールドのスタイリング */
 .wpcf7-form .wpcf7-form-control {
-  box-sizing: border-box;
   width: 100%;
   padding: 0.8em 1em;
   border: none;
@@ -786,32 +296,22 @@ html::after {
   min-height: 150px;
 }
 
-/* 最後の入力欄の下余白を削除 */
-.wpcf7-form p:last-of-type .wpcf7-form-control {
-  margin-bottom: 0;
-}
-
-/* プレースホルダーのスタイリング */
 .wpcf7-form .wpcf7-form-control::placeholder {
   color: #b3b3b3;
   opacity: 1;
 }
 
-/* 同意チェックボックス */
 .wpcf7-form .wpcf7-acceptance {
   background-color: transparent;
-  padding: 0;
   margin: 20px 0;
 }
 
-/* ===========================================================
-   共通ボタンスタイル（送信ボタン・汎用ボタン）
-=========================================================== */
+/* ============================================
+   Buttons
+============================================ */
 .wpcf7-form .wpcf7-submit,
 .wp-block-button__link,
 .common-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border-radius: 5px;
   display: block;
@@ -848,47 +348,26 @@ html::after {
   box-shadow: 0 0 0 3px rgba(0, 215, 130, 0.3);
 }
 
-/* Google reCAPTCHA バッジを非表示 */
-/* Contact Form 7使用時にreCAPTCHAバッジが表示されるのを完全に隠す */
-.grecaptcha-badge {
-  visibility: hidden !important;      /* 要素を不可視化 */
-  opacity: 0 !important;              /* 透明化 */
-  pointer-events: none !important;    /* クリック無効化 */
-}
+/* ============================================
+   Utilities & Accessibility
+============================================ */
+.grecaptcha-badge { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 
-/* ===========================================================
-   アクセシビリティ向上
-   ユーザーの設定に配慮したアニメーション制御
-=========================================================== */
-/* アニメーション軽減設定時はアニメーションを無効化 */
 @media (prefers-reduced-motion: reduce) {
   .haru-service-card,
   .haru-masonry-gallery-item,
   .haru-masonry-gallery-item--wide,
   .haru-profile-card,
-  .wp-block-navigation.haru-vertical-header .wp-block-navigation-item__content,
+  .haru-vertical-header .wp-block-navigation-item__content,
   .wpcf7-form input:focus,
-  .wpcf7-form textarea:focus {
-    transition: none;
-  }
+  .wpcf7-form textarea:focus { transition: none; }
   
-  .haru-profile-card__inner {
-    transition: none;
-  }
+  .haru-profile-card__inner { transition: none; }
 }
 
-/* ===========================================================
-   フッター非表示
-=========================================================== */
 .wp-block-template-part[data-wp-block-name="core/template-part"] footer,
-.l-footer {
-  display: none;
-}
+.l-footer { display: none; }
 
-/* ===========================================================
-   ユーティリティクラス
-=========================================================== */
-/* タイトルロゴSVGのスタイリング */
 .harusegawa-title-svg {
   padding: 0 var(--haru-padding-visual);
   margin-bottom: clamp(1em, calc(0.5em + 1vw), 2em);
@@ -901,7 +380,6 @@ html::after {
   fill: var(--wp--preset--color--black);
 }
 
-/* キャッチコピー */
 .harusegawa-title-caption {
   padding: 0 var(--haru-padding-visual);
   font-size: clamp(12px, calc(10px + 0.8vw), 20px);
@@ -910,41 +388,23 @@ html::after {
   color: var(--wp--preset--color--black);
 }
 
-/* 全幅グループ内の制約付きインナーコンテナの幅制限を解除 */
 .wp-block-group.alignfull > .wp-block-group__inner-container.is-layout-constrained {
   max-width: none !important;
 }
 
-/* ===========================================================
-   アクセシビリティ改善
-=========================================================== */
-/* フォーカス表示の改善 */
 *:focus-visible {
   outline: 2px solid var(--wp--preset--color--haru-green);
   outline-offset: 2px;
 }
 
-/* スクリーンリーダー用の隠しテキスト */
-/* 視覚的には完全に隠すが、スクリーンリーダーには読み上げられるクラス */
 .sr-only {
-  position: absolute !important;      /* 絶対配置で通常フローから除外 */
-  width: 1px !important;              /* 極小サイズ */
-  height: 1px !important;             /* 極小サイズ */
-  padding: 0 !important;              /* 余白削除 */
-  margin: -1px !important;            /* マイナスマージンで完全に隠す */
-  overflow: hidden !important;        /* はみ出し非表示 */
-  clip: rect(0, 0, 0, 0) !important;  /* クリッピングで非表示（古いブラウザ対応）*/
-  white-space: nowrap !important;     /* 改行禁止 */
-  border: 0 !important;               /* 境界線削除 */
-}
-
-
-@media (min-width: 1200px) {
-  /* 大画面での余白調整 */
-  .haru-profile-card-container,
-  .haru-gallery-container {
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
