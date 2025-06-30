@@ -714,34 +714,37 @@ html::after {
   padding: 0 !important;
 }
 
-/* Masonryギャラリー：理想的な隙間なしレイアウト */
+/* Masonryギャラリー：SWELL方式の確実なレイアウト実装 */
 .haru-masonry-gallery {
-  /* 左右にビジュアル幅のパディングを保持 */
+  /* SWELLと同じ方式：左右にビジュアル幅のパディングを保持 */
+  display: block !important; /* display:grid の上書きを試みる */
   width: calc(100% - (var(--haru-padding-visual) * 2));
   margin-left: auto;
   margin-right: auto;
+  container-type: inline-size; /* カードと同様にコンテナクエリ対応 */
   
   /* Masonryレイアウトを確実に動作させる基本設定 */
   position: relative;
   box-sizing: border-box;
-  display: block !important;
 }
 
-/* Masonryレイアウト：理想的な配置（大きい画像+小さい画像群）*/
-.haru-masonry-gallery .grid-sizer {
-  width: 25%; /* 4列基準で柔軟な配置 */
-  height: 0;
-  visibility: hidden;
+/* SWELL方式：CSS変数で列数を制御（デフォルト3列） */
+.haru-masonry-gallery {
+  --gallery-cols: var(--gallery-columns-pc);
+  --gallery-gap: 4px;
 }
 
-/* 通常アイテム：小さめサイズ */
+/* Masonryレイアウト：SWELL方式の確実な幅計算 */
+.haru-masonry-gallery .grid-sizer,
 .haru-masonry-gallery .haru-masonry-gallery-item {
-  width: 25%; /* 4列基準の1列分 */
+  margin-bottom: var(--gallery-gap);
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
 }
 
-/* ワイドアイテム：大きなメイン画像 */
+/* ワイドアイテム：2列分の幅（SWELL方式） */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  width: 50%; /* 4列基準の2列分 */
+  margin-bottom: var(--gallery-gap);
+  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
 }
 
 
@@ -812,27 +815,27 @@ html::after {
 }
 
 /* ===========================================================
-   SWELL方式コンテナクエリによる高度なレスポンシブ制御
+   SWELL方式メディアクエリによる確実なレスポンシブ制御
    カードグリッドと同じブレイクポイントを使用
 =========================================================== */
 
-/* ── コンテナ幅が 1850px 以上なら 4 列 ───────────────── */
-@container (min-width: 1850px) {
+/* ── 画面幅が 1850px 以上なら 4 列 ───────────────── */
+@media (min-width: 1850px) {
   .haru-masonry-gallery {
     --gallery-cols: 4;
   }
 }
 
-/* ── コンテナ幅が 1130px 未満なら 2 列 ───────────────── */
-@container (max-width: 1130px) {
+/* ── 画面幅が 1130px 未満なら 2 列 ───────────────── */
+@media (max-width: 1130px) {
   .haru-masonry-gallery {
     --gallery-cols: 2;
     --gallery-gap: 3px;
   }
 }
 
-/* ── コンテナ幅が 717px 未満なら 1 列 ───────────────── */
-@container (max-width: 717px) {
+/* ── 画面幅が 717px 未満なら 1 列 ───────────────── */
+@media (max-width: 717px) {
   .haru-masonry-gallery {
     --gallery-cols: 1;
     --gallery-gap: 2px;
@@ -841,34 +844,6 @@ html::after {
   .haru-masonry-gallery .haru-masonry-gallery-item--wide {
     width: 100% !important;
   }
-}
-
-/* レスポンシブ対応：理想的なレイアウト調整 */
-/* モバイル：1列表示 */
-@media (max-width: 717px) {
-  .haru-masonry-gallery .grid-sizer,
-  .haru-masonry-gallery .haru-masonry-gallery-item,
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-    width: 100%; /* モバイルは全て1列 */
-  }
-}
-
-/* タブレット：2列基準 */
-@media (min-width: 718px) and (max-width: 1130px) {
-  .haru-masonry-gallery .grid-sizer {
-    width: 50%; /* 2列基準 */
-  }
-  .haru-masonry-gallery .haru-masonry-gallery-item {
-    width: 50%; /* 1列分 */
-  }
-  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-    width: 100%; /* ワイドは全幅 */
-  }
-}
-
-/* PC：4列基準（デフォルト設定を維持）*/
-@media (min-width: 1131px) {
-  /* 上記のCSS設定がそのまま適用される */
 }
 
 /* ===========================================================
