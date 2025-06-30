@@ -682,9 +682,29 @@ html::after {
 /* WordPressブロックエディタのレイアウト制御を強制的に無効化 */
 /* Twenty Twenty-Fiveテーマのレイアウトクラス干渉を完全に解決 */
 .haru-masonry-gallery,
-.haru-masonry-gallery * {
+.haru-masonry-gallery *,
+.haru-masonry-gallery *::before,
+.haru-masonry-gallery *::after {
   /* すべてのWordPressレイアウト制約を無効化 */
   max-width: none !important;
+  /* WordPress特有のレイアウト制約を強制解除 */
+  width: auto !important;
+  height: auto !important;
+  /* フレックスボックス制約を完全無効化 */
+  flex: none !important;
+  flex-basis: auto !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  /* グリッド制約を無効化 */
+  grid-column: auto !important;
+  grid-row: auto !important;
+  /* 変形制約を無効化 */
+  transform: none !important;
+  /* WordPress独自の位置制約を無効化 */
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
 }
 
 /* アイテム内の要素に対する強制リセット */
@@ -788,22 +808,30 @@ html::after {
   border-radius: var(--card-border-radius) !important;
   overflow: hidden !important;
   
-  /* WordPressのflexbox干渉を阻止 */
+  /* WordPressのすべての制約を強制無効化 */
   display: block !important;
   flex: none !important;
   align-self: auto !important;
   justify-self: auto !important;
+  order: initial !important;
   
-  /* Masonry.jsのposition制御を許可（重要！） */
-  /* positionを強制指定しない - Masonryに完全委任 */
+  /* Masonry.jsのposition制御を完全に許可 */
+  /* positionは完全にMasonryに委任 - 一切の制約なし */
   float: left !important; /* Masonryが必要とするfloat */
+  clear: none !important; /* float clearを無効化 */
   
-  /* WordPressやその他のCSSによるposition干渉を完全に無効化 */
-  position: initial !important; /* デフォルト値に戻す */
-  
-  /* サイズ制御を強化（幅の不一致を防ぐ） */
+  /* 幅・高さ制約の完全除去 */
   min-width: 0 !important;
-  max-width: 100% !important;
+  max-width: none !important; /* 最大幅制限を完全除去 */
+  min-height: 0 !important;
+  max-height: none !important;
+  width: auto !important; /* デフォルト幅 */
+  height: auto !important; /* デフォルト高さ */
+  
+  /* WordPress干渉の完全無効化 */
+  contain: none !important;
+  isolation: auto !important;
+  z-index: auto !important;
 }
 
 /* アイテム内の内容に統一された内側余白 */
