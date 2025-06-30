@@ -711,9 +711,8 @@ html::after {
   margin-bottom: var(--gallery-gap) !important; /* 縦隙間 */
   margin-right: 0 !important; /* モバイルは横隙間なし */
   
-  /* WordPress Gutenberg完全リセット */
+  /* WordPress Gutenberg完全リセット（position除く - Masonryが制御） */
   display: block !important;
-  position: static !important;
   max-width: none !important;
   flex: none !important;
   align-self: auto !important;
