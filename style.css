@@ -696,9 +696,12 @@ html::after {
   --gallery-gap: 15px;
 }
 
-/* Grid Sizer（Masonryが列幅を計算する基準） */
+/* Grid Sizer（Masonryが列幅を計算する基準）- 確実に基準として認識されるよう設定 */
 .haru-grid-sizer {
-  width: 100%; /* モバイル：1列分 */
+  width: 100% !important; /* モバイル：1列基準 */
+  height: 0 !important; /* 高さ0で表示に影響しない */
+  margin-right: 0 !important; /* モバイルは横隙間なし */
+  visibility: hidden !important; /* 見えないが要素として存在 */
 }
 
 /* アイテムの基本設定（CSS管理の隙間） */
@@ -717,7 +720,8 @@ html::after {
 /* サービスカードと同じブレイクポイントでの幅制御（outerWidth = 理想幅になるよう調整） */
 @media (min-width: 718px) {
   .haru-grid-sizer {
-    width: calc(50% - var(--gallery-gap)); /* 2列の基準幅 */
+    width: calc(50% - var(--gallery-gap)) !important; /* 2列の基準幅 */
+    margin-right: var(--gallery-gap) !important; /* 横隙間追加 */
   }
   
   .haru-masonry-gallery-item {
@@ -733,7 +737,8 @@ html::after {
 
 @media (min-width: 1131px) {
   .haru-grid-sizer {
-    width: calc(33.333% - var(--gallery-gap)); /* 3列の基準幅 */
+    width: calc(33.333% - var(--gallery-gap)) !important; /* 3列の基準幅 */
+    margin-right: var(--gallery-gap) !important; /* 横隙間追加 */
   }
   
   .haru-masonry-gallery-item {
@@ -749,7 +754,8 @@ html::after {
 
 @media (min-width: 1800px) {
   .haru-grid-sizer {
-    width: calc(25% - var(--gallery-gap)); /* 4列の基準幅 */
+    width: calc(25% - var(--gallery-gap)) !important; /* 4列の基準幅 */
+    margin-right: var(--gallery-gap) !important; /* 横隙間追加 */
   }
   
   .haru-masonry-gallery-item {
