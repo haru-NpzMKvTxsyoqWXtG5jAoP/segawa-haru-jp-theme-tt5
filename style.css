@@ -734,21 +734,23 @@ html::after {
   --gallery-gap: 4px;
 }
 
-/* Grid sizer element (invisible but required for Masonry column width) */
+/* Grid sizer element (invisible but required for Masonry column width calculation) */
 .haru-masonry-gallery .haru-grid-sizer {
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols));
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
   height: 0;
   visibility: hidden;
 }
 
-/* Masonryレイアウト：シンプルで確実な幅計算 */
+/* Masonryアイテム：通常サイズ（1列分）*/
 .haru-masonry-gallery .haru-masonry-gallery-item {
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols));
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
+  margin-bottom: var(--gallery-gap);
 }
 
-/* ワイドアイテム：2列分の幅 */
+/* Masonryアイテム：ワイドサイズ（2列分）*/
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter));
+  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
+  margin-bottom: var(--gallery-gap);
 }
 
 

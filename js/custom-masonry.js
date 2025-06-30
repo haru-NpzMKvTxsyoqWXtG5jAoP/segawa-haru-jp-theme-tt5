@@ -3,9 +3,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // メイソンリーレイアウトを適用するコンテナ要素を取得
   var elem = document.querySelector('.haru-masonry-gallery');
   console.log('Found masonry container:', elem);
+  
   if (elem) {
+    // デバッグ：コンテナとアイテムの詳細を確認
+    var items = elem.querySelectorAll('.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide');
+    var gridSizer = elem.querySelector('.haru-grid-sizer');
+    console.log('Found items:', items.length);
+    console.log('Found grid sizer:', gridSizer);
+    console.log('Container classes:', elem.className);
+    
     // まず、elem（.haru-masonry-gallery）の中の画像が全部読み込まれるのを待つ
     imagesLoaded( elem, function() {
+      console.log('All images loaded, initializing Masonry...');
       // 画像が全部読み込まれたら、ここからMasonryの処理を始める！
       var msnry = new Masonry( elem, {
         // オプション
@@ -15,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
         percentPosition: true,
         transitionDuration: 0
       });
+      
+      console.log('Masonry initialized:', msnry);
 
       // ResizeObserver を使用して要素のサイズ変更を監視
       if (window.ResizeObserver) {
