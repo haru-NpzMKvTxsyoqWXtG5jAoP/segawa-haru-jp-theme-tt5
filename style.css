@@ -727,21 +727,21 @@ html::after {
   display: block !important;
 }
 
-/* Masonryレイアウト：隙間なしの自然な配置 */
+/* Masonryレイアウト：理想的な配置（大きい画像+小さい画像群）*/
 .haru-masonry-gallery .grid-sizer {
-  width: 33.33%; /* 3列の基準幅 */
+  width: 25%; /* 4列基準で柔軟な配置 */
   height: 0;
   visibility: hidden;
 }
 
-/* 通常アイテム：3列の1/3幅 */
+/* 通常アイテム：小さめサイズ */
 .haru-masonry-gallery .haru-masonry-gallery-item {
-  width: 33.33%; /* Masonry.jsが基準とする幅 */
+  width: 25%; /* 4列基準の1列分 */
 }
 
-/* ワイドアイテム：2列分の幅 */
+/* ワイドアイテム：大きなメイン画像 */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  width: 66.66%; /* 2列分の幅 */
+  width: 50%; /* 4列基準の2列分 */
 }
 
 
@@ -843,26 +843,32 @@ html::after {
   }
 }
 
-/* フォールバック：メディアクエリによる従来方式も併用 */
-@media (min-width: 718px) {
-  .haru-masonry-gallery {
-    --gallery-cols: 2;
-    --gallery-gap: 3px;
+/* レスポンシブ対応：理想的なレイアウト調整 */
+/* モバイル：1列表示 */
+@media (max-width: 717px) {
+  .haru-masonry-gallery .grid-sizer,
+  .haru-masonry-gallery .haru-masonry-gallery-item,
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
+    width: 100%; /* モバイルは全て1列 */
   }
 }
 
+/* タブレット：2列基準 */
+@media (min-width: 718px) and (max-width: 1130px) {
+  .haru-masonry-gallery .grid-sizer {
+    width: 50%; /* 2列基準 */
+  }
+  .haru-masonry-gallery .haru-masonry-gallery-item {
+    width: 50%; /* 1列分 */
+  }
+  .haru-masonry-gallery .haru-masonry-gallery-item--wide {
+    width: 100%; /* ワイドは全幅 */
+  }
+}
+
+/* PC：4列基準（デフォルト設定を維持）*/
 @media (min-width: 1131px) {
-  .haru-masonry-gallery {
-    --gallery-cols: 3;
-    --gallery-gap: 4px;
-  }
-}
-
-@media (min-width: 1850px) {
-  .haru-masonry-gallery {
-    --gallery-cols: 4;
-    --gallery-gap: 4px;
-  }
+  /* 上記のCSS設定がそのまま適用される */
 }
 
 /* ===========================================================
