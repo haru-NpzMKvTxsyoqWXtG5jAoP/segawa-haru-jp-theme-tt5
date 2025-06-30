@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
       masonry = new Masonry(container, {
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
         gutter: 15,
-        fitWidth: true,
-        percentPosition: false
+        fitWidth: false,
+        percentPosition: false,
+        horizontalOrder: true
       });
       
       console.log('Masonry initialized with', columns, 'columns');

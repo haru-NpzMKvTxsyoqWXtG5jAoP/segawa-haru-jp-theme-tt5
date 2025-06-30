@@ -679,7 +679,45 @@ html::after {
   box-sizing: border-box !important;
 }
 
+/* Masonryギャラリー自体の制約を解除（TT5テーマの700px制限を回避）*/
+.haru-masonry-gallery.is-layout-constrained,
+.haru-masonry-gallery {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: var(--haru-padding-visual) !important;
+  padding-right: var(--haru-padding-visual) !important;
+  box-sizing: border-box !important;
+}
+
 /* Masonryギャラリー：JavaScript側で完全制御（CSS干渉を排除） */
+
+/* Masonryアイテムの幅制御（TT5の制約に対応したレスポンシブ設定）*/
+.haru-masonry-gallery-item,
+.haru-masonry-gallery-item--wide {
+  width: calc(100% - 15px); /* モバイル：1列、ガター分を引く */
+  margin-bottom: 15px;
+}
+
+/* タブレット：2列レイアウト */
+@media (min-width: 768px) {
+  .haru-masonry-gallery-item {
+    width: calc(50% - 15px); /* 2列、ガター分を引く */
+  }
+  .haru-masonry-gallery-item--wide {
+    width: calc(100% - 15px); /* 2列分の幅 */
+  }
+}
+
+/* デスクトップ：3列レイアウト */
+@media (min-width: 1024px) {
+  .haru-masonry-gallery-item {
+    width: calc(33.333% - 15px); /* 3列、ガター分を引く */
+  }
+  .haru-masonry-gallery-item--wide {
+    width: calc(66.666% - 15px); /* 2列分の幅 */
+  }
+}
 
 /* アイテム内の要素に対する強制リセット */
 .haru-masonry-gallery .haru-masonry-gallery-item *,
