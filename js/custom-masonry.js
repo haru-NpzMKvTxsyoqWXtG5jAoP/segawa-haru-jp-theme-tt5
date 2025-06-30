@@ -1,27 +1,58 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('Masonry script loaded - Ultra Simple approach');
+  console.log('Masonry script loaded - Working Responsive approach');
   
   var container = document.querySelector('.haru-masonry-gallery');
+  var masonry;
   
   if (container) {
     console.log('Found masonry container');
     
-    imagesLoaded(container, function() {
-      console.log('Images loaded, initializing ultra simple Masonry...');
+    function initMasonry() {
+      var screenWidth = window.innerWidth;
+      var columns = 1;
       
-      // 完全にクリーンなMasonry設定
-      var masonry = new Masonry(container, {
+      // レスポンシブ列数設定
+      if (screenWidth >= 1024) {
+        columns = 3;
+      } else if (screenWidth >= 768) {
+        columns = 2;
+      }
+      
+      console.log('Screen width:', screenWidth, 'Columns:', columns);
+      
+      // Masonryを再初期化
+      if (masonry) {
+        masonry.destroy();
+      }
+      
+      masonry = new Masonry(container, {
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
-        gutter: 0,
+        gutter: 15,
         fitWidth: true,
-        percentPosition: true
+        percentPosition: false
       });
       
-      console.log('Ultra simple Masonry initialized:', masonry);
+      console.log('Masonry initialized with', columns, 'columns');
+      return masonry;
+    }
+    
+    imagesLoaded(container, function() {
+      console.log('Images loaded, initializing responsive Masonry...');
+      initMasonry();
+      
+      // リサイズイベント
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          console.log('Resize triggered, reinitializing Masonry...');
+          initMasonry();
+        }, 250);
+      });
       
       // デバッグ確認
       setTimeout(function() {
-        console.log('=== ULTRA SIMPLE DEBUG ===');
+        console.log('=== RESPONSIVE DEBUG ===');
         var items = container.querySelectorAll('.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide');
         items.forEach(function(item, index) {
           var style = window.getComputedStyle(item);
@@ -29,13 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
             position: style.position,
             left: style.left,
             top: style.top,
-            width: style.width,
-            height: style.height
+            width: style.width
           });
-        });
-        console.log('Container style:', {
-          width: window.getComputedStyle(container).width,
-          position: window.getComputedStyle(container).position
         });
         console.log('=== END DEBUG ===');
       }, 1000);
