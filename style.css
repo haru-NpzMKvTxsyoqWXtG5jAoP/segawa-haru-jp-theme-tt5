@@ -679,7 +679,7 @@ html::after {
   box-sizing: border-box !important;
 }
 
-/* Masonryギャラリー：CSS Grid実装（JavaScript不要・シンプル） */
+/* Masonryギャラリー：正しいMasonry.js実装 */
 .haru-masonry-gallery.is-layout-constrained,
 .haru-masonry-gallery {
   max-width: none !important;
@@ -689,47 +689,62 @@ html::after {
   padding-right: var(--haru-padding-visual) !important;
   box-sizing: border-box !important;
   
-  /* CSS Grid設定 */
-  display: grid !important;
-  gap: 15px !important;
-  grid-template-columns: 1fr !important; /* モバイル：1列 */
+  /* Masonryコンテナとして設定 */
+  position: relative !important;
 }
 
-/* Grid Sizer は不要（CSS Grid使用） */
+/* Grid Sizer（Masonryが列幅を計算する基準） */
 .haru-grid-sizer {
-  display: none !important;
+  width: 100%; /* モバイル：1列分 */
 }
 
-/* アイテムのリセット */
+/* アイテムの基本設定 */
 .haru-masonry-gallery-item,
 .haru-masonry-gallery-item--wide {
-  width: auto !important;
-  position: static !important;
-  left: auto !important;
-  top: auto !important;
+  width: 100%; /* モバイル：1列分 */
+  margin-bottom: 0 !important; /* Masonryのgutterに任せる */
 }
 
-/* サービスカードと同じブレイクポイント */
+/* サービスカードと同じブレイクポイントでの幅制御 */
 @media (min-width: 718px) {
-  .haru-masonry-gallery {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2列 */
+  .haru-grid-sizer {
+    width: 50%; /* 2列の基準幅 */
+  }
+  
+  .haru-masonry-gallery-item {
+    width: 50%; /* 2列 */
+  }
+  
+  .haru-masonry-gallery-item--wide {
+    width: 100%; /* 2列分 */
   }
 }
 
 @media (min-width: 1131px) {
-  .haru-masonry-gallery {
-    grid-template-columns: repeat(3, 1fr) !important; /* 3列 */
+  .haru-grid-sizer {
+    width: 33.333%; /* 3列の基準幅 */
   }
   
-  /* 幅広アイテムは2列分 */
+  .haru-masonry-gallery-item {
+    width: 33.333%; /* 3列 */
+  }
+  
   .haru-masonry-gallery-item--wide {
-    grid-column: span 2 !important;
+    width: 66.666%; /* 2列分 */
   }
 }
 
 @media (min-width: 1800px) {
-  .haru-masonry-gallery {
-    grid-template-columns: repeat(4, 1fr) !important; /* 4列 */
+  .haru-grid-sizer {
+    width: 25%; /* 4列の基準幅 */
+  }
+  
+  .haru-masonry-gallery-item {
+    width: 25%; /* 4列 */
+  }
+  
+  .haru-masonry-gallery-item--wide {
+    width: 50%; /* 2列分 */
   }
 }
 
