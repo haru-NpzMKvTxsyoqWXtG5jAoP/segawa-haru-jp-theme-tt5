@@ -699,9 +699,13 @@ html::after {
 }
 
 /* アイテムの基本設定 */
-.haru-masonry-gallery-item,
+.haru-masonry-gallery-item {
+  width: 100% !important; /* モバイル：1列分 */
+  margin-bottom: 0 !important; /* Masonryのgutterに任せる */
+}
+
 .haru-masonry-gallery-item--wide {
-  width: 100%; /* モバイル：1列分 */
+  width: 100% !important; /* モバイル：1列分 */
   margin-bottom: 0 !important; /* Masonryのgutterに任せる */
 }
 
@@ -712,11 +716,11 @@ html::after {
   }
   
   .haru-masonry-gallery-item {
-    width: 50%; /* 2列 */
+    width: 50% !important; /* 2列 */
   }
   
   .haru-masonry-gallery-item--wide {
-    width: 100%; /* 2列分 */
+    width: 100% !important; /* 2列分 */
   }
 }
 
@@ -726,11 +730,11 @@ html::after {
   }
   
   .haru-masonry-gallery-item {
-    width: 33.333%; /* 3列 */
+    width: 33.333% !important; /* 3列 */
   }
   
   .haru-masonry-gallery-item--wide {
-    width: 66.666%; /* 2列分 */
+    width: 66.666% !important; /* 2列分 */
   }
 }
 
@@ -740,11 +744,11 @@ html::after {
   }
   
   .haru-masonry-gallery-item {
-    width: 25%; /* 4列 */
+    width: 25% !important; /* 4列 */
   }
   
   .haru-masonry-gallery-item--wide {
-    width: 50%; /* 2列分 */
+    width: 50% !important; /* 2列分 */
   }
 }
 
