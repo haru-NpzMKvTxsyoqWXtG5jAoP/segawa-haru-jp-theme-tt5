@@ -714,19 +714,12 @@ html::after {
   padding: 0 !important;
 }
 
-/* Masonryギャラリー：SWELL精密計算式による美しいレイアウト */
+/* Masonryギャラリー：理想的な隙間なしレイアウト */
 .haru-masonry-gallery {
-  /* SWELLと同じ幅計算システムを採用 */
+  /* 左右にビジュアル幅のパディングを保持 */
   width: calc(100% - (var(--haru-padding-visual) * 2));
   margin-left: auto;
   margin-right: auto;
-  
-  /* コンテナクエリ対応（高度なレスポンシブ制御）*/
-  container-type: inline-size;
-  
-  /* PC基準値（SWELL方式）*/
-  --gallery-cols: var(--gallery-columns-pc);
-  --gallery-gap: 4px;
   
   /* Masonryレイアウトを確実に動作させる基本設定 */
   position: relative;
@@ -734,7 +727,7 @@ html::after {
   display: block !important;
 }
 
-/* 真のMasonryレイアウト：画像サイズに応じた自然な配置 */
+/* Masonryレイアウト：隙間なしの自然な配置 */
 .haru-masonry-gallery .haru-grid-sizer {
   width: 33.33%; /* 3列の基準幅 */
   height: 0;
@@ -746,7 +739,7 @@ html::after {
   width: 33.33%; /* Masonry.jsが基準とする幅 */
 }
 
-/* ワイドアイテム：3列の2/3幅 */
+/* ワイドアイテム：2列分の幅 */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
   width: 66.66%; /* 2列分の幅 */
 }

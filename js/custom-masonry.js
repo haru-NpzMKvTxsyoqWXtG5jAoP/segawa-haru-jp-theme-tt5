@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // オプション
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
         columnWidth: '.haru-grid-sizer',
-        gutter: parseInt(getComputedStyle(document.documentElement)
-          .getPropertyValue('--gallery-gutter').trim()) || 12,
+        gutter: 0, // 隙間なしレイアウト
         percentPosition: true,
         transitionDuration: 0
       });
@@ -22,39 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const resizeObserver = new ResizeObserver(function() {
           clearTimeout(elem.resizeTimeoutId); // デバウンス処理用のタイマーIDを要素に紐付ける
           elem.resizeTimeoutId = setTimeout(function() {
-            console.log('ResizeObserver triggered layout - Screen width:', screenWidth, 'Gutter:', newGutterValue); // デバッグ用
-            
             // レスポンシブ対応：リサイズ時にgutter値を再取得
             const screenWidth = window.innerWidth;
             let gutterVar;
             
-            if (screenWidth >= 1131) {
-              gutterVar = '--gallery-gutter'; // 12px
-            } else if (screenWidth >= 718) {
-              gutterVar = '--gallery-gutter-tablet'; // 10px
-            } else {
-              gutterVar = '--gallery-gutter-mobile'; // 8px
-            }
+            console.log('ResizeObserver triggered layout - Screen width:', screenWidth);
             
-            const newGutterValue = parseInt(
-              getComputedStyle(document.documentElement)
-                .getPropertyValue(gutterVar).trim()
-            ) || 12;
-            
-            // gutter値が変更された場合はMasonryを再初期化
-            if (msnry.options.gutter !== newGutterValue) {
-              msnry.options.gutter = newGutterValue;
-              msnry.destroy();
-              msnry = new Masonry(elem, {
-                itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
-                columnWidth: '.haru-grid-sizer',
-                gutter: newGutterValue,
-                percentPosition: true,
-                transitionDuration: 0
-              });
-            } else {
-              msnry.layout();
-            }
+            // レイアウト更新（gutterは常に0）
+            msnry.layout();
           }, 250); // 250msのデバウンス
         });
         resizeObserver.observe(elem);

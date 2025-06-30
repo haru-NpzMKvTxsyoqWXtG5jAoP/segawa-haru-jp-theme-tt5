@@ -45,6 +45,8 @@
 
 これはビルドプロセスのないWordPressチャイルドテーマです。開発は直接ファイル編集で行います。
 
+**デプロイ方式:** WP Pusherプラグインを使用してGitHubからWordPressサイトに自動反映。変更を確認するには必ずGitHubにプッシュする必要がある。
+
 **ファイル監視:** 自動ビルドシステムなし - CSS/JSの変更には手動でブラウザリフレッシュが必要です。
 
 **アセット管理:** CSSキャッシュバスティングは `functions.php:14` の `filemtime()` で自動処理されます。
@@ -74,6 +76,9 @@
 - メディアクエリでレスポンシブ列数制御（3列→2列→1列）
 - ホバーエフェクト付き
 - クラス: `.haru-masonry-gallery`, `.haru-masonry-gallery-item`
+- **理想的なレイアウト:** https://marph.com/ の `<section class="oct-section">` 部分を参考
+- 左右パディングは`--haru-padding-visual`を保持、上下左右は隙間なく積まれる
+- `haru-masonry-gallery-item--wide`は2列分の幅
 
 ### メッセージフォーム
 - Contact Form 7カスタムスタイリング
