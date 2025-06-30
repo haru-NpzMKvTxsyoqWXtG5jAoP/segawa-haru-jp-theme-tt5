@@ -679,7 +679,7 @@ html::after {
   box-sizing: border-box !important;
 }
 
-/* Masonryギャラリー自体の制約を解除（TT5テーマの700px制限を回避）*/
+/* Masonryギャラリー：CSS Grid実装（JavaScript不要・シンプル） */
 .haru-masonry-gallery.is-layout-constrained,
 .haru-masonry-gallery {
   max-width: none !important;
@@ -688,23 +688,50 @@ html::after {
   padding-left: var(--haru-padding-visual) !important;
   padding-right: var(--haru-padding-visual) !important;
   box-sizing: border-box !important;
+  
+  /* CSS Grid設定 */
+  display: grid !important;
+  gap: 15px !important;
+  grid-template-columns: 1fr !important; /* モバイル：1列 */
 }
 
-/* Masonryギャラリー：JavaScript側で完全制御（CSS干渉を排除） */
-
-/* Grid Sizer（Masonryライブラリが参照する基準幅・JavaScript側で動的設定）*/
+/* Grid Sizer は不要（CSS Grid使用） */
 .haru-grid-sizer {
-  /* 幅はJavaScript側で動的に設定 */
+  display: none !important;
 }
 
-/* Masonryアイテムの基本設定（JavaScript側でpositioning制御）*/
+/* アイテムのリセット */
 .haru-masonry-gallery-item,
 .haru-masonry-gallery-item--wide {
-  width: 100%; /* モバイル：1列 */
-  /* margin-bottomはJavaScript側のgutterで制御 */
+  width: auto !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
 }
 
-/* レスポンシブ幅制御はJavaScript側で動的に設定 */
+/* サービスカードと同じブレイクポイント */
+@media (min-width: 718px) {
+  .haru-masonry-gallery {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2列 */
+  }
+}
+
+@media (min-width: 1131px) {
+  .haru-masonry-gallery {
+    grid-template-columns: repeat(3, 1fr) !important; /* 3列 */
+  }
+  
+  /* 幅広アイテムは2列分 */
+  .haru-masonry-gallery-item--wide {
+    grid-column: span 2 !important;
+  }
+}
+
+@media (min-width: 1800px) {
+  .haru-masonry-gallery {
+    grid-template-columns: repeat(4, 1fr) !important; /* 4列 */
+  }
+}
 
 
 
