@@ -704,17 +704,23 @@ html::after {
   visibility: hidden !important; /* 見えないが要素として存在 */
 }
 
-/* アイテムの基本設定（CSS管理の隙間） */
-.haru-masonry-gallery-item {
-  width: 100% !important; /* モバイル：1列分 */
-  margin-bottom: var(--gallery-gap) !important; /* 縦隙間 */
-  margin-right: 0 !important; /* モバイルは横隙間なし */
-}
-
+/* アイテムの基本設定（CSS管理の隙間） - WordPress干渉を完全排除 */
+.haru-masonry-gallery-item,
 .haru-masonry-gallery-item--wide {
   width: 100% !important; /* モバイル：1列分 */
   margin-bottom: var(--gallery-gap) !important; /* 縦隙間 */
   margin-right: 0 !important; /* モバイルは横隙間なし */
+  
+  /* WordPress Gutenberg完全リセット */
+  display: block !important;
+  position: static !important;
+  max-width: none !important;
+  flex: none !important;
+  align-self: auto !important;
+  justify-self: auto !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  order: 0 !important;
 }
 
 /* サービスカードと同じブレイクポイントでの幅制御（outerWidth = 理想幅になるよう調整） */
@@ -778,15 +784,34 @@ html::after {
   box-sizing: border-box !important;
 }
 
+/* WordPress Gutenberg完全無効化 - wp-block-group干渉を排除 */
+.haru-masonry-gallery .wp-block-group {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-direction: initial !important;
+  align-items: initial !important;
+  justify-content: initial !important;
+  gap: 0 !important;
+}
+
 /* WordPress Gutenberg is-layout-flowクラスのmargin干渉を完全無効化 */
 .haru-masonry-gallery.is-layout-flow > .haru-masonry-gallery-item,
 .haru-masonry-gallery.is-layout-flow > .haru-masonry-gallery-item--wide,
 .haru-masonry-gallery .haru-masonry-gallery-item.is-layout-flow,
-.haru-masonry-gallery .haru-masonry-gallery-item--wide.is-layout-flow {
+.haru-masonry-gallery .haru-masonry-gallery-item--wide.is-layout-flow,
+.haru-masonry-gallery .wp-block-group.haru-masonry-gallery-item,
+.haru-masonry-gallery .wp-block-group.haru-masonry-gallery-item--wide {
   margin-block-start: 0 !important;
   margin-block-end: 0 !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
 }
 
 .haru-masonry-gallery .has-global-padding {
