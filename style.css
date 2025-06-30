@@ -715,6 +715,17 @@ html::after {
   box-sizing: border-box !important;
 }
 
+/* WordPress Gutenberg is-layout-flowクラスのmargin干渉を完全無効化 */
+.haru-masonry-gallery.is-layout-flow > .haru-masonry-gallery-item,
+.haru-masonry-gallery.is-layout-flow > .haru-masonry-gallery-item--wide,
+.haru-masonry-gallery .haru-masonry-gallery-item.is-layout-flow,
+.haru-masonry-gallery .haru-masonry-gallery-item--wide.is-layout-flow {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 .haru-masonry-gallery .has-global-padding {
   padding-left: 0 !important;
   padding-right: 0 !important;
