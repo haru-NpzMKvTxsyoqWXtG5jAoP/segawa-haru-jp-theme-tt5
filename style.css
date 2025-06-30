@@ -685,7 +685,13 @@ html::after {
 .haru-masonry-gallery * {
   /* すべてのWordPressレイアウト制約を無効化 */
   max-width: none !important;
-  width: auto !important;
+}
+
+/* アイテム内の要素に対する強制リセット */
+.haru-masonry-gallery .haru-masonry-gallery-item *,
+.haru-masonry-gallery .haru-masonry-gallery-item--wide * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .haru-masonry-gallery .has-global-padding {
@@ -698,7 +704,6 @@ html::after {
 .haru-masonry-gallery .is-layout-flex {
   display: block !important;
   max-width: none !important;
-  width: auto !important;
   flex-direction: initial !important;
   align-items: initial !important;
   justify-content: initial !important;
@@ -709,7 +714,6 @@ html::after {
 .haru-masonry-gallery .wp-block-column,
 .haru-masonry-gallery .wp-block-columns {
   max-width: none !important;
-  width: auto !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -717,53 +721,96 @@ html::after {
 /* Masonryギャラリー：サービスカードと同じpadding方式でレスポンシブ対応 */
 .haru-masonry-gallery {
   display: block !important;
-  padding: 0 var(--haru-padding-visual); /* サービスカードと同じpadding方式 */
-  width: 100%; /* 全幅使用 */
+  padding-left: var(--haru-padding-visual) !important; /* 左パディング */
+  padding-right: var(--haru-padding-visual) !important; /* 右パディング */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  width: 100% !important; /* 全幅使用 */
+  margin: 0 !important;
   
   /* Masonryレイアウトを確実に動作させる基本設定 */
-  position: relative;
-  box-sizing: border-box;
+  position: relative !important;
+  box-sizing: border-box !important;
+  
+  /* コンテナ内部のサイズ計算を厳密に制御 */
+  overflow: hidden !important;
+  contain: layout style !important; /* CSS Containment で分離 */
 }
 
 /* モバイルファースト：デフォルト1列（スマホ） */
 .haru-masonry-gallery .haru-grid-sizer {
   width: 100% !important;
-  height: 0;
-  visibility: hidden;
+  height: 0 !important;
+  visibility: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: left !important;
 }
 
 .haru-masonry-gallery .haru-masonry-gallery-item {
   width: 100% !important;
-  margin-bottom: 4px;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin-bottom: var(--gallery-gutter) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
 }
 
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
   width: 100% !important;
-  margin-bottom: 4px;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin-bottom: var(--gallery-gutter) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
 }
 
 
 /* アイテムの基本スタイル：Masonry.jsによる自動配置用 */
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
+  /* ボックスモデルを完全にリセット */
   padding: 0 !important;
   margin: 0 !important;
-  transition: transform var(--transition-fast);
-  cursor: pointer;
+  border: 0 !important;
+  box-sizing: border-box !important;
+  
+  /* 基本スタイル */
+  transition: transform var(--transition-fast) !important;
+  cursor: pointer !important;
   background: transparent !important;
-  border-radius: var(--card-border-radius);
+  border-radius: var(--card-border-radius) !important;
   overflow: hidden !important;
+  
   /* WordPressのflexbox干渉を阻止 */
   display: block !important;
   flex: none !important;
   align-self: auto !important;
   justify-self: auto !important;
+  
+  /* Masonry.jsのposition制御を許可（重要！） */
+  position: static !important; /* Masonryに位置制御を委任 */
+  float: left !important; /* Masonryが必要とするfloat */
+  
+  /* サイズ制御を強化（幅の不一致を防ぐ） */
+  min-width: 0 !important;
+  max-width: 100% !important;
 }
 
 /* アイテム内の内容に統一された内側余白 */
 .haru-masonry-gallery .haru-masonry-gallery-item > *:not(figure):not(img),
 .haru-masonry-gallery .haru-masonry-gallery-item--wide > *:not(figure):not(img) {
-  padding: 0 clamp(6px, 1vw, 12px); /* テキスト要素に適切な左右余白 */
+  /* 一時的にpadding無効化：Masonry幅問題のため */
+  padding: 0 !important; /* テキスト要素に適切な左右余白 */
+  margin: 0 !important;
+  border: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* 画像スタイル：自然なアスペクト比を強制保持 */
@@ -773,10 +820,15 @@ html::after {
   height: auto !important; /* アスペクト比を絶対に保持 */
   max-width: 100% !important;
   max-height: none !important; /* 高さ制限を完全に解除 */
+  min-width: 0 !important; /* 最小幅制限を解除 */
   object-fit: cover !important; /* 縦横比を保ちつつフィット */
   display: block !important;
-  border-radius: var(--card-border-radius);
-  transition: transform var(--transition-fast);
+  border-radius: var(--card-border-radius) !important;
+  transition: transform var(--transition-fast) !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
 }
 
 /* figureタグの制約を完全に解除 */
@@ -786,7 +838,11 @@ html::after {
   padding: 0 !important;
   width: 100% !important;
   height: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   display: block !important;
+  box-sizing: border-box !important;
+  border: 0 !important;
 }
 
 /* ホバーエフェクト */
@@ -830,10 +886,14 @@ html::after {
   
   .haru-masonry-gallery .haru-masonry-gallery-item {
     width: 50% !important;
+    max-width: 50% !important;
+    min-width: 50% !important;
   }
   
   .haru-masonry-gallery .haru-masonry-gallery-item--wide {
     width: 100% !important; /* ワイドは全幅 */
+    max-width: 100% !important;
+    min-width: 100% !important;
   }
 }
 
@@ -845,10 +905,14 @@ html::after {
   
   .haru-masonry-gallery .haru-masonry-gallery-item {
     width: 33.333% !important;
+    max-width: 33.333% !important;
+    min-width: 33.333% !important;
   }
   
   .haru-masonry-gallery .haru-masonry-gallery-item--wide {
     width: 66.666% !important; /* ワイドは2列分 */
+    max-width: 66.666% !important;
+    min-width: 66.666% !important;
   }
 }
 
@@ -860,10 +924,14 @@ html::after {
   
   .haru-masonry-gallery .haru-masonry-gallery-item {
     width: 25% !important;
+    max-width: 25% !important;
+    min-width: 25% !important;
   }
   
   .haru-masonry-gallery .haru-masonry-gallery-item--wide {
     width: 50% !important; /* ワイドは2列分 */
+    max-width: 50% !important;
+    min-width: 50% !important;
   }
 }
 
