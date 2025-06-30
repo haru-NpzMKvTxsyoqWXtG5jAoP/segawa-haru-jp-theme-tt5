@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('Masonry script loaded - Working Responsive approach');
+  console.log('Masonry script loaded - Service Card Aligned approach');
   
   var container = document.querySelector('.haru-masonry-gallery');
   var masonry;
@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
       var screenWidth = window.innerWidth;
       var columns = 1;
       
-      // レスポンシブ列数設定
-      if (screenWidth >= 1024) {
+      // サービスカードと同じブレイクポイント
+      if (screenWidth >= 1800) {
+        columns = 4;
+      } else if (screenWidth >= 1131) {
         columns = 3;
-      } else if (screenWidth >= 768) {
+      } else if (screenWidth >= 718) {
         columns = 2;
       }
       
@@ -27,10 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
       
       masonry = new Masonry(container, {
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
+        columnWidth: '.haru-grid-sizer',
         gutter: 15,
-        fitWidth: false,
-        percentPosition: false,
-        horizontalOrder: true
+        percentPosition: true
       });
       
       console.log('Masonry initialized with', columns, 'columns');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     imagesLoaded(container, function() {
-      console.log('Images loaded, initializing responsive Masonry...');
+      console.log('Images loaded, initializing service-card-aligned Masonry...');
       initMasonry();
       
       // リサイズイベント
@@ -53,8 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // デバッグ確認
       setTimeout(function() {
-        console.log('=== RESPONSIVE DEBUG ===');
+        console.log('=== SERVICE CARD ALIGNED DEBUG ===');
         var items = container.querySelectorAll('.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide');
+        var gridSizer = container.querySelector('.haru-grid-sizer');
+        
+        if (gridSizer) {
+          console.log('Grid Sizer width:', window.getComputedStyle(gridSizer).width);
+        }
+        
         items.forEach(function(item, index) {
           var style = window.getComputedStyle(item);
           console.log('Item', index + 1, ':', {
