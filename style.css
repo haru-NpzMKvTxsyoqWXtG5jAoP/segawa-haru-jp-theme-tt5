@@ -679,166 +679,50 @@ html::after {
   box-sizing: border-box !important;
 }
 
-/* Masonryギャラリー：正しいMasonry.js実装 */
-.haru-masonry-gallery.is-layout-constrained,
+/* ===========================================================
+   Masonry Gallery - Clean & Simple
+=========================================================== */
 .haru-masonry-gallery {
-  max-width: none !important;
-  width: 100% !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
-  
-  /* Masonryコンテナとして設定 */
-  position: relative !important;
-  
-  /* サービスカードと同じパディング方式 */
-  padding-inline: var(--haru-padding-visual) !important;
-  
-  /* ギャップを一元管理 */
+  position: relative;
+  padding: 0 var(--haru-padding-visual);
   --gallery-gap: 15px;
 }
 
-/* Grid Sizer（Masonryが列幅を計算する基準）- 確実に基準として認識されるよう設定 */
 .haru-grid-sizer {
-  width: 100% !important; /* モバイル：1列基準 */
-  height: 0 !important; /* 高さ0で表示に影響しない */
-  margin-right: 0 !important; /* モバイルは横隙間なし */
-  visibility: hidden !important; /* 見えないが要素として存在 */
+  width: 100%;
+  height: 0;
+  visibility: hidden;
 }
 
-/* アイテムの基本設定（CSS管理の隙間） - WordPress干渉を完全排除 */
 .haru-masonry-gallery-item,
 .haru-masonry-gallery-item--wide {
-  width: 100% !important; /* モバイル：1列分 */
-  margin-bottom: var(--gallery-gap) !important; /* 縦隙間 */
-  margin-right: 0 !important; /* モバイルは横隙間なし */
-  
-  /* WordPress Gutenberg完全リセット（position除く - Masonryが制御） */
-  display: block !important;
-  max-width: none !important;
-  flex: none !important;
-  align-self: auto !important;
-  justify-self: auto !important;
-  grid-column: auto !important;
-  grid-row: auto !important;
-  order: 0 !important;
+  width: 100%;
+  margin-bottom: var(--gallery-gap);
 }
 
-/* サービスカードと同じブレイクポイントでの幅制御（outerWidth = 理想幅になるよう調整） */
+/* Responsive: 718px+ = 2 cols, 1131px+ = 3 cols, 1800px+ = 4 cols */
 @media (min-width: 718px) {
-  .haru-grid-sizer {
-    width: calc(50% - var(--gallery-gap)) !important; /* 2列の基準幅 */
-    margin-right: var(--gallery-gap) !important; /* 横隙間追加 */
-  }
-  
-  .haru-masonry-gallery-item {
-    width: calc(50% - var(--gallery-gap)) !important; /* outerWidth = 50% */
-    margin-right: var(--gallery-gap) !important;
-  }
-  
-  .haru-masonry-gallery-item--wide {
-    width: calc(100% - var(--gallery-gap)) !important; /* outerWidth = 100% */
-    margin-right: var(--gallery-gap) !important;
-  }
+  .haru-grid-sizer { width: calc(50% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
+  .haru-masonry-gallery-item { width: calc(50% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
+  .haru-masonry-gallery-item--wide { width: calc(100% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
 }
 
 @media (min-width: 1131px) {
-  .haru-grid-sizer {
-    width: calc(33.333% - var(--gallery-gap)) !important; /* 3列の基準幅 */
-    margin-right: var(--gallery-gap) !important; /* 横隙間追加 */
-  }
-  
-  .haru-masonry-gallery-item {
-    width: calc(33.333% - var(--gallery-gap)) !important; /* outerWidth = 33.333% */
-    margin-right: var(--gallery-gap) !important;
-  }
-  
-  .haru-masonry-gallery-item--wide {
-    width: calc(66.666% - var(--gallery-gap)) !important; /* outerWidth = 66.666% */
-    margin-right: var(--gallery-gap) !important;
-  }
+  .haru-grid-sizer { width: calc(33.333% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
+  .haru-masonry-gallery-item { width: calc(33.333% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
+  .haru-masonry-gallery-item--wide { width: calc(66.666% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
 }
 
 @media (min-width: 1800px) {
-  .haru-grid-sizer {
-    width: calc(25% - var(--gallery-gap)) !important; /* 4列の基準幅 */
-    margin-right: var(--gallery-gap) !important; /* 横隙間追加 */
-  }
-  
-  .haru-masonry-gallery-item {
-    width: calc(25% - var(--gallery-gap)) !important; /* outerWidth = 25% */
-    margin-right: var(--gallery-gap) !important;
-  }
-  
-  .haru-masonry-gallery-item--wide {
-    width: calc(50% - var(--gallery-gap)) !important; /* outerWidth = 50% */
-    margin-right: var(--gallery-gap) !important;
-  }
+  .haru-grid-sizer { width: calc(25% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
+  .haru-masonry-gallery-item { width: calc(25% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
+  .haru-masonry-gallery-item--wide { width: calc(50% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
 }
 
 
 
-/* アイテム内の要素に対する強制リセット */
-.haru-masonry-gallery .haru-masonry-gallery-item *,
-.haru-masonry-gallery .haru-masonry-gallery-item--wide * {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* WordPress Gutenberg完全無効化 - wp-block-group干渉を排除 */
-.haru-masonry-gallery .wp-block-group {
-  display: block !important;
-  width: auto !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  flex-direction: initial !important;
-  align-items: initial !important;
-  justify-content: initial !important;
-  gap: 0 !important;
-}
-
-/* WordPress Gutenberg is-layout-flowクラスのmargin干渉を完全無効化 */
-.haru-masonry-gallery.is-layout-flow > .haru-masonry-gallery-item,
-.haru-masonry-gallery.is-layout-flow > .haru-masonry-gallery-item--wide,
-.haru-masonry-gallery .haru-masonry-gallery-item.is-layout-flow,
-.haru-masonry-gallery .haru-masonry-gallery-item--wide.is-layout-flow,
-.haru-masonry-gallery .wp-block-group.haru-masonry-gallery-item,
-.haru-masonry-gallery .wp-block-group.haru-masonry-gallery-item--wide {
-  margin-block-start: 0 !important;
-  margin-block-end: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  display: block !important;
-  max-width: none !important;
-  padding: 0 !important;
-  /* width: auto !important; ← 削除：Masonryの幅計算を妨害していた */
-}
-
-.haru-masonry-gallery .has-global-padding {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.haru-masonry-gallery .is-layout-constrained,
-.haru-masonry-gallery .is-layout-flow,
-.haru-masonry-gallery .is-layout-flex {
-  display: block !important;
-  max-width: none !important;
-  flex-direction: initial !important;
-  align-items: initial !important;
-  justify-content: initial !important;
-}
-
-/* WordPress Gutenbergブロックの制約を完全に解除 */
-.haru-masonry-gallery .wp-block-group,
-.haru-masonry-gallery .wp-block-column,
-.haru-masonry-gallery .wp-block-columns {
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Masonryギャラリー：JavaScript側で完全制御（CSS干渉を排除） */
+/* WordPress interference fix */
+.haru-masonry-gallery * { max-width: none !important; margin-block: 0 !important; }
 
 /* ===========================================================
    メッセージフォーム (Contact Form 7)
