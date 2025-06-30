@@ -692,66 +692,21 @@ html::after {
 
 /* Masonryギャラリー：JavaScript側で完全制御（CSS干渉を排除） */
 
-/* Grid Sizerの幅制御（Masonryライブラリが参照する基準幅）*/
+/* Grid Sizer（Masonryライブラリが参照する基準幅・JavaScript側で動的設定）*/
 .haru-grid-sizer {
-  width: 100%; /* モバイル：1列 */
+  /* 幅はJavaScript側で動的に設定 */
 }
 
-/* Masonryアイテムの幅制御（サービスカードと同じブレイクポイント）*/
-.haru-masonry-gallery-item {
-  width: 100%; /* モバイル：1列 */
-  margin-bottom: 15px;
-}
-
+/* Masonryアイテムの基本設定（JavaScript側でpositioning制御）*/
+.haru-masonry-gallery-item,
 .haru-masonry-gallery-item--wide {
   width: 100%; /* モバイル：1列 */
-  margin-bottom: 15px;
+  /* margin-bottomはJavaScript側のgutterで制御 */
 }
 
-/* タブレット：2列レイアウト（サービスカードと同じ718px） */
-@media (min-width: 718px) {
-  .haru-grid-sizer {
-    width: 50%; /* 2列の基準幅 */
-  }
-  
-  .haru-masonry-gallery-item {
-    width: 50%; /* 2列 */
-  }
-  
-  .haru-masonry-gallery-item--wide {
-    width: 100%; /* 2列分の幅 */
-  }
-}
+/* レスポンシブ幅制御はJavaScript側で動的に設定 */
 
-/* デスクトップ：3列レイアウト（サービスカードと同じ1131px） */
-@media (min-width: 1131px) {
-  .haru-grid-sizer {
-    width: 33.333%; /* 3列の基準幅 */
-  }
-  
-  .haru-masonry-gallery-item {
-    width: 33.333%; /* 3列 */
-  }
-  
-  .haru-masonry-gallery-item--wide {
-    width: 66.666%; /* 2列分の幅 */
-  }
-}
 
-/* 超大画面：4列レイアウト（サービスカードと同じ1800px） */
-@media (min-width: 1800px) {
-  .haru-grid-sizer {
-    width: 25%; /* 4列の基準幅 */
-  }
-  
-  .haru-masonry-gallery-item {
-    width: 25%; /* 4列 */
-  }
-  
-  .haru-masonry-gallery-item--wide {
-    width: 50%; /* 2列分の幅 */
-  }
-}
 
 /* アイテム内の要素に対する強制リセット */
 .haru-masonry-gallery .haru-masonry-gallery-item *,

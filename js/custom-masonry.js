@@ -22,6 +22,28 @@ document.addEventListener('DOMContentLoaded', function () {
       
       console.log('Screen width:', screenWidth, 'Columns:', columns);
       
+      // アイテムの幅を動的に設定
+      var gridSizer = container.querySelector('.haru-grid-sizer');
+      var normalItems = container.querySelectorAll('.haru-masonry-gallery-item');
+      var wideItems = container.querySelectorAll('.haru-masonry-gallery-item--wide');
+      
+      // Grid Sizerの幅設定
+      var columnWidth = 100 / columns;
+      if (gridSizer) {
+        gridSizer.style.width = columnWidth + '%';
+      }
+      
+      // 通常アイテムの幅設定
+      normalItems.forEach(function(item) {
+        item.style.width = columnWidth + '%';
+      });
+      
+      // 幅広アイテムの幅設定（2列分、ただし最大カラム数を超えない）
+      var wideWidth = Math.min(2, columns) * columnWidth;
+      wideItems.forEach(function(item) {
+        item.style.width = wideWidth + '%';
+      });
+      
       // Masonryを再初期化
       if (masonry) {
         masonry.destroy();
