@@ -775,15 +775,34 @@ html::after {
   padding: 0 clamp(6px, 1vw, 12px); /* テキスト要素に適切な左右余白 */
 }
 
-/* 画像スタイル：SWELL方式（自然なアスペクト比で本来のMasonryの美しさを実現）*/
+/* 画像スタイル：理想のイメージに合わせた多様な高さ（真のMasonryスタイル）*/
 .haru-masonry-gallery .haru-masonry-gallery-item img,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
   width: 100%;
-  height: auto; /* 縦横比を保持 */
   display: block; /* インラインのgapを除去 */
   border-radius: var(--card-border-radius);
   transition: transform var(--transition-fast);
-  /* SWELL方式：画像サイズ制限なし、自然な美しさを最優先 */
+  object-fit: cover; /* 画像を美しくクロップして表示 */
+  object-position: center; /* 中央部分を表示 */
+}
+
+/* 通常のアイテム：適度な高さ */
+.haru-masonry-gallery .haru-masonry-gallery-item img {
+  height: 180px; /* 通常サイズ */
+}
+
+/* ワイドアイテム：より大きく目立つ高さ */
+.haru-masonry-gallery .haru-masonry-gallery-item--wide img {
+  height: 280px; /* 大きめサイズで視覚的な変化を作る */
+}
+
+/* 特別な高さバリエーション（WordPressで手動クラス追加用）*/
+.haru-masonry-gallery .haru-masonry-gallery-item.haru-item-tall img {
+  height: 250px; /* 高めのバリエーション */
+}
+
+.haru-masonry-gallery .haru-masonry-gallery-item.haru-item-short img {
+  height: 150px; /* 低めのバリエーション */
 }
 
 /* figureタグがある場合の調整 */
