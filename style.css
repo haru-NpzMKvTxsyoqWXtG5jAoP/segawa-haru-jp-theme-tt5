@@ -757,13 +757,18 @@ html::after {
 /* アイテムの基本スタイル：Masonry.jsによる自動配置用 */
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  padding: 0; /* Masonryレイアウトのため外側paddingは0 */
-  margin: 0; /* Masonry.jsがmarginを制御 */
+  padding: 0 !important;
+  margin: 0 !important;
   transition: transform var(--transition-fast);
   cursor: pointer;
-  background: transparent; /* 背景は透明に */
-  border-radius: var(--card-border-radius); /* 角丸で統一感 */
-  overflow: hidden; /* 子要素のはみ出し防止 */
+  background: transparent !important;
+  border-radius: var(--card-border-radius);
+  overflow: hidden !important;
+  /* WordPressのflexbox干渉を阻止 */
+  display: block !important;
+  flex: none !important;
+  align-self: auto !important;
+  justify-self: auto !important;
 }
 
 /* アイテム内の内容に統一された内側余白 */
@@ -772,23 +777,27 @@ html::after {
   padding: 0 clamp(6px, 1vw, 12px); /* テキスト要素に適切な左右余白 */
 }
 
-/* 画像スタイル：完全に自然なサイズでMasonry.jsに配置を委ねる */
+/* 画像スタイル：自然なアスペクト比を強制保持 */
 .haru-masonry-gallery .haru-masonry-gallery-item img,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
-  width: 100%;
-  height: auto; /* 完全に自然なアスペクト比 */
-  display: block; /* インラインのgapを除去 */
+  width: 100% !important;
+  height: auto !important; /* アスペクト比を絶対に保持 */
+  max-width: 100% !important;
+  max-height: none !important; /* 高さ制限を完全に解除 */
+  object-fit: cover !important; /* 縦横比を保ちつつフィット */
+  display: block !important;
   border-radius: var(--card-border-radius);
   transition: transform var(--transition-fast);
-  /* max-height、object-fitなどの制限は一切なし */
-  /* Masonry.jsが各画像の自然なサイズで美しく配置 */
 }
 
-/* figureタグがある場合の調整 */
+/* figureタグの制約を完全に解除 */
 .haru-masonry-gallery .haru-masonry-gallery-item figure,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide figure {
-  margin: 0; /* figureのデフォルトmarginを削除 */
-  padding: 0; /* figureのデフォルトpaddingを削除 */
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
 }
 
 /* ホバーエフェクト */
