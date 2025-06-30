@@ -691,6 +691,9 @@ html::after {
   
   /* Masonryコンテナとして設定 */
   position: relative !important;
+  
+  /* ギャップを一元管理 */
+  --gallery-gap: 15px;
 }
 
 /* Grid Sizer（Masonryが列幅を計算する基準） */
@@ -701,80 +704,62 @@ html::after {
 /* アイテムの基本設定（CSS管理の隙間） */
 .haru-masonry-gallery-item {
   width: 100% !important; /* モバイル：1列分 */
-  margin-bottom: 15px !important; /* CSSで隙間管理 */
-  padding-right: 0 !important; /* モバイルは横隙間なし */
+  margin-bottom: var(--gallery-gap) !important; /* 縦隙間 */
+  margin-right: 0 !important; /* モバイルは横隙間なし */
 }
 
 .haru-masonry-gallery-item--wide {
   width: 100% !important; /* モバイル：1列分 */
-  margin-bottom: 15px !important; /* CSSで隙間管理 */
-  padding-right: 0 !important; /* モバイルは横隙間なし */
+  margin-bottom: var(--gallery-gap) !important; /* 縦隙間 */
+  margin-right: 0 !important; /* モバイルは横隙間なし */
 }
 
-/* サービスカードと同じブレイクポイントでの幅制御（隙間込みのcalc） */
+/* サービスカードと同じブレイクポイントでの幅制御（outerWidth = 理想幅になるよう調整） */
 @media (min-width: 718px) {
   .haru-grid-sizer {
-    width: calc(50% - 7.5px); /* 2列の基準幅（隙間15px/2） */
+    width: calc(50% - var(--gallery-gap)); /* 2列の基準幅 */
   }
   
   .haru-masonry-gallery-item {
-    width: calc(50% - 7.5px) !important; /* 2列 */
-    margin-right: 15px !important; /* 横隙間 */
+    width: calc(50% - var(--gallery-gap)) !important; /* outerWidth = 50% */
+    margin-right: var(--gallery-gap) !important;
   }
   
   .haru-masonry-gallery-item--wide {
-    width: calc(100% - 7.5px) !important; /* 2列分 */
-    margin-right: 15px !important; /* 横隙間 */
-  }
-  
-  /* 右端の列は横隙間なし */
-  .haru-masonry-gallery-item:nth-child(2n),
-  .haru-masonry-gallery-item--wide:nth-child(2n) {
-    margin-right: 0 !important;
+    width: calc(100% - var(--gallery-gap)) !important; /* outerWidth = 100% */
+    margin-right: var(--gallery-gap) !important;
   }
 }
 
 @media (min-width: 1131px) {
   .haru-grid-sizer {
-    width: calc(33.333% - 10px); /* 3列の基準幅（隙間15px*2/3） */
+    width: calc(33.333% - var(--gallery-gap)); /* 3列の基準幅 */
   }
   
   .haru-masonry-gallery-item {
-    width: calc(33.333% - 10px) !important; /* 3列 */
-    margin-right: 15px !important; /* 横隙間 */
+    width: calc(33.333% - var(--gallery-gap)) !important; /* outerWidth = 33.333% */
+    margin-right: var(--gallery-gap) !important;
   }
   
   .haru-masonry-gallery-item--wide {
-    width: calc(66.666% - 5px) !important; /* 2列分 */
-    margin-right: 15px !important; /* 横隙間 */
-  }
-  
-  /* 右端の列は横隙間なし */
-  .haru-masonry-gallery-item:nth-child(3n),
-  .haru-masonry-gallery-item--wide:nth-child(3n) {
-    margin-right: 0 !important;
+    width: calc(66.666% - var(--gallery-gap)) !important; /* outerWidth = 66.666% */
+    margin-right: var(--gallery-gap) !important;
   }
 }
 
 @media (min-width: 1800px) {
   .haru-grid-sizer {
-    width: calc(25% - 11.25px); /* 4列の基準幅（隙間15px*3/4） */
+    width: calc(25% - var(--gallery-gap)); /* 4列の基準幅 */
   }
   
   .haru-masonry-gallery-item {
-    width: calc(25% - 11.25px) !important; /* 4列 */
-    margin-right: 15px !important; /* 横隙間 */
+    width: calc(25% - var(--gallery-gap)) !important; /* outerWidth = 25% */
+    margin-right: var(--gallery-gap) !important;
   }
   
   .haru-masonry-gallery-item--wide {
-    width: calc(50% - 7.5px) !important; /* 2列分 */
-    margin-right: 15px !important; /* 横隙間 */
-  }
-  
-  /* 右端の列は横隙間なし */
-  .haru-masonry-gallery-item:nth-child(4n),
-  .haru-masonry-gallery-item--wide:nth-child(4n) {
-    margin-right: 0 !important;
+    width: calc(50% - var(--gallery-gap)) !important; /* outerWidth = 50% */
+    margin-right: var(--gallery-gap) !important;
   }
 }
 
