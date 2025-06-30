@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var msnry = new Masonry( elem, {
         // オプション
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
-        columnWidth: '.grid-sizer',
-        gutter: 0, // 隙間なしレイアウト
+        columnWidth: '.haru-grid-sizer',
+        gutter: 4, // CSS変数 --gallery-gutter と同期
         percentPosition: true,
         transitionDuration: 0
       });

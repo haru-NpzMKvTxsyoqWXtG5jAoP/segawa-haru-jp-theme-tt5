@@ -734,17 +734,21 @@ html::after {
   --gallery-gap: 4px;
 }
 
-/* Masonryレイアウト：SWELL方式の確実な幅計算 */
-.haru-masonry-gallery .grid-sizer,
-.haru-masonry-gallery .haru-masonry-gallery-item {
-  margin-bottom: var(--gallery-gap);
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
+/* Grid sizer element (invisible but required for Masonry column width) */
+.haru-masonry-gallery .haru-grid-sizer {
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols));
+  height: 0;
+  visibility: hidden;
 }
 
-/* ワイドアイテム：2列分の幅（SWELL方式） */
+/* Masonryレイアウト：シンプルで確実な幅計算 */
+.haru-masonry-gallery .haru-masonry-gallery-item {
+  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols));
+}
+
+/* ワイドアイテム：2列分の幅 */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  margin-bottom: var(--gallery-gap);
-  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
+  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter));
 }
 
 
