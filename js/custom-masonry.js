@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
       masonry = new Masonry(container, {
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
         columnWidth: '.haru-grid-sizer',
-        gutter: 15,
+        gutter: 0,
         percentPosition: true
       });
       

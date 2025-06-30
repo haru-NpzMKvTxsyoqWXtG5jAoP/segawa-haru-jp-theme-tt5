@@ -698,57 +698,83 @@ html::after {
   width: 100%; /* モバイル：1列分 */
 }
 
-/* アイテムの基本設定 */
+/* アイテムの基本設定（CSS管理の隙間） */
 .haru-masonry-gallery-item {
   width: 100% !important; /* モバイル：1列分 */
-  margin-bottom: 0 !important; /* Masonryのgutterに任せる */
+  margin-bottom: 15px !important; /* CSSで隙間管理 */
+  padding-right: 0 !important; /* モバイルは横隙間なし */
 }
 
 .haru-masonry-gallery-item--wide {
   width: 100% !important; /* モバイル：1列分 */
-  margin-bottom: 0 !important; /* Masonryのgutterに任せる */
+  margin-bottom: 15px !important; /* CSSで隙間管理 */
+  padding-right: 0 !important; /* モバイルは横隙間なし */
 }
 
-/* サービスカードと同じブレイクポイントでの幅制御 */
+/* サービスカードと同じブレイクポイントでの幅制御（隙間込みのcalc） */
 @media (min-width: 718px) {
   .haru-grid-sizer {
-    width: 50%; /* 2列の基準幅 */
+    width: calc(50% - 7.5px); /* 2列の基準幅（隙間15px/2） */
   }
   
   .haru-masonry-gallery-item {
-    width: 50% !important; /* 2列 */
+    width: calc(50% - 7.5px) !important; /* 2列 */
+    margin-right: 15px !important; /* 横隙間 */
   }
   
   .haru-masonry-gallery-item--wide {
-    width: 100% !important; /* 2列分 */
+    width: calc(100% - 7.5px) !important; /* 2列分 */
+    margin-right: 15px !important; /* 横隙間 */
+  }
+  
+  /* 右端の列は横隙間なし */
+  .haru-masonry-gallery-item:nth-child(2n),
+  .haru-masonry-gallery-item--wide:nth-child(2n) {
+    margin-right: 0 !important;
   }
 }
 
 @media (min-width: 1131px) {
   .haru-grid-sizer {
-    width: 33.333%; /* 3列の基準幅 */
+    width: calc(33.333% - 10px); /* 3列の基準幅（隙間15px*2/3） */
   }
   
   .haru-masonry-gallery-item {
-    width: 33.333% !important; /* 3列 */
+    width: calc(33.333% - 10px) !important; /* 3列 */
+    margin-right: 15px !important; /* 横隙間 */
   }
   
   .haru-masonry-gallery-item--wide {
-    width: 66.666% !important; /* 2列分 */
+    width: calc(66.666% - 5px) !important; /* 2列分 */
+    margin-right: 15px !important; /* 横隙間 */
+  }
+  
+  /* 右端の列は横隙間なし */
+  .haru-masonry-gallery-item:nth-child(3n),
+  .haru-masonry-gallery-item--wide:nth-child(3n) {
+    margin-right: 0 !important;
   }
 }
 
 @media (min-width: 1800px) {
   .haru-grid-sizer {
-    width: 25%; /* 4列の基準幅 */
+    width: calc(25% - 11.25px); /* 4列の基準幅（隙間15px*3/4） */
   }
   
   .haru-masonry-gallery-item {
-    width: 25% !important; /* 4列 */
+    width: calc(25% - 11.25px) !important; /* 4列 */
+    margin-right: 15px !important; /* 横隙間 */
   }
   
   .haru-masonry-gallery-item--wide {
-    width: 50% !important; /* 2列分 */
+    width: calc(50% - 7.5px) !important; /* 2列分 */
+    margin-right: 15px !important; /* 横隙間 */
+  }
+  
+  /* 右端の列は横隙間なし */
+  .haru-masonry-gallery-item:nth-child(4n),
+  .haru-masonry-gallery-item--wide:nth-child(4n) {
+    margin-right: 0 !important;
   }
 }
 
