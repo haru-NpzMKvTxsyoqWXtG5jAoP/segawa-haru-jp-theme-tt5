@@ -736,21 +736,21 @@ html::after {
 
 /* Grid sizer element (invisible but required for Masonry column width calculation) */
 .haru-masonry-gallery .haru-grid-sizer {
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
+  width: 33.333% !important; /* 3列基準：シンプルで確実 */
   height: 0;
   visibility: hidden;
 }
 
 /* Masonryアイテム：通常サイズ（1列分）*/
 .haru-masonry-gallery .haru-masonry-gallery-item {
-  width: calc((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) !important;
-  margin-bottom: var(--gallery-gap);
+  width: 33.333% !important; /* 3列基準：1列分 */
+  margin-bottom: 4px;
 }
 
 /* Masonryアイテム：ワイドサイズ（2列分）*/
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  width: calc(((100% - (var(--gallery-gutter) * (var(--gallery-cols) - 1))) / var(--gallery-cols)) * 2 + var(--gallery-gutter)) !important;
-  margin-bottom: var(--gallery-gap);
+  width: 66.666% !important; /* 3列基準：2列分 */
+  margin-bottom: 4px;
 }
 
 
