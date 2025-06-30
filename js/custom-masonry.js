@@ -26,15 +26,24 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Calculated grid width:', gridWidth);
         
         var msnry = new Masonry( elem, {
-          // シンプル設定で確実に動作
+          // 縦詰め（テトリス効果）を確実にするための設定
           itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
           columnWidth: '.haru-grid-sizer',
           gutter: 4,
-          percentPosition: true,
-          transitionDuration: 0
+          percentPosition: false, // absolute配置で確実な縦詰め
+          transitionDuration: 0,
+          originTop: true, // 上から配置開始
+          originLeft: true, // 左から配置開始
+          initLayout: true // 初期レイアウト実行
         });
         
         console.log('Masonry initialized:', msnry);
+        
+        // CSS干渉を強制的に解除してMasonryのposition制御を有効化
+        var items = elem.querySelectorAll('.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide');
+        items.forEach(function(item) {
+          item.style.position = ''; // CSSのposition指定をクリア
+        });
         
         // グローバルに保存してデバッグ用にアクセス可能にする
         window.masonryInstance = msnry;
