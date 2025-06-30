@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var msnry = new Masonry( elem, {
         // オプション
         itemSelector: '.haru-masonry-gallery-item, .haru-masonry-gallery-item--wide',
-        columnWidth: '.haru-grid-sizer',
+        columnWidth: '.grid-sizer',
         gutter: 0, // 隙間なしレイアウト
         percentPosition: true,
         transitionDuration: 0
