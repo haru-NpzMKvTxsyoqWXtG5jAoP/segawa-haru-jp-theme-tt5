@@ -734,34 +734,29 @@ html::after {
   display: block !important;
 }
 
-/* シンプルで確実なMasonryアイテム幅制御（3列レイアウト確実実現）*/
-.haru-masonry-gallery .haru-grid-sizer,
-.haru-masonry-gallery .haru-masonry-gallery-item {
-  margin-bottom: var(--gallery-gap);
-  width: 32.5% !important; /* 3列：シンプルで確実な幅（33.33% - 余白調整）*/
-  float: left;
-  box-sizing: border-box;
-}
-
-/* グリッドサイザーは非表示 */
+/* 真のMasonryレイアウト：画像サイズに応じた自然な配置 */
 .haru-masonry-gallery .haru-grid-sizer {
+  width: 33.33%; /* 3列の基準幅 */
   height: 0;
   visibility: hidden;
 }
 
-/* ワイドアイテム：2列分の幅（シンプル計算）*/
+/* 通常アイテム：3列の1/3幅 */
+.haru-masonry-gallery .haru-masonry-gallery-item {
+  width: 33.33%; /* Masonry.jsが基準とする幅 */
+}
+
+/* ワイドアイテム：3列の2/3幅 */
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
-  margin-bottom: var(--gallery-gap);
-  width: 66% !important; /* 2列分：シンプルで確実な幅（32.5% × 2 + 余白）*/
-  float: left;
-  box-sizing: border-box;
+  width: 66.66%; /* 2列分の幅 */
 }
 
 
-/* アイテムの基本スタイル：美しいレイアウトのための設計 */
+/* アイテムの基本スタイル：Masonry.jsによる自動配置用 */
 .haru-masonry-gallery .haru-masonry-gallery-item,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide {
   padding: 0; /* Masonryレイアウトのため外側paddingは0 */
+  margin: 0; /* Masonry.jsがmarginを制御 */
   transition: transform var(--transition-fast);
   cursor: pointer;
   background: transparent; /* 背景は透明に */
@@ -775,17 +770,16 @@ html::after {
   padding: 0 clamp(6px, 1vw, 12px); /* テキスト要素に適切な左右余白 */
 }
 
-/* 画像スタイル：自然なアスペクト比で真のMasonryの美しさを実現（適度な制限あり）*/
+/* 画像スタイル：完全に自然なサイズでMasonry.jsに配置を委ねる */
 .haru-masonry-gallery .haru-masonry-gallery-item img,
 .haru-masonry-gallery .haru-masonry-gallery-item--wide img {
   width: 100%;
-  height: auto; /* 自然なアスペクト比を維持 */
-  max-height: 300px; /* 異常に縦長になることを防ぐ適度な制限 */
+  height: auto; /* 完全に自然なアスペクト比 */
   display: block; /* インラインのgapを除去 */
   border-radius: var(--card-border-radius);
   transition: transform var(--transition-fast);
-  object-fit: cover; /* 最大高さ制限時のみ適用される */
-  object-position: center; /* 中央部分を表示 */
+  /* max-height、object-fitなどの制限は一切なし */
+  /* Masonry.jsが各画像の自然なサイズで美しく配置 */
 }
 
 /* figureタグがある場合の調整 */
