@@ -20,11 +20,6 @@
           "slug": "source-han-sans-japanese",
           "name": "源ノ角ゴシック"
         }
-      ],
-      "fontSizes": [
-        { "slug": "ss", "size": "0.8125rem", "name": "SS" },
-        { "slug": "s",  "size": "0.875rem",  "name": "Base" },
-        { "slug": "m",  "size": "0.9375rem", "name": "M" }
       ]
     }
   },
