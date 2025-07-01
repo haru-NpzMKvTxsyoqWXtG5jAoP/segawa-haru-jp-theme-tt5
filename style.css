@@ -247,8 +247,13 @@ html::after {
   .haru-masonry-gallery-item--wide { width: calc(50% - var(--gallery-gap)); margin-right: var(--gallery-gap); }
 }
 
-/* WordPress interference fix */
-.haru-masonry-gallery * { max-width: none !important; margin-block: 0 !important; }
+/* WordPress interference fix - precise targeting */
+.haru-masonry-gallery .wp-block-group {
+  display: block !important;
+  flex: initial !important;
+  margin: 0 !important;
+  /* position は Masonry に任せる */
+}
 
 /* ============================================
    Message Form
