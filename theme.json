@@ -26,10 +26,6 @@
         { "slug": "s",  "size": "0.875rem",  "name": "Base" },
         { "slug": "m",  "size": "0.9375rem", "name": "M" }
       ]
-    },
-
-    "layout": {
-      "contentSize": "700px"
     }
   },
 
