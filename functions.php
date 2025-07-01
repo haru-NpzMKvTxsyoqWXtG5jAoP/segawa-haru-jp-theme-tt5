@@ -22,39 +22,5 @@ function haru_enqueue_assets() {
     /* Adobe Fonts (Typekit) – 源ノ角ゴシック */
     wp_enqueue_script( 'haru-typekit', 'https://use.typekit.net/bew5wgt.js', array(), null, false );
     wp_add_inline_script( 'haru-typekit', 'try{Typekit.load({async:true});}catch(e){}' );
-
-    /* Masonry関連JavaScript */
-    wp_enqueue_script(
-        'haru-masonry',
-        get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js',
-        array(),
-        filemtime( get_stylesheet_directory() . '/js/masonry.pkgd.min.js' ),
-        true
-    );
-
-    wp_enqueue_script(
-        'haru-imagesloaded',
-        get_stylesheet_directory_uri() . '/js/imagesloaded.pkgd.min.js',
-        array(),
-        filemtime( get_stylesheet_directory() . '/js/imagesloaded.pkgd.min.js' ),
-        true
-    );
-
-    wp_enqueue_script(
-        'haru-custom-masonry',
-        get_stylesheet_directory_uri() . '/js/custom-masonry.js',
-        array( 'haru-masonry', 'haru-imagesloaded' ),
-        filemtime( get_stylesheet_directory() . '/js/custom-masonry.js' ),
-        true
-    );
-
-    /* プロフィールカードJavaScript */
-    wp_enqueue_script(
-        'haru-profile-card',
-        get_stylesheet_directory_uri() . '/js/profile-card.js',
-        array(),
-        filemtime( get_stylesheet_directory() . '/js/profile-card.js' ),
-        true
-    );
 }
 add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );

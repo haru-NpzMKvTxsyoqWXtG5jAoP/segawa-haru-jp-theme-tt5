@@ -2,15 +2,15 @@
      プロフィールカード（ロゴを <picture> へ統合／無駄な wrapper 削除）
 ================================================ -->
 
-<div class="haru-card-container">
-  <article class="haru-card">
+<div class="haru-profile-card-container">
+  <article class="haru-profile-card">
 
     <!-- ============== カード表面 ============== -->
-    <div class="haru-card__front">
+    <div class="haru-profile-card__front">
 
       <!-- === 1段目 : ロゴ + 区切り線 === -->
-      <header class="haru-card__header">
-        <picture class="haru-card__logo">
+      <header class="haru-profile-card__header">
+        <picture class="haru-profile-card__logo">
           <!-- PC 横ロゴ（1271×128 ≒10:1） -->
           <source media="(min-width: 768px)" srcset="https://segawa-haru.jp/wp-content/uploads/2025/06/harusegawa_pc.svg">
           <!-- SP 縦ロゴ（235×550 ≒1:2.34） -->
@@ -21,7 +21,7 @@
       </header>
 
       <!-- ▼▼ 画像ブロックを header 横に配置するため .haru-card-front 直下へ移動 ▼▼ -->
-      <picture class="haru-card__image">
+      <picture class="haru-profile-card__image">
         <source media="(min-width: 768px)"
                 srcset="https://segawa-haru.jp/wp-content/uploads/2025/06/dummy_icon_pc.webp">
         <img src="https://segawa-haru.jp/wp-content/uploads/2025/06/dummy_icon_sp.webp"
@@ -30,51 +30,51 @@
       </picture>
 
       <!-- 区切り線 -->
-      <div class="haru-card__divider"></div>
+      <div class="haru-profile-card__divider"></div>
 
       <!-- === 2段目 : JP / フッター === -->
-      <div class="haru-card__body">
+      <div class="haru-profile-card__body">
 
         <!-- 日本語テキスト -->
-        <div class="haru-card__text--jp">
+        <div class="haru-profile-card__text--jp">
           <p>一人ひとりの「やりたいこと」に、応える教えるクリエイターとして、レクチャー/デザイン/制作を承っています。アートが好きで、日本画やパターンデザインの制作もしています。</p>
         </div>
 
         <!-- ▼ フッター（英語テキスト & 矢印） をJPテキストの下に独立配置 -->
-      </div><!-- /.haru-card__body -->
+      </div><!-- /.haru-profile-card__body -->
 
-      <footer class="haru-card__footer">
-        <div class="haru-card__text--en">
+      <footer class="haru-profile-card__footer">
+        <div class="haru-profile-card__text--en">
           <p>Creator & Lecturer｜Design, Production</p>
           <p>Also Nihonga & Pattern Design.</p>
         </div>
-        <div class="haru-card__arrow">
+        <div class="haru-profile-card__arrow">
           <img src="https://segawa-haru.jp/wp-content/uploads/2025/06/arrow.svg" alt="" aria-hidden="true" width="110" height="20" loading="lazy" decoding="async">
         </div>
       </footer>
-    </div><!-- /.haru-card__front -->
+    </div><!-- /.haru-profile-card__front -->
 
 
     <!-- ============== カード裏面 ============== -->
-    <div class="haru-card__back">
+    <div class="haru-profile-card__back">
 
-      <div class="haru-card__back-text">
+      <div class="haru-profile-card__back-text">
         <p>企業でのデザイナー経験を経て、フリーランスとして活動。新しい技術に関心が強く、AIなども積極的に勉強して取り入れるようにしています。</p>
         <p>サービス内容や作品については、当サイトをご覧ください。まずはお気軽にご相談くださいませ。</p>
       </div>
 
-      <div class="haru-card__back-separator"></div>
+      <div class="haru-profile-card__back-separator"></div>
 
-      <div class="haru-card__back-tools">
+      <div class="haru-profile-card__back-tools">
         <p><strong>MAIN TOOL :</strong> Illustrator / Photoshop / Canva / Adobe Fresco / WordPress / STUDIO / 岩絵具 / 色鉛筆</p>
       </div>
 
-      <div class="haru-card__back-hashtags">
+      <div class="haru-profile-card__back-hashtags">
         <p>#レクチャー #イラスト #日本画 #パターンデザイン #グラフィックデザイン #Webデザイン #ネットショップ運営 #教えるのが好き</p>
       </div>
 
       <!-- SNS ＆ 矢印 -->
-      <div class="haru-card__back-sns">
+      <div class="haru-profile-card__back-sns">
         <p>SNS準備中</p>
         <div class="sns-icons">
           <!-- Instagram -->
@@ -103,14 +103,14 @@
         </div>
 
         <!-- 戻り矢印 -->
-        <div class="haru-card__arrow">
+        <div class="haru-profile-card__arrow">
           <img src="https://segawa-haru.jp/wp-content/uploads/2025/06/arrow.svg"
                alt="" aria-hidden="true"
                width="110" height="20"
                loading="lazy" decoding="async">
         </div>
       </div>
-    </div><!-- /.haru-card__back -->
+    </div><!-- /.haru-profile-card__back -->
 
-  </article><!-- /.haru-card -->
-</div><!-- /.haru-card-container -->
+  </article><!-- /.haru-profile-card -->
+</div><!-- /.haru-profile-card-container -->
