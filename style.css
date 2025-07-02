@@ -6,16 +6,11 @@ Template: twentytwentyfive
 /* =============================================
    Vertical Header Navigation (rotate links)
 ============================================= */
-.haru-vertical-header .wp-block-navigation__container {
-  display: flex;
-  flex-direction: column; /* Stack links vertically */
-}
-
-.haru-vertical-header .wp-block-navigation-item__content {
-  display:inline-block;      /* 回転前の横書きを保つ箱 */
-  white-space:nowrap;        /* テキストの折り返し防止 */
-  transform:rotate(90deg);   /* 90° 時計回りに回転（上→下に読ませる）*/
-  transform-origin:top left; /* 基準点を固定 */
+/* 縦ヘッダーリンクを横倒し配置 */
+.haru-vertical-header .wp-block-navigation-item__content{
+  display:inline-block;
+  white-space:nowrap;
+  transform:rotate(90deg);
 }
 
 /* モバイルなどで横向きヘッダーに戻す場合はメディアクエリでオーバーライドしてね */
