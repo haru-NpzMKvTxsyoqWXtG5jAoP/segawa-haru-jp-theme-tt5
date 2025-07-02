@@ -4,20 +4,16 @@ Template: twentytwentyfive
 */
 
 /* =============================================
-   Vertical Header Navigation
-   英文字を横向きのまま縦に並べる
+   Vertical Header Navigation (rotate links)
 ============================================= */
 .haru-vertical-header .wp-block-navigation__container {
   display: flex;
   flex-direction: column; /* Stack links vertically */
-  gap: 0.5rem; /* 調整用：リンク間の余白 */
-  align-items: center; /* 中央寄せ（お好みで） */
 }
 
 .haru-vertical-header .wp-block-navigation-item__content {
-  writing-mode: vertical-rl; /* 縦書きレイアウト */
-  text-orientation: upright; /* 英字を横向きのまま表示 */
-  white-space: nowrap; /* 途中改行を防ぐ */
+  transform: rotate(-90deg);
+  transform-origin: left top;
 }
 
 /* モバイルなどで横向きヘッダーに戻す場合はメディアクエリでオーバーライドしてね */
