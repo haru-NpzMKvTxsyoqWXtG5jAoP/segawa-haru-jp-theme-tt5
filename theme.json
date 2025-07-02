@@ -14,6 +14,7 @@
     },
 
     "typography": {
+      "writingMode": true,
       "fontFamilies": [
         {
           "fontFamily": "\"source-han-sans-japanese\", sans-serif",
