@@ -16,6 +16,11 @@ Template: twentytwentyfive
    サービスカード
 ============================================= */
 
+/* コンテナの隙間調整 */
+.haru-service-cards-container {
+  gap: 1rem;
+}
+
 /* 個別カード */
 .haru-service-card {
   background: #fff;
