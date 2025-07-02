@@ -21,6 +21,10 @@ Template: twentytwentyfive
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
+.haru-vertical-header {
+  width: clamp(2.5rem, 6vw, 3.75rem);
+}
+
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl; /* 縦組みレイアウト */
   text-orientation: sideways; /* 英字は横倒しで保持 */
