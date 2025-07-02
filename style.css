@@ -22,7 +22,8 @@ Template: twentytwentyfive
    縦型ヘッダーバー
 ============================================= */
 .haru-vertical-header {
-  width: clamp(2.5rem, 6vw, 3.75rem);
+  width: clamp(1.5rem, 4vw, 2.5rem);
+  margin-left: auto;
 }
 
 .haru-vertical-header .wp-block-navigation-item__content{
