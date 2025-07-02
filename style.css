@@ -3,38 +3,22 @@ Theme Name: TT5 Child
 Template: twentytwentyfive
 */
 
-/* ===========================================================
-   幅用CSS変数
-=========================================================== */
-:root {
-  /* 1) ビジュアル幅：左右パディングを画面幅で可変 */
-  --haru-padding-sides-visual: clamp(15px, calc(2.5px + 3.3vw), 50px);
-
-  /* 2) サービス幅：最大 188px の自動パディング */
-  /* サービス幅関連のパラメータ */
-  --haru-service-breakpoint: 1000px;  /* この幅を超えたら余白を拡大 */
-  --haru-service-max-padding: 188px;  /* 余白の上限 */
-
-  --haru-padding-sides-service: clamp(
-      var(--haru-padding-sides-visual),
-      calc((100vw - var(--haru-service-breakpoint)) / 2),
-      var(--haru-service-max-padding)
-  );
+/* =============================================
+   Vertical Header Navigation
+   英文字を横向きのまま縦に並べる
+============================================= */
+.haru-vertical-header .wp-block-navigation__container {
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  gap: 0.5rem; /* 調整用：リンク間の余白 */
+  align-items: center; /* 中央寄せ（お好みで） */
 }
 
-/* ===========================================================
-   幅ごとの共通ユーティリティクラス（padding 系）
-=========================================================== */
-/* WordPress が自動付与する制約幅ブロックに基本余白をセット */
-.wp-block-post-content .is-layout-constrained {
-  padding-inline: var(--haru-padding-sides-visual);
+.haru-vertical-header .wp-block-navigation-item__content {
+  writing-mode: vertical-rl; /* 縦書きレイアウト */
+  text-orientation: upright; /* 英字を横向きのまま表示 */
+  white-space: nowrap; /* 途中改行を防ぐ */
 }
 
-/* Tailwind 風ユーティリティクラス */
-.u-px-visual {
-  padding-inline: var(--haru-padding-sides-visual);
-}
+/* モバイルなどで横向きヘッダーに戻す場合はメディアクエリでオーバーライドしてね */
 
-.u-px-service {
-  padding-inline: var(--haru-padding-sides-service);
-}
