@@ -15,7 +15,7 @@ Template: twentytwentyfive
    レスポンシブスペーサー
 ============================================= */
 .haru-spacer-large {
-  height: clamp(1.25rem, 5vw, 3.75rem) !important;
+  height: clamp(1.5rem, 5vw, 4rem) !important;
 }
 
 /* =============================================
