@@ -12,8 +12,10 @@ Template: twentytwentyfive
 }
 
 .haru-vertical-header .wp-block-navigation-item__content {
-  transform: rotate(-90deg);
-  transform-origin: left top;
+  display:inline-block;      /* 回転前の横書きを保つ箱 */
+  white-space:nowrap;        /* テキストの折り返し防止 */
+  transform:rotate(90deg);   /* 90° 時計回りに回転（上→下に読ませる）*/
+  transform-origin:top left; /* 基準点を固定 */
 }
 
 /* モバイルなどで横向きヘッダーに戻す場合はメディアクエリでオーバーライドしてね */
