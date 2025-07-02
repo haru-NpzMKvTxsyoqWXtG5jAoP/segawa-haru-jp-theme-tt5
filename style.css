@@ -4,6 +4,14 @@ Template: twentytwentyfive
 */
 
 /* =============================================
+   CSS変数（共通設定）
+============================================= */
+:root {
+  --haru-element-gap: 1px;
+  --haru-element-border-radius: 20px;
+}
+
+/* =============================================
    縦型ヘッダー
 ============================================= */
 .haru-vertical-header .wp-block-navigation-item__content{
@@ -18,13 +26,13 @@ Template: twentytwentyfive
 
 /* コンテナの隙間調整 */
 .haru-service-cards-container {
-  gap: 1rem;
+  gap: var(--haru-element-gap);
 }
 
 /* 個別カード */
 .haru-service-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: var(--haru-element-border-radius);
   padding: 1.5rem;
   transition: transform 0.15s ease-out;
 }
@@ -37,7 +45,7 @@ Template: twentytwentyfive
 .haru-service-card img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
   margin-bottom: 1rem;
 }
 
