@@ -4,13 +4,12 @@ Template: twentytwentyfive
 */
 
 /* =============================================
-   Vertical Header Navigation (rotate links)
+   Vertical Header Navigation (sideways text)
 ============================================= */
-/* 縦ヘッダーリンクを横倒し配置 */
 .haru-vertical-header .wp-block-navigation-item__content{
-  display:inline-block;
-  white-space:nowrap;
-  transform:rotate(90deg);
+  writing-mode: vertical-rl; /* 縦組みレイアウト */
+  text-orientation: sideways; /* 英字は横倒しで保持 */
+  white-space: nowrap; /* 折り返し防止 */
 }
 
 /* モバイルなどで横向きヘッダーに戻す場合はメディアクエリでオーバーライドしてね */
