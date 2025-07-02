@@ -4,7 +4,7 @@ Template: twentytwentyfive
 */
 
 /* =============================================
-   Vertical Header Navigation (sideways text)
+   縦型ヘッダー
 ============================================= */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl; /* 縦組みレイアウト */
@@ -12,5 +12,35 @@ Template: twentytwentyfive
   white-space: nowrap; /* 折り返し防止 */
 }
 
-/* モバイルなどで横向きヘッダーに戻す場合はメディアクエリでオーバーライドしてね */
+/* =============================================
+   サービスカード
+============================================= */
+
+/* 個別カード */
+.haru-service-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.15s ease-out;
+}
+
+.haru-service-card:hover {
+  transform: scale(0.95);
+}
+
+/* カード内の画像 */
+.haru-service-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+
+/* 大画面: 最大5列で固定 */
+@media (min-width: 1600px) {
+  .haru-service-cards-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
 
