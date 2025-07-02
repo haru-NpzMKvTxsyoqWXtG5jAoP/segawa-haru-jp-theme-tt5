@@ -4,7 +4,7 @@ Template: twentytwentyfive
 */
 
 /* =============================================
-   CSS変数（共通設定）
+   共通設定
 ============================================= */
 :root {
   --haru-element-gap: 1px;
@@ -12,7 +12,14 @@ Template: twentytwentyfive
 }
 
 /* =============================================
-   縦型ヘッダー
+   レスポンシブスペーサー
+============================================= */
+.haru-spacer-large {
+  height: clamp(1.25rem, 5vw, 3.75rem) !important;
+}
+
+/* =============================================
+   縦型ヘッダーバー
 ============================================= */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl; /* 縦組みレイアウト */
@@ -24,31 +31,37 @@ Template: twentytwentyfive
    サービスカード
 ============================================= */
 
-/* コンテナの隙間調整 */
+/* 最大5列で固定 */
+@media (min-width: 1800px) {
+  .haru-service-cards-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* カード間の隙間調整 */
 .haru-service-cards-container {
   gap: var(--haru-element-gap);
 }
 
-/* 個別カード */
+/* 本体 */
 .haru-service-card {
   background: #fff;
   border-radius: var(--haru-element-border-radius);
   padding: clamp(0.75rem, 2vw + 0.5rem, 1.5rem);
   transition: transform 0.15s ease-out;
 }
-
 .haru-service-card:hover {
   transform: scale(0.95);
 }
 
-/* カード内の画像 */
+/* サムネ画像 */
 .haru-service-card img {
   width: 100%;
   height: auto;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
 
-/* カード内の見出し */
+/* サービス名 */
 .haru-service-card h3 {
   font-size: clamp(1rem, 4vw, 1.25rem);
   font-weight: 700;
@@ -56,18 +69,4 @@ Template: twentytwentyfive
   margin-bottom: 1rem;
 }
 
-
-/* 大画面: 最大5列で固定 */
-@media (min-width: 1600px) {
-  .haru-service-cards-container {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-/* =============================================
-   スペーサー
-============================================= */
-.haru-spacer-large {
-  height: clamp(1.25rem, 5vw, 3.75rem);
-}
 
