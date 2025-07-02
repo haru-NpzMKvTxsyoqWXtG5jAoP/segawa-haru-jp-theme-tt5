@@ -46,15 +46,14 @@ Template: twentytwentyfive
   width: 100%;
   height: auto;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
-  margin-bottom: 1rem;
 }
 
 /* カード内の見出し */
 .haru-service-card h3 {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 4vw, 1.25rem);
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  margin-top: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 
