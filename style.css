@@ -9,6 +9,7 @@ Template: twentytwentyfive
 :root {
   --haru-element-gap: 1px;
   --haru-element-border-radius: 20px;
+  --haru-nav-bar-w: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 /* =============================================
@@ -19,10 +20,19 @@ Template: twentytwentyfive
 }
 
 /* =============================================
+   ヘッダー用2カラムレイアウト
+============================================= */
+/* 右バーが 60–120 px、中央 8 vw で滑らかに伸びる */
+.haru-two-column {
+  display:grid;
+  grid-template-columns:1fr var(--haru-nav-bar-w);
+}
+
+/* =============================================
    縦型ヘッダーバー
 ============================================= */
 .haru-vertical-header {
-  width: clamp(1.5rem, 4vw, 2.5rem);
+  width: var(--haru-nav-bar-w);
   margin-left: auto;
 }
 

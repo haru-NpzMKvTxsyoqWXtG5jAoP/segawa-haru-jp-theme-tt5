@@ -14,7 +14,6 @@
     },
 
     "typography": {
-      "writingMode": true,
       "fontFamilies": [
         {
           "fontFamily": "\"source-han-sans-japanese\", sans-serif",
@@ -37,6 +36,27 @@
           "fontWeight": "400"
         }
       }
+    }
+  },
+
+  "blocks": {
+    "core/group": {
+      "styles": [
+        {
+          "name": "haru-two-column",
+          "label": "左右2列・右バー可変",
+          "selector": ".haru-two-column"
+        }
+      ]
+    },
+    "core/columns": {
+      "styles": [
+        {
+          "name": "haru-two-column",
+          "label": "左右2列・右バー可変",
+          "selector": ".haru-two-column"
+        }
+      ]
     }
   }
 } 
