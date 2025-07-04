@@ -13,22 +13,13 @@ Template: twentytwentyfive
 }
 
 /* =============================================
-   レスポンシブスペーサー
-============================================= */
-.haru-spacer-large {
-  height: clamp(1.5rem, 5vw, 4rem) !important;
-}
-
-/* =============================================
-   2カラム右 ヘッダーバー幅に合わせる
+   縦型ヘッダーバー
 ============================================= */
 /* 右カラム全体に背景と高さ確保 */
 .haru-bar-column{
   max-width: var(--haru-nav-bar-w);
   background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
   overflow: visible !important;   /* sticky 殺し回避 */
-  display: flex;                  /* ← 追加 */
-  flex-direction: column;         /* ← 追加 */
   align-self: stretch !important; /* 右カラムを必ず行の高さいっぱい伸ばす */
 }
 
@@ -38,10 +29,7 @@ Template: twentytwentyfive
   top: 0;
 }
 
-/* =============================================
-   縦型ヘッダーバー
-============================================= */
-
+/* 文字縦組み */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl; /* 縦組みレイアウト */
   text-orientation: sideways; /* 英字は横倒しで保持 */
@@ -49,9 +37,15 @@ Template: twentytwentyfive
 }
 
 /* =============================================
+   レスポンシブスペーサー
+============================================= */
+.haru-spacer-large {
+  height: clamp(1.5rem, 5vw, 4rem) !important;
+}
+
+/* =============================================
    サービスカード
 ============================================= */
-
 /* 最大5列で固定 */
 @media (min-width: 1800px) {
   .haru-service-cards-container {
