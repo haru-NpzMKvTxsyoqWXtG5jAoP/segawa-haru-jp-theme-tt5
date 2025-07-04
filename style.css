@@ -19,8 +19,6 @@ Template: twentytwentyfive
 .haru-bar-column{
   max-width: var(--haru-nav-bar-w);
   background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
-  overflow: visible !important;   /* sticky 殺し回避 */
-  align-self: stretch !important; /* 右カラムを必ず行の高さいっぱい伸ばす */
 }
 
 /* ナビ本体を sticky */
@@ -31,9 +29,7 @@ Template: twentytwentyfive
 
 /* 文字縦組み */
 .haru-vertical-header .wp-block-navigation-item__content{
-  writing-mode: vertical-rl; /* 縦組みレイアウト */
-  text-orientation: sideways; /* 英字は横倒しで保持 */
-  white-space: nowrap; /* 折り返し防止 */
+  writing-mode: vertical-rl;
 }
 
 /* =============================================
@@ -63,10 +59,6 @@ Template: twentytwentyfive
   background: #fff;
   border-radius: var(--haru-element-border-radius);
   padding: clamp(0.75rem, 2vw + 0.5rem, 1.5rem);
-  transition: transform 0.15s ease-out;
-}
-.haru-service-card:hover {
-  transform: scale(0.95);
 }
 
 /* サムネ画像 */
@@ -74,6 +66,10 @@ Template: twentytwentyfive
   width: 100%;
   height: auto;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
+  transition: transform 0.15s ease-out;
+}
+.haru-service-card:hover img {
+  transform: scale(0.95);
 }
 
 /* サービス名 */
