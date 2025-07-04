@@ -37,26 +37,5 @@
         }
       }
     }
-  },
-
-  "blocks": {
-    "core/group": {
-      "styles": [
-        {
-          "name": "haru-two-column",
-          "label": "左右2列・右バー可変",
-          "selector": ".haru-two-column"
-        }
-      ]
-    },
-    "core/columns": {
-      "styles": [
-        {
-          "name": "haru-two-column",
-          "label": "左右2列・右バー可変",
-          "selector": ".haru-two-column"
-        }
-      ]
-    }
   }
 } 
