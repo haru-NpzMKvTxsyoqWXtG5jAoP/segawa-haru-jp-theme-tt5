@@ -33,10 +33,9 @@ Template: twentytwentyfive
 }
 
 /* ナビ本体を sticky */
-.haru-vertical-header .wp-block-navigation{
+.haru-vertical-header {
   position: sticky;
   top: 0;
-  align-self: flex-start;         /* stretch 無効化 */
 }
 
 /* =============================================
