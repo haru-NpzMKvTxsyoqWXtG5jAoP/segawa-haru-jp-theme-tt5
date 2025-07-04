@@ -69,11 +69,10 @@ Template: twentytwentyfive
 .haru-service-card img {
   width: 100%;
   height: auto;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.2s ease-out;
 }
 .haru-service-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* サービス名 */
