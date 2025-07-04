@@ -22,27 +22,22 @@ Template: twentytwentyfive
 /* =============================================
    2カラム右 ヘッダーバー幅に合わせる
 ============================================= */
-/* ① 右カラム全体に色を付けて高さを稼ぐ */
+/* 右カラム全体に色を付けて高さを稼ぐ */
 .haru-bar-column{
   max-width: var(--haru-nav-bar-w);
   background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
   overflow: visible !important;
 }
 
-/* ② カラムをページ高に伸ばす */
-.haru-wp-block-columns{
-  align-items: stretch;
+/* WordPressのvertical-alignedクラスを上書き */
+.wp-block-column.is-vertically-aligned-top {
+  align-self: stretch !important;
 }
 
-/* ③ ナビ本体を sticky */
-.haru-vertical-header {
-  min-height: 100vh;
-}
-
+/* ナビ本体を sticky */
 .haru-vertical-header .wp-block-navigation {
   position: sticky;
   top: 0;
-  align-self: flex-start;
 }
 
 /* =============================================
