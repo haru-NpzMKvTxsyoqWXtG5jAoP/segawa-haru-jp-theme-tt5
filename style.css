@@ -62,14 +62,18 @@ Template: twentytwentyfive
 }
 
 /* サムネ画像 */
+.haru-service-card figure {
+  overflow: hidden;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
+}
 .haru-service-card img {
   width: 100%;
   height: auto;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
-  transition: transform 0.15s ease-out;
+  transition: transform 0.3s ease-out;
 }
 .haru-service-card:hover img {
-  transform: scale(0.95);
+  transform: scale(1.1);
 }
 
 /* サービス名 */
