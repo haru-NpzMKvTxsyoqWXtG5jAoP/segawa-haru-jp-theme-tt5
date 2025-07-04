@@ -41,10 +41,6 @@ Template: twentytwentyfive
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
-.haru-vertical-header {
-  width: var(--haru-nav-bar-w);
-  margin-left: auto;
-}
 
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl; /* 縦組みレイアウト */
