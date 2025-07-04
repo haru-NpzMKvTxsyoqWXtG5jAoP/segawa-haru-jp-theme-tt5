@@ -29,6 +29,7 @@ Template: twentytwentyfive
   overflow: visible !important;   /* sticky 殺し回避 */
   display: flex;                  /* ← 追加 */
   flex-direction: column;         /* ← 追加 */
+  align-self: stretch !important; /* 右カラムを必ず行の高さいっぱい伸ばす */
 }
 
 /* ナビ本体を sticky */
