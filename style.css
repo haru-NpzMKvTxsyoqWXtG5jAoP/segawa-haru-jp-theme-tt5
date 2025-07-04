@@ -23,7 +23,25 @@ Template: twentytwentyfive
    2カラム右 ヘッダーバー幅に合わせる
 ============================================= */
 .bar-column{
-  flex: 0 0 var(--haru-nav-bar-w);
+  max-width: var(--haru-nav-bar-w);
+}
+
+/* 縦詰みブロック（背景用） */
+.haru-fixed-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--haru-nav-bar-w);
+  height: 100vh;
+  background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
+  z-index: -1;
+}
+
+/* グローバルメニュー（追従用） */
+.haru-vertical-header .wp-block-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 /* =============================================
