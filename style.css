@@ -24,13 +24,6 @@ Template: twentytwentyfive
 ============================================= */
 .haru-bar-column{
   max-width: var(--haru-nav-bar-w);
-}
-
-/* 縦詰みブロック（背景用） */
-.haru-fixed-background {
-  position: absolute;
-  width: var(--haru-nav-bar-w);
-  height: 100vh;
   background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
 }
 
