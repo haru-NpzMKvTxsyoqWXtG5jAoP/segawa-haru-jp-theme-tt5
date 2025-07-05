@@ -15,10 +15,10 @@ Template: twentytwentyfive
 /* =============================================
    ユーティリティクラス
 ============================================= */
-/* 背景色を左右いっぱいまで */
+/* bodyのパディングを打ち消す */
 .haru-no-pad {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  margin-left: calc(var(--wp--style--root--padding-left) * -1);
+  margin-right: calc(var(--wp--style--root--padding-right) * -1);
 }
 
 /* =============================================
