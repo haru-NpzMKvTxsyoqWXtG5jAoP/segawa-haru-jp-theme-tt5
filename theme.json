@@ -4,7 +4,7 @@
 
   "settings": {
     "color": {
-      "custom": false,
+      "custom": true,
       "palette": [
         { "slug": "haru-green", "color": "#00d782", "name": "Haru Green" },
         { "slug": "black",      "color": "#000000", "name": "Black" },
