@@ -21,6 +21,12 @@ Template: twentytwentyfive
   margin-right: calc(var(--wp--style--root--padding-right) * -1);
 }
 
+/* bodyのパディングをつける */
+.haru-pad{
+  margin-left : var(--wp--style--root--padding-left);
+  margin-right: var(--wp--style--root--padding-right);
+}
+
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
@@ -102,8 +108,8 @@ Template: twentytwentyfive
 }
 
 /* 画像の角丸 */
-.haru-gallery-container img {
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
+.haru-gallery-grid img {
+  border-radius: var(--haru-element-border-radius);
 }
 
 
