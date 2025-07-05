@@ -13,6 +13,15 @@ Template: twentytwentyfive
 }
 
 /* =============================================
+   ユーティリティクラス
+============================================= */
+/* 背景色を左右いっぱいまで */
+.haru-no-pad {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* =============================================
    縦型ヘッダーバー
 ============================================= */
 /* 右カラム全体に背景と高さ確保 */
@@ -72,7 +81,7 @@ Template: twentytwentyfive
   transition: transform 0.2s ease-out;
 }
 .haru-service-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* サービス名 */
@@ -81,6 +90,20 @@ Template: twentytwentyfive
   font-weight: 700;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+/* =============================================
+   ギャラリー
+============================================= */
+
+/* 隙間調整 */
+.haru-gallery-grid {
+  gap: var(--haru-element-gap);
+}
+
+/* 画像の角丸 */
+.haru-gallery-container img {
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
 
 
