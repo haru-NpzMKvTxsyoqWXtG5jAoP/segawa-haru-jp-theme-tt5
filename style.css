@@ -129,4 +129,11 @@ Template: twentytwentyfive
   border-radius: var(--haru-element-border-radius);
 }
 
+/* =============================================
+   セクションタイトル
+============================================= */
+.section-title {
+  font-size: clamp(1.0625rem, 3vw, 1.5rem);
+}
+
 
