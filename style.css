@@ -142,10 +142,6 @@ Template: twentytwentyfive
 }
 
 /* ホバー時のアニメーション */
-.haru-gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
 .haru-gallery-grid:hover > *:not(:hover) img {
   filter: blur(3px);
   transform: scale(0.95);
@@ -160,6 +156,7 @@ Template: twentytwentyfive
   width: 100%;
   border: none;
   border-radius: calc(var(--haru-element-border-radius) - 10px);
+  box-sizing: border-box;
 }
 
 .wpcf7-form input,
