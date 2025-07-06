@@ -10,6 +10,8 @@ Template: twentytwentyfive
   --haru-element-gap: 1px;
   --haru-element-border-radius: 20px;
   --haru-nav-bar-w: clamp(1.5rem, 4vw, 2.5rem);
+  --haru-hover-scale: 1.03;
+  --haru-hover-transition: transform 0.2s ease-out;
 }
 
 /* =============================================
@@ -71,12 +73,13 @@ Template: twentytwentyfive
 ============================================= */
 .section-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
 }
 
 /* =============================================
    サービスカード
 ============================================= */
-/* 最大5列で固定 */
+/* 最大5列 */
 @media (min-width: 1800px) {
   .haru-service-cards-container {
     grid-template-columns: repeat(5, 1fr);
@@ -101,12 +104,10 @@ Template: twentytwentyfive
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
 .haru-service-card img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.2s ease-out;
+  transition: var(--haru-hover-transition);
 }
 .haru-service-card:hover img {
-  transform: scale(1.03);
+  transform: scale(var(--haru-hover-scale));
 }
 
 /* サービス名 */
@@ -140,12 +141,11 @@ Template: twentytwentyfive
   overflow: hidden;
   border-radius: var(--haru-element-border-radius);
 }
-
 .haru-gallery-grid img {
-  transition: transform 0.2s ease-out;
+  transition: var(--haru-hover-transition);
 }
 .haru-gallery-item:hover img {
-  transform: scale(1.03);
+  transform: scale(var(--haru-hover-scale));
 }
 
 /* =============================================
