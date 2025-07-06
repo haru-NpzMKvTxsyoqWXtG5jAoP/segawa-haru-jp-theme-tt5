@@ -62,6 +62,17 @@ Template: twentytwentyfive
   height: clamp(1.5rem, 5vw, 4rem) !important;
 }
 
+.haru-spacer-medium {
+  height: clamp(0.75rem, 2.5vw, 2rem) !important;
+}
+
+/* =============================================
+   セクションタイトル
+============================================= */
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 /* =============================================
    サービスカード
 ============================================= */
@@ -127,13 +138,6 @@ Template: twentytwentyfive
 /* 画像の角丸 */
 .haru-gallery-grid img {
   border-radius: var(--haru-element-border-radius);
-}
-
-/* =============================================
-   セクションタイトル
-============================================= */
-.section-title {
-  font-size: clamp(1.0625rem, 3vw, 1.5rem);
 }
 
 
