@@ -142,7 +142,6 @@ Template: twentytwentyfive
 }
 
 .haru-gallery-grid img {
-  border-radius: var(--haru-element-border-radius);
   transition: transform 0.2s ease-out;
 }
 
