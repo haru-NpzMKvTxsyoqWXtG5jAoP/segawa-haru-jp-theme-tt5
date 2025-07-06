@@ -135,8 +135,8 @@ Template: twentytwentyfive
   gap: var(--haru-element-gap);
 }
 
-/* 画像の角丸とホバー効果 */
-.haru-gallery-item {
+/* 画像 */
+.haru-gallery-item figure {
   overflow: hidden;
   border-radius: var(--haru-element-border-radius);
 }
@@ -144,7 +144,6 @@ Template: twentytwentyfive
 .haru-gallery-grid img {
   transition: transform 0.2s ease-out;
 }
-
 .haru-gallery-item:hover img {
   transform: scale(1.03);
 }
