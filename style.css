@@ -133,6 +133,11 @@ Template: twentytwentyfive
   .haru-gallery-grid { grid-template-columns: repeat(7, 1fr); }
 }
 
+/* wide クラスが付いたやつだけ２列分 */
+.haru-gallery-grid > .haru-gallery-item-wide {
+  grid-column: span 2;
+}
+
 /* 隙間調整 */
 .haru-gallery-grid {
   column-gap: var(--haru-element-gap);
