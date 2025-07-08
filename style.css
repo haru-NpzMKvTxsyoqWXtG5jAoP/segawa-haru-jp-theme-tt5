@@ -166,6 +166,11 @@ a[href*="haru-gallery-item-wide"] {
   display: none;
 }
 
+/* 制御用タグの区切り文字を非表示 */
+a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
+  display: none;
+}
+
 /* =============================================
    コンタクトフォーム7
 ============================================= */
