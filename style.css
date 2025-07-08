@@ -112,7 +112,7 @@ Template: twentytwentyfive
 
 /* サービス名 */
 .haru-service-card h3 {
-  font-size: clamp(1rem, 4vw, 1.25rem);
+  font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 700;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -135,7 +135,8 @@ Template: twentytwentyfive
 
 /* 隙間調整 */
 .haru-gallery-grid {
-  gap: var(--haru-element-gap);
+  column-gap: var(--haru-element-gap);
+  row-gap: 1rem;
 }
 
 /* 画像 */
@@ -146,7 +147,7 @@ Template: twentytwentyfive
 .haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
-.haru-gallery-grid:hover img {
+.haru-gallery-grid a:hover img {
   transform: scale(var(--haru-hover-scale));
 }
 
