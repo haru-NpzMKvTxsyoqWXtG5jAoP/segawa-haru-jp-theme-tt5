@@ -139,15 +139,20 @@ Template: twentytwentyfive
 }
 
 /* 画像 */
-.haru-gallery-item figure {
+.haru-gallery-grid figure {
   overflow: hidden;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
 .haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
-.haru-gallery-item:hover img {
+.haru-gallery-grid:hover img {
   transform: scale(var(--haru-hover-scale));
+}
+
+/* タグとタイトルのテキストスタイル */
+.haru-gallery-grid a {
+  font-weight: 300;
 }
 
 /* =============================================
