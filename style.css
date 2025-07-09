@@ -34,7 +34,51 @@ Template: twentytwentyfive
 ============================================= */
 /* メインロゴSVG */
 .haru-main-logo svg {
-  fill: #1A1A1A;
+  fill: transparent;
+  stroke: #1A1A1A;
+  stroke-width: 1.5px;
+}
+
+/* ロゴアニメーション */
+.haru-main-logo svg path,
+.haru-main-logo svg polygon {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: logoStrokeDraw 2s ease-in-out forwards, logoFillGradient 3s ease-in-out 1.5s forwards;
+}
+
+@keyframes logoStrokeDraw {
+  0% {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+}
+
+@keyframes logoFillGradient {
+  0% {
+    fill: transparent;
+    stroke: #1A1A1A;
+  }
+  25% {
+    fill: #7dffc8;
+    stroke: #7dffc8;
+  }
+  50% {
+    fill: #ffff82;
+    stroke: #ffff82;
+  }
+  75% {
+    fill: #fab95f;
+    stroke: #fab95f;
+  }
+  100% {
+    fill: #ffafb4;
+    stroke: #ffafb4;
+  }
 }
 
 /* =============================================
