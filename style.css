@@ -130,7 +130,7 @@ Template: twentytwentyfive
 /* サービス名 */
 .haru-service-card h3 {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
