@@ -42,12 +42,12 @@ Template: twentytwentyfive
   fill: #1A1A1A;
   width: 200%;
   height: auto;
-  animation: logoSlideIn 3s ease-out forwards;
+  animation: logoSlideIn 6s ease-out forwards;
 }
 
 @keyframes logoSlideIn {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(0);
