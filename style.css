@@ -40,17 +40,17 @@ Template: twentytwentyfive
 
 .haru-main-logo svg {
   fill: #1A1A1A;
-  width: 100%;
+  width: 300%;
   height: auto;
   animation: logoFlow 15s linear infinite;
 }
 
 @keyframes logoFlow {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-66.67%);
   }
 }
 
