@@ -32,6 +32,10 @@ Template: twentytwentyfive
    SVG
 ============================================= */
 /* メインロゴSVG */
+.haru-main-logo {
+  overflow: hidden;
+}
+
 .haru-main-logo svg {
   fill: #000000;
 }
