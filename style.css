@@ -42,7 +42,7 @@ Template: twentytwentyfive
 
 /* 文字カットインアニメーション */
 .letter {
-  transform: translateX(-150px);
+  transform: translateX(-100%);
   animation: letterCutIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
@@ -59,7 +59,7 @@ Template: twentytwentyfive
 
 @keyframes letterCutIn {
   0% {
-    transform: translateX(-150px);
+    transform: translateX(-100%);
   }
   100% {
     transform: translateX(0);
