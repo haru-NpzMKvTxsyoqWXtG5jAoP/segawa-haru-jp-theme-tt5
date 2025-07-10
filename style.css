@@ -34,7 +34,21 @@ Template: twentytwentyfive
 ============================================= */
 /* メインロゴSVG */
 .haru-main-logo svg {
-  fill: #1A1A1A;
+  fill: url(#gradientAnimation);
+  animation: logoGradientFlow 4s ease-in-out forwards;
+}
+
+/* SVGグラデーション定義とアニメーション */
+@keyframes logoGradientFlow {
+  0% {
+    fill: url(#gradientAnimation);
+  }
+  75% {
+    fill: url(#gradientAnimation);
+  }
+  100% {
+    fill: #1A1A1A;
+  }
 }
 
 /* =============================================
