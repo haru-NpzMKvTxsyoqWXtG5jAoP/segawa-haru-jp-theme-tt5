@@ -113,7 +113,7 @@ Template: twentytwentyfive
    セクションタイトル
 ============================================= */
 .section-title {
-  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
   position: relative;
 }
