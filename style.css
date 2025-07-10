@@ -33,28 +33,8 @@ Template: twentytwentyfive
    SVG
 ============================================= */
 /* メインロゴSVG */
-.haru-main-logo {
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1000;
-  width: 100%;
-}
-
 .haru-main-logo svg {
   fill: #1A1A1A;
-  width: 100%;
-  height: auto;
-  transition: inherit;
-}
-
-/* スクロール時の縮小状態 */
-.haru-main-logo.scrolled {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  width: 250px;
-  transform: scale(0.8);
-  transform-origin: top left;
 }
 
 /* =============================================
