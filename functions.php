@@ -10,13 +10,12 @@ function haru_enqueue_assets() {
         get_template_directory_uri() . '/style.css'
     );
 
-    /* 子テーマ CSS（更新日時をバージョンにしてキャッシュバスティング）*/
-    $child_ver = filemtime( get_stylesheet_directory() . '/style.css' );
+    /* 子テーマ CSS */
     wp_enqueue_style(
         'haru-child',
         get_stylesheet_directory_uri() . '/style.css',
         array( 'tt5-parent' ),
-        $child_ver
+        '1.0.0'
     );
 
     /* Adobe Fonts (Typekit) – 源ノ角ゴシック */
