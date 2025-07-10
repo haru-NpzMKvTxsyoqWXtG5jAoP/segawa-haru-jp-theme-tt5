@@ -35,7 +35,7 @@ Template: twentytwentyfive
 .haru-main-logo svg {
   fill: #000000;
   clip-path: inset(0 100% 0 0);
-  animation: logoReveal 0.6s ease-out forwards;
+  animation: logoReveal 0.6s ease-out 0.2s forwards;
 }
 
 @keyframes logoReveal {
