@@ -57,6 +57,12 @@ Template: twentytwentyfive
   }
 }
 
+.haru-catchcopy {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  animation: revealFromLeft 0.6s ease-out 0.6s forwards;
+}
+
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
@@ -95,15 +101,15 @@ Template: twentytwentyfive
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
   position: relative;
-  transform: translateY(-0.1em);
-  padding-left: 1.2em;
+  transform: translateY(-0.06em);
+  padding-left: 0.8em;
 }
 
 .section-title::before {
   content: "●";
   position: absolute;
   top: 50%;
-  left: -0.8em;
+  left: -0.5em;
   transform: translateY(-50%);
   color: var(--haru-light-cyan);
   font-size: 0.6em;
@@ -120,11 +126,7 @@ Template: twentytwentyfive
   margin-bottom: var(--haru-element-gap);
 }
 
-.haru-catchcopy {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-weight: 700;
-  animation: revealFromLeft 0.6s ease-out 0.6s forwards;
-}
+
 
 /* =============================================
    サービスカード
