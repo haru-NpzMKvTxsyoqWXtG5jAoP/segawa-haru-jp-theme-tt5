@@ -100,17 +100,13 @@ Template: twentytwentyfive
 .section-title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  position: relative;
-  transform: translateY(-0.06em);
-  padding-left: 0.8em;
+  display: flex;
+  align-items: center;
 }
 
 .section-title::before {
   content: "●";
-  position: absolute;
-  top: 50%;
-  left: -0.5em;
-  transform: translateY(-50%);
+  margin-right: 0.5rem;
   color: var(--haru-light-cyan);
   font-size: 0.6em;
 }
