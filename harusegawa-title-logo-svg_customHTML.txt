@@ -1,21 +1,6 @@
 <div class="haru-main-logo">
   <svg id="logoSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528.2633 251.5387" role="img" aria-labelledby="logoTitle">
     <title id="logoTitle">haru main logo</title>
-    <defs>
-      <linearGradient id="rotatingGradient" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
-        <stop offset="0%" style="stop-color:#7dffc8"/>
-        <stop offset="33%" style="stop-color:#ffff82"/>
-        <stop offset="66%" style="stop-color:#fab95f"/>
-        <stop offset="100%" style="stop-color:#ffafb4"/>
-        <animateTransform
-          attributeName="gradientTransform"
-          attributeType="XML"
-          type="rotate"
-          values="0 0.5 0.5;360 0.5 0.5"
-          dur="3s"
-          repeatCount="1"/>
-      </linearGradient>
-    </defs>
     <g id="c">
       <polygon points="82.6809 55.6765 33.2453 55.6765 33.2453 0 0 0 0 144.7329 33.2453 144.7329 33.2453 84.4749 82.6809 84.4749 82.6809 144.7329 115.7546 144.7329 115.7546 0 82.6809 0 82.6809 55.6765"/>
       <path d="M176.7199,0l-45.2537,144.7329h33.7954l8.7902-34.2379h43.8455l8.7797,34.2379h34.9295L216.3415,0h-39.6216ZM180.6422,84.8256l3.3812-13.1696c3.8305-14.5528,7.7881-31.3346,11.3906-46.6549h.7781c3.9689,14.9546,7.7324,32.1022,11.7458,46.6549l3.3771,13.1696h-30.6727Z"/>
