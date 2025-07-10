@@ -8,7 +8,7 @@ Template: twentytwentyfive
 ============================================= */
 :root {
   --haru-element-gap: 1px;
-  --haru-element-border-radius: 20px;
+  --haru-element-border-radius: 0px;
   --haru-nav-bar-w: clamp(1.5rem, 4vw, 2.5rem);
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
@@ -118,7 +118,7 @@ Template: twentytwentyfive
 
 /* 本体 */
 .haru-service-card {
-  background: #fff;
+  background: #eaeaea;
   border-radius: var(--haru-element-border-radius);
   padding: clamp(0.75rem, 2vw + 0.5rem, 1.5rem);
 }
