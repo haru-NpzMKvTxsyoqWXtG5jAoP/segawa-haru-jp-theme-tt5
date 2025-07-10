@@ -115,7 +115,20 @@ Template: twentytwentyfive
 .section-title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
+  position: relative;
 }
+
+.section-title::before {
+  content: "●";
+  margin-right: 0.5rem;
+  color: #7dffc8;
+}
+
+/* セクションタイトル用カラーユーティリティ */
+.section-title.haru-bullet-green::before { color: #7dffc8; }
+.section-title.haru-bullet-yellow::before { color: #ffff82; }
+.section-title.haru-bullet-orange::before { color: #fab95f; }
+.section-title.haru-bullet-pink::before { color: #ffafb4; }
 
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
