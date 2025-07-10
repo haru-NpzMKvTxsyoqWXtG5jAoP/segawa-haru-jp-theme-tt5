@@ -132,6 +132,11 @@ Template: twentytwentyfive
 .section-title.haru-bullet-orange::before { color: #fab95f; }
 .section-title.haru-bullet-pink::before { color: #ffafb4; }
 
+.section-title-back-color {
+  background-color: #f9f9f9;
+  margin-bottom: var(--haru-element-gap);
+}
+
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 400;
