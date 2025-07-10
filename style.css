@@ -34,37 +34,16 @@ Template: twentytwentyfive
 /* メインロゴSVG */
 .haru-main-logo svg {
   fill: #000000;
-}
-
-/* 文字カットインアニメーション */
-.letter {
   transform: translateX(-60px);
-  opacity: 0;
-  animation: letterCutIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: logoSlideIn 0.8s ease-out forwards;
 }
 
-.letter-1 { animation-delay: 0.05s; }
-.letter-2 { animation-delay: 0.1s; }
-.letter-3 { animation-delay: 0.15s; }
-.letter-4 { animation-delay: 0.2s; }
-.letter-5 { animation-delay: 0.3s; }
-.letter-6 { animation-delay: 0.35s; }
-.letter-7 { animation-delay: 0.4s; }
-.letter-8 { animation-delay: 0.45s; }
-.letter-9 { animation-delay: 0.5s; }
-.letter-10 { animation-delay: 0.55s; }
-
-@keyframes letterCutIn {
+@keyframes logoSlideIn {
   0% {
     transform: translateX(-60px);
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
   }
 }
 
