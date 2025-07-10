@@ -40,9 +40,9 @@ Template: twentytwentyfive
 
 .haru-main-logo svg {
   fill: #1A1A1A;
-  width: 400%;
+  width: 150%;
   height: auto;
-  animation: logoFlow 8s linear infinite;
+  animation: logoFlow 12s linear infinite;
 }
 
 @keyframes logoFlow {
