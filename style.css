@@ -35,7 +35,7 @@ Template: twentytwentyfive
 .haru-main-logo svg {
   fill: #000000;
   clip-path: inset(0 100% 0 0);
-  animation: logoReveal 0.3s ease-out forwards;
+  animation: logoReveal 0.6s ease-out forwards;
 }
 
 @keyframes logoReveal {
@@ -47,12 +47,12 @@ Template: twentytwentyfive
   }
 }
 
-@keyframes catchcopySlideIn {
+@keyframes catchcopyReveal {
   0% {
-    transform: translateX(-100%);
+    clip-path: inset(0 100% 0 0);
   }
   100% {
-    transform: translateX(0);
+    clip-path: inset(0 0% 0 0);
   }
 }
 
@@ -118,9 +118,8 @@ Template: twentytwentyfive
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  overflow: hidden;
-  transform: translateX(-100%);
-  animation: catchcopySlideIn 0.3s ease-out 0.6s forwards;
+  clip-path: inset(0 100% 0 0);
+  animation: catchcopyReveal 0.6s ease-out 0.6s forwards;
 }
 
 /* =============================================
