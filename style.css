@@ -7,6 +7,17 @@ Template: twentytwentyfive
    共通設定
 ============================================= */
 :root {
+  /* カラーパレット */
+  --haru-green: #00e68c;
+  --haru-black: #000000;
+  --haru-white: #f9f9f9;
+  --haru-gray: #e7e7e7;
+  --haru-light-cyan: #7dffc8;
+  --haru-light-yellow: #ffff82;
+  --haru-light-orange: #fab95f;
+  --haru-light-pink: #ffafb4;
+  
+  /* レイアウト */
   --haru-element-gap: 1px;
   --haru-element-border-radius: 0px;
   --haru-hover-scale: 1.03;
@@ -33,21 +44,11 @@ Template: twentytwentyfive
 ============================================= */
 /* メインロゴSVG */
 .haru-main-logo svg {
-  fill: #000000;
-  clip-path: inset(0 100% 0 0);
-  animation: logoReveal 0.6s ease-out 0.2s forwards;
+  fill: var(--haru-black);
+  animation: revealFromLeft 0.6s ease-out 0.2s forwards;
 }
 
-@keyframes logoReveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
-  }
-  100% {
-    clip-path: inset(0 0% 0 0);
-  }
-}
-
-@keyframes catchcopyReveal {
+@keyframes revealFromLeft {
   0% {
     clip-path: inset(0 100% 0 0);
   }
@@ -62,7 +63,7 @@ Template: twentytwentyfive
 /* 右カラム全体に背景と高さ確保 */
 .haru-bar-column{
   max-width: clamp(1.5rem, 4vw, 2.5rem);
-  background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
+  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
 }
 
 /* ナビ本体を sticky */
@@ -94,32 +95,34 @@ Template: twentytwentyfive
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
   position: relative;
+  transform: translateY(-0.1em);
 }
 
 .section-title::before {
   content: "●";
-  margin-right: 0.5rem;
-  color: #7dffc8;
+  position: absolute;
+  top: 50%;
+  left: -0.8em;
+  transform: translateY(-50%);
+  color: var(--haru-light-cyan);
   font-size: 0.6em;
-  vertical-align: middle;
 }
 
 /* セクションタイトル用カラーユーティリティ */
-.section-title.haru-bullet-green::before { color: #7dffc8; }
-.section-title.haru-bullet-yellow::before { color: #ffff82; }
-.section-title.haru-bullet-orange::before { color: #fab95f; }
-.section-title.haru-bullet-pink::before { color: #ffafb4; }
+.section-title.haru-bullet-green::before { color: var(--haru-light-cyan); }
+.section-title.haru-bullet-yellow::before { color: var(--haru-light-yellow); }
+.section-title.haru-bullet-orange::before { color: var(--haru-light-orange); }
+.section-title.haru-bullet-pink::before { color: var(--haru-light-pink); }
 
 .section-title-back-color {
-  background-color: #f9f9f9;
+  background-color: var(--haru-white);
   margin-bottom: var(--haru-element-gap);
 }
 
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  clip-path: inset(0 100% 0 0);
-  animation: catchcopyReveal 0.6s ease-out 0.6s forwards;
+  animation: revealFromLeft 0.6s ease-out 0.6s forwards;
 }
 
 /* =============================================
@@ -139,7 +142,7 @@ Template: twentytwentyfive
 
 /* 本体 */
 .haru-service-card {
-  background: #f9f9f9;
+  background: var(--haru-white);
   border-radius: var(--haru-element-border-radius);
   padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
   position: relative;
@@ -153,7 +156,7 @@ Template: twentytwentyfive
   left: -100%;
   width: 100%;
   height: 100%;
-  background: #00e68c;
+  background: var(--haru-green);
   transition: left 0.3s ease-out;
   z-index: 1;
 }
