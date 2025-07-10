@@ -7,13 +7,13 @@
       "custom": true,
       "palette": [
         { "slug": "haru-green", "color": "#00e68c", "name": "Haru Green" },
-        { "slug": "black",      "color": "#000000", "name": "Black" },
-        { "slug": "white",      "color": "#f9f9f9", "name": "White" },
-        { "slug": "gray",       "color": "#e7e7e7", "name": "Gray" },
-        { "slug": "haru-gradient-green", "color": "#7dffc8", "name": "Haru Gradient Green" },
-        { "slug": "haru-gradient-yellow", "color": "#ffff82", "name": "Haru Gradient Yellow" },
-        { "slug": "haru-gradient-orange", "color": "#fab95f", "name": "Haru Gradient Orange" },
-        { "slug": "haru-gradient-pink", "color": "#ffafb4", "name": "Haru Gradient Pink" }
+        { "slug": "haru-black", "color": "#000000", "name": "Haru Black" },
+        { "slug": "haru-white", "color": "#f9f9f9", "name": "Haru White" },
+        { "slug": "haru-gray", "color": "#e7e7e7", "name": "Haru Gray" },
+        { "slug": "haru-light-cyan", "color": "#7dffc8", "name": "Haru Light Cyan" },
+        { "slug": "haru-light-yellow", "color": "#ffff82", "name": "Haru Light Yellow" },
+        { "slug": "haru-light-orange", "color": "#fab95f", "name": "Haru Light Orange" },
+        { "slug": "haru-light-pink", "color": "#ffafb4", "name": "Haru Light Pink" }
       ]
     },
 
