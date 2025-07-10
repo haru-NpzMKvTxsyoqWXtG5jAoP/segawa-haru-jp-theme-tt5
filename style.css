@@ -100,7 +100,7 @@ Template: twentytwentyfive
 .haru-service-card {
   background: #eaeaea;
   border-radius: var(--haru-element-border-radius);
-  padding: clamp(0.75rem, 2vw + 0.5rem, 1.5rem);
+  padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
 
 /* サムネ画像 */
