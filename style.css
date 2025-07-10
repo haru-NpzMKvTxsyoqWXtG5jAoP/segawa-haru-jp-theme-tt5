@@ -22,6 +22,7 @@ Template: twentytwentyfive
   --haru-element-border-radius: 0px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
+  --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
 
 /* =============================================
@@ -40,9 +41,8 @@ Template: twentytwentyfive
 }
 
 /* =============================================
-   SVG
+   SVGロゴ
 ============================================= */
-/* メインロゴSVG */
 .haru-main-logo svg {
   fill: var(--haru-black);
   animation: revealFromLeft 0.6s ease-out 0.2s forwards;
@@ -57,6 +57,9 @@ Template: twentytwentyfive
   }
 }
 
+/* =============================================
+   キャッチコピー
+============================================= */
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
@@ -100,29 +103,32 @@ Template: twentytwentyfive
 .section-title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  display: flex;
-  align-items: center;
+  position: relative;
+  transform: translateY(-0.06em);
+  padding-left: 0.8em;
 }
 
 .section-title::before {
   content: "●";
-  margin-right: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: -0.5em;
+  transform: translateY(-50%);
   color: var(--haru-light-cyan);
   font-size: 0.6em;
 }
 
-/* セクションタイトル用カラーユーティリティ */
-.section-title.haru-bullet-green::before { color: var(--haru-light-cyan); }
-.section-title.haru-bullet-yellow::before { color: var(--haru-light-yellow); }
-.section-title.haru-bullet-orange::before { color: var(--haru-light-orange); }
-.section-title.haru-bullet-pink::before { color: var(--haru-light-pink); }
+/* ●用カラー */
+.section-title.haru-bullet-light-cyan::before { color: var(--haru-light-cyan); }
+.section-title.haru-bullet-light-yellow::before { color: var(--haru-light-yellow); }
+.section-title.haru-bullet-light-orange::before { color: var(--haru-light-orange); }
+.section-title.haru-bullet-light-pink::before { color: var(--haru-light-pink); }
 
 .section-title-back-color {
   background-color: var(--haru-white);
   margin-bottom: var(--haru-element-gap);
+  padding-left: var(--haru-card-padding);
 }
-
-
 
 /* =============================================
    サービスカード
@@ -143,7 +149,7 @@ Template: twentytwentyfive
 .haru-service-card {
   background: var(--haru-white);
   border-radius: var(--haru-element-border-radius);
-  padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
+  padding: var(--haru-card-padding);
   position: relative;
   overflow: hidden;
 }
