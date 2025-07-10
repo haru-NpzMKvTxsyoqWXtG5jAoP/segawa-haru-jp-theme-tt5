@@ -32,22 +32,18 @@ Template: twentytwentyfive
    SVG
 ============================================= */
 /* メインロゴSVG */
-.haru-main-logo {
-  overflow: hidden;
-}
-
 .haru-main-logo svg {
   fill: #000000;
-  transform: translateX(-100%);
-  animation: logoSlideIn 0.3s ease-out forwards;
+  clip-path: inset(0 100% 0 0);
+  animation: logoReveal 0.3s ease-out forwards;
 }
 
-@keyframes logoSlideIn {
+@keyframes logoReveal {
   0% {
-    transform: translateX(-100%);
+    clip-path: inset(0 100% 0 0);
   }
   100% {
-    transform: translateX(0);
+    clip-path: inset(0 0% 0 0);
   }
 }
 
