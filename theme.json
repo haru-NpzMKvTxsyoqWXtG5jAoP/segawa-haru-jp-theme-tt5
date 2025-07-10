@@ -6,7 +6,7 @@
     "color": {
       "custom": true,
       "palette": [
-        { "slug": "haru-green", "color": "#00d782", "name": "Haru Green" },
+        { "slug": "haru-green", "color": "#00e18c", "name": "Haru Green" },
         { "slug": "black",      "color": "#000000", "name": "Black" },
         { "slug": "white",      "color": "#ffffff", "name": "White" },
         { "slug": "gray",       "color": "#e7e7e7", "name": "Gray" },
