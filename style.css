@@ -9,7 +9,6 @@ Template: twentytwentyfive
 :root {
   --haru-element-gap: 1px;
   --haru-element-border-radius: 0px;
-  --haru-nav-bar-w: clamp(1.5rem, 4vw, 2.5rem);
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
 }
@@ -34,7 +33,7 @@ Template: twentytwentyfive
 ============================================= */
 /* メインロゴSVG */
 .haru-main-logo svg {
-  fill: #1A1A1A;
+  fill: #000000;
 }
 
 /* 文字カットインアニメーション */
@@ -83,7 +82,7 @@ Template: twentytwentyfive
 ============================================= */
 /* 右カラム全体に背景と高さ確保 */
 .haru-bar-column{
-  max-width: var(--haru-nav-bar-w);
+  max-width: clamp(1.5rem, 4vw, 2.5rem);
   background: linear-gradient(to bottom, #7dffc8, #ffff82, #fab95f, #ffafb4);
 }
 
@@ -102,11 +101,11 @@ Template: twentytwentyfive
    レスポンシブスペーサー
 ============================================= */
 .haru-spacer-large {
-  height: clamp(1.5rem, 5vw, 4rem) !important;
+  height: clamp(2rem, 5vw, 4rem) !important;
 }
 
 .haru-spacer-medium {
-  height: clamp(0.75rem, 2.5vw, 2rem) !important;
+  height: clamp(1rem, 2.5vw, 2rem) !important;
 }
 
 /* =============================================
