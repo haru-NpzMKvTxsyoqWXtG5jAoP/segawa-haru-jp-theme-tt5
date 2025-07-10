@@ -60,7 +60,7 @@ Template: twentytwentyfive
     transform: translateX(-60px);
     opacity: 0;
   }
-  60% {
+  80% {
     opacity: 1;
   }
   100% {
