@@ -103,27 +103,24 @@ Template: twentytwentyfive
 .section-title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
   transform: translateY(-0.06em);
-  padding-left: 0.8em;
 }
-
 .section-title::before {
   content: "●";
-  position: absolute;
-  top: 50%;
-  left: -0.5em;
-  transform: translateY(-50%);
-  color: var(--haru-light-cyan);
   font-size: 0.6em;
+  flex-shrink: 0;
 }
 
-/* ●用カラー */
-.section-title.haru-bullet-light-cyan::before { color: var(--haru-light-cyan); }
-.section-title.haru-bullet-light-yellow::before { color: var(--haru-light-yellow); }
-.section-title.haru-bullet-light-orange::before { color: var(--haru-light-orange); }
-.section-title.haru-bullet-light-pink::before { color: var(--haru-light-pink); }
+/* before用カラー */
+.haru-bullet-l-cyan .section-title::before { color: var(--haru-light-cyan); }
+.haru-bullet-l-yellow .section-title::before { color: var(--haru-light-yellow); }
+.haru-bullet-l-orange .section-title::before { color: var(--haru-light-orange); }
+.haru-bullet-l-pink .section-title::before { color: var(--haru-light-pink); }
 
+/* 背景色あり */
 .section-title-back-color {
   background-color: var(--haru-white);
   margin-bottom: var(--haru-element-gap);
