@@ -43,7 +43,7 @@ Template: twentytwentyfive
 /* 文字カットインアニメーション */
 .letter {
   transform: translateX(-100%);
-  animation: letterCutIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: letterCutIn 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .letter-1 { animation-delay: 0.05s; }
@@ -66,12 +66,12 @@ Template: twentytwentyfive
   }
 }
 
-@keyframes catchcopyFadeIn {
+@keyframes catchcopySlideIn {
   0% {
-    opacity: 0;
+    transform: translateX(-100%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -137,8 +137,12 @@ Template: twentytwentyfive
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  opacity: 0;
-  animation: catchcopyFadeIn 0.8s ease-out 0.6s forwards;
+  overflow: hidden;
+}
+
+.haru-catchcopy * {
+  transform: translateX(-100%);
+  animation: catchcopySlideIn 0.3s ease-out 0.6s forwards;
 }
 
 /* =============================================
