@@ -257,4 +257,13 @@ a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
   padding: 0.75rem 0.5rem;
 }
 
+/* ===========================================================
+   Google reCAPTCHAバッジを非表示にする
+=========================================================== */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 
