@@ -123,6 +123,7 @@ Template: twentytwentyfive
   margin-right: 0.5rem;
   color: #7dffc8;
   font-size: 0.6em;
+  vertical-align: middle;
 }
 
 /* セクションタイトル用カラーユーティリティ */
