@@ -33,60 +33,17 @@ Template: twentytwentyfive
    SVG
 ============================================= */
 /* メインロゴSVG */
-.haru-main-logo {
-  position: relative;
-  display: inline-block;
-}
-
-.haru-main-logo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    #7dffc8 0%,
-    #ffff82 25%,
-    #fab95f 50%,
-    #ffafb4 75%,
-    #7dffc8 100%
-  );
-  animation: rotateGradient 3s linear forwards;
-  z-index: 1;
-  mask: url('#logoMask');
-  -webkit-mask: url('#logoMask');
-}
-
 .haru-main-logo svg {
-  position: relative;
-  z-index: 2;
-  fill: transparent;
+  fill: url(#rotatingGradient);
   animation: logoReveal 4s ease-in-out forwards;
-}
-
-@keyframes rotateGradient {
-  0% {
-    transform: rotate(0deg);
-    opacity: 1;
-  }
-  75% {
-    transform: rotate(360deg);
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(360deg);
-    opacity: 0;
-  }
 }
 
 @keyframes logoReveal {
   0% {
-    fill: transparent;
+    fill: url(#rotatingGradient);
   }
   75% {
-    fill: transparent;
+    fill: url(#rotatingGradient);
   }
   100% {
     fill: #1A1A1A;
