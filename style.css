@@ -98,7 +98,7 @@ Template: twentytwentyfive
 
 /* 本体 */
 .haru-service-card {
-  background: #eaeaea;
+  background: #fff;
   border-radius: var(--haru-element-border-radius);
   padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
