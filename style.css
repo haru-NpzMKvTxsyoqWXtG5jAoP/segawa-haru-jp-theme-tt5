@@ -176,11 +176,16 @@ Template: twentytwentyfive
   height: 100%;
   background: #00e68c;
   transition: left 0.3s ease-out;
-  z-index: -1;
+  z-index: 1;
 }
 
 .haru-service-card:hover::before {
   left: 0;
+}
+
+.haru-service-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* サムネ画像 */
