@@ -24,3 +24,32 @@ function haru_enqueue_assets() {
     wp_add_inline_script( 'haru-typekit', 'try{Typekit.load({async:true});}catch(e){}' );
 }
 add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
+
+// ============================================== 
+//  フロントページのギャラリー表示件数制限
+// ==============================================
+/**
+ * フロントページの haru-gallery-grid だけ 15 件表示に制限
+ */
+add_filter(
+    'query_loop_block_query_vars',
+    function ( $query_vars, $block ) {
+
+        // ① 表示中のページがフロントでなければ何もしない
+        if ( ! is_front_page() ) {
+            return $query_vars;
+        }
+
+        // ② ブロックの追加クラス名を取得（無い場合は空文字）
+        $class = $block->attributes['className'] ?? '';
+
+        // ③ haru-gallery-grid というクラスを持っているか確認
+        if ( str_contains( $class, 'haru-gallery-grid' ) ) {
+            $query_vars['posts_per_page'] = 15; // ← ここ変えれば上限も変わる
+        }
+
+        return $query_vars;
+    },
+    10,
+    2
+);
