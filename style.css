@@ -119,7 +119,18 @@ Template: twentytwentyfive
 /* 右カラム全体に背景と高さ確保 */
 .haru-bar-column{
   max-width: clamp(1.5rem, 4vw, 2.5rem);
+  position: relative;
+}
+
+.haru-bar-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
+  z-index: -1;
 }
 
 /* ナビ本体を sticky */
