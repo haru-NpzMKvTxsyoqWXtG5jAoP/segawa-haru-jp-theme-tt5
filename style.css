@@ -26,23 +26,19 @@ Template: twentytwentyfive
   --haru-vertical-header-width: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-/* HTML全体の設定 - 縦型ヘッダー用 */
-html {
-  position: relative;
-  padding-inline-end: var(--haru-vertical-header-width);
-  box-sizing: border-box;
+/* スクロールバーを無関係な色で塗りつぶし */
+html::-webkit-scrollbar {
+  width: 15px;
 }
-
-html::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: var(--haru-vertical-header-width);
-  height: 100%;
-  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
-  pointer-events: none;
-  z-index: -1;
+html::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+html::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
 }
 
 /* タグ区切り文字の変更 */
@@ -136,9 +132,10 @@ html::after {
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
-/* 右カラム全体 */
+/* 右カラム全体に背景と高さ確保 */
 .haru-bar-column{
   max-width: var(--haru-vertical-header-width);
+  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
 }
 
 /* ナビ本体を sticky */
