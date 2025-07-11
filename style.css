@@ -23,6 +23,26 @@ Template: twentytwentyfive
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
+  --haru-vertical-header-width: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* HTML全体の設定 - 縦型ヘッダー用 */
+html {
+  position: relative;
+  padding-inline-end: var(--haru-vertical-header-width);
+  box-sizing: border-box;
+}
+
+html::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--haru-vertical-header-width);
+  height: 100%;
+  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* タグ区切り文字の変更 */
@@ -116,21 +136,9 @@ Template: twentytwentyfive
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
-/* 右カラム全体に背景と高さ確保 */
+/* 右カラム全体 */
 .haru-bar-column{
-  max-width: clamp(1.5rem, 4vw, 2.5rem);
-  position: relative;
-}
-
-.haru-bar-column::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
-  z-index: -1;
+  max-width: var(--haru-vertical-header-width);
 }
 
 /* ナビ本体を sticky */
