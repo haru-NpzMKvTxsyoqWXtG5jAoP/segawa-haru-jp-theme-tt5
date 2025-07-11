@@ -194,12 +194,14 @@ Template: twentytwentyfive
   width: 100%;
   height: 100%;
   background: var(--haru-green);
-  transition: left 0.3s ease-out;
+  opacity: 0;
+  transition: left 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
 }
 
 .haru-service-card:hover::before {
   left: 0;
+  opacity: 1;
 }
 
 .haru-service-card > * {
