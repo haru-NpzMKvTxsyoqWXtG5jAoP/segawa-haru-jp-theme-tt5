@@ -118,6 +118,16 @@ html::-webkit-scrollbar-thumb:hover {
   animation: slideFromLeft 0.4s ease-out 1.2s forwards;
 }
 
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 /* =============================================
    縦型ヘッダーバー
