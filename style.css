@@ -136,8 +136,8 @@ html::-webkit-scrollbar-thumb:hover {
 .haru-bar-column{
   max-width: var(--haru-vertical-header-width);
   background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
-  margin-top: calc(var(--wp--style--root--padding-top) * -1);
-  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1);
+  margin-top: calc(var(--wp--style--root--padding-top) * -1) !important;
+  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1) !important;
 }
 
 /* ナビ本体を sticky */
