@@ -25,6 +25,21 @@ Template: twentytwentyfive
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
 
+/* タグ区切り文字の変更 */
+.wp-block-post-terms__separator {
+  display: none;
+}
+.wp-block-post-terms a:not(:last-child)::after {
+  content: " ";
+}
+
+/* Google reCAPTCHAバッジを非表示 */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* =============================================
    ユーティリティクラス
 ============================================= */
@@ -44,7 +59,14 @@ Template: twentytwentyfive
    SVGロゴ - 左からスライドイン
 ============================================= */
 .haru-main-logo svg {
-  fill: var(--haru-black);
+  fill: #151515;
+}
+
+/* 初期状態：左に隠す */
+.letter-h, .letter-a, .letter-r, .letter-u, 
+.letter-s, .letter-e, .letter-g, .letter-a2, 
+.letter-w, .letter-a3 {
+  opacity: 0;
 }
 
 /* 左からスライドイン */
@@ -59,18 +81,10 @@ Template: twentytwentyfive
 .letter-w { animation: slideFromLeft 0.4s ease-out 0.9s forwards; }
 .letter-a3 { animation: slideFromLeft 0.4s ease-out 1.0s forwards; }
 
-/* 初期状態：左に隠す */
-.letter-h, .letter-a, .letter-r, .letter-u, 
-.letter-s, .letter-e, .letter-g, .letter-a2, 
-.letter-w, .letter-a3 {
-  opacity: 0;
-  transform: translateX(-100px);
-}
-
 @keyframes slideFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-150px);
   }
   100% {
     opacity: 1;
@@ -85,7 +99,6 @@ Template: twentytwentyfive
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
   opacity: 0;
-  transform: translateX(-30px);
   animation: slideFromLeft 0.4s ease-out 1.2s forwards;
 }
 
@@ -124,11 +137,11 @@ Template: twentytwentyfive
    レスポンシブスペーサー
 ============================================= */
 .haru-spacer-large {
-  height: clamp(2rem, 5vw, 4rem) !important;
+  height: clamp(3rem, 7vw, 6rem) !important;
 }
 
 .haru-spacer-medium {
-  height: clamp(1rem, 2.5vw, 2rem) !important;
+  height: clamp(2rem, 4vw, 3rem) !important;
 }
 
 /* =============================================
@@ -172,7 +185,7 @@ Template: twentytwentyfive
   }
 }
 
-/* カード間の隙間調整 */
+/* 隙間調整 */
 .haru-service-cards-container {
   gap: var(--haru-element-gap);
 }
@@ -300,13 +313,5 @@ a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
   padding: 0.75rem 0.5rem;
 }
 
-/* ===========================================================
-   Google reCAPTCHAバッジを非表示にする
-=========================================================== */
-.grecaptcha-badge {
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
 
 
