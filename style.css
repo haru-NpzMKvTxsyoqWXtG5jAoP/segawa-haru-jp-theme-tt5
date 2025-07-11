@@ -371,17 +371,18 @@ a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
 .haru-gallery-tag-list a {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--haru-gray);
+  border: 1px solid var(--haru-white);
   border-radius: 50px;
   text-decoration: none;
-  color: var(--haru-black);
+  color: var(--haru-white);
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }
 
 .haru-gallery-tag-list a:hover {
-  border-color: var(--haru-black);
-  background-color: var(--haru-white);
+  border-color: var(--haru-green);
+  background-color: var(--haru-green);
+  color: var(--haru-black);
 }
 
 
