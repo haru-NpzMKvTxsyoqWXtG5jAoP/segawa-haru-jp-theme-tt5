@@ -175,7 +175,7 @@ html::-webkit-scrollbar-thumb:hover {
 }
 .section-title::before {
   content: "●";
-  font-size: 0.6em;
+  font-size: 0.5em;
   flex-shrink: 0;
 }
 
@@ -316,19 +316,72 @@ a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
 /* =============================================
    コンタクトフォーム7
 ============================================= */
+/* フォーム要素の基本スタイル */
 .wpcf7-form input,
 .wpcf7-form textarea,
 .wpcf7-form select {
   width: 100%;
-  border: none;
+  border: 1px solid transparent;
   border-radius: calc(var(--haru-element-border-radius) - 10px);
   box-sizing: border-box;
+  padding: 0.75rem 0.5rem;
+  margin-bottom: var(--haru-element-gap);
 }
 
-.wpcf7-form input,
-.wpcf7-form textarea,
-.wpcf7-form select {
-  padding: 0.75rem 0.5rem;
+/* フォーカス時のスタイル */
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus,
+.wpcf7-form select:focus {
+  outline: none;
+  border: 1px solid var(--haru-black);
+}
+
+/* エラー時のスタイル */
+.wpcf7-form .wpcf7-not-valid {
+  border: 1px solid #e74c3c !important;
+  color: #e74c3c;
+}
+
+.wpcf7-form .wpcf7-not-valid::placeholder {
+  color: #e74c3c;
+  opacity: 0.7;
+}
+
+/* エラーメッセージを非表示 */
+.wpcf7-form .wpcf7-not-valid-tip {
+  display: none;
+}
+
+/* =============================================
+   ギャラリータグ一覧ショートコード
+============================================= */
+.haru-gallery-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.haru-gallery-tag-list li {
+  margin: 0;
+}
+
+.haru-gallery-tag-list a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--haru-gray);
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--haru-black);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.haru-gallery-tag-list a:hover {
+  border-color: var(--haru-black);
+  background-color: var(--haru-white);
 }
 
 

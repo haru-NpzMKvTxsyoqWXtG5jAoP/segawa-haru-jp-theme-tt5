@@ -53,3 +53,41 @@ add_filter(
     10,
     2
 );
+
+// ============================================== 
+//  ギャラリータグ一覧ショートコード
+// ==============================================
+/**
+ * ギャラリーカテゴリの記事で使われているタグ一覧を表示
+ */
+add_shortcode( 'haru_gallery_tags', function () {
+
+    /* ▼ 必要ならここの 'gallery' を自分のカテゴリースラッグに変えてな */
+    $post_ids = get_posts( [
+        'category_name'  => 'gallery',
+        'fields'         => 'ids',
+        'posts_per_page' => -1
+    ] );
+
+    if ( empty( $post_ids ) ) return '';
+
+    /* 1時間だけキャッシュ（無駄クエリ削減）*/
+    $tags = get_transient( 'gallery_tags_cache' );
+    if ( false === $tags ) {
+        $tags = wp_get_object_terms( $post_ids, 'post_tag', [ 'orderby' => 'name' ] );
+        set_transient( 'gallery_tags_cache', $tags, HOUR_IN_SECONDS );
+    }
+
+    if ( is_wp_error( $tags ) || empty( $tags ) ) return '';
+
+    $out = '<ul class="haru-gallery-tag-list">';
+    foreach ( $tags as $tag ) {
+        $out .= sprintf(
+            '<li><a href="%s">%s</a></li>',
+            esc_url( get_tag_link( $tag ) ),
+            esc_html( $tag->name )
+        );
+    }
+    $out .= '</ul>';
+    return $out;
+} );
