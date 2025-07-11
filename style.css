@@ -385,5 +385,12 @@ a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
   color: var(--haru-black);
 }
 
+/* =============================================
+   特定ページの背景色
+============================================= */
+body.page-id-9539 {
+  background: var(--wp--preset--color--haru-back-black);
+}
+
 
 
