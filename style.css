@@ -41,41 +41,40 @@ Template: twentytwentyfive
 }
 
 /* =============================================
-   SVGロゴ - 線アニメーション
+   SVGロゴ - 左からスライドイン
 ============================================= */
 .haru-main-logo svg {
-  fill: none;
-  stroke: var(--haru-black);
-  stroke-width: 2;
+  fill: var(--haru-black);
 }
 
-/* 線アニメーション */
-.letter-h { animation: drawLine 1s ease-out 0.2s forwards; }
-.letter-a { animation: drawLine 1s ease-out 0.4s forwards; }
-.letter-r { animation: drawLine 1s ease-out 0.6s forwards; }
-.letter-u { animation: drawLine 1s ease-out 0.8s forwards; }
-.letter-s { animation: drawLine 1s ease-out 1.0s forwards; }
-.letter-e { animation: drawLine 1s ease-out 1.2s forwards; }
-.letter-g { animation: drawLine 1s ease-out 1.4s forwards; }
-.letter-a2 { animation: drawLine 1s ease-out 1.6s forwards; }
-.letter-w { animation: drawLine 1s ease-out 1.8s forwards; }
-.letter-a3 { animation: drawLine 1s ease-out 2.0s forwards; }
+/* 左からスライドイン */
+.letter-h { animation: slideFromLeft 0.6s ease-out 0.2s forwards; }
+.letter-a { animation: slideFromLeft 0.6s ease-out 0.4s forwards; }
+.letter-r { animation: slideFromLeft 0.6s ease-out 0.6s forwards; }
+.letter-u { animation: slideFromLeft 0.6s ease-out 0.8s forwards; }
+.letter-s { animation: slideFromLeft 0.6s ease-out 1.0s forwards; }
+.letter-e { animation: slideFromLeft 0.6s ease-out 1.2s forwards; }
+.letter-g { animation: slideFromLeft 0.6s ease-out 1.4s forwards; }
+.letter-a2 { animation: slideFromLeft 0.6s ease-out 1.6s forwards; }
+.letter-w { animation: slideFromLeft 0.6s ease-out 1.8s forwards; }
+.letter-a3 { animation: slideFromLeft 0.6s ease-out 2.0s forwards; }
 
-/* 初期状態：線を隠す */
+/* 初期状態：左に隠す */
 .letter-h, .letter-a, .letter-r, .letter-u, 
 .letter-s, .letter-e, .letter-g, .letter-a2, 
 .letter-w, .letter-a3 {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
+  opacity: 0;
+  transform: translateX(-50px);
 }
 
-@keyframes drawLine {
+@keyframes slideFromLeft {
   0% {
-    stroke-dashoffset: 1000;
+    opacity: 0;
+    transform: translateX(-50px);
   }
   100% {
-    stroke-dashoffset: 0;
-    fill: var(--haru-black);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
