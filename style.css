@@ -84,15 +84,19 @@ Template: twentytwentyfive
 .haru-catchcopy {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
-  animation: fadeFromLeft 0.4s ease-out 1.2s forwards;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideFromLeft 0.4s ease-out 1.2s forwards;
 }
 
-@keyframes fadeFromLeft {
+@keyframes slideFromLeft {
   0% {
-    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateX(-30px);
   }
   100% {
-    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
