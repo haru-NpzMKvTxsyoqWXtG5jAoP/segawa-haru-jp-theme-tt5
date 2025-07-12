@@ -82,6 +82,11 @@ add_shortcode( 'haru_gallery_tags', function () {
 
     $out = '<ul class="haru-gallery-tag-list">';
     foreach ( $tags as $tag ) {
+        // haru-gallery-item-wide タグを除外
+        if ( $tag->slug === 'haru-gallery-item-wide' ) {
+            continue;
+        }
+        
         $out .= sprintf(
             '<li><a href="%s">%s</a></li>',
             esc_url( get_tag_link( $tag ) ),

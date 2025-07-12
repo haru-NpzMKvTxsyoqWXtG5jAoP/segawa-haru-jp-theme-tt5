@@ -80,6 +80,17 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* =============================================
+   レスポンシブスペーサー
+============================================= */
+.haru-spacer-large {
+  height: clamp(3rem, 7vw, 6rem) !important;
+}
+
+.haru-spacer-medium {
+  height: clamp(2rem, 4vw, 3rem) !important;
+}
+
+/* =============================================
    縦型ヘッダーバー
 ============================================= */
 /* 右カラム全体に背景と高さ確保 */
@@ -99,17 +110,6 @@ html::-webkit-scrollbar-thumb:hover {
 /* 文字縦組み */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl;
-}
-
-/* =============================================
-   レスポンシブスペーサー
-============================================= */
-.haru-spacer-large {
-  height: clamp(3rem, 7vw, 6rem) !important;
-}
-
-.haru-spacer-medium {
-  height: clamp(2rem, 4vw, 3rem) !important;
 }
 
 /* =============================================
@@ -366,7 +366,7 @@ html::-webkit-scrollbar-thumb:hover {
   border-radius: clamp(20px, 4vw, 50px);
   text-decoration: none;
   color: var(--haru-black);
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -422,14 +422,6 @@ html::-webkit-scrollbar-thumb:hover {
   font-weight: 300;
 }
 
-/* 制御用タグを非表示 */
-a[href*="haru-gallery-item-wide"] {
-  display: none;
-}
-/* 制御用タグの区切り文字を非表示 */
-a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
-  display: none;
-}
 
 /* =============================================
    特定ページ：GALLERY
