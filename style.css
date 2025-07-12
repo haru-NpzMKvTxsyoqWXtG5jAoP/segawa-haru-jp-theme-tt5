@@ -75,8 +75,8 @@ html::-webkit-scrollbar-thumb:hover {
 .haru-full-bg {
   margin-left: calc(var(--wp--style--root--padding-left) * -1);
   margin-right: calc(var(--wp--style--root--padding-right) * -1);
-  margin-top: calc(var(--wp--style--root--padding-top) * -1);
-  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1);
+  margin-top: calc(var(--wp--style--root--padding-top) * -1) !important;
+  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1) !important;
 }
 
 /* =============================================
