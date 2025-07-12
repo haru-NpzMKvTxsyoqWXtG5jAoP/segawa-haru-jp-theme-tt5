@@ -347,12 +347,12 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* =============================================
-   ギャラリータグ一覧ショートコード
+   ギャラリータグ一覧(ショートコード)
 ============================================= */
 .haru-gallery-tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: clamp(0.3rem, 1.2vw, 0.7rem);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -364,12 +364,12 @@ html::-webkit-scrollbar-thumb:hover {
 
 .haru-gallery-tag-list a {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.7rem, 2.5vw, 1.3rem);
   border: 1px solid var(--haru-white);
-  border-radius: 50px;
+  border-radius: clamp(20px, 4vw, 50px);
   text-decoration: none;
   color: var(--haru-white);
-  font-size: 0.9rem;
+  font-size: clamp(0.75rem, 2vw, 1rem);
   transition: all 0.2s ease;
 }
 
