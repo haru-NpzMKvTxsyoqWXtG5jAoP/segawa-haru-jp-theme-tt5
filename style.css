@@ -10,6 +10,7 @@ Template: twentytwentyfive
   /* カラーパレット */
   --haru-green: #00e68c;
   --haru-black: #000000;
+  --haru-back-black: #1a1a1a;
   --haru-white: #f9f9f9;
   --haru-gray: #e7e7e7;
   --haru-light-cyan: #7dffc8;
@@ -23,7 +24,6 @@ Template: twentytwentyfive
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
-  --haru-vertical-header-width: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 /* スクロールバー */
@@ -41,19 +41,19 @@ html::-webkit-scrollbar-thumb:hover {
   background: #ccc;
 }
 
+/* Google reCAPTCHAバッジを非表示 */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* タグ区切り文字の変更 */
 .wp-block-post-terms__separator {
   display: none;
 }
 .wp-block-post-terms a:not(:last-child)::after {
   content: " ";
-}
-
-/* Google reCAPTCHAバッジを非表示 */
-.grecaptcha-badge {
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
 }
 
 /* =============================================
@@ -71,6 +71,47 @@ html::-webkit-scrollbar-thumb:hover {
   margin-right: var(--wp--style--root--padding-right);
 }
 
+/* 全体背景用（bodyの上下左右パディング打ち消し） */
+.haru-full-bg {
+  margin-left: calc(var(--wp--style--root--padding-left) * -1);
+  margin-right: calc(var(--wp--style--root--padding-right) * -1);
+  margin-top: calc(var(--wp--style--root--padding-top) * -1);
+  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1);
+}
+
+/* =============================================
+   縦型ヘッダーバー
+============================================= */
+/* 右カラム全体に背景と高さ確保 */
+.haru-bar-column{
+  max-width: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
+  margin-top: calc(var(--wp--style--root--padding-top) * -1) !important;
+  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1) !important;
+}
+
+/* ナビ本体を sticky */
+.haru-vertical-header {
+  position: sticky;
+  top: 0;
+}
+
+/* 文字縦組み */
+.haru-vertical-header .wp-block-navigation-item__content{
+  writing-mode: vertical-rl;
+}
+
+/* =============================================
+   レスポンシブスペーサー
+============================================= */
+.haru-spacer-large {
+  height: clamp(3rem, 7vw, 6rem) !important;
+}
+
+.haru-spacer-medium {
+  height: clamp(2rem, 4vw, 3rem) !important;
+}
+
 /* =============================================
    SVGロゴ - 左からスライドイン
 ============================================= */
@@ -78,7 +119,7 @@ html::-webkit-scrollbar-thumb:hover {
   fill: #151515;
 }
 
-/* 初期状態：左に隠す */
+/* 初期状態：隠す */
 .letter-h, .letter-a, .letter-r, .letter-u, 
 .letter-s, .letter-e, .letter-g, .letter-a2, 
 .letter-w, .letter-a3 {
@@ -130,42 +171,9 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* =============================================
-   縦型ヘッダーバー
-============================================= */
-/* 右カラム全体に背景と高さ確保 */
-.haru-bar-column{
-  max-width: var(--haru-vertical-header-width);
-  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
-  margin-top: calc(var(--wp--style--root--padding-top) * -1) !important;
-  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1) !important;
-}
-
-/* ナビ本体を sticky */
-.haru-vertical-header {
-  position: sticky;
-  top: 0;
-}
-
-/* 文字縦組み */
-.haru-vertical-header .wp-block-navigation-item__content{
-  writing-mode: vertical-rl;
-}
-
-/* =============================================
-   レスポンシブスペーサー
-============================================= */
-.haru-spacer-large {
-  height: clamp(3rem, 7vw, 6rem) !important;
-}
-
-.haru-spacer-medium {
-  height: clamp(2rem, 4vw, 3rem) !important;
-}
-
-/* =============================================
    セクションタイトル
 ============================================= */
-.section-title {
+.haru-section-title {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
   display: flex;
@@ -173,20 +181,20 @@ html::-webkit-scrollbar-thumb:hover {
   gap: 0.1em;
   transform: translateY(-0.06em);
 }
-.section-title::before {
+.haru-section-title::before {
   content: "●";
   font-size: 0.5em;
   flex-shrink: 0;
 }
 
 /* before用カラー */
-.section-title.haru-bullet-l-cyan::before { color: var(--haru-light-cyan); }
-.section-title.haru-bullet-l-yellow::before { color: var(--haru-light-yellow); }
-.section-title.haru-bullet-l-orange::before { color: var(--haru-light-orange); }
-.section-title.haru-bullet-l-pink::before { color: var(--haru-light-pink); }
+.haru-section-title.haru-bullet-l-cyan::before { color: var(--haru-light-cyan); }
+.haru-section-title.haru-bullet-l-yellow::before { color: var(--haru-light-yellow); }
+.haru-section-title.haru-bullet-l-orange::before { color: var(--haru-light-orange); }
+.haru-section-title.haru-bullet-l-pink::before { color: var(--haru-light-pink); }
 
-/* 背景色あり */
-.section-title-back-color {
+/* 帯付き */
+.haru-section-title-back-color {
   background-color: var(--haru-white);
   padding-left: var(--haru-card-padding);
   margin-top: var(--haru-element-gap);
@@ -229,12 +237,10 @@ html::-webkit-scrollbar-thumb:hover {
   transition: left 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
 }
-
 .haru-service-card:hover::before {
   left: 0;
   opacity: 1;
 }
-
 .haru-service-card > * {
   position: relative;
   z-index: 2;
@@ -261,56 +267,44 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* =============================================
-   ギャラリー
+   共通ボタンスタイル
 ============================================= */
-/* 最小2列 */
-@media (max-width: 767px) {
-  .haru-gallery-grid { 
-    grid-template-columns: repeat(2, 1fr) !important; 
-  }
+.wpcf7-form .wpcf7-submit,
+.wp-block-button__link {
+  /* --- 基本のスタイルリセット & 設定 --- */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 5px; 
+  display: block;
+  margin: 30px auto 0; 
+  width: fit-content; 
+  min-width: 220px; 
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none; 
+   /* --- テキストのデザイン --- */
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  
+  /* --- 枠線と余白 --- */
+  border: 2px solid #000;
+  padding: 15px 25px; 
+
+  /* --- ホバーアニメーション --- */
+  color: #fff; 
+  background: linear-gradient(to left, #000 50%, transparent 50%); 
+  background-size: 200% 100%;
+  background-position: right bottom; 
+  transition: all .4s ease-out;
 }
 
-/* 最大7列 */
-@media (min-width: 1800px) {
-  .haru-gallery-grid { grid-template-columns: repeat(7, 1fr); }
-}
-
-/* wide タグが付いた投稿だけ２列分 */
-.haru-gallery-grid .tag-haru-gallery-item-wide {
-  grid-column: span 2;
-}
-
-/* 隙間調整 */
-.haru-gallery-grid {
-  column-gap: var(--haru-element-gap);
-  row-gap: 1rem;
-}
-
-/* 画像 */
-.haru-gallery-grid figure {
-  overflow: hidden;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
-}
-.haru-gallery-grid img {
-  transition: var(--haru-hover-transition);
-}
-.haru-gallery-grid a:hover img {
-  transform: scale(var(--haru-hover-scale));
-}
-
-/* タグとタイトルのテキストスタイル */
-.haru-gallery-grid a {
-  font-weight: 300;
-}
-
-/* 制御用タグを非表示 */
-a[href*="haru-gallery-item-wide"] {
-  display: none;
-}
-
-/* 制御用タグの区切り文字を非表示 */
-a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
-  display: none;
+.wpcf7-form .wpcf7-submit:hover,
+.wp-block-button__link:hover {
+  color: #000; 
+  background-position: left bottom; 
 }
 
 /* =============================================
@@ -386,10 +380,61 @@ a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
 }
 
 /* =============================================
-   特定ページの背景色
+   ギャラリー
 ============================================= */
-body.page-id-9539 {
-  background: var(--wp--preset--color--haru-back-black);
+/* 最小2列 */
+@media (max-width: 767px) {
+  .haru-gallery-grid { 
+    grid-template-columns: repeat(2, 1fr) !important; 
+  }
+}
+/* 最大7列 */
+@media (min-width: 1800px) {
+  .haru-gallery-grid { grid-template-columns: repeat(7, 1fr); }
+}
+/* wide タグが付いた投稿だけ２列分 */
+.haru-gallery-grid .tag-haru-gallery-item-wide {
+  grid-column: span 2;
+}
+
+/* 隙間調整 */
+.haru-gallery-grid {
+  column-gap: var(--haru-element-gap);
+  row-gap: 1rem;
+}
+
+/* 画像 */
+.haru-gallery-grid figure {
+  overflow: hidden;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
+}
+.haru-gallery-grid img {
+  transition: var(--haru-hover-transition);
+}
+.haru-gallery-grid a:hover img {
+  transform: scale(var(--haru-hover-scale));
+}
+
+/* タグとタイトルのテキスト */
+.haru-gallery-grid a {
+  font-weight: 300;
+}
+
+/* 制御用タグを非表示 */
+a[href*="haru-gallery-item-wide"] {
+  display: none;
+}
+/* 制御用タグの区切り文字を非表示 */
+a[href*="haru-gallery-item-wide"] + .wp-block-post-terms__separator {
+  display: none;
+}
+
+/* =============================================
+   特定ページ：GALLERY
+============================================= */
+/* セクションタイトル */
+body.page-id-9539 .haru-section-title {
+  font-size: clamp(2rem, 7vw, 4rem);
 }
 
 
