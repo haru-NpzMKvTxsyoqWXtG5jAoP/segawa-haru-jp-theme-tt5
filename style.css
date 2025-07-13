@@ -374,19 +374,6 @@ a:focus:not(:focus-visible),
   border: 1px solid var(--haru-black);
 }
 
-/* 送信中のボタン無効化 */
-.wpcf7-form.submitting .wpcf7-submit {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* スピナーのデザイン調整 */
-.wpcf7-spinner {
-  background-color: var(--haru-light-cyan);
-  opacity: 1;
-  margin: 0;
-}
-
 /* --- エラー時 --- */
 .wpcf7-form .wpcf7-not-valid {
   border: 1px solid #fe446a !important;
@@ -398,8 +385,8 @@ a:focus:not(:focus-visible),
 }
 /* エラー時のプレースホルダー */
 .wpcf7-form .wpcf7-not-valid::placeholder {
-  color: #fe446a;
-  opacity: 0.7;
+  color: #fe446a !important;
+  opacity: 0.7 !important;
 }
 
 /* 入力欄下のエラーメッセージを非表示 */
@@ -418,7 +405,12 @@ a:focus:not(:focus-visible),
   margin: 0 !important;
 }
 
-/* --- 送信結果メッセージ --- */
+/* チェックボックス自体のスタイル */
+.wpcf7-form input[type="checkbox"] {
+  border: 1px solid transparent !important;
+}
+
+/* --- 送信 --- */
 /* 送信完了・エラーメッセージ */
 .wpcf7 form .wpcf7-response-output {
   margin: 1rem 0;
@@ -434,10 +426,22 @@ a:focus:not(:focus-visible),
 .wpcf7 form.sent .wpcf7-response-output {
   border-color: var(--haru-light-cyan);
 }
-
 /* 送信エラー時（赤色） */
 .wpcf7 form.invalid .wpcf7-response-output {
   border-color: #fe446a;
+}
+
+/* 送信中のボタン無効化 */
+.wpcf7-form.submitting .wpcf7-submit {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* スピナーのデザイン調整 */
+.wpcf7-spinner {
+  background-color: var(--haru-light-cyan);
+  opacity: 1;
+  margin: 0;
 }
 
 /* =============================================
