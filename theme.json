@@ -25,6 +25,23 @@
           "slug": "source-han-sans-japanese",
           "name": "源ノ角ゴシック"
         }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "小：14px"
+        },
+        {
+          "slug": "medium",
+          "size": "0.9375rem",
+          "name": "中：15px"
+        },
+        {
+          "slug": "large",
+          "size": "1.125rem",
+          "name": "大：18px"
+        }
       ]
     }
   },

@@ -362,12 +362,11 @@ a:focus:not(:focus-visible),
   box-sizing: border-box;
   padding: 0.75rem 0.5rem;
   font-family: var(--wp--preset--font-family--source-han-sans-japanese);
-  font-size: 16px;
+  font-size: 1rem;
 }
-
 /* プレースホルダーの色を薄く */
 .wpcf7-form-control:not(.wpcf7-submit)::placeholder {
-  color: #999;
+  color: #bbb;
   opacity: 1;
 }
 /* 要素同士の余白調整 */
