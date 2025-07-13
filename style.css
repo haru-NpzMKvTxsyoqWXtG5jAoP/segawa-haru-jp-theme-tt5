@@ -298,17 +298,12 @@ html::-webkit-scrollbar-thumb:hover {
   transform: scale(0.97);
 }
 
-.wpcf7-form .wpcf7-submit::after {
+.wpcf7-form .wpcf7-submit::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: linear-gradient(
     90deg,
     var(--haru-light-pink) 0%,
@@ -322,9 +317,10 @@ html::-webkit-scrollbar-thumb:hover {
   filter: blur(20px);
   animation: haru-effect infinite 3s linear;
   opacity: 0.5;
+  z-index: -1;
 }
 
-.wpcf7-form .wpcf7-submit:hover::after {
+.wpcf7-form .wpcf7-submit:hover::before {
   width: 8rem;
   height: 8rem;
 }
