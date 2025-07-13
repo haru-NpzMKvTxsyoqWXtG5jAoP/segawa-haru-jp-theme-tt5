@@ -272,58 +272,48 @@ html::-webkit-scrollbar-thumb:hover {
 /* 共通ボタンスタイル - サービスカード方式 */
 .wpcf7-form .wpcf7-submit,
 .wp-block-button__link {
-  display: block;
-  padding: 15px 25px;
-  border: 1px solid #000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: 5px;
-  transition: all 0.4s ease-out;
-  font-weight: 400;
-  cursor: pointer;
-  color: #000;
-  background: var(--haru-white);
-  position: relative;
-  overflow: hidden;
+  display: block;
   margin: 30px auto 0;
   width: fit-content;
-  min-width: 160px;
+  min-width: 220px;
   text-align: center;
+  cursor: pointer;
   text-decoration: none;
-}
 
-.wpcf7-form .wpcf7-submit::before,
-.wp-block-button__link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--haru-light-cyan), var(--haru-light-yellow));
-  opacity: 0;
-  transition: left 0.3s ease-out, opacity 0.3s ease-out;
-  z-index: 1;
-}
+  /* --- Text --- */
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 
-.wpcf7-form .wpcf7-submit:hover::before,
-.wp-block-button__link:hover::before {
-  left: 0;
-  opacity: 1;
-}
+  /* --- Border & Padding --- */
+  border: 2px solid #000;
+  padding: 15px 25px;
 
-.wpcf7-form .wpcf7-submit > *,
-.wp-block-button__link > * {
-  position: relative;
-  z-index: 2;
+  /* --- Gradient Fill Animation --- */
+  color: #fff;
+  background: linear-gradient(to left, #000 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .4s ease-out;
 }
 
 .wpcf7-form .wpcf7-submit:hover,
 .wp-block-button__link:hover {
-  color: var(--haru-black);
+  color: #000;
+  background-position: left bottom;
 }
 
-.wpcf7-form .wpcf7-submit:active {
-  transform: scale(0.97);
+/* Disable old overlay */
+.wpcf7-form .wpcf7-submit::before,
+.wp-block-button__link::before {
+  display: none !important;
 }
+/* ======================================================== */
 
 
 /* =============================================
