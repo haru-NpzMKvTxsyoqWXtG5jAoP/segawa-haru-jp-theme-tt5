@@ -292,35 +292,43 @@ html::-webkit-scrollbar-thumb:hover {
   border: 1px solid #000;
   padding: 15px 20px;
 
-  /* --- Gradient Fade Animation --- */
-  position: relative;
-  overflow: hidden;
+  /* --- Gradient Slide-In (left→right) --- */
   color: #000;
-  background: var(--haru-white);
-  transition: color .4s ease-out;
+  background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position .4s ease-out;
 }
 
 .wpcf7-form .wpcf7-submit:hover,
 .wp-block-button__link:hover {
-  color: #fff;
+  /* テキスト・枠線は黒のまま */
+  background-position: left bottom;
 }
 
-/* Slide-in overlay for fade + slide effect */
-.wpcf7-form .wpcf7-submit::before,
-.wp-block-button__link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #000;
-  transform: translateX(100%);
-  opacity: 0;
-  transition: transform .4s ease-out, opacity .4s ease-out;
+/* Ensure CF7 <button> variant also styled */
+.wpcf7-form button.wpcf7-submit {
+  all: unset;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  min-width: 180px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 1px solid #000;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position .4s ease-out;
 }
 
-.wpcf7-form .wpcf7-submit:hover::before,
-.wp-block-button__link:hover::before {
-  transform: translateX(0);
-  opacity: 1;
+.wpcf7-form button.wpcf7-submit:hover {
+  background-position: left bottom;
 }
 
 /* =============================================
