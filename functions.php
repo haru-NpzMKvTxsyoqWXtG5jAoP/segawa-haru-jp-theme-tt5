@@ -29,7 +29,7 @@ add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
 //  フロントページのギャラリー表示件数制限
 // ==============================================
 /**
- * フロントページの haru-gallery-grid だけ 15 件表示に制限
+ * フロントページの haru-gallery-grid だけ件数制限（wide投稿は2件扱い）
  */
 add_filter(
     'query_loop_block_query_vars',
@@ -45,7 +45,27 @@ add_filter(
 
         // ③ haru-gallery-grid というクラスを持っているか確認
         if ( str_contains( $class, 'haru-gallery-grid' ) ) {
-            $query_vars['posts_per_page'] = 15; // ← ここ変えれば上限も変わる
+            // カテゴリ 'gallery' の投稿でwide投稿の数を取得
+            $gallery_posts = get_posts([
+                'category_name'  => 'gallery',
+                'posts_per_page' => -1,
+                'fields'         => 'ids'
+            ]);
+            
+            $wide_count = 0;
+            foreach ( $gallery_posts as $post_id ) {
+                if ( has_tag( 'haru-gallery-item-wide', $post_id ) ) {
+                    $wide_count++;
+                }
+            }
+            
+            // 目標グリッド数15に合わせて表示件数を調整
+            // wide投稿は2マス使うので、その分通常投稿の表示数を減らす
+            $target_grid_spaces = 15;
+            $max_posts = $target_grid_spaces - $wide_count;
+            
+            // 最低でも10件は表示する
+            $query_vars['posts_per_page'] = max( $max_posts, 10 );
         }
 
         return $query_vars;
