@@ -50,7 +50,8 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* マウスクリック時のみ枠を無効化、キーボードは維持 */
-a:focus:not(:focus-visible) {
+a:focus:not(:focus-visible),
+.wpcf7-form-control:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -390,6 +391,24 @@ a:focus:not(:focus-visible) {
 .wpcf7-form span.wpcf7-form-control.wpcf7-checkbox,
 .wpcf7-form span.wpcf7-form-control.wpcf7-acceptance {
   display: flex;
+  justify-content: center;
+}
+
+/* チェックボックスのデフォルトmarginをリセット */
+.wpcf7-acceptance input[type="checkbox"] {
+  margin: 0;
+}
+
+/* 送信中スピナーをボタンの左に配置 */
+.wpcf7-form .ajax-loader {
+  order: -1;
+  margin-right: 10px;
+}
+
+/* 送信ボタンの親要素をflexに */
+.wpcf7-form p:has(.wpcf7-submit) {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
