@@ -329,7 +329,7 @@ html::-webkit-scrollbar-thumb:hover {
 
 /* pタグの余白を狭く */
 .wpcf7-form p {
-  margin-bottom: var(--haru-element-gap);
+  margin: 0 0 var(--haru-element-gap) 0;
 }
 
 /* フォーカス時のスタイル */
