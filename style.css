@@ -293,17 +293,34 @@ html::-webkit-scrollbar-thumb:hover {
   padding: 15px 20px;
 
   /* --- Gradient Fade Animation --- */
-  color: #fff;
-  background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
-  background-size: 200% 100%;
-  background-position: left bottom;
-  transition: background-position .4s ease-out, color .4s ease-out;
+  position: relative;
+  overflow: hidden;
+  color: #000;
+  background: var(--haru-white);
+  transition: color .4s ease-out;
 }
 
 .wpcf7-form .wpcf7-submit:hover,
 .wp-block-button__link:hover {
-  color: #000;
-  background-position: right bottom;
+  color: #fff;
+}
+
+/* Slide-in overlay for fade + slide effect */
+.wpcf7-form .wpcf7-submit::before,
+.wp-block-button__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform .4s ease-out, opacity .4s ease-out;
+}
+
+.wpcf7-form .wpcf7-submit:hover::before,
+.wp-block-button__link:hover::before {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* =============================================
