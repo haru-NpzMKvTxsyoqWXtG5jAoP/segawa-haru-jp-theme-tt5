@@ -269,7 +269,76 @@ html::-webkit-scrollbar-thumb:hover {
 /* =============================================
    共通ボタンスタイル
 ============================================= */
-.wpcf7-form .wpcf7-submit,
+/* Contact Form 7 ボタン - グラデーションアニメーション */
+.wpcf7-form .wpcf7-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--haru-black);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+  margin: 30px auto 0;
+  background: var(--haru-white);
+}
+
+.wpcf7-form .wpcf7-submit:hover {
+  background: var(--haru-light-cyan);
+  color: var(--haru-black);
+}
+
+.wpcf7-form .wpcf7-submit:active {
+  transform: scale(0.97);
+}
+
+.wpcf7-form .wpcf7-submit::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    var(--haru-light-pink) 0%,
+    var(--haru-light-yellow) 49%,
+    var(--haru-light-cyan) 100%
+  );
+  border-radius: 40rem;
+  width: 10rem;
+  height: 10rem;
+  transition: 0.4s;
+  filter: blur(20px);
+  animation: haru-effect infinite 3s linear;
+  opacity: 0.5;
+}
+
+.wpcf7-form .wpcf7-submit:hover::after {
+  width: 8rem;
+  height: 8rem;
+}
+
+@keyframes haru-effect {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* WordPress ブロックボタン - シンプル版 */
 .wp-block-button__link {
   /* --- 基本のスタイルリセット & 設定 --- */
   -webkit-appearance: none;
@@ -301,7 +370,6 @@ html::-webkit-scrollbar-thumb:hover {
   transition: all .4s ease-out;
 }
 
-.wpcf7-form .wpcf7-submit:hover,
 .wp-block-button__link:hover {
   color: #000; 
   background-position: left bottom; 
