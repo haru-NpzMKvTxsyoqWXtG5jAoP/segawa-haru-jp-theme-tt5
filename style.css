@@ -349,7 +349,8 @@ a:focus:not(:focus-visible),
 /* =============================================
    コンタクトフォーム7
 ============================================= */
-/* フォーム要素（送信ボタン以外） */
+
+/* --- 基本フォーム要素 --- */
 .wpcf7-form-control:not(.wpcf7-submit) {
   width: 100%;
   border: 1px solid transparent;
@@ -360,29 +361,46 @@ a:focus:not(:focus-visible),
   font-size: var(--wp--preset--font-size--small);
 }
 
-/* pタグの余白調整 */
 .wpcf7-form p {
   margin: 0 0 0.7rem 0;
 }
 
-/* フォーカス時 */
+/* --- フォーカス状態 --- */
 .wpcf7-form-control:not(.wpcf7-submit):focus-visible {
   outline: none;
   border: 1px solid var(--haru-black);
 }
 
-/* エラー時のスタイル */
+/* --- エラー状態 --- */
 .wpcf7-form .wpcf7-not-valid {
   border: 1px solid #fe446a !important;
   color: #fe446a;
 }
 
-/* フォーカス時は文字色を元に戻す */
 .wpcf7-form .wpcf7-not-valid:focus {
   color: var(--haru-black);
 }
 
-/* 送信メッセージの基本スタイル */
+.wpcf7-form .wpcf7-not-valid::placeholder {
+  color: #fe446a;
+  opacity: 0.7;
+}
+
+.wpcf7-form .wpcf7-not-valid-tip {
+  display: none;
+}
+
+/* --- チェックボックス --- */
+.wpcf7-form .wpcf7-acceptance {
+  display: flex;
+  justify-content: center;
+}
+
+.wpcf7-list-item {
+  margin: 0 !important;
+}
+
+/* --- 送信結果メッセージ --- */
 .wpcf7 form .wpcf7-response-output {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
@@ -394,32 +412,12 @@ a:focus:not(:focus-visible),
   text-align: center;
 }
 
-/* 送信成功時（緑色） */
 .wpcf7 form.sent .wpcf7-response-output {
   border-color: var(--haru-green);
 }
 
-/* 送信エラー時（赤色） */
 .wpcf7 form.invalid .wpcf7-response-output {
   border-color: #fe446a;
-}
-.wpcf7-form .wpcf7-not-valid::placeholder {
-  color: #fe446a;
-  opacity: 0.7;
-}
-/* エラーメッセージを非表示 */
-.wpcf7-form .wpcf7-not-valid-tip {
-  display: none;
-}
-
-/* チェックボックスとそのテキスト */
-.wpcf7-form .wpcf7-acceptance {
-  display: flex;
-  justify-content: center;
-}
-/* チェックボックスの余白を修正 */
-.wpcf7-list-item {
-  margin: 0 !important;
 }
 
 
