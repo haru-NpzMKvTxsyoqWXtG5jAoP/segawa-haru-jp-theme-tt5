@@ -406,6 +406,11 @@ a:focus:not(:focus-visible),
   margin: 0 !important;
 }
 
+/* チェックボックスのアクセントカラー */
+.wpcf7-form input[type="checkbox"] {
+  accent-color: var(--haru-black);
+}
+
 /* --- 送信 --- */
 /* 送信完了・エラーメッセージ */
 .wpcf7 form .wpcf7-response-output {
