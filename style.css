@@ -386,8 +386,8 @@ a:focus:not(:focus-visible),
 }
 /* エラー時のプレースホルダー */
 .wpcf7-form .wpcf7-not-valid::placeholder {
-  color: #fe446a !important;
-  opacity: 0.7 !important;
+  color: #fe446a;
+  opacity: 0.7;
 }
 
 /* 入力欄下のエラーメッセージを非表示 */
@@ -404,11 +404,6 @@ a:focus:not(:focus-visible),
 /* チェックボックスの余白を消す */
 .wpcf7-list-item {
   margin: 0 !important;
-}
-
-/* チェックボックス自体のスタイル */
-.wpcf7-form input[type="checkbox"] {
-  border: 1px solid transparent !important;
 }
 
 /* --- 送信 --- */
