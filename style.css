@@ -397,10 +397,6 @@ a:focus:not(:focus-visible),
   margin: 0 !important;
 }
 
-.wpcf7-acceptance input[type="checkbox"] {
-  margin: 0;
-}
-
 
 /* =============================================
    ギャラリータグ一覧(ショートコード)
