@@ -98,6 +98,10 @@ a:focus:not(:focus-visible),
   height: clamp(2rem, 4vw, 3rem) !important;
 }
 
+.haru-spacer-small {
+  height: clamp(0.7rem, 1.3vw, 1rem) !important;
+}
+
 /* =============================================
    縦型ヘッダーバー
 ============================================= */
@@ -358,7 +362,7 @@ a:focus:not(:focus-visible),
   box-sizing: border-box;
   padding: 0.75rem 0.5rem;
   font-family: var(--wp--preset--font-family--source-han-sans-japanese);
-  font-size: var(--wp--preset--font-size--small);
+  font-size: 16px;
 }
 /* 要素同士の余白調整 */
 .wpcf7-form p {
