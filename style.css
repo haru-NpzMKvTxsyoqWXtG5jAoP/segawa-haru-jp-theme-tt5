@@ -273,12 +273,12 @@ html::-webkit-scrollbar-thumb:hover {
 .wpcf7-form .wpcf7-submit {
   display: block;
   padding: 15px 50px;
-  border: 0;
+  border: 2px solid var(--haru-black);
   border-radius: 10rem;
   transition: all 0.3s ease;
   font-weight: bold;
   cursor: pointer;
-  color: var(--haru-white);
+  color: var(--haru-black);
   box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
   margin: 30px auto 0;
   background: linear-gradient(
@@ -289,7 +289,7 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .wpcf7-form .wpcf7-submit:hover {
-  color: var(--haru-black);
+  transform: scale(1.05);
 }
 
 .wpcf7-form .wpcf7-submit:active {
