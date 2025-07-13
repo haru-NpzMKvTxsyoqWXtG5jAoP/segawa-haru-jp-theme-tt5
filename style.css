@@ -49,8 +49,8 @@ html::-webkit-scrollbar-thumb:hover {
   pointer-events: none !important;
 }
 
-/* TT5のクリック枠を無効化 */
-a:focus {
+/* マウスクリック時のみ枠を無効化、キーボードは維持 */
+a:focus:not(:focus-visible) {
   outline: none;
 }
 
