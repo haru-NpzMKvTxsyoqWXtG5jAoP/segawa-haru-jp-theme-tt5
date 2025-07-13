@@ -368,16 +368,23 @@ a:focus:not(:focus-visible),
   resize: vertical;
 }
 
+/* フォーカス時 */
+.wpcf7-form-control:not(.wpcf7-submit):focus-visible {
+  outline: none;
+  border: 1px solid var(--haru-black);
+}
+
 /* 送信中のボタン無効化 */
 .wpcf7-form.submitting .wpcf7-submit {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* --- フォーカス時 --- */
-.wpcf7-form-control:not(.wpcf7-submit):focus-visible {
-  outline: none;
-  border: 1px solid var(--haru-black);
+/* スピナーのデザイン調整 */
+.wpcf7-spinner {
+  background-color: var(--haru-light-cyan);
+  opacity: 1;
+  margin: 0;
 }
 
 /* --- エラー時 --- */
