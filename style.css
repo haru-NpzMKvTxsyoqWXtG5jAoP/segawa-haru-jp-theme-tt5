@@ -386,8 +386,7 @@ a:focus:not(:focus-visible),
 }
 
 /* チェックボックスとラベルを中央寄せ */
-.wpcf7-form span.wpcf7-form-control.wpcf7-checkbox,
-.wpcf7-form span.wpcf7-form-control.wpcf7-acceptance {
+.wpcf7-form .wpcf7-acceptance {
   display: flex;
   justify-content: center;
 }
