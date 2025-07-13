@@ -23,7 +23,7 @@ Template: twentytwentyfive
   --haru-element-border-radius: 0px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
-  --haru-hover-duration: 0.2s ease-out;
+  --haru-hover-duration: 0.3s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
 
