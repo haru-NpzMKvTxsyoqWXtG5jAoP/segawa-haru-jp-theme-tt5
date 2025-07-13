@@ -345,15 +345,8 @@ html::-webkit-scrollbar-thumb:hover {
 /* =============================================
    コンタクトフォーム7
 ============================================= */
-/* フォーム要素の基本スタイル（テキスト系のみ） */
-.wpcf7-text,
-.wpcf7-email,
-.wpcf7-tel,
-.wpcf7-url,
-.wpcf7-password,
-.wpcf7-search,
-.wpcf7-textarea,
-.wpcf7-select {
+/* フォーム要素（送信ボタン以外） */
+.wpcf7-form-control:not(.wpcf7-submit) {
   width: 100%;
   border: 1px solid transparent;
   border-radius: calc(var(--haru-element-border-radius) - 10px);
@@ -368,14 +361,7 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* フォーカス時のスタイル */
-.wpcf7-text:focus-visible,
-.wpcf7-email:focus-visible,
-.wpcf7-tel:focus-visible,
-.wpcf7-url:focus-visible,
-.wpcf7-password:focus-visible,
-.wpcf7-search:focus-visible,
-.wpcf7-textarea:focus-visible,
-.wpcf7-select:focus-visible {
+.wpcf7-form-control:not(.wpcf7-submit):focus-visible {
   outline: none;
   border: 1px solid var(--haru-black);
 }
