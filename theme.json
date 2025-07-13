@@ -51,11 +51,59 @@
       "background": "var(--wp--preset--color--haru-green)",
       "text": "var(--wp--preset--color--black)"
     },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+    },
     "elements": {
       "body": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)",
           "fontWeight": "400"
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "h6": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "button": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "link": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+        }
+      },
+      "caption": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
         }
       }
     }
