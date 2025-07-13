@@ -321,16 +321,31 @@ html::-webkit-scrollbar-thumb:hover {
   padding: 15px 25px; 
 
   /* --- ホバーアニメーション --- */
-  color: #fff; 
-  background: linear-gradient(to left, #000 50%, transparent 50%); 
-  background-size: 200% 100%;
-  background-position: right bottom; 
+  color: #000; 
+  background: var(--haru-white);
+  position: relative;
+  overflow: hidden;
   transition: all .4s ease-out;
 }
 
+.wp-block-button__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--haru-light-cyan), var(--haru-light-yellow));
+  transition: left 0.4s ease-out;
+  z-index: -1;
+}
+
+.wp-block-button__link:hover::before {
+  left: 0;
+}
+
 .wp-block-button__link:hover {
-  color: #000; 
-  background-position: left bottom; 
+  color: var(--haru-black);
 }
 
 /* =============================================
