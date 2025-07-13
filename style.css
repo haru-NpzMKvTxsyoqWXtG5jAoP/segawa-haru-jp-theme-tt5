@@ -365,7 +365,7 @@ a:focus:not(:focus-visible),
   margin: 0 0 0.7rem 0;
 }
 
-/* フォーカス時のスタイル */
+/* フォーカス時 */
 .wpcf7-form-control:not(.wpcf7-submit):focus-visible {
   outline: none;
   border: 1px solid var(--haru-black);
@@ -374,7 +374,6 @@ a:focus:not(:focus-visible),
 /* エラー時のスタイル */
 .wpcf7-form .wpcf7-not-valid {
   border: 1px solid #fe446a !important;
-  color: #fe446a;
 }
 .wpcf7-form .wpcf7-not-valid::placeholder {
   color: #fe446a;
@@ -385,13 +384,12 @@ a:focus:not(:focus-visible),
   display: none;
 }
 
-/* チェックボックスとラベルを中央寄せ */
+/* チェックボックスとそのテキスト */
 .wpcf7-form .wpcf7-acceptance {
   display: flex;
   justify-content: center;
 }
-
-/* チェックボックス関連の余白を修正 */
+/* チェックボックスの余白を修正 */
 .wpcf7-list-item {
   margin: 0 !important;
 }
