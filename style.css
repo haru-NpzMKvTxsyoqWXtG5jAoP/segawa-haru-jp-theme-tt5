@@ -359,14 +359,19 @@ a:focus:not(:focus-visible),
   font-family: var(--wp--preset--font-family--source-han-sans-japanese);
   font-size: var(--wp--preset--font-size--small);
 }
-
+/* 要素同士の余白調整 */
+.wpcf7-form p {
+  margin: 0 0 0.7rem 0;
+}
 /* テキストエリアは縦方向のみリサイズ可能 */
 .wpcf7-textarea {
   resize: vertical;
 }
-/* 要素同士の余白調整 */
-.wpcf7-form p {
-  margin: 0 0 0.7rem 0;
+
+/* 送信中のボタン無効化 */
+.wpcf7-form.submitting .wpcf7-submit {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* --- フォーカス時 --- */
