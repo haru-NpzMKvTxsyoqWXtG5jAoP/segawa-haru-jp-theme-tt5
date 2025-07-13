@@ -252,7 +252,8 @@ html::-webkit-scrollbar-thumb:hover {
 .haru-service-card img {
   transition: var(--haru-hover-transition);
 }
-.haru-service-card:hover img {
+.haru-service-card:hover img,
+.haru-service-card:focus-visible img {
   transform: scale(var(--haru-hover-scale));
 }
 
@@ -265,45 +266,40 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* =============================================
-   共通ボタンスタイル（CF7/button/link 共通）
+   共通ボタンスタイル
 ============================================= */
-.wpcf7-form .wpcf7-submit,
+.wpcf7-submit,
 .wp-block-button__link {
   /* --- リセット & 基本設定 --- */
   -webkit-appearance: none;
   appearance: none;
   border-radius: 50px;
   display: block;
-  margin-top: 30px; /* 上側に余白を確保（中央寄せは不要） */
+  margin: 0 auto;
   min-width: clamp(140px, 50vw, 180px);
   padding: 15px 20px;
-  font: 400 14px/1 sans-serif;
+  font-family: var(--wp--preset--font-family--source-han-sans-japanese);
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 500;
   letter-spacing: 2px;
-  text-transform: uppercase;
   text-align: center;
   cursor: pointer;
   
   /* --- 枠線と背景 --- */
   border: 1px solid var(--haru-black);
-  color: #fff;
+  color: var(--haru-white);
   background: linear-gradient(to left, var(--haru-black) 50%, transparent 50%) right / 200% 100%;
   transition: background-position .4s ease-out, color .4s ease-out;
 }
 
-.wpcf7-form .wpcf7-submit:hover,
-.wpcf7-form .wpcf7-submit:focus-visible,
+.wpcf7-submit:hover,
+.wpcf7-submit:focus-visible,
 .wp-block-button__link:hover,
 .wp-block-button__link:focus-visible {
   background-position: left;
   color: var(--haru-black);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .wpcf7-form .wpcf7-submit,
-  .wp-block-button__link {
-    transition: none;
-  }
-}
 
 /* =============================================
    コンタクトフォーム7
@@ -429,7 +425,8 @@ html::-webkit-scrollbar-thumb:hover {
 .haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
-.haru-gallery-grid a:hover img {
+.haru-gallery-grid a:hover img,
+.haru-gallery-grid a:focus-visible img {
   transform: scale(var(--haru-hover-scale));
 }
 
