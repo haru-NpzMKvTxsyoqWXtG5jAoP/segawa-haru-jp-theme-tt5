@@ -137,8 +137,6 @@ a:focus:not(:focus-visible),
   font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
-  
-  /* --- 枠線と背景 --- */
   border: 1px solid var(--haru-black);
   color: var(--haru-white);
   background: linear-gradient(to left, var(--haru-black) 50%, transparent 50%) right / 200% 100%;
@@ -394,7 +392,11 @@ a:focus:not(:focus-visible),
   justify-content: center;
 }
 
-/* チェックボックスのデフォルトmarginをリセット */
+/* チェックボックス関連の余白を修正 */
+.wpcf7-list-item {
+  margin: 0 !important;
+}
+
 .wpcf7-acceptance input[type="checkbox"] {
   margin: 0;
 }
