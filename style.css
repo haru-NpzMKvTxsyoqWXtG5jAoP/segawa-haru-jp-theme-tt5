@@ -24,10 +24,6 @@ Template: twentytwentyfive
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
-  /* ボタンカラー変数 */
-  --btn-fill: #000;
-  --btn-border: #000;
-  --btn-text-hover: #000;
 }
 
 /* スクロールバー */
@@ -188,9 +184,7 @@ html::-webkit-scrollbar-thumb:hover {
 .haru-section-title::before {
   content: "●";
   font-size: 0.5em;
-  flex-shrink: 0;
 }
-
 /* before用カラー */
 .haru-section-title.haru-bullet-l-cyan::before { color: var(--haru-light-cyan); }
 .haru-section-title.haru-bullet-l-yellow::before { color: var(--haru-light-yellow); }
@@ -215,7 +209,7 @@ html::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* 隙間調整 */
+/* カード間の隙間調整 */
 .haru-service-cards-container {
   gap: var(--haru-element-gap);
 }
@@ -266,8 +260,8 @@ html::-webkit-scrollbar-thumb:hover {
 .haru-service-card h3 {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 500;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: var(--haru-card-padding);
+  margin-bottom: var(--haru-card-padding);
 }
 
 /* =============================================
@@ -289,9 +283,9 @@ html::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
   
   /* --- 枠線と背景 --- */
-  border: 1px solid var(--btn-border);
+  border: 1px solid var(--haru-black);
   color: #fff;
-  background: linear-gradient(to left, var(--btn-fill) 50%, transparent 50%) right / 200% 100%;
+  background: linear-gradient(to left, var(--haru-black) 50%, transparent 50%) right / 200% 100%;
   transition: background-position .4s ease-out, color .4s ease-out;
 }
 
@@ -300,7 +294,7 @@ html::-webkit-scrollbar-thumb:hover {
 .wp-block-button__link:hover,
 .wp-block-button__link:focus-visible {
   background-position: left;
-  color: var(--btn-text-hover);
+  color: var(--haru-black);
 }
 
 @media (prefers-reduced-motion: reduce) {
