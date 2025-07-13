@@ -24,6 +24,10 @@ Template: twentytwentyfive
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
+  /* ボタンカラー変数 */
+  --btn-fill: #000;
+  --btn-border: #000;
+  --btn-text-hover: #000;
 }
 
 /* スクロールバー */
@@ -267,68 +271,43 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 /* =============================================
-   共通ボタンスタイル
+   共通ボタンスタイル（CF7/button/link 共通）
 ============================================= */
-/* 共通ボタンスタイル - サービスカード方式 */
 .wpcf7-form .wpcf7-submit,
 .wp-block-button__link {
+  /* --- リセット & 基本設定 --- */
+  -webkit-appearance: none;
   appearance: none;
   border-radius: 50px;
   display: block;
-  margin: 30px auto 0;
-  width: fit-content;
-  min-width: 180px;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-
-  /* --- Text --- */
-  font-size: 14px;
-  font-weight: 400;
+  min-width: clamp(140px, 50vw, 180px);
+  padding: 15px 20px;
+  font: 400 14px/1 sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
-
-  /* --- Border & Padding --- */
-  border: 1px solid #000;
-  padding: 15px 20px;
-
-  /* --- Gradient Slide-In (left→right) --- */
-  color: #000;
-  background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: background-position .4s ease-out;
+  text-align: center;
+  cursor: pointer;
+  
+  /* --- 枠線と背景 --- */
+  border: 1px solid var(--btn-border);
+  color: #fff;
+  background: linear-gradient(to left, var(--btn-fill) 50%, transparent 50%) right / 200% 100%;
+  transition: background-position .4s ease-out, color .4s ease-out;
 }
 
 .wpcf7-form .wpcf7-submit:hover,
-.wp-block-button__link:hover {
-  /* テキスト・枠線は黒のまま */
-  background-position: left bottom;
+.wpcf7-form .wpcf7-submit:focus-visible,
+.wp-block-button__link:hover,
+.wp-block-button__link:focus-visible {
+  background-position: left;
+  color: var(--btn-text-hover);
 }
 
-/* Ensure CF7 <button> variant also styled */
-.wpcf7-form button.wpcf7-submit {
-  all: unset;
-  display: block;
-  cursor: pointer;
-  text-align: center;
-  min-width: 180px;
-  padding: 15px 20px;
-  border-radius: 50px;
-  border: 1px solid #000;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #000;
-  background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: background-position .4s ease-out;
-}
-
-.wpcf7-form button.wpcf7-submit:hover {
-  background-position: left bottom;
+@media (prefers-reduced-motion: reduce) {
+  .wpcf7-form .wpcf7-submit,
+  .wp-block-button__link {
+    transition: none;
+  }
 }
 
 /* =============================================
