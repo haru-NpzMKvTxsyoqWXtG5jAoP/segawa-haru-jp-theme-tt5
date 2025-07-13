@@ -496,6 +496,8 @@ a:focus:not(:focus-visible),
 ============================================= */
 .haru-flip-card {
   position: relative;
+  cursor: pointer;
+  user-select: none;
 }
 
 .haru-flip-card-inner {
