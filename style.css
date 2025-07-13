@@ -23,6 +23,7 @@ Template: twentytwentyfive
   --haru-element-border-radius: 0px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
+  --haru-hover-duration: 0.2s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
 
@@ -135,7 +136,7 @@ html::-webkit-scrollbar-thumb:hover {
   border: 1px solid var(--haru-black);
   color: var(--haru-white);
   background: linear-gradient(to left, var(--haru-black) 50%, transparent 50%) right / 200% 100%;
-  transition: background-position var(--haru-hover-transition), color var(--haru-hover-transition);
+  transition: background-position var(--haru-hover-duration), color var(--haru-hover-duration);
 }
 
 .wpcf7-submit:hover,
