@@ -374,6 +374,12 @@ a:focus:not(:focus-visible),
 /* エラー時のスタイル */
 .wpcf7-form .wpcf7-not-valid {
   border: 1px solid #fe446a !important;
+  color: #fe446a;
+}
+
+/* フォーカス時は文字色を元に戻す */
+.wpcf7-form .wpcf7-not-valid:focus {
+  color: var(--haru-black);
 }
 .wpcf7-form .wpcf7-not-valid::placeholder {
   color: #fe446a;
