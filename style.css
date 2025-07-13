@@ -49,6 +49,11 @@ html::-webkit-scrollbar-thumb:hover {
   pointer-events: none !important;
 }
 
+/* TT5のクリック枠を無効化 */
+a:focus {
+  outline: none;
+}
+
 /* タグ区切り文字の変更 */
 .wp-block-post-terms__separator {
   display: none;
@@ -352,6 +357,8 @@ html::-webkit-scrollbar-thumb:hover {
   border-radius: calc(var(--haru-element-border-radius) - 10px);
   box-sizing: border-box;
   padding: 0.75rem 0.5rem;
+  font-family: var(--wp--preset--font-family--source-han-sans-japanese);
+  font-size: var(--wp--preset--font-size--small);
 }
 
 /* pタグの余白調整 */
@@ -383,10 +390,7 @@ html::-webkit-scrollbar-thumb:hover {
 .wpcf7-form span.wpcf7-form-control.wpcf7-checkbox,
 .wpcf7-form span.wpcf7-form-control.wpcf7-acceptance {
   display: flex;
-  justify-content: center !important; /* CF7 デフォルトの left 寄せを上書き */
-  align-items: center;
-  gap: 0.4em;
-  width: 100%;
+  justify-content: center;
 }
 
 /* =============================================
