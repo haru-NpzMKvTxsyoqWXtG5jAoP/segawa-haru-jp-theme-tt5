@@ -359,6 +359,15 @@ html::-webkit-scrollbar-thumb:hover {
   display: none;
 }
 
+/* チェックボックスとラベルを中央寄せ */
+.wpcf7-form span.wpcf7-form-control.wpcf7-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  width: 100%;
+}
+
 /* =============================================
    ギャラリータグ一覧(ショートコード)
 ============================================= */
@@ -446,14 +455,6 @@ body.page-id-9539 .haru-section-title {
 
 .wpcf7-form .wpcf7-submit {
   margin: 30px auto 0;
-}
-
-/* 確認用チェックボックス行を中央寄せ */
-.wpcf7-form span.wpcf7-form-control.wpcf7-checkbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4em;
 }
 
 
