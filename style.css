@@ -409,6 +409,7 @@ a:focus:not(:focus-visible),
 /* 送信中スピナーをボタンの左に配置 */
 .wpcf7-form .ajax-loader {
   margin-right: 10px;
+  align-self: center;
 }
 
 /* =============================================
