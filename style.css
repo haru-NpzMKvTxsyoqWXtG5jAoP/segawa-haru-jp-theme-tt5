@@ -271,10 +271,8 @@ html::-webkit-scrollbar-thumb:hover {
 ============================================= */
 /* Contact Form 7 ボタン - シンプルグラデーション */
 .wpcf7-form .wpcf7-submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
+  display: block;
+  padding: 15px 50px;
   border: 0;
   border-radius: 10rem;
   transition: all 0.3s ease;
@@ -285,9 +283,8 @@ html::-webkit-scrollbar-thumb:hover {
   margin: 30px auto 0;
   background: linear-gradient(
     45deg,
-    var(--haru-light-pink),
-    var(--haru-light-yellow),
-    var(--haru-light-cyan)
+    var(--haru-light-cyan),
+    var(--haru-light-yellow)
   );
 }
 
