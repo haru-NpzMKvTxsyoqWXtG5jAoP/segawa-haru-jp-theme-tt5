@@ -160,15 +160,15 @@ a:focus:not(:focus-visible),
 
 /* 色反転ボタン（黒背景用） */
 .haru-button-reverse .wp-block-button__link {
-  border: var(--haru-border-width) solid var(--haru-white);
-  color: var(--haru-white);
-  background: linear-gradient(to left, var(--haru-white) 50%, var(--haru-black) 50%) right / 200% 100%;
+  border: var(--haru-border-width) solid var(--haru-gray);
+  color: var(--haru-black);
+  background: linear-gradient(to left, var(--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
 
 .haru-button-reverse .wp-block-button__link:hover,
 .haru-button-reverse .wp-block-button__link:focus-visible {
   background-position: left;
-  color: var(--haru-black);
+  color: var(--haru-white);
 }
 
 /* =============================================
