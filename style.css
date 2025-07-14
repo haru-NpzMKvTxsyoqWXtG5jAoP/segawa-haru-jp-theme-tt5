@@ -499,6 +499,7 @@ a:focus:not(:focus-visible),
   cursor: pointer;
   user-select: none;
   perspective: 1000px;
+  aspect-ratio: 3 / 2;
 }
 
 .haru-flip-card-inner {
@@ -523,6 +524,18 @@ a:focus:not(:focus-visible),
 /* フリップ時の回転 */
 .haru-flip-card.flipped .haru-flip-card-inner {
   transform: rotateY(180deg);
+}
+
+/* WordPressクラスの干渉を無効化 */
+.haru-flip-card-front.has-global-padding,
+.haru-flip-card-back.has-global-padding {
+  padding: 0 !important;
+}
+
+.haru-flip-card-front.is-layout-constrained > *,
+.haru-flip-card-back.is-layout-constrained > * {
+  margin: 0 !important;
+  max-width: none !important;
 }
 
 /* =============================================
