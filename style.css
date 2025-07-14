@@ -507,9 +507,9 @@ a:focus:not(:focus-visible),
 }
 
 .haru-gallery-tag-list a:hover {
-  border-color: var(--haru-green);
-  background-color: var(--haru-green);
-  color: var(--haru-black);
+  border-color: var(--haru-black);
+  background-color: var(--haru-black);
+  color: var(--haru-white);
 }
 
 /* =============================================
