@@ -477,9 +477,9 @@ a:focus:not(:focus-visible),
 .haru-gallery-tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(0.3rem, 1.2vw, 0.7rem);
+  gap: var(--haru-element-gap);
   list-style: none;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   padding: 0;
 }
 
