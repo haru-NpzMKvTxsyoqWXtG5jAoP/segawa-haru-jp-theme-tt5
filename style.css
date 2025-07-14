@@ -526,7 +526,7 @@ a:focus:not(:focus-visible),
   transform: rotateY(180deg);
 }
 
-/* === テスト用CSS（後で削除） === */
+/* === テスト用CSS（後で削除） 20250714 === */
 .haru-flip-card {
   border: 5px solid red !important;
   background-color: yellow !important;
