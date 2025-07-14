@@ -522,6 +522,11 @@ a:focus:not(:focus-visible),
   transform: rotateY(180deg);
 }
 
+/* フリップカード背景のはみ出しを隠す */
+.haru-flip-card-bg {
+  overflow: hidden;
+}
+
 
 /* =============================================
    特定ページ：GALLERY
