@@ -523,7 +523,8 @@ a:focus:not(:focus-visible),
 }
 
 /* フリップカード背景のはみ出しを隠す */
-.haru-flip-card-bg {
+.haru-flip-card-front .has-background,
+.haru-flip-card-back .has-background {
   overflow: hidden;
 }
 
