@@ -33,11 +33,6 @@ body {
   min-width: 320px;
 }
 
-/* リンクの下線を無効化 */
-a {
-  text-decoration: none;
-}
-
 /* スクロールバー */
 html::-webkit-scrollbar {
   width: 13px;
@@ -66,6 +61,11 @@ a:focus:not(:focus-visible),
 .wpcf7-form input:focus:not(:focus-visible),
 .haru-flip-card:focus:not(:focus-visible) {
   outline: none;
+}
+
+/* リンクの下線を無効化 */
+a {
+  text-decoration: none !important;
 }
 
 /* タグ区切り文字の変更 */
