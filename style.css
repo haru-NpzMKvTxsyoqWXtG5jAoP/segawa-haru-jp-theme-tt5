@@ -526,18 +526,6 @@ a:focus:not(:focus-visible),
   transform: rotateY(180deg);
 }
 
-/* WordPressクラスの干渉を無効化 */
-.haru-flip-card-front.has-global-padding,
-.haru-flip-card-back.has-global-padding {
-  padding: 0 !important;
-}
-
-.haru-flip-card-front.is-layout-constrained > *,
-.haru-flip-card-back.is-layout-constrained > * {
-  margin: 0 !important;
-  max-width: none !important;
-}
-
 /* =============================================
    特定ページ：GALLERY
 ============================================= */
