@@ -158,6 +158,19 @@ a:focus:not(:focus-visible),
   color: var(--haru-black);
 }
 
+/* 白黒反転ボタン（黒背景用） */
+.haru-button-reverse {
+  border: var(--haru-border-width) solid var(--haru-white);
+  color: var(--haru-black);
+  background: linear-gradient(to left, var(--haru-white) 50%, transparent 50%) right / 200% 100%;
+}
+
+.haru-button-reverse:hover,
+.haru-button-reverse:focus-visible {
+  background-position: left;
+  color: var(--haru-white);
+}
+
 /* =============================================
    SVGロゴ - 左からスライドイン
 ============================================= */
