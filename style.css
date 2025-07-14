@@ -159,7 +159,6 @@ a:focus:not(:focus-visible),
 }
 
 /* 色反転ボタン（黒背景用） */
-/*
 .haru-button-reverse .wp-block-button__link {
   border: var(--haru-border-width) solid var(--haru-white);
   color: var(--haru-black);
@@ -171,7 +170,6 @@ a:focus:not(:focus-visible),
   background-position: left;
   color: var(--haru-white);
 }
-*/
 
 /* =============================================
    SVGロゴ - 左からスライドイン
