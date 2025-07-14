@@ -498,12 +498,12 @@ a:focus:not(:focus-visible),
   position: relative;
   cursor: pointer;
   user-select: none;
-  perspective: 1000px;
+  perspective: 1500px;
 }
 
 .haru-flip-card-inner {
   transform-style: preserve-3d;
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .haru-flip-card-front,
