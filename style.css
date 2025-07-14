@@ -28,6 +28,11 @@ Template: twentytwentyfive
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
 }
 
+/* 最小幅設定（極端に狭い画面での横スクロール対応） */
+body {
+  min-width: 320px;
+}
+
 /* スクロールバー */
 html::-webkit-scrollbar {
   width: 13px;
