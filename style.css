@@ -124,7 +124,7 @@ a:focus:not(:focus-visible),
 /* 文字縦組み */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl;
-  font-size: var(--wp--preset--font-size--medium) !important;
+  font-size: 15px !important;
 }
 
 /* =============================================
