@@ -526,6 +526,22 @@ a:focus:not(:focus-visible),
   transform: rotateY(180deg);
 }
 
+/* === テスト用CSS（後で削除） === */
+.haru-flip-card {
+  border: 5px solid red !important;
+  background-color: yellow !important;
+}
+
+.haru-flip-card-front {
+  background-color: rgba(0, 255, 0, 0.3) !important; /* 緑半透明 */
+  border: 3px solid blue !important;
+}
+
+.haru-flip-card-back {
+  background-color: rgba(255, 0, 0, 0.3) !important; /* 赤半透明 */
+  border: 3px solid purple !important;
+}
+
 /* =============================================
    特定ページ：GALLERY
 ============================================= */
