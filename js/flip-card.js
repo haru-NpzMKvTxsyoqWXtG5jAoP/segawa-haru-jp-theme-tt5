@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const flipCard = document.querySelector('.haru-flip-card');
   
   if (flipCard) {
+    // フォーカス可能にする
+    flipCard.setAttribute('tabindex', '0');
+    
     flipCard.addEventListener('click', function() {
       this.classList.toggle('flipped');
     });
