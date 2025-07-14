@@ -527,6 +527,11 @@ a:focus:not(:focus-visible),
   overflow: hidden;
 }
 
+/* フリップカード矢印の色 */
+.haru-flip-card-arrow {
+  fill: var(--haru-green);
+}
+
 
 /* =============================================
    特定ページ：GALLERY
