@@ -168,7 +168,7 @@ a:focus:not(:focus-visible),
 .haru-button-reverse .wp-block-button__link:hover,
 .haru-button-reverse .wp-block-button__link:focus-visible {
   background-position: left;
-  color: var(--haru-white);
+  color: var(--haru-black);
 }
 
 /* =============================================
