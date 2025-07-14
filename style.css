@@ -124,6 +124,7 @@ a:focus:not(:focus-visible),
 /* 文字縦組み */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl;
+  font-size: var(--wp--preset--font-size--medium);
 }
 
 /* =============================================
@@ -479,7 +480,7 @@ a:focus:not(:focus-visible),
   flex-wrap: wrap;
   gap: var(--haru-element-gap);
   list-style: none;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   padding: 0;
 }
 
