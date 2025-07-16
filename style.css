@@ -376,7 +376,7 @@ a {
 
 /* タグ */
 .haru-blog-card .wp-block-post-terms {
-  margin: 0;
+  margin: 0.3rem 0;
 }
 /* CSS変数だと効かないため固定値で指定 */
 .haru-blog-card .wp-block-post-terms a {
