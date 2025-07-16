@@ -134,6 +134,7 @@ a {
 /* ナビメニューの間隔 */
 .haru-vertical-header .wp-block-navigation {
   gap: 4vw;
+  padding-top: 4vw;
 }
 
 /* 文字縦組み */
@@ -321,6 +322,7 @@ a {
   overflow: hidden;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
+
 /* サムネ画像ホバーアニメーション */
 .haru-service-card img,
 .haru-blog-card .wp-post-image {
@@ -364,12 +366,10 @@ a {
   }
 }
 
-/* アイキャッチ画像を正方形に */
-.haru-blog-card .wp-post-image {
-  width: 100%;
+/* サムネ画像 */
+.haru-blog-card figure {
   aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
+  margin: 0 calc(var(--haru-card-padding) * 0.5);
 }
 
 /* タグ */
