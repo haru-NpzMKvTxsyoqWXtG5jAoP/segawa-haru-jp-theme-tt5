@@ -378,7 +378,7 @@ a {
 .haru-blog-card-tag .wp-block-post-terms {
   margin: 0.3rem 0;
 }
-.haru-blog-card-tag .wp-block-post-terms a {
+.haru-blog-card .haru-blog-card-tag .wp-block-post-terms a {
   font-size: 0.8125rem;
 }
 
