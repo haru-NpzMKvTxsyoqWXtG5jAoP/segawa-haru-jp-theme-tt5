@@ -276,22 +276,11 @@ a {
 }
 
 /* =============================================
-   サービスカード
+   共通カードスタイル
 ============================================= */
-/* 最大5列 */
-@media (min-width: 1800px) {
-  .haru-service-cards-container {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-/* カード間の隙間調整 */
-.haru-service-cards-container {
-  gap: var(--haru-element-gap);
-}
-
 /* 本体 */
-.haru-service-card {
+.haru-service-card,
+.haru-blog-card {
   background: var(--haru-white);
   border-radius: var(--haru-element-border-radius);
   padding: var(--haru-card-padding);
@@ -299,7 +288,9 @@ a {
   overflow: hidden;
 }
 
-.haru-service-card::before {
+/* 背景ホバーアニメーション */
+.haru-service-card::before,
+.haru-blog-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -311,26 +302,51 @@ a {
   transition: left 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
 }
-.haru-service-card:hover::before {
+
+.haru-service-card:hover::before,
+.haru-blog-card:hover::before {
   left: 0;
   opacity: 1;
 }
-.haru-service-card > * {
+
+.haru-service-card > *,
+.haru-blog-card > * {
   position: relative;
   z-index: 2;
 }
+
+/* 画像ホバーアニメーション */
+.haru-service-card img,
+.haru-blog-card .wp-post-image {
+  transition: var(--haru-hover-transition);
+}
+
+.haru-service-card:hover img,
+.haru-service-card:focus-visible img,
+.haru-blog-card:hover .wp-post-image,
+.haru-blog-card:focus-visible .wp-post-image {
+  transform: scale(var(--haru-hover-scale));
+}
+
+/* カード間の隙間調整 */
+.haru-service-cards-container,
+.haru-blog-cards-container {
+  gap: var(--haru-element-gap);
+}
+
+/* ============ サービスカード（個別設定） ============ */
+/* 最大5列 */
+@media (min-width: 1800px) {
+  .haru-service-cards-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 
 /* サムネ画像 */
 .haru-service-card figure {
   overflow: hidden;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
-}
-.haru-service-card img {
-  transition: var(--haru-hover-transition);
-}
-.haru-service-card:hover img,
-.haru-service-card:focus-visible img {
-  transform: scale(var(--haru-hover-scale));
 }
 
 /* サービス名 */
@@ -341,6 +357,53 @@ a {
   margin-bottom: var(--haru-card-padding);
 }
 
+/* ============ ブログカード（個別設定） ============ */
+/* 最大6列 */
+@media (min-width: 1800px) {
+  .haru-blog-cards-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+
+/* アイキャッチ画像を正方形に */
+.haru-blog-card .wp-post-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
+  margin: calc(var(--haru-card-padding) * 0.5) calc(var(--haru-card-padding) * 0.3);
+}
+
+/* 画像の親要素 */
+.haru-blog-card figure {
+  margin: 0;
+}
+
+/* カテゴリ・日付の横並び */
+.haru-blog-card .blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* タグスタイル */
+.haru-blog-card .wp-block-post-terms {
+  margin: 0.5rem 0;
+}
+
+/* タイトル */
+.haru-blog-card .wp-block-post-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  /* 2行で省略 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
 
 /* =============================================
    ギャラリー
@@ -564,68 +627,6 @@ a {
   color: var(--haru-white);
 }
 
-/* =============================================
-   ブログカード
-============================================= */
-/* 最大6列 */
-@media (min-width: 1800px) {
-  .haru-blog-cards-container {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-/* カード間の隙間調整 */
-.haru-blog-cards-container {
-  gap: var(--haru-element-gap);
-}
-
-/* 本体 */
-.haru-blog-card {
-  background: var(--haru-white);
-  border-radius: var(--haru-element-border-radius);
-  padding: var(--haru-card-padding);
-  position: relative;
-  overflow: hidden;
-}
-
-/* アイキャッチ画像を正方形に */
-.haru-blog-card .wp-post-image {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
-  margin: calc(var(--haru-card-padding) * 0.5) calc(var(--haru-card-padding) * 0.3);
-}
-
-/* 画像の親要素 */
-.haru-blog-card figure {
-  margin: 0;
-}
-
-/* カテゴリ・日付の横並び */
-.haru-blog-card .blog-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-/* タグスタイル */
-.haru-blog-card .wp-block-post-terms {
-  margin: 0.5rem 0;
-}
-
-/* タイトル */
-.haru-blog-card .wp-block-post-title {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  /* 2行で省略 */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  line-height: 1.4;
-}
 
 /* =============================================
    特定ページ：GALLERY
