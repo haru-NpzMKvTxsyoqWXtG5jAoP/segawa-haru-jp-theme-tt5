@@ -341,62 +341,6 @@ a {
   margin-bottom: var(--haru-card-padding);
 }
 
-/* =============================================
-   ブログカード
-============================================= */
-/* 最大6列 */
-@media (min-width: 1800px) {
-  .haru-blog-cards-container {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-/* カード間の隙間調整 */
-.haru-blog-cards-container {
-  gap: var(--haru-element-gap);
-}
-
-/* 本体 */
-.haru-blog-card {
-  background: var(--haru-white);
-  border-radius: var(--haru-element-border-radius);
-  padding: var(--haru-card-padding);
-  position: relative;
-  overflow: hidden;
-}
-
-/* アイキャッチ画像を正方形に */
-.haru-blog-card .wp-post-image {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
-  margin: calc(var(--haru-card-padding) * 0.5) 0;
-}
-
-/* 画像の親要素 */
-.haru-blog-card figure {
-  margin: 0;
-}
-
-/* カテゴリ・日付の横並び */
-.haru-blog-card .blog-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-/* タグスタイル */
-.haru-blog-card .wp-block-post-terms {
-  margin: 0.5rem 0;
-}
-
-/* タイトル */
-.haru-blog-card .wp-block-post-title {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
 
 /* =============================================
    ギャラリー
@@ -438,6 +382,47 @@ a {
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
   font-weight: 300;
+}
+
+/* =============================================
+   フリップカード
+============================================= */
+.haru-flip-card {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  perspective: 1500px;
+}
+
+.haru-flip-card-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.haru-flip-card-front,
+.haru-flip-card-back {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+}
+
+.haru-flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* フリップ時の回転 */
+.haru-flip-card.flipped .haru-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* フリップカード背景のはみ出しを隠す */
+.haru-flip-card-front .has-background {
+  overflow: hidden;
+}
+
+/* フリップカード矢印の色 */
+.haru-flip-card-arrow {
+  fill: var(--haru-green);
 }
 
 /* =============================================
@@ -580,46 +565,67 @@ a {
 }
 
 /* =============================================
-   フリップカード
+   ブログカード
 ============================================= */
-.haru-flip-card {
+/* 最大6列 */
+@media (min-width: 1800px) {
+  .haru-blog-cards-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* カード間の隙間調整 */
+.haru-blog-cards-container {
+  gap: var(--haru-element-gap);
+}
+
+/* 本体 */
+.haru-blog-card {
+  background: var(--haru-white);
+  border-radius: var(--haru-element-border-radius);
+  padding: var(--haru-card-padding);
   position: relative;
-  cursor: pointer;
-  user-select: none;
-  perspective: 1500px;
-}
-
-.haru-flip-card-inner {
-  display: grid;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
-}
-
-.haru-flip-card-front,
-.haru-flip-card-back {
-  grid-area: 1 / 1;
-  backface-visibility: hidden;
-}
-
-.haru-flip-card-back {
-  transform: rotateY(180deg);
-}
-
-/* フリップ時の回転 */
-.haru-flip-card.flipped .haru-flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* フリップカード背景のはみ出しを隠す */
-.haru-flip-card-front .has-background {
   overflow: hidden;
 }
 
-/* フリップカード矢印の色 */
-.haru-flip-card-arrow {
-  fill: var(--haru-green);
+/* アイキャッチ画像を正方形に */
+.haru-blog-card .wp-post-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
+  margin: calc(var(--haru-card-padding) * 0.5) calc(var(--haru-card-padding) * 0.3);
 }
 
+/* 画像の親要素 */
+.haru-blog-card figure {
+  margin: 0;
+}
+
+/* カテゴリ・日付の横並び */
+.haru-blog-card .blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* タグスタイル */
+.haru-blog-card .wp-block-post-terms {
+  margin: 0.5rem 0;
+}
+
+/* タイトル */
+.haru-blog-card .wp-block-post-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  /* 2行で省略 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
 
 /* =============================================
    特定ページ：GALLERY
