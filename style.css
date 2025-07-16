@@ -131,10 +131,9 @@ a {
   top: 0;
 }
 
-/* ナビゲーション間隔を統一管理 */
+/* ナビメニューの間隔 */
 .haru-vertical-header .wp-block-navigation {
   gap: 4vw;
-  padding: 4vw 0;
 }
 
 /* 文字縦組み */
