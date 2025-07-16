@@ -367,13 +367,13 @@ a {
 
 /* サムネ画像 */
 .haru-blog-card figure {
-  margin: 0 var(--haru-card-padding);
+  margin: 0 calc(var(--haru-card-padding) * 2);
 }
 
 /* タグ */
 .haru-blog-card .wp-block-post-terms {
-  margin: 0.5rem 0;
-  font-size: var(--wp--preset--font-size--small);
+  margin: 0.3rem 0;
+  font-size: var(--wp--preset--font-size--small) !important;
 }
 
 /* タイトル */
