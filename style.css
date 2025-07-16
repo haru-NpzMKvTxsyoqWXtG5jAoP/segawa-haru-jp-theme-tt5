@@ -315,7 +315,13 @@ a {
   z-index: 2;
 }
 
-/* 画像ホバーアニメーション */
+/* サムネ画像 */
+.haru-service-card figure,
+.haru-blog-card figure {
+  overflow: hidden;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
+}
+/* サムネ画像ホバーアニメーション */
 .haru-service-card img,
 .haru-blog-card .wp-post-image {
   transition: var(--haru-hover-transition);
@@ -342,13 +348,6 @@ a {
   }
 }
 
-
-/* サムネ画像 */
-.haru-service-card figure {
-  overflow: hidden;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
-}
-
 /* サービス名 */
 .haru-service-card h3 {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
@@ -365,32 +364,18 @@ a {
   }
 }
 
-
 /* アイキャッチ画像を正方形に */
 .haru-blog-card .wp-post-image {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
-  margin: calc(var(--haru-card-padding) * 0.5) calc(var(--haru-card-padding) * 0.3);
 }
 
-/* 画像の親要素 */
-.haru-blog-card figure {
-  margin: 0;
-}
-
-/* カテゴリ・日付の横並び */
-.haru-blog-card .blog-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-/* タグスタイル */
+/* タグ */
 .haru-blog-card .wp-block-post-terms {
   margin: 0.5rem 0;
+  font-size: var(--wp--preset--font-size--small);
 }
 
 /* タイトル */
