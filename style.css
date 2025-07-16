@@ -638,5 +638,11 @@ body.page-id-9539 .haru-section-title {
   font-size: clamp(2rem, 7vw, 4rem);
 }
 
+/* 2カラムレイアウト（コンテンツ＋縦型ヘッダー）
+   狭い画面でも横スクロールさせずに縮ませる */
+.wp-block-columns > .wp-block-column {
+  min-width: 0; /* allow columns to shrink below min-content width */
+}
+
 
 
