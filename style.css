@@ -128,13 +128,12 @@ a {
 /* ナビ本体を sticky */
 .haru-vertical-header {
   position: sticky;
-  top: 0;
+  top: 2vw;
 }
 
 /* ナビメニューの間隔 */
 .haru-vertical-header .wp-block-navigation {
   gap: 4vw;
-  padding-top: 4vw;
 }
 
 /* 文字縦組み */
@@ -368,8 +367,7 @@ a {
 
 /* サムネ画像 */
 .haru-blog-card figure {
-  aspect-ratio: 1;
-  margin: 0 calc(var(--haru-card-padding) * 0.5);
+  margin: 0 var(--haru-card-padding);
 }
 
 /* タグ */
