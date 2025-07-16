@@ -128,11 +128,11 @@ a {
 /* ナビ本体を sticky */
 .haru-vertical-header {
   position: sticky;
-  top: 3vw;
+  top: 3vh;
 }
 /* ナビメニューの間隔 */
 .haru-vertical-header .wp-block-navigation {
-  gap: 3vw;
+  gap: 3vh;
 }
 
 /* 文字縦組み */
@@ -373,7 +373,7 @@ a {
 .haru-blog-card .wp-block-post-terms {
   margin: 0.3rem 0;
   /* CSS変数だと効かないため固定値で指定 */
-  font-size: 14px !important;
+  font-size: 13px !important;
 }
 
 /* タイトル */
@@ -382,8 +382,9 @@ a {
 }
 
 .haru-blog-card .wp-block-post-title a {
+  font-size: clamp(1.125rem, 4vw, 1.5rem);
   /* 2行で省略 */
-  display: -webkit-box !important;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
