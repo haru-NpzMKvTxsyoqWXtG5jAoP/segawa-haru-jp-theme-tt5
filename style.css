@@ -342,6 +342,63 @@ a {
 }
 
 /* =============================================
+   ブログカード
+============================================= */
+/* 最大6列 */
+@media (min-width: 1800px) {
+  .haru-blog-cards-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* カード間の隙間調整 */
+.haru-blog-cards-container {
+  gap: var(--haru-element-gap);
+}
+
+/* 本体 */
+.haru-blog-card {
+  background: var(--haru-white);
+  border-radius: var(--haru-element-border-radius);
+  padding: var(--haru-card-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* アイキャッチ画像を正方形に */
+.haru-blog-card .wp-post-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: calc(var(--haru-element-border-radius) - 2px);
+  margin: calc(var(--haru-card-padding) * 0.5) 0;
+}
+
+/* 画像の親要素 */
+.haru-blog-card figure {
+  margin: 0;
+}
+
+/* カテゴリ・日付の横並び */
+.haru-blog-card .blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* タグスタイル */
+.haru-blog-card .wp-block-post-terms {
+  margin: 0.5rem 0;
+}
+
+/* タイトル */
+.haru-blog-card .wp-block-post-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* =============================================
    ギャラリー
 ============================================= */
 /* 最小2列 */
