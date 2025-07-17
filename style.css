@@ -321,28 +321,42 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サムネ画像 */
 .haru-service-card figure,
-.haru-blog-card figure {
+.haru-blog-card figure,
+.haru-gallery-grid figure {
   overflow: hidden;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
-
 /* サムネ画像ホバーアニメーション */
 .haru-service-card img,
-.haru-blog-card .wp-post-image {
+.haru-blog-card .wp-post-image,
+.haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
-
 .haru-service-card:hover img,
 .haru-service-card:focus-visible img,
 .haru-blog-card:hover .wp-post-image,
-.haru-blog-card:focus-visible .wp-post-image {
+.haru-blog-card:focus-visible .wp-post-image,
+.haru-gallery-grid a:hover img,
+.haru-gallery-grid a:focus-visible img {
   transform: scale(var(--haru-hover-scale));
 }
 
 /* カード間の隙間調整 */
 .haru-service-cards-container,
-.haru-blog-cards-container {
+.haru-blog-cards-container,
+.haru-gallery-grid {
   gap: var(--haru-element-gap);
+}
+
+/* WP側のgrid-template-columns: 1fr;を上書き */
+/* fr=伸縮だが最小幅制約あり / %=親幅基準で無制限に縮む */
+@media (max-width: 600px) {
+  .haru-blog-cards-container {
+    grid-template-columns: 100% !important; /* ブログ1列 */
+  }
+  .haru-gallery-grid {
+    grid-template-columns: 50% 50% !important; /* ギャラリー2列 */
+  }
 }
 
 /* ============ サービスカード（個別設定） ============ */
@@ -362,12 +376,6 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* ============ ブログカード（個別設定） ============ */
-/* サービスカードと同じ構造にする。@600pxで出るWP側のgrid-template-columns: 1fr;を上書き */
-@media (max-width: 600px) {
-  .haru-blog-cards-container {
-    grid-template-columns: 100% !important;
-  }
-}
 /* 最大6列 */
 @media (min-width: 1800px) {
   .haru-blog-cards-container {
@@ -389,11 +397,10 @@ a[href*="haru-gallery-item-wide"] {
 .haru-blog-card-tag .wp-block-post-terms {
   margin: 0.3rem 0;
 }
-/* CSS変数だと効かないため固定値で指定（タグのみ） */
 .haru-blog-card-tag a {
-  font-size: 0.8125rem;
+  font-size: 0.8125rem; /* CSS変数だと効かないため固定値で指定 */
+  font-weight: 300;
 }
-
 
 /* タイトル */
 .haru-blog-card .wp-block-post-title {
@@ -409,15 +416,7 @@ a[href*="haru-gallery-item-wide"] {
   overflow: hidden;
 }
 
-/* =============================================
-   ギャラリー
-============================================= */
-/* サービスカードと同じ構造にする。@600pxで出るWP側のgrid-template-columns: 1fr;を上書き／2列 */
-@media (max-width: 600px) {
-  .haru-gallery-grid {
-      grid-template-columns: 50% 50% !important;
-  }
-}
+/* ============ ギャラリーカード（個別設定） ============ */
 /* 最大7列 */
 @media (min-width: 1800px) {
   .haru-gallery-grid { grid-template-columns: repeat(7, 1fr); }
@@ -427,23 +426,9 @@ a[href*="haru-gallery-item-wide"] {
   grid-column: span 2;
 }
 
-/* 隙間調整 */
+/* カード下を少し空ける */
 .haru-gallery-grid {
-  column-gap: var(--haru-element-gap);
   row-gap: 1rem;
-}
-
-/* 画像 */
-.haru-gallery-grid figure {
-  overflow: hidden;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
-}
-.haru-gallery-grid img {
-  transition: var(--haru-hover-transition);
-}
-.haru-gallery-grid a:hover img,
-.haru-gallery-grid a:focus-visible img {
-  transform: scale(var(--haru-hover-scale));
 }
 
 /* タグとタイトルのテキスト */
