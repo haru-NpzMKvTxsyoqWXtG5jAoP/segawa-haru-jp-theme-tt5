@@ -436,7 +436,10 @@ a[href*="haru-gallery-item-wide"] {
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
   font-weight: 300;
-  /* 1行で省略 */
+}
+
+/* タグ省略 */
+.haru-gallery-grid .wp-block-post-terms {
   overflow: hidden;
   text-overflow: ellipsis;
 }
