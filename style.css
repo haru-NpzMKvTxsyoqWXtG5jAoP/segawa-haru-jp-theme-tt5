@@ -438,10 +438,10 @@ a[href*="haru-gallery-item-wide"] {
   font-weight: 300;
 }
 
-/* タグ省略 */
+/* タグは自然に折り返し（省略なし） */
 .haru-gallery-grid .wp-block-post-terms {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* =============================================
