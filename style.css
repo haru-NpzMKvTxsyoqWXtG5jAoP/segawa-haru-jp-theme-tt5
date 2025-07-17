@@ -385,7 +385,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サムネ画像 */
 .haru-blog-card figure {
-  margin: 0 calc(var(--haru-card-padding) * 2);
+  margin: 0.3rem calc(var(--haru-card-padding) * 2);
 }
 
 /* カテゴリ・変更日 */
@@ -394,21 +394,17 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* タグ */
-.haru-blog-card-tag.wp-block-post-terms {
-  margin: 0.3rem 0;
+.haru-blog-card .taxonomy-post_tag {
   /* 1行で省略 */
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.haru-blog-card-tag a {
+.haru-blog-card .taxonomy-post_tag a {
   font-size: 0.8125rem; /* CSS変数だと効かないため固定値で指定 */
   font-weight: 300;
 }
 
 /* タイトル */
-.haru-blog-card .wp-block-post-title {
-  margin-top: 0.3rem;
-}
 .haru-blog-card .wp-block-post-title a {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   /* 2行で省略 */
@@ -437,14 +433,12 @@ a[href*="haru-gallery-item-wide"] {
 .haru-gallery-grid a {
   font-weight: 300;
 }
-
-/* タグは自然に折り返し（省略なし） */
-.haru-gallery-grid .wp-block-post-terms {
+/* タグが多い場合は複数行 */
+.haru-gallery-grid .taxonomy-post_tag {
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.3em; /* タグ間の隙間 */
-  row-gap: 0; /* 行間を最小に */
-  line-height: 1; /* 行の高さを最小に */
+  line-height: 1.2; /* 行の高さ */
 }
 
 /* =============================================
