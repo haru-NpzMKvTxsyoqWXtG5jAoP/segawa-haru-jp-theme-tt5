@@ -397,7 +397,6 @@ a[href*="haru-gallery-item-wide"] {
 .haru-blog-card-tag.wp-block-post-terms {
   margin: 0.3rem 0;
   /* 1行で省略 */
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -437,6 +436,9 @@ a[href*="haru-gallery-item-wide"] {
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
   font-weight: 300;
+  /* 1行で省略 */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* =============================================
