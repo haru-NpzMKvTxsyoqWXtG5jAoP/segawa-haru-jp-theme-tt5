@@ -385,7 +385,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サムネ画像 */
 .haru-blog-card figure {
-  margin: 0.3rem calc(var(--haru-card-padding) * 2);
+  margin: 0.3rem clamp(2rem, 4vw, 1rem);
 }
 
 /* カテゴリ・変更日 */
@@ -407,6 +407,8 @@ a[href*="haru-gallery-item-wide"] {
 /* タイトル */
 .haru-blog-card .wp-block-post-title a {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
+  line-height: 1.2; /* 明示的に指定 */
+  min-height: 2.4em; /* 2行分 = 1.2 × 2 */
   /* 2行で省略 */
   display: -webkit-box;
   -webkit-line-clamp: 2;
