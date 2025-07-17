@@ -394,7 +394,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* タグ */
-.haru-blog-card-tag .wp-block-post-terms {
+.haru-blog-card-tag.wp-block-post-terms {
   margin: 0.3rem 0;
   /* 2行で省略 */
   display: -webkit-box;
@@ -411,7 +411,6 @@ a[href*="haru-gallery-item-wide"] {
 .haru-blog-card .wp-block-post-title {
   margin-top: 0.3rem;
 }
-
 .haru-blog-card .wp-block-post-title a {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   /* 2行で省略 */
