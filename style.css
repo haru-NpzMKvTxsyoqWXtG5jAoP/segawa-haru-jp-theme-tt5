@@ -638,36 +638,65 @@ a[href*="haru-gallery-item-wide"] {
   padding: 0;
 }
 
-/* カテゴリーリンク（四角） */
-.haru-scrap-category-list a {
+/* リスト項目全体を一つのボタンっぽくする */
+.haru-scrap-category-list li,
+.haru-scrap-tag-list li {
+  position: relative;
   display: inline-block;
+}
+
+/* カテゴリーリンク（四角） */
+.haru-scrap-category-list li {
   padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
   border: var(--haru-border-width) solid var(--haru-black);
   border-radius: 8px; /* 四角っぽく */
-  text-decoration: none;
-  color: var(--haru-black);
+  background: transparent;
   font-size: clamp(1.1rem, 2.8vw, 1.3rem); /* 少し大きめ */
   font-weight: 500;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+.haru-scrap-category-list a {
+  text-decoration: none;
+  color: var(--haru-black);
+  margin-right: 0.3em;
+}
+
 /* タグリンク（丸い） */
-.haru-scrap-tag-list a {
-  display: inline-block;
+.haru-scrap-tag-list li {
   padding: clamp(0.25rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
   border: var(--haru-border-width) solid var(--haru-black);
   border-radius: clamp(20px, 4vw, 50px); /* 丸く */
-  text-decoration: none;
-  color: var(--haru-black);
+  background: transparent;
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+.haru-scrap-tag-list a {
+  text-decoration: none;
+  color: var(--haru-black);
+  margin-right: 0.25em;
+}
+
+/* 数字部分のスタイル */
+.haru-scrap-category-list li {
+  color: var(--haru-black);
+}
+
+.haru-scrap-tag-list li {
+  color: var(--haru-black);
+}
+
 /* ホバー効果（共通） */
-.haru-scrap-category-list a:hover,
-.haru-scrap-tag-list a:hover {
+.haru-scrap-category-list li:hover,
+.haru-scrap-tag-list li:hover {
   background-color: var(--haru-black);
+  color: var(--haru-white);
+}
+
+.haru-scrap-category-list li:hover a,
+.haru-scrap-tag-list li:hover a {
   color: var(--haru-white);
 }
 
