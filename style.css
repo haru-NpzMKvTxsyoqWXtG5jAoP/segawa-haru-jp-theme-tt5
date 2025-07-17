@@ -284,7 +284,7 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* 本体 */
 .haru-service-card,
-.haru-blog-card {
+.haru-scrap-card {
   background: var(--haru-white);
   border-radius: var(--haru-element-border-radius);
   padding: var(--haru-card-padding);
@@ -294,7 +294,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* 背景ホバーアニメーション */
 .haru-service-card::before,
-.haru-blog-card::before {
+.haru-scrap-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -308,34 +308,34 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .haru-service-card:hover::before,
-.haru-blog-card:hover::before {
+.haru-scrap-card:hover::before {
   left: 0;
   opacity: 1;
 }
 
 .haru-service-card > *,
-.haru-blog-card > * {
+.haru-scrap-card > * {
   position: relative;
   z-index: 2;
 }
 
 /* サムネ画像 */
 .haru-service-card figure,
-.haru-blog-card figure,
+.haru-scrap-card figure,
 .haru-gallery-grid figure {
   overflow: hidden;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
 /* サムネ画像ホバーアニメーション */
 .haru-service-card img,
-.haru-blog-card .wp-post-image,
+.haru-scrap-card .wp-post-image,
 .haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
 .haru-service-card:hover img,
 .haru-service-card:focus-visible img,
-.haru-blog-card:hover .wp-post-image,
-.haru-blog-card:focus-visible .wp-post-image,
+.haru-scrap-card:hover .wp-post-image,
+.haru-scrap-card:focus-visible .wp-post-image,
 .haru-gallery-grid a:hover img,
 .haru-gallery-grid a:focus-visible img {
   transform: scale(var(--haru-hover-scale));
@@ -343,7 +343,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* カード間の隙間調整 */
 .haru-service-cards-container,
-.haru-blog-cards-container,
+.haru-scrap-cards-container,
 .haru-gallery-grid {
   gap: var(--haru-element-gap);
 }
@@ -351,8 +351,8 @@ a[href*="haru-gallery-item-wide"] {
 /* WP側のgrid-template-columns: 1fr;を上書き */
 /* fr=伸縮だが最小幅制約あり / %=親幅基準で無制限に縮む */
 @media (max-width: 600px) {
-  .haru-blog-cards-container {
-    grid-template-columns: 100% !important; /* ブログ1列 */
+  .haru-scrap-cards-container {
+    grid-template-columns: 100% !important; /* スクラップ1列 */
   }
   .haru-gallery-grid {
     grid-template-columns: 50% 50% !important; /* ギャラリー2列 */
@@ -375,39 +375,40 @@ a[href*="haru-gallery-item-wide"] {
   margin-bottom: var(--haru-card-padding);
 }
 
-/* ============ ブログカード（個別設定） ============ */
+/* ============ スクラップカード（個別設定） ============ */
 /* 最大6列 */
 @media (min-width: 1800px) {
-  .haru-blog-cards-container {
+  .haru-scrap-cards-container {
     grid-template-columns: repeat(6, 1fr);
   }
 }
 
 /* サムネ画像 */
-.haru-blog-card figure {
+.haru-scrap-card figure {
   margin: 0.3rem clamp(2rem, 4vw, 1rem);
 }
 
 /* カテゴリ・変更日 */
-.haru-blog-card-cate-date .wp-block-post-terms {
+.haru-scrap-card-cate-date .wp-block-post-terms {
   margin: 0;
 }
 
 /* タグ */
-.haru-blog-card .taxonomy-post_tag {
+.haru-scrap-card .taxonomy-post_tag {
   /* 1行で省略 */
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.haru-blog-card .taxonomy-post_tag a {
+.haru-scrap-card .taxonomy-post_tag a {
   font-size: 0.8125rem; /* CSS変数だと効かないため固定値で指定 */
   font-weight: 300;
 }
 
 /* タイトル */
-.haru-blog-card .wp-block-post-title a {
+.haru-scrap-card .wp-block-post-title a {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
-  line-height: 1.2; /* 明示的に指定 */
+  /* カードの高さが行数で変わらないようにする */
+  line-height: 1.2; /* 1行の高さ、明示的に指定 */
   min-height: 2.4em; /* 2行分 = 1.2 × 2 */
   /* 2行で省略 */
   display: -webkit-box;
@@ -623,6 +624,59 @@ a[href*="haru-gallery-item-wide"] {
   color: var(--haru-white);
 }
 
+/* =============================================
+   スクラップ
+============================================= */
+/* スクラップページのカテゴリー・タグリスト（共通） */
+.haru-scrap-category-list,
+.haru-scrap-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--haru-element-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* カテゴリーリンク（四角） */
+.haru-scrap-category-list a {
+  display: inline-block;
+  padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
+  border: var(--haru-border-width) solid var(--haru-black);
+  border-radius: 8px; /* 四角っぽく */
+  text-decoration: none;
+  color: var(--haru-black);
+  font-size: clamp(1.1rem, 2.8vw, 1.3rem); /* 少し大きめ */
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* タグリンク（丸い） */
+.haru-scrap-tag-list a {
+  display: inline-block;
+  padding: clamp(0.25rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
+  border: var(--haru-border-width) solid var(--haru-black);
+  border-radius: clamp(20px, 4vw, 50px); /* 丸く */
+  text-decoration: none;
+  color: var(--haru-black);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 300;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* ホバー効果（共通） */
+.haru-scrap-category-list a:hover,
+.haru-scrap-tag-list a:hover {
+  background-color: var(--haru-black);
+  color: var(--haru-white);
+}
+
+/* フォーカス時のアウトライン */
+.haru-scrap-category-list a:focus-visible,
+.haru-scrap-tag-list a:focus-visible {
+  outline: 2px solid var(--haru-green);
+  outline-offset: 2px;
+}
 
 /* =============================================
    特定ページ：GALLERY
