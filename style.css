@@ -362,6 +362,11 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* ============ ブログカード（個別設定） ============ */
+/* サービスカードと同じ構造にする。@600pxで出るWP側のgrid-template-columns: 1fr;を上書き */
+.haru-blog-cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+}
+
 /* 最大6列 */
 @media (min-width: 1800px) {
   .haru-blog-cards-container {
