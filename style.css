@@ -443,7 +443,8 @@ a[href*="haru-gallery-item-wide"] {
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.3em; /* タグ間の隙間 */
-  row-gap: 0.1em; /* 行間を狭く */
+  row-gap: 0; /* 行間を最小に */
+  line-height: 1; /* 行の高さを最小に */
 }
 
 /* =============================================
