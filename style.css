@@ -364,8 +364,8 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ ブログカード（個別設定） ============ */
 /* サービスカードと同じ構造にする。@600pxで出るWP側のgrid-template-columns: 1fr;を上書き */
 @media (max-width: 600px) {
-.haru-blog-cards-container {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)) !important;
+  .haru-blog-cards-container {
+    grid-template-columns: 100% !important;
   }
 }
 /* 最大6列 */
@@ -415,7 +415,7 @@ a[href*="haru-gallery-item-wide"] {
 /* サービスカードと同じ構造にする。@600pxで出るWP側のgrid-template-columns: 1fr;を上書き／2列 */
 @media (max-width: 600px) {
   .haru-gallery-grid {
-      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr)) !important;
+      grid-template-columns: 50% 50% !important;
   }
 }
 /* 最大7列 */
