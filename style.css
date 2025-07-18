@@ -261,6 +261,12 @@ a[href*="haru-gallery-item-wide"] {
   gap: 0.1em;
   transform: translateY(-0.06em);
 }
+
+/* 大きいサイズ */
+.haru-sec-t-big {
+  font-size: clamp(2rem, 7vw, 4rem);
+}
+
 .haru-section-title::before {
   content: "●";
   font-size: 0.5em;
@@ -657,13 +663,6 @@ a[href*="haru-gallery-item-wide"] {
   font-weight: 300;
 }
 
-/* =============================================
-   特定ページ：GALLERY
-============================================= */
-/* セクションタイトル */
-body.page-id-9539 .haru-section-title {
-  font-size: clamp(2rem, 7vw, 4rem);
-}
 
 
 
