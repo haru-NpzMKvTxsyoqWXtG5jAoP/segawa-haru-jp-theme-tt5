@@ -236,6 +236,7 @@ a[href*="haru-gallery-item-wide"] {
   width: 100%;
   max-width: 600px; /* PCでの最大サイズ */
   height: auto;
+  margin-left: 0; /* 左寄せ */
 }
 
 .haru-scrap-logo svg {
