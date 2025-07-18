@@ -687,7 +687,7 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ スクラップ（個別設定） ============ */
 /* カテゴリーリンク（四角） */
 .haru-scrap-category-list a {
-  padding: clamp(0.2rem, 0.6vw, 0.4rem) clamp(0.5rem, 1.2vw, 0.8rem);
+  padding: clamp(0.15rem, 0.5vw, 0.35rem) clamp(0.4rem, 1vw, 0.7rem);
   border-radius: var(--haru-element-border-radius);
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 500;
@@ -695,7 +695,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タグリンク（丸い） */
 .haru-scrap-tag-list a {
-  padding: clamp(0.1rem, 0.5vw, 0.25rem) clamp(0.4rem, 1vw, 0.6rem);
+  padding: clamp(0.05rem, 0.4vw, 0.18rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
@@ -717,8 +717,8 @@ a[href*="haru-gallery-item-wide"] {
 /* フッター内のナビメニューもHaru Blackに */
 .haru-footer-container .wp-block-navigation-item__content {
   color: var(--haru-black) !important;
-  font-weight: 600; /* ほんのり太字 */
-  font-size: clamp(1rem, 2.5vw, 1.2rem); /* 少し大きく */
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.2;
 }
 
 /* フッター内ナビメニューのスタイル調整 */
