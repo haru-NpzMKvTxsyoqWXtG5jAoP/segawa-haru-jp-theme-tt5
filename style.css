@@ -704,6 +704,11 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    フッター
 ============================================= */
+.haru-footer-container {
+  padding: var(--haru-card-padding);
+  background-color: rgba(0, 0, 0, 0.05); /* 黒を5%混ぜてほんのり暗く */
+}
+
 /* フッター内のSVGを全部Haru Blackに */
 .haru-footer-container svg {
   fill: var(--haru-black) !important;
