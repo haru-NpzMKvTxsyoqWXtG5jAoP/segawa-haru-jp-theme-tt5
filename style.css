@@ -716,15 +716,27 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    フッター
 ============================================= */
-/* フッター内のSVGを全部Haru Grayに */
+/* フッター内のSVGを全部Haru Greenに */
 .haru-footer-container svg {
-  fill: var(--haru-gray) !important;
+  fill: var(--haru-green) !important;
 }
 
-
-/* フッター内のナビメニューもHaru Grayに */
+/* フッター内のナビメニューもHaru Greenに */
 .haru-footer-container .wp-block-navigation-item__content {
-  color: var(--haru-gray) !important;
+  color: var(--haru-green) !important;
+}
+
+/* フッター内のタクソノミーリンクもHaru Greenに */
+.haru-footer-container .haru-scrap-category-list a,
+.haru-footer-container .haru-scrap-tag-list a {
+  color: var(--haru-green) !important;
+  border-color: var(--haru-green) !important;
+}
+
+.haru-footer-container .haru-scrap-category-list a:hover,
+.haru-footer-container .haru-scrap-tag-list a:hover {
+  background-color: var(--haru-green) !important;
+  color: var(--haru-black) !important;
 }
 
 
