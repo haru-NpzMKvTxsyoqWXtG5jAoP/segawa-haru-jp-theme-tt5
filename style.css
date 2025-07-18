@@ -665,7 +665,7 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-category-list a:hover,
 .haru-scrap-tag-list a:hover {
   background-color: var(--haru-black);
-  color: var(--haru-white);
+  color: transparent;
 }
 
 /* フォーカス時のアウトライン（共通） */
@@ -678,7 +678,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* ============ ギャラリータグ一覧（丸い）（個別設定） ============ */
 .haru-gallery-tag-list a {
-  padding: clamp(0.25rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
+  padding: clamp(0.15rem, 0.6vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
@@ -687,7 +687,7 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ スクラップ（個別設定） ============ */
 /* カテゴリーリンク（四角） */
 .haru-scrap-category-list a {
-  padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
+  padding: clamp(0.3rem, 0.8vw, 0.5rem) clamp(0.6rem, 1.5vw, 1rem);
   border-radius: var(--haru-element-border-radius);
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 500;
@@ -695,7 +695,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タグリンク（丸い） */
 .haru-scrap-tag-list a {
-  padding: clamp(0.25rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
+  padding: clamp(0.15rem, 0.6vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
@@ -706,7 +706,7 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 .haru-footer-container {
   padding: var(--haru-card-padding);
-  background-color: rgba(0, 0, 0, 0.05); /* 黒を5%混ぜてほんのり暗く */
+  background-color: rgba(0, 0, 0, 0.08); /* 黒を混ぜてほんのり暗く */
 }
 
 /* フッター内のSVGを全部Haru Blackに */
