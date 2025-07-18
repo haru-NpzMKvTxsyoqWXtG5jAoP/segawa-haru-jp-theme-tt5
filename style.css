@@ -236,7 +236,6 @@ a[href*="haru-gallery-item-wide"] {
   width: 100%;
   max-width: 600px; /* PCでの最大サイズ */
   height: auto;
-  margin-left: 0; /* 左寄せ */
 }
 
 .haru-scrap-logo svg {
@@ -656,18 +655,21 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-category-list a,
 .haru-scrap-tag-list a {
   display: inline-block;
-  border: var(--haru-border-width) solid var(--haru-black);
   text-decoration: none;
-  color: var(--haru-black);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* ホバー効果（共通） */
-.haru-gallery-tag-list a:hover,
+/* スクラップ系（黒背景想定） */
+.haru-scrap-category-list a,
+.haru-scrap-tag-list a {
+  border: var(--haru-border-width) solid var(--haru-gray);
+  color: var(--haru-gray);
+}
+
 .haru-scrap-category-list a:hover,
 .haru-scrap-tag-list a:hover {
-  background-color: var(--haru-black);
-  color: var(--haru-white);
+  background-color: var(--haru-gray);
+  color: var(--haru-black);
 }
 
 /* フォーカス時のアウトライン（共通） */
@@ -684,9 +686,17 @@ a[href*="haru-gallery-item-wide"] {
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
+  /* 明るい背景想定 */
+  border: var(--haru-border-width) solid var(--haru-black);
+  color: var(--haru-black);
 }
 
-/* ============ スクラップ（個別設定） ============ */
+.haru-gallery-tag-list a:hover {
+  background-color: var(--haru-black);
+  color: var(--haru-white);
+}
+
+/* ============ スクラップ　フッター用（個別設定） ============ */
 /* カテゴリーリンク（四角） */
 .haru-scrap-category-list a {
   padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
@@ -701,6 +711,20 @@ a[href*="haru-gallery-item-wide"] {
   border-radius: clamp(20px, 4vw, 50px); /* 丸く */
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
+}
+
+/* =============================================
+   フッター
+============================================= */
+/* フッター内のSVGを全部Haru Grayに */
+.haru-footer-container svg {
+  fill: var(--haru-gray) !important;
+}
+
+
+/* フッター内のナビメニューもHaru Grayに */
+.haru-footer-container .wp-block-navigation-item__content {
+  color: var(--haru-gray) !important;
 }
 
 
