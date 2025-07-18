@@ -237,19 +237,19 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* 初期状態：隠す */
-.harusegawa-group,
+.harusegawa-left-group,
 .haru-scrap-logo .letter-s, .haru-scrap-logo .letter-c, .haru-scrap-logo .letter-r, .haru-scrap-logo .letter-a, 
 .haru-scrap-logo .letter-p, .haru-scrap-logo .letter-b, .haru-scrap-logo .letter-o, .haru-scrap-logo .letter-o2, 
 .haru-scrap-logo .letter-k {
   opacity: 0;
 }
 
-/* HARUSEGAWAグループ：まとめてスッと入る */
-.harusegawa-group { 
+/* 左側：回転しているHARUSEGAWAグループ：まとめてスッと入る */
+.harusegawa-left-group { 
   animation: slideFromLeft 0.4s ease-out 0.1s forwards; 
 }
 
-/* scrapbook：1文字ずつスライドイン */
+/* 右側：scrapbook：1文字ずつスライドイン */
 .haru-scrap-logo .letter-s { animation: slideFromLeft 0.4s ease-out 0.6s forwards; }
 .haru-scrap-logo .letter-c { animation: slideFromLeft 0.4s ease-out 0.7s forwards; }
 .haru-scrap-logo .letter-r { animation: slideFromLeft 0.4s ease-out 0.8s forwards; }
