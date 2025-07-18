@@ -650,26 +650,22 @@ a[href*="haru-gallery-item-wide"] {
   padding: 0;
 }
 
-/* タクソノミーリンク共通 */
+/* タクソノミーリンク共通（明るい背景想定） */
 .haru-gallery-tag-list a,
 .haru-scrap-category-list a,
 .haru-scrap-tag-list a {
   display: inline-block;
   text-decoration: none;
+  border: var(--haru-border-width) solid var(--haru-black);
+  color: var(--haru-black);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* スクラップ系（黒背景想定） */
-.haru-scrap-category-list a,
-.haru-scrap-tag-list a {
-  border: var(--haru-border-width) solid var(--haru-gray);
-  color: var(--haru-gray);
-}
-
+.haru-gallery-tag-list a:hover,
 .haru-scrap-category-list a:hover,
 .haru-scrap-tag-list a:hover {
-  background-color: var(--haru-gray);
-  color: var(--haru-black);
+  background-color: var(--haru-black);
+  color: var(--haru-white);
 }
 
 /* フォーカス時のアウトライン（共通） */
@@ -680,23 +676,15 @@ a[href*="haru-gallery-item-wide"] {
   outline-offset: 2px;
 }
 
-/* ============ ギャラリータグ一覧（個別設定） ============ */
+/* ============ ギャラリータグ一覧（丸い）（個別設定） ============ */
 .haru-gallery-tag-list a {
   padding: clamp(0.25rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
-  /* 明るい背景想定 */
-  border: var(--haru-border-width) solid var(--haru-black);
-  color: var(--haru-black);
 }
 
-.haru-gallery-tag-list a:hover {
-  background-color: var(--haru-black);
-  color: var(--haru-white);
-}
-
-/* ============ スクラップ　フッター用（個別設定） ============ */
+/* ============ スクラップ（個別設定） ============ */
 /* カテゴリーリンク（四角） */
 .haru-scrap-category-list a {
   padding: clamp(0.4rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.2rem);
@@ -708,7 +696,7 @@ a[href*="haru-gallery-item-wide"] {
 /* タグリンク（丸い） */
 .haru-scrap-tag-list a {
   padding: clamp(0.25rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.8rem);
-  border-radius: clamp(20px, 4vw, 50px); /* 丸く */
+  border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
 }
@@ -716,28 +704,16 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    フッター
 ============================================= */
-/* フッター内のSVGを全部Haru Greenに */
+/* フッター内のSVGを全部Haru Blackに */
 .haru-footer-container svg {
-  fill: var(--haru-green) !important;
+  fill: var(--haru-black) !important;
 }
 
-/* フッター内のナビメニューもHaru Greenに */
+/* フッター内のナビメニューもHaru Blackに */
 .haru-footer-container .wp-block-navigation-item__content {
-  color: var(--haru-green) !important;
-}
-
-/* フッター内のタクソノミーリンクもHaru Greenに */
-.haru-footer-container .haru-scrap-category-list a,
-.haru-footer-container .haru-scrap-tag-list a {
-  color: var(--haru-green) !important;
-  border-color: var(--haru-green) !important;
-}
-
-.haru-footer-container .haru-scrap-category-list a:hover,
-.haru-footer-container .haru-scrap-tag-list a:hover {
-  background-color: var(--haru-green) !important;
   color: var(--haru-black) !important;
 }
+
 
 
 
