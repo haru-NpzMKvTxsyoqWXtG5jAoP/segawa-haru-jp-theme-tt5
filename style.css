@@ -267,15 +267,17 @@ a[href*="haru-gallery-item-wide"] {
   font-size: clamp(2rem, 7vw, 4rem);
 }
 
-.haru-section-title::before {
+/* 丸付き */
+.haru-sec-t-bullet::before {
   content: "●";
   font-size: 0.5em;
 }
-/* before用カラー */
-.haru-section-title.haru-bullet-l-cyan::before { color: var(--haru-light-cyan); }
-.haru-section-title.haru-bullet-l-yellow::before { color: var(--haru-light-yellow); }
-.haru-section-title.haru-bullet-l-orange::before { color: var(--haru-light-orange); }
-.haru-section-title.haru-bullet-l-pink::before { color: var(--haru-light-pink); }
+
+/* 丸の色 */
+.haru-sec-t-bullet.haru-bullet-l-cyan::before { color: var(--haru-light-cyan); }
+.haru-sec-t-bullet.haru-bullet-l-yellow::before { color: var(--haru-light-yellow); }
+.haru-sec-t-bullet.haru-bullet-l-orange::before { color: var(--haru-light-orange); }
+.haru-sec-t-bullet.haru-bullet-l-pink::before { color: var(--haru-light-pink); }
 
 /* 帯付き */
 .haru-section-title-back-color {
