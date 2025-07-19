@@ -728,9 +728,12 @@ a[href*="haru-gallery-item-wide"] {
 .haru-footer-container .wp-block-navigation-item__content {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 500;
+  line-height: 1;
+}
+.haru-footer-container .wp-block-navigation-item {
+  margin-top: -0.3em;
 }
 .haru-footer-container .wp-block-navigation {
-  row-gap: -0.2em;
   column-gap: 1.2em;
 }
 
