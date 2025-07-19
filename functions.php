@@ -92,6 +92,13 @@ add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
  * Gallery Tags ブロックを登録
  */
 function haru_register_gallery_tags_block() {
+    // デバッグ: WordPressバージョンチェック
+    add_action( 'admin_notices', function() {
+        echo '<div class="notice notice-info"><p>WordPress Version: ' . get_bloginfo('version') . '</p></div>';
+        echo '<div class="notice notice-info"><p>Block.json path: ' . __DIR__ . '/block.json</p></div>';
+        echo '<div class="notice notice-info"><p>File exists: ' . (file_exists(__DIR__ . '/block.json') ? 'YES' : 'NO') . '</p></div>';
+    });
+    
     register_block_type_from_metadata( __DIR__, array(
         'render_callback' => 'haru_render_gallery_tags_block',
     ) );
