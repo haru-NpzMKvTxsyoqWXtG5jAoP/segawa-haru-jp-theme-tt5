@@ -92,7 +92,7 @@ add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
  * Gallery Tags ブロックを登録
  */
 function haru_register_gallery_tags_block() {
-    register_block_type( __DIR__ . '/block.json', array(
+    register_block_type_from_metadata( __DIR__, array(
         'render_callback' => 'haru_render_gallery_tags_block',
     ) );
 }
