@@ -92,13 +92,6 @@ add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
  * Gallery Tags ブロックを登録
  */
 function haru_register_gallery_tags_block() {
-    // デバッグ: WordPressバージョンチェック
-    add_action( 'admin_notices', function() {
-        echo '<div class="notice notice-info"><p>WordPress Version: ' . get_bloginfo('version') . '</p></div>';
-        echo '<div class="notice notice-info"><p>Block.json path: ' . __DIR__ . '/block.json</p></div>';
-        echo '<div class="notice notice-info"><p>File exists: ' . (file_exists(__DIR__ . '/block.json') ? 'YES' : 'NO') . '</p></div>';
-    });
-    
     register_block_type_from_metadata( __DIR__, array(
         'render_callback' => 'haru_render_gallery_tags_block',
     ) );
@@ -112,15 +105,3 @@ function haru_render_gallery_tags_block( $attrs, $content, $block ) {
     return haru_gallery_tags_render();
 }
 
-// ============================================== 
-//  デバッグ用：登録ブロック一覧確認
-// ==============================================
-add_action( 'admin_init', function() {
-    if ( current_user_can( 'administrator' ) && isset( $_GET['debug_blocks'] ) ) {
-        echo '<pre>';
-        $registry = WP_Block_Type_Registry::get_instance();
-        print_r( array_keys( $registry->get_all_registered() ) );
-        echo '</pre>';
-        exit;
-    }
-});
