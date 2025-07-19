@@ -718,20 +718,23 @@ a[href*="haru-gallery-item-wide"] {
 .haru-footer-container .wp-block-navigation-item__content {
   color: var(--haru-black) !important;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  line-height: 1.2 !important; /* 行間を詰める */
-  padding: 0.2em 0.5em; /* 上下の余白を明示的に縮小 */
 }
 
 /* フッター内ナビメニューのスタイル調整 */
 .haru-footer-container .wp-block-navigation {
-  gap: 1.2em; /* メニュー同士の間隔を広げる */
+  row-gap: 0.3em !important; /* 折り返し時の行間隔を詰める */
+  column-gap: 1.2em !important; /* 横方向の間隔は保持 */
 }
 
 /* =============================================
    投稿ページ背景色
 ============================================= */
-/* 投稿（post）だけ背景色を変える */
-body.single-post {
+/* 投稿関連ページの背景色を変える */
+body.single-post,
+body.home,
+body.category,
+body.tag,
+body.archive {
   background-color: #eeece3;
 }
 
