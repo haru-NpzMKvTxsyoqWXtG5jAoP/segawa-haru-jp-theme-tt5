@@ -1,0 +1,12 @@
+{
+  "name": "haru/gallery-tags",
+  "title": "Gallery Tags",
+  "category": "widgets",
+  "icon": "tag",
+  "description": "ギャラリーカテゴリで使われているタグ一覧を表示します",
+  "supports": { 
+    "html": false,
+    "align": false
+  },
+  "apiVersion": 3
+}

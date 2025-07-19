@@ -714,7 +714,6 @@ a[href*="haru-gallery-item-wide"] {
 .haru-footer-logo {
   height: clamp(3rem, 6vw, 4.5rem) !important;
   width: auto !important;
-  text-align: left !important;
 }
 
 /* ナビメニュー */
