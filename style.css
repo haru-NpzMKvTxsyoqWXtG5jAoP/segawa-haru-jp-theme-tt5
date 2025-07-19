@@ -678,7 +678,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* ============ ギャラリータグ一覧（丸い）（個別設定） ============ */
 .haru-gallery-tag-list a {
-  padding: clamp(0.15rem, 0.6vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
+  padding: clamp(0.12rem, 0.4vw, 0.25rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
@@ -687,7 +687,7 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ スクラップ（個別設定） ============ */
 /* カテゴリーリンク（四角） */
 .haru-scrap-category-list a {
-  padding: clamp(0.15rem, 0.5vw, 0.35rem) clamp(0.4rem, 1vw, 0.7rem);
+  padding: clamp(0.1rem, 0.3vw, 0.25rem) clamp(0.4rem, 1vw, 0.7rem);
   border-radius: var(--haru-element-border-radius);
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 500;
@@ -695,7 +695,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タグリンク（丸い） */
 .haru-scrap-tag-list a {
-  padding: clamp(0.05rem, 0.4vw, 0.18rem) clamp(0.4rem, 1vw, 0.6rem);
+  padding: clamp(0.03rem, 0.25vw, 0.12rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: clamp(20px, 4vw, 50px);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
@@ -718,7 +718,8 @@ a[href*="haru-gallery-item-wide"] {
 .haru-footer-container .wp-block-navigation-item__content {
   color: var(--haru-black) !important;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  line-height: 1.2;
+  line-height: 1.2 !important; /* 行間を詰める */
+  padding: 0.2em 0.5em; /* 上下の余白を明示的に縮小 */
 }
 
 /* フッター内ナビメニューのスタイル調整 */
@@ -726,7 +727,13 @@ a[href*="haru-gallery-item-wide"] {
   gap: 1.2em; /* メニュー同士の間隔を広げる */
 }
 
-
+/* =============================================
+   投稿ページ背景色
+============================================= */
+/* 投稿（post）だけ背景色を変える */
+body.single-post {
+  background-color: #eeece3;
+}
 
 
 
