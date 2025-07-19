@@ -35,7 +35,7 @@ add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
 // ==============================================
 add_action( 'wp_enqueue_scripts', function () {
 
-    $font_url = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap';
+    $font_url = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap';
 
     // ❶ CDN 先とフォントファイル用に preconnect
     add_action( 'wp_head', function () {
