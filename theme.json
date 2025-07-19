@@ -11,6 +11,7 @@
         { "slug": "haru-back-black", "color": "#1a1a1a", "name": "Haru Back Black" },
         { "slug": "haru-white", "color": "#f9f9f9", "name": "Haru White" },
         { "slug": "haru-gray", "color": "#e7e7e7", "name": "Haru Gray" },
+        { "slug": "haru-beige", "color": "#eeece3", "name": "Haru Beige" },
         { "slug": "haru-light-cyan", "color": "#7dffc8", "name": "Haru Light Cyan" },
         { "slug": "haru-light-yellow", "color": "#ffff82", "name": "Haru Light Yellow" },
         { "slug": "haru-light-orange", "color": "#fab95f", "name": "Haru Light Orange" },

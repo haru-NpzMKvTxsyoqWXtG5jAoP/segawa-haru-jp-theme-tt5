@@ -13,6 +13,7 @@ Template: twentytwentyfive
   --haru-back-black: #1a1a1a;
   --haru-white: #f9f9f9;
   --haru-gray: #e7e7e7;
+  --haru-beige: #eeece3;
   --haru-light-cyan: #7dffc8;
   --haru-light-yellow: #ffff82;
   --haru-light-orange: #fab95f;
@@ -232,30 +233,37 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    スクラップブックロゴ - アニメーション
 ============================================= */
+/*
 .haru-scrap-logo {
   width: 100%;
-  max-width: 600px; /* PCでの最大サイズ */
+  max-width: 600px;
   height: auto;
 }
 
 .haru-scrap-logo svg {
   fill: #151515;
 }
+*/
 
 /* 初期状態：隠す */
+/*
 .harusegawa-left-group,
 .haru-scrap-logo .letter-s, .haru-scrap-logo .letter-c, .haru-scrap-logo .letter-r, .haru-scrap-logo .letter-a, 
 .haru-scrap-logo .letter-p, .haru-scrap-logo .letter-b, .haru-scrap-logo .letter-o, .haru-scrap-logo .letter-o2, 
 .haru-scrap-logo .letter-k {
   opacity: 0;
 }
+*/
 
 /* 左側：回転しているHARUSEGAWAグループ：まとめてスッと入る */
+/*
 .harusegawa-left-group { 
   animation: slideFromLeft 0.4s ease-out 0.1s forwards; 
 }
+*/
 
 /* 右側：scrapbook：1文字ずつスライドイン */
+/*
 .haru-scrap-logo .letter-s { animation: slideFromLeft 0.4s ease-out 0.6s forwards; }
 .haru-scrap-logo .letter-c { animation: slideFromLeft 0.4s ease-out 0.7s forwards; }
 .haru-scrap-logo .letter-r { animation: slideFromLeft 0.4s ease-out 0.8s forwards; }
@@ -265,6 +273,7 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-logo .letter-o { animation: slideFromLeft 0.4s ease-out 1.2s forwards; }
 .haru-scrap-logo .letter-o2 { animation: slideFromLeft 0.4s ease-out 1.3s forwards; }
 .haru-scrap-logo .letter-k { animation: slideFromLeft 0.4s ease-out 1.4s forwards; }
+*/
 
 /* =============================================
    キャッチコピー
@@ -709,21 +718,20 @@ a[href*="haru-gallery-item-wide"] {
   background-color: rgba(0, 0, 0, 0.08); /* 黒を混ぜてほんのり暗く */
 }
 
-/* フッター内のSVGを全部Haru Blackに */
-.haru-footer-container svg {
-  fill: var(--haru-black) !important;
+/* フッターロゴの高さ統一 */
+.haru-footer-logo {
+  height: clamp(2rem, 4vw, 3rem);
+  width: auto;
 }
 
-/* フッター内のナビメニューもHaru Blackに */
+/* ナビメニュー */
 .haru-footer-container .wp-block-navigation-item__content {
-  color: var(--haru-black) !important;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
 }
-
-/* フッター内ナビメニューのスタイル調整 */
 .haru-footer-container .wp-block-navigation {
-  row-gap: 0.3em !important; /* 折り返し時の行間隔を詰める */
-  column-gap: 1.2em !important; /* 横方向の間隔は保持 */
+  row-gap: 0.2em !important;
+  column-gap: 1.2em !important;
 }
 
 /* =============================================
