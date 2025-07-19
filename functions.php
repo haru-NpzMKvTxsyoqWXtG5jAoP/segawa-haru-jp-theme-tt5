@@ -36,10 +36,11 @@ add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
 
 
 // ============================================== 
-//  ギャラリータグ一覧（共通関数）
+//  ギャラリータグ一覧
 // ==============================================
 /**
  * ギャラリーカテゴリの記事で使われているタグ一覧を表示
+ * ショートコード [haru_gallery_tags] およびテンプレートパーツで使用
  */
 function haru_gallery_tags_render() {
     /* ▼ 必要ならここの 'gallery' を自分のカテゴリースラッグに変えてな */
@@ -85,23 +86,4 @@ function haru_gallery_tags_render() {
 // ==============================================
 add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
 
-// ============================================== 
-//  動的ブロック
-// ==============================================
-/**
- * Gallery Tags ブロックを登録
- */
-function haru_register_gallery_tags_block() {
-    register_block_type_from_metadata( __DIR__, array(
-        'render_callback' => 'haru_render_gallery_tags_block',
-    ) );
-}
-add_action( 'init', 'haru_register_gallery_tags_block' );
-
-/**
- * Gallery Tags ブロックの描画
- */
-function haru_render_gallery_tags_block( $attrs, $content, $block ) {
-    return haru_gallery_tags_render();
-}
 
