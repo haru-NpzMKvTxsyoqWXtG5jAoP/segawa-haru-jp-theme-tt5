@@ -731,7 +731,7 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* 投稿関連ページの背景色を変える */
 body.single-post,
-body.home,
+body.blog,
 body.category,
 body.tag,
 body.archive {
