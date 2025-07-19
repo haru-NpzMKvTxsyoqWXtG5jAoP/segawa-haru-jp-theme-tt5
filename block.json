@@ -4,5 +4,8 @@
   "category": "widgets",
   "icon": "tag",
   "apiVersion": 3,
-  "supports": { "html": false }
+  "supports": { 
+    "html": false,
+    "inserter": true 
+  }
 }
