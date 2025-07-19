@@ -118,7 +118,8 @@ function haru_render_gallery_tags_block( $attrs, $content, $block ) {
 add_action( 'admin_init', function() {
     if ( current_user_can( 'administrator' ) && isset( $_GET['debug_blocks'] ) ) {
         echo '<pre>';
-        print_r( wp_get_registered_block_names() );
+        $registry = WP_Block_Type_Registry::get_instance();
+        print_r( array_keys( $registry->get_all_registered() ) );
         echo '</pre>';
         exit;
     }
