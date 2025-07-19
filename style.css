@@ -7,19 +7,7 @@ Template: twentytwentyfive
    共通設定
 ============================================= */
 :root {
-  /* カラーパレット */
-  --haru-green: #00e68c;
-  --haru-black: #000000;
-  --haru-back-black: #1a1a1a;
-  --haru-white: #f9f9f9;
-  --haru-gray: #e7e7e7;
-  --haru-beige: #eeece3;
-  --haru-light-cyan: #7dffc8;
-  --haru-light-yellow: #ffff82;
-  --haru-light-orange: #fab95f;
-  --haru-light-pink: #ffafb4;
-  
-  /* レイアウト */
+  /* レイアウト変数（WordPressに定義がないもののみ） */
   --haru-element-gap: 1px;
   --haru-element-border-radius: 0px;
   --haru-border-width: 1px;
@@ -118,7 +106,7 @@ a[href*="haru-gallery-item-wide"] {
 /* 右カラム全体に背景と高さ確保 */
 .haru-bar-column{
   max-width: clamp(1.5rem, 4vw, 2.5rem);
-  background: linear-gradient(to bottom, var(--haru-light-cyan), var(--haru-light-yellow), var(--haru-light-orange), var(--haru-light-pink));
+  background: linear-gradient(to bottom, var(--wp--preset--color--haru-light-cyan), var(--wp--preset--color--haru-light-yellow), var(--wp--preset--color--haru-light-orange), var(--wp--preset--color--haru-light-pink));
   margin-top: calc(var(--wp--style--root--padding-top) * -1) !important;
   margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1) !important;
 }
@@ -153,14 +141,14 @@ a[href*="haru-gallery-item-wide"] {
   margin: 0 auto;
   min-width: clamp(140px, 50vw, 180px);
   padding: 15px 20px;
-  font-family: var(--wp--preset--font-family--source-han-sans-japanese);
+  font-family: var(--wp--preset--font-family--noto-sans-jp);
   font-size: var(--wp--preset--font-size--small);
   font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
-  border: var(--haru-border-width) solid var(--haru-black);
-  color: var(--haru-white);
-  background: linear-gradient(to left, var(--haru-black) 50%, transparent 50%) right / 200% 100%;
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  color: var(--wp--preset--color--haru-white);
+  background: linear-gradient(to left, var(--wp--preset--color--haru-black) 50%, transparent 50%) right / 200% 100%;
   transition: background-position var(--haru-hover-duration), color var(--haru-hover-duration);
 }
 
@@ -169,20 +157,20 @@ a[href*="haru-gallery-item-wide"] {
 .wp-block-button__link:hover,
 .wp-block-button__link:focus-visible {
   background-position: left;
-  color: var(--haru-black);
+  color: var(--wp--preset--color--haru-black);
 }
 
 /* 色反転ボタン（黒背景用） */
 .haru-button-reverse .wp-block-button__link {
-  border: var(--haru-border-width) solid var(--haru-gray);
-  color: var(--haru-black);
-  background: linear-gradient(to left, var(--haru-gray) 50%, transparent 50%) right / 200% 100%;
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
+  color: var(--wp--preset--color--haru-black);
+  background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
 
 .haru-button-reverse .wp-block-button__link:hover,
 .haru-button-reverse .wp-block-button__link:focus-visible {
   background-position: left;
-  color: var(--haru-white);
+  color: var(--wp--preset--color--haru-white);
 }
 
 /* =============================================
@@ -312,14 +300,14 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* 丸の色 */
-.haru-sec-t-bullet.haru-bullet-l-cyan::before { color: var(--haru-light-cyan); }
-.haru-sec-t-bullet.haru-bullet-l-yellow::before { color: var(--haru-light-yellow); }
-.haru-sec-t-bullet.haru-bullet-l-orange::before { color: var(--haru-light-orange); }
-.haru-sec-t-bullet.haru-bullet-l-pink::before { color: var(--haru-light-pink); }
+.haru-sec-t-bullet.haru-bullet-l-cyan::before { color: var(--wp--preset--color--haru-light-cyan); }
+.haru-sec-t-bullet.haru-bullet-l-yellow::before { color: var(--wp--preset--color--haru-light-yellow); }
+.haru-sec-t-bullet.haru-bullet-l-orange::before { color: var(--wp--preset--color--haru-light-orange); }
+.haru-sec-t-bullet.haru-bullet-l-pink::before { color: var(--wp--preset--color--haru-light-pink); }
 
 /* 帯付き */
 .haru-section-title-back-color {
-  background-color: var(--haru-white);
+  background-color: var(--wp--preset--color--haru-white);
   padding-left: var(--haru-card-padding);
   margin-top: var(--haru-element-gap);
   margin-bottom: var(--haru-element-gap);
@@ -331,7 +319,7 @@ a[href*="haru-gallery-item-wide"] {
 /* 本体 */
 .haru-service-card,
 .haru-scrap-card {
-  background: var(--haru-white);
+  background: var(--wp--preset--color--haru-white);
   border-radius: var(--haru-element-border-radius);
   padding: var(--haru-card-padding);
   position: relative;
@@ -347,7 +335,7 @@ a[href*="haru-gallery-item-wide"] {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: var(--haru-green);
+  background: var(--wp--preset--color--haru-green);
   opacity: 0;
   transition: left 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
@@ -528,7 +516,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* フリップカード矢印の色 */
 .haru-flip-card-arrow {
-  fill: var(--haru-green);
+  fill: var(--wp--preset--color--haru-green);
 }
 
 /* =============================================
@@ -541,7 +529,7 @@ a[href*="haru-gallery-item-wide"] {
   border-radius: calc(var(--haru-element-border-radius) - 10px);
   box-sizing: border-box;
   padding: 0.75rem 0.5rem;
-  font-family: var(--wp--preset--font-family--source-han-sans-japanese);
+  font-family: var(--wp--preset--font-family--noto-sans-jp);
   font-size: 1rem;
 }
 /* プレースホルダーの色を薄く */
@@ -561,7 +549,7 @@ a[href*="haru-gallery-item-wide"] {
 /* フォーカス時 */
 .wpcf7-form-control:not(.wpcf7-submit):focus-visible {
   outline: none;
-  border: var(--haru-border-width) solid var(--haru-black);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
 }
 
 /* --- エラー時 --- */
@@ -571,7 +559,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 /* フォーカス時は文字色を元に戻す */
 .wpcf7-form .wpcf7-not-valid:focus {
-  color: var(--haru-black);
+  color: var(--wp--preset--color--haru-black);
 }
 /* エラー時のプレースホルダー */
 .wpcf7-form .wpcf7-not-valid::placeholder {
@@ -597,7 +585,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* チェックボックスのアクセントカラー */
 .wpcf7-form input[type="checkbox"] {
-  accent-color: var(--haru-black);
+  accent-color: var(--wp--preset--color--haru-black);
 }
 
 /* --- 送信 --- */
@@ -605,16 +593,16 @@ a[href*="haru-gallery-item-wide"] {
 .wpcf7 form .wpcf7-response-output {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
-  border: var(--haru-border-width) solid var(--haru-black);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   border-radius: calc(var(--haru-element-border-radius) - 10px);
-  font-family: var(--wp--preset--font-family--source-han-sans-japanese);
+  font-family: var(--wp--preset--font-family--noto-sans-jp);
   font-size: var(--wp--preset--font-size--small);
   text-align: center;
 }
 
 /* 送信成功時（シアン背景） */
 .wpcf7 form.sent .wpcf7-response-output {
-  background-color: var(--haru-light-cyan);
+  background-color: var(--wp--preset--color--haru-light-cyan);
 }
 
 /* 送信エラー時（赤背景） */
@@ -631,7 +619,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* スピナーのデザイン調整 */
 .wpcf7-spinner {
-  background-color: var(--haru-light-cyan);
+  background-color: var(--wp--preset--color--haru-light-cyan);
   opacity: 1;
   margin: 0;
 }
@@ -657,23 +645,23 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-tag-list a {
   display: inline-block;
   text-decoration: none;
-  border: var(--haru-border-width) solid var(--haru-black);
-  color: var(--haru-black);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  color: var(--wp--preset--color--haru-black);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .haru-gallery-tag-list a:hover,
 .haru-scrap-category-list a:hover,
 .haru-scrap-tag-list a:hover {
-  background-color: var(--haru-black);
-  color: var(--haru-green);
+  background-color: var(--wp--preset--color--haru-black);
+  color: var(--wp--preset--color--haru-green);
 }
 
 /* フォーカス時のアウトライン（共通） */
 .haru-gallery-tag-list a:focus-visible,
 .haru-scrap-category-list a:focus-visible,
 .haru-scrap-tag-list a:focus-visible {
-  outline: 2px solid var(--haru-green);
+  outline: 2px solid var(--wp--preset--color--haru-green);
   outline-offset: 2px;
 }
 
@@ -735,7 +723,7 @@ body.blog,
 body.category,
 body.tag,
 body.archive {
-  background-color: #eeece3;
+  background-color: var(--wp--preset--color--haru-beige);
 }
 
 

@@ -22,9 +22,10 @@
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "\"source-han-sans-japanese\", sans-serif",
-          "slug": "source-han-sans-japanese",
-          "name": "源ノ角ゴシック"
+          "slug": "noto-sans-jp",
+          "fontFace": "Noto Sans JP",
+          "name": "Noto Sans JP",
+          "fontFamily": "\"Noto Sans JP\", system-ui, sans-serif"
         }
       ],
       "fontSizes": [
@@ -53,58 +54,58 @@
       "text": "var(--wp--preset--color--haru-black)"
     },
     "typography": {
-      "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+      "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
     },
     "elements": {
       "body": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)",
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)",
           "fontWeight": "400"
         }
       },
       "h1": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "h2": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "h3": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "h4": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "h5": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "h6": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "button": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "link": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       },
       "caption": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--source-han-sans-japanese)"
+          "fontFamily": "var(--wp--preset--font-family--noto-sans-jp)"
         }
       }
     }
