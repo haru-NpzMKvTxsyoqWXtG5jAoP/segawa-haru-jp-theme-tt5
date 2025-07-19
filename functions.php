@@ -53,7 +53,18 @@ function haru_gallery_tags_render() {
         'suppress_filters' => true,
     ] );
 
-    if ( empty( $post_ids ) ) return '';
+    // デバッグ: アーカイブページでの動作確認
+    if ( empty( $post_ids ) ) {
+        $debug_info = [
+            'is_category' => is_category(),
+            'is_tag' => is_tag(),
+            'is_archive' => is_archive(),
+            'is_admin' => is_admin(),
+            'current_url' => $_SERVER['REQUEST_URI'] ?? 'unknown',
+            'posts_found' => count($post_ids)
+        ];
+        return '<!-- Gallery Tags Debug: ' . json_encode($debug_info) . ' --><p style="color:red;">Gallery tags: No posts found</p>';
+    }
 
     /* 1時間だけキャッシュ（無駄クエリ削減）*/
     $tags = get_transient( 'gallery_tags_cache' );
