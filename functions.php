@@ -46,7 +46,10 @@ function haru_gallery_tags_render() {
     $post_ids = get_posts( [
         'category_name'  => 'gallery',
         'fields'         => 'ids',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'no_found_rows'  => true,
+        'suppress_filters' => true,
     ] );
 
     if ( empty( $post_ids ) ) return '';
@@ -89,13 +92,9 @@ add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
  * Gallery Tags ブロックを登録
  */
 function haru_register_gallery_tags_block() {
-    register_block_type(
-        'haru/gallery-tags',
-        array(
-            'render_callback' => 'haru_render_gallery_tags_block',
-            'api_version'     => 3,
-        )
-    );
+    register_block_type( __DIR__ . '/block.json', array(
+        'render_callback' => 'haru_render_gallery_tags_block',
+    ) );
 }
 add_action( 'init', 'haru_register_gallery_tags_block' );
 
