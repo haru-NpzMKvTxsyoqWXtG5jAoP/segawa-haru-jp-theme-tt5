@@ -6,10 +6,8 @@
  * Categories: text
  * Keywords: gallery, tags, taxonomy
  */
+?>
 
-// Prevent direct access
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
-
-echo haru_gallery_tags_render();
+<!-- wp:shortcode -->
+[haru_gallery_tags]
+<!-- /wp:shortcode -->
