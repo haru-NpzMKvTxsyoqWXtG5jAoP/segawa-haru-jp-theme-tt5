@@ -59,7 +59,7 @@ a {
 
 /* 内部用タグを全サイトで非表示 */
 a[href*="haru-gallery-item-wide"] {
-  display: none;
+  display: none !important;
 }
 
 /* タグ区切り文字の変更 */
@@ -404,7 +404,7 @@ a[href*="haru-gallery-item-wide"] {
 /* サービス名 */
 .haru-service-card h3 {
   font-size: clamp(1.125rem, 4vw, 1.5rem);
-  font-weight: 500;
+  font-weight: 600;
   margin-top: var(--haru-card-padding);
   margin-bottom: var(--haru-card-padding);
 }
