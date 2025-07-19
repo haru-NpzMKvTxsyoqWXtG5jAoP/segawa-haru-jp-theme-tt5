@@ -6,8 +6,5 @@
  * Categories: text
  * Keywords: gallery, tags, taxonomy
  */
-?>
 
-<!-- wp:shortcode -->
-[haru_gallery_tags]
-<!-- /wp:shortcode -->
+echo haru_gallery_tags_render();
