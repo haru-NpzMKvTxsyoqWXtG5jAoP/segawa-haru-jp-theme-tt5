@@ -23,9 +23,19 @@
       "fontFamilies": [
         {
           "slug": "noto-sans-jp",
-          "fontFace": "Noto Sans JP",
           "name": "Noto Sans JP",
-          "fontFamily": "\"Noto Sans JP\", system-ui, sans-serif"
+          "fontFamily": "\"Noto Sans JP\", system-ui, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Noto Sans JP",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+              "src": [
+                "local('Noto Sans JP')",
+                "url('https://fonts.gstatic.com/s/notosansjp/v54/-F6jfjtqLzI2JPCgQBnw7HFYwQgP-FVxhw.woff2')"
+              ]
+            }
+          ]
         }
       ],
       "fontSizes": [
