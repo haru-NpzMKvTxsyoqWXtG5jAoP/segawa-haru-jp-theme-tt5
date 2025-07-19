@@ -1,7 +1,7 @@
 <?php
 
 // ============================================== 
-//  読み込みアセット（CSS・Adobe Fonts）
+//  読み込みアセット（CSS・JS）
 // ==============================================
 function haru_enqueue_assets() {
     /* 親テーマ CSS */
@@ -36,7 +36,7 @@ add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
 // ==============================================
 /**
  * ギャラリーカテゴリの記事で使われているタグ一覧を表示
- * ショートコード [haru_gallery_tags] およびテンプレートパーツで使用
+ * ショートコード [haru_gallery_tags] で使用
  */
 function haru_gallery_tags_render() {
     /* ▼ 必要ならここの 'gallery' を自分のカテゴリースラッグに変えてな */
@@ -49,17 +49,8 @@ function haru_gallery_tags_render() {
         'suppress_filters' => true,
     ] );
 
-    // デバッグ: アーカイブページでの動作確認
     if ( empty( $post_ids ) ) {
-        $debug_info = [
-            'is_category' => is_category(),
-            'is_tag' => is_tag(),
-            'is_archive' => is_archive(),
-            'is_admin' => is_admin(),
-            'current_url' => $_SERVER['REQUEST_URI'] ?? 'unknown',
-            'posts_found' => count($post_ids)
-        ];
-        return '<!-- Gallery Tags Debug: ' . json_encode($debug_info) . ' --><p style="color:red;">Gallery tags: No posts found</p>';
+        return '';
     }
 
     /* 1時間だけキャッシュ（無駄クエリ削減）*/
@@ -89,8 +80,6 @@ function haru_gallery_tags_render() {
 }
 
 // ============================================== 
-//  ショートコード（後方互換）
+//  ショートコード登録
 // ==============================================
 add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
-
-
