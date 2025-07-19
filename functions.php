@@ -111,3 +111,15 @@ add_action( 'init', 'haru_register_gallery_tags_block' );
 function haru_render_gallery_tags_block( $attrs, $content, $block ) {
     return haru_gallery_tags_render();
 }
+
+// ============================================== 
+//  デバッグ用：登録ブロック一覧確認
+// ==============================================
+add_action( 'admin_init', function() {
+    if ( current_user_can( 'administrator' ) && isset( $_GET['debug_blocks'] ) ) {
+        echo '<pre>';
+        print_r( wp_get_registered_block_names() );
+        echo '</pre>';
+        exit;
+    }
+});
