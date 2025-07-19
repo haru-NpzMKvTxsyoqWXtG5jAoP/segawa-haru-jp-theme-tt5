@@ -97,14 +97,6 @@ a[href*="haru-gallery-item-wide"] {
   margin-right: var(--wp--style--root--padding-right);
 }
 
-/* 全体背景用（bodyの上下左右パディング打ち消し） */
-.haru-full-bg {
-  margin-left: calc(var(--wp--style--root--padding-left) * -1);
-  margin-right: calc(var(--wp--style--root--padding-right) * -1);
-  margin-top: calc(var(--wp--style--root--padding-top) * -1) !important;
-  margin-bottom: calc(var(--wp--style--root--padding-bottom) * -1) !important;
-}
-
 /* =============================================
    レスポンシブスペーサー
 ============================================= */
@@ -722,6 +714,7 @@ a[href*="haru-gallery-item-wide"] {
 .haru-footer-logo {
   height: clamp(3rem, 6vw, 4.5rem) !important;
   width: auto !important;
+  text-align: left !important;
 }
 
 /* ナビメニュー */
@@ -729,9 +722,6 @@ a[href*="haru-gallery-item-wide"] {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 500;
   line-height: 1;
-}
-.haru-footer-container .wp-block-navigation-item {
-  margin-top: -0.3em;
 }
 .haru-footer-container .wp-block-navigation {
   column-gap: 1.2em;
