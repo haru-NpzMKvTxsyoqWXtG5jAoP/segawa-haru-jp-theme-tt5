@@ -30,32 +30,6 @@ function haru_enqueue_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
 
-// ============================================== 
-//  Google Fonts - Noto Sans JP
-// ==============================================
-add_action( 'wp_enqueue_scripts', function () {
-
-    $font_url = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap';
-
-    // ❶ CDN 先とフォントファイル用に preconnect
-    add_action( 'wp_head', function () {
-        echo '<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>';
-        echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-    }, 4 ); // 早めに
-
-    // ❷ スタイルを preload → stylesheet 化（non‑blocking）
-    add_action( 'wp_head', function () use ( $font_url ) {
-        printf(
-            '<link rel="preload" as="style" href="%1$s" onload="this.rel=\'stylesheet\'">',
-            esc_url( $font_url )
-        );
-        printf(
-            '<noscript><link rel="stylesheet" href="%1$s"></noscript>',
-            esc_url( $font_url )
-        );
-    }, 5 );
-
-}, 1 );
 
 // ============================================== 
 //  ギャラリータグ一覧
