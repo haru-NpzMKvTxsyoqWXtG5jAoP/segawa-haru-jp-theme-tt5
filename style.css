@@ -710,6 +710,13 @@ a[href*="haru-gallery-item-wide"] {
   width: auto !important;
 }
 
+/* パターン内SVGのサファリ対応 */
+.wp-block-pattern .haru-footer-logo,
+.wp-site-blocks .wp-block-pattern .haru-footer-logo {
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
 /* ナビメニュー */
 .haru-footer-container .wp-block-navigation-item__content {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
