@@ -9,7 +9,6 @@ Template: twentytwentyfive
 :root {
   /* レイアウト変数（WordPressに定義がないもののみ） */
   --haru-element-gap: 1px;
-  --haru-element-border-radius: 0px;
   --haru-border-width: 1px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
@@ -213,13 +212,14 @@ a[href*="haru-gallery-item-wide"] {
 @keyframes slideFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-150px);
+    transform: translateX(-30px);
   }
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 
 /* =============================================
    スクラップブックロゴ - アニメーション
@@ -276,16 +276,6 @@ a[href*="haru-gallery-item-wide"] {
   animation: slideFromLeft 0.4s ease-out 1.2s forwards;
 }
 
-@keyframes slideFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 /* =============================================
    セクションタイトル
@@ -330,7 +320,6 @@ a[href*="haru-gallery-item-wide"] {
 .haru-service-card,
 .haru-scrap-card {
   background: var(--wp--preset--color--haru-white);
-  border-radius: var(--haru-element-border-radius);
   padding: var(--haru-card-padding);
   position: relative;
   overflow: hidden;
@@ -362,7 +351,6 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-card figure,
 .haru-gallery-grid figure {
   overflow: hidden;
-  border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
 
 /* サムネ画像ホバーアニメーション */
@@ -538,7 +526,6 @@ a[href*="haru-gallery-item-wide"] {
 .wpcf7-form-control:not(.wpcf7-submit) {
   width: 100%;
   border: var(--haru-border-width) solid transparent;
-  border-radius: calc(var(--haru-element-border-radius) - 10px);
   box-sizing: border-box;
   padding: 0.75rem 0.5rem;
   font-family: var(--wp--preset--font-family--noto-sans-jp);
@@ -606,7 +593,6 @@ a[href*="haru-gallery-item-wide"] {
   margin: 1rem 0;
   padding: 0.75rem 1rem;
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
-  border-radius: calc(var(--haru-element-border-radius) - 10px);
   font-family: var(--wp--preset--font-family--noto-sans-jp);
   font-size: var(--wp--preset--font-size--medium);
   text-align: center;
@@ -687,7 +673,6 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ カテゴリ（四角） ============ */
 .haru-scrap-category-list a {
   padding: clamp(0.15rem, 0.4vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
-  border-radius: var(--haru-element-border-radius);
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 500;
