@@ -139,8 +139,7 @@ a[href*="haru-gallery-item-wide"] {
 /* 文字縦組み */
 .haru-vertical-header .wp-block-navigation-item__content{
   writing-mode: vertical-rl;
-  /* CSS変数だと効かないため固定値で指定 */
-  font-size: 15px;
+  font-size: var(--wp--preset--font-size--medium);
 }
 
 /* =============================================
