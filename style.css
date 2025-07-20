@@ -38,9 +38,6 @@ html::-webkit-scrollbar-thumb {
   background: #ddd;
   border-radius: 10px;
 }
-html::-webkit-scrollbar-thumb:hover {
-  background: #ccc;
-}
 
 /* Google reCAPTCHAバッジを非表示 */
 .grecaptcha-badge {
@@ -64,9 +61,8 @@ a {
 
 /* 全リンクホバー（透明度変化） */
 a:hover {
-  opacity: 0.7;
+  opacity: 0.6;
 }
-
 /* ホバーアニメ付き要素は透明度変化を除外 */
 .wp-block-button__link:hover,
 .haru-service-card:hover a,
@@ -75,7 +71,6 @@ a:hover {
 .haru-gallery-tag-list a:hover {
   opacity: 1;
 }
-
 
 /* 内部用タグを全サイトで非表示 */
 a[href*="haru-gallery-item-wide"] {
@@ -89,7 +84,6 @@ a[href*="haru-gallery-item-wide"] {
 .wp-block-post-terms a:not(:last-child)::after {
   content: " ";
 }
-
 
 /* =============================================
    ユーティリティクラス
@@ -173,9 +167,8 @@ a[href*="haru-gallery-item-wide"] {
   transition: background-position var(--haru-hover-duration), color var(--haru-hover-duration);
 }
 
-.wpcf7-submit:hover,
+
 .wpcf7-submit:focus-visible,
-.wp-block-button__link:hover,
 .wp-block-button__link:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-black);
@@ -188,7 +181,7 @@ a[href*="haru-gallery-item-wide"] {
   background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
 
-.haru-button-reverse .wp-block-button__link:hover,
+
 .haru-button-reverse .wp-block-button__link:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-white);
@@ -361,11 +354,6 @@ a[href*="haru-gallery-item-wide"] {
   z-index: 1;
 }
 
-.haru-service-card:hover::before,
-.haru-scrap-card:hover::before {
-  left: 0;
-  opacity: 1;
-}
 
 .haru-service-card > *,
 .haru-scrap-card > * {
@@ -387,12 +375,13 @@ a[href*="haru-gallery-item-wide"] {
 .haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
-.haru-service-card:hover img,
-.haru-service-card:focus-visible img,
-.haru-scrap-card:hover .wp-post-image,
-.haru-scrap-card:focus-visible .wp-post-image,
+/* 画像拡大アニメ（全デバイス） */
 .haru-gallery-grid a:hover img,
 .haru-gallery-grid a:focus-visible img {
+  transform: scale(var(--haru-hover-scale));
+}
+.haru-service-card:focus-visible img,
+.haru-scrap-card:focus-visible .wp-post-image {
   transform: scale(var(--haru-hover-scale));
 }
 
@@ -695,7 +684,7 @@ a[href*="haru-gallery-item-wide"] {
 /* 反転ホバーアニメ */
 .haru-gallery-tag-list a:hover {
   background-color: var(--wp--preset--color--haru-black);
-  color: var(--wp--preset--color--haru-green);
+  color: var(--wp--preset--color--haru-beige);
 }
 
 /* ============ カテゴリ（四角） ============ */
@@ -741,6 +730,41 @@ body.category,
 body.tag,
 body.archive {
   background-color: var(--wp--preset--color--haru-beige);
+}
+
+/* =============================================
+   ホバー対応デバイス専用アニメーション
+============================================= */
+@media (hover: hover) and (pointer: fine) {
+  /* スクロールバー */
+  html::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+  }
+  
+  /* ボタンアニメーション */
+  .wpcf7-submit:hover,
+  .wp-block-button__link:hover {
+    background-position: left;
+    color: var(--wp--preset--color--haru-black);
+  }
+  
+  .haru-button-reverse .wp-block-button__link:hover {
+    background-position: left;
+    color: var(--wp--preset--color--haru-white);
+  }
+  
+  /* カード背景アニメーション */
+  .haru-service-card:hover::before,
+  .haru-scrap-card:hover::before {
+    left: 0;
+    opacity: 1;
+  }
+  
+  /* カード画像拡大 */
+  .haru-service-card:hover img,
+  .haru-scrap-card:hover .wp-post-image {
+    transform: scale(var(--haru-hover-scale));
+  }
 }
 
 
