@@ -69,12 +69,8 @@ a:hover {
 
 /* ホバーアニメ付き要素は透明度変化を除外 */
 .wp-block-button__link:hover,
-.haru-gallery-tag-list a:hover,
-.haru-scrap-category-list a:hover,
-.haru-scrap-tag-list a:hover,
 .haru-service-card:hover a,
-.haru-scrap-card:hover a,
-.haru-gallery-grid a:hover {
+.haru-scrap-card:hover a {
   opacity: 1;
 }
 
