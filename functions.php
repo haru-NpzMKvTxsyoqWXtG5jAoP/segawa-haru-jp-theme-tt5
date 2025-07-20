@@ -4,18 +4,12 @@
 //  読み込みアセット（CSS・JS）
 // ==============================================
 function haru_enqueue_assets() {
-    /* 親テーマ CSS */
-    wp_enqueue_style(
-        'tt5-parent',
-        get_template_directory_uri() . '/style.css'
-    );
-
     /* 子テーマ CSS（更新日時をバージョンにしてキャッシュバスティング）*/
     $child_ver = filemtime( get_stylesheet_directory() . '/style.css' );
     wp_enqueue_style(
         'haru-child',
         get_stylesheet_directory_uri() . '/style.css',
-        array( 'tt5-parent' ),
+        array( 'twentytwentyfive-style' ), // 親テーマの正式ハンドル名に依存
         $child_ver
     );
 
