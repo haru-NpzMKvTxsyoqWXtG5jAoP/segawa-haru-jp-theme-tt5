@@ -444,7 +444,7 @@ a[href*="haru-gallery-item-wide"] {
   text-overflow: ellipsis;
 }
 .haru-scrap-card .taxonomy-post_tag a {
-  font-size: 0.8125rem; /* CSS変数だと効かないため固定値で指定 */
+  font-size: var(--wp--preset--font-size--small);
   font-weight: 300;
 }
 
@@ -709,7 +709,6 @@ a[href*="haru-gallery-item-wide"] {
   height: clamp(3rem, 6vw, 4.5rem) !important;
   width: auto !important;
 }
-
 
 /* ナビメニュー */
 .haru-footer-container .wp-block-navigation-item__content {
