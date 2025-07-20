@@ -157,7 +157,7 @@ a[href*="haru-gallery-item-wide"] {
   min-width: clamp(140px, 50vw, 180px);
   padding: 15px 20px;
   font-family: var(--wp--preset--font-family--noto-sans-jp);
-  font-size: var(--wp--preset--font-size--small);
+  font-size: var(--wp--preset--font-size--medium);
   font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
@@ -166,7 +166,6 @@ a[href*="haru-gallery-item-wide"] {
   background: linear-gradient(to left, var(--wp--preset--color--haru-black) 50%, transparent 50%) right / 200% 100%;
   transition: background-position var(--haru-hover-duration), color var(--haru-hover-duration);
 }
-
 
 .wpcf7-submit:focus-visible,
 .wp-block-button__link:focus-visible {
@@ -180,7 +179,6 @@ a[href*="haru-gallery-item-wide"] {
   color: var(--wp--preset--color--haru-black);
   background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
-
 
 .haru-button-reverse .wp-block-button__link:focus-visible {
   background-position: left;
@@ -354,7 +352,6 @@ a[href*="haru-gallery-item-wide"] {
   z-index: 1;
 }
 
-
 .haru-service-card > *,
 .haru-scrap-card > * {
   position: relative;
@@ -483,6 +480,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
+  font-size: var(--wp--preset--font-size--medium);
   font-weight: 300;
   line-height: 1.2;
 }
@@ -611,7 +609,7 @@ a[href*="haru-gallery-item-wide"] {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   border-radius: calc(var(--haru-element-border-radius) - 10px);
   font-family: var(--wp--preset--font-family--noto-sans-jp);
-  font-size: var(--wp--preset--font-size--small);
+  font-size: var(--wp--preset--font-size--medium);
   text-align: center;
 }
 
