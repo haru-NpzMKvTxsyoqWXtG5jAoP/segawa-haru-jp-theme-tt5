@@ -62,6 +62,13 @@ a {
   text-decoration: none !important;
 }
 
+/* テキストリンクホバー（明度変化） */
+p a:hover,
+.wp-block-post-content a:hover,
+.wp-block-post-excerpt a:hover {
+  filter: brightness(1.2);
+}
+
 
 /* 内部用タグを全サイトで非表示 */
 a[href*="haru-gallery-item-wide"] {
@@ -366,6 +373,7 @@ a[href*="haru-gallery-item-wide"] {
   overflow: hidden;
   border-radius: calc(var(--haru-element-border-radius) - 2px);
 }
+
 /* サムネ画像ホバーアニメーション */
 .haru-service-card img,
 .haru-scrap-card .wp-post-image,
@@ -472,16 +480,21 @@ a[href*="haru-gallery-item-wide"] {
   row-gap: 1rem;
 }
 
+/* 画像とテキストの間隔 */
+.haru-gallery-grid figure {
+  margin-bottom: 0.3rem;
+}
+
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
   font-weight: 300;
+  line-height: 1.2;
 }
 /* タグが多い場合は複数行 */
 .haru-gallery-grid .taxonomy-post_tag {
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.3em; /* タグ間の隙間 */
-  line-height: 1.2; /* 行の高さ */
 }
 
 /* =============================================
