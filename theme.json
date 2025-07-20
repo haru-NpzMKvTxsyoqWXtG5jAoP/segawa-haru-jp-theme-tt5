@@ -29,7 +29,7 @@
             {
               "fontFamily": "Noto Sans JP",
               "fontStyle": "normal",
-              "fontWeight": "300 500",
+              "fontWeight": "300 500 700",
               "src": [
                 "local('Noto Sans JP')",
                 "url('https://fonts.gstatic.com/s/notosansjp/v54/-F6jfjtqLzI2JPCgQBnw7HFYwQgP-FVxhw.woff2')"
