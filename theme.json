@@ -41,18 +41,18 @@
       "fontSizes": [
         {
           "slug": "small",
-          "size": "0.875rem",
-          "name": "小：14px"
+          "size": "clamp(13px, 3.5vw, 14px)",
+          "name": "小：13-14px"
         },
         {
           "slug": "medium",
-          "size": "0.9375rem",
-          "name": "中：15px"
+          "size": "clamp(15px, 4vw, 16px)",
+          "name": "中：15-16px"
         },
         {
           "slug": "large",
-          "size": "1.125rem",
-          "name": "大：18px"
+          "size": "clamp(17px, 4.5vw, 18px)",
+          "name": "大：17-18px"
         }
       ]
     }
