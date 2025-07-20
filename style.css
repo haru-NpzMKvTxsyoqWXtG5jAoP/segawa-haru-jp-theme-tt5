@@ -710,17 +710,20 @@ a[href*="haru-gallery-item-wide"] {
   width: auto !important;
 }
 
-/* ── ❶  パターンが付ける "justify-content:center" を全フッターで無効化 ── */
-footer .wp-block-group.is-layout-flex[style*="justify-content:center" i],
-footer .wp-block-group[style*="justify-content: center" i]{
-  justify-content:flex-start !important;
+/* ── ❶  Safari対応：フッター全体のCenterレイアウトを無効化 ── */
+footer .wp-block-group.is-layout-flex,
+footer .wp-block-group[style*="justify-content" i] {
+  justify-content: flex-start !important;
 }
 
-/* ── ❷  ロゴをブロック要素化して左端に固定 ── */
-.haru-footer-logo{
-  display:block !important;       /* inline の baseline 余白を消す            */
-  margin-inline-end:auto !important; /* ロゴ→auto で左端、他は元の位置のまま */
-  margin-inline-start:0 !important;
+/* ── ❷  Safari対応：ロゴを確実に左端に固定 ── */
+.haru-footer-logo,
+footer svg.haru-footer-logo,
+footer .haru-footer-logo svg {
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  text-align: left !important;
 }
 
 /* ナビメニュー */
