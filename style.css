@@ -70,6 +70,13 @@ a[href*="haru-gallery-item-wide"] {
   content: " ";
 }
 
+/* 投稿ページのタグを折り返し対応 */
+.haru-post-tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+
 /* =============================================
    ユーティリティクラス
 ============================================= */
@@ -285,7 +292,6 @@ a[href*="haru-gallery-item-wide"] {
   display: flex;
   align-items: center;
   gap: 0.1em;
-  transform: translateY(-0.06em);
 }
 
 /* 大きいサイズ */
@@ -684,10 +690,12 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タグリンク（丸い） */
 .haru-scrap-tag-list a {
-  padding: clamp(0.05rem, 0.2vw, 0.1rem) clamp(0.4rem, 1vw, 0.6rem);
-  border-radius: clamp(20px, 4vw, 50px);
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
-  font-weight: 300;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--wp--preset--color--haru-black);
+  font-weight: 400;
+  line-height: 2.8;
+  text-decoration: none;
 }
 
 /* =============================================
@@ -708,7 +716,7 @@ a[href*="haru-gallery-item-wide"] {
 .haru-footer-container .wp-block-navigation-item__content {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.2;
 }
 .haru-footer-container .wp-block-navigation {
   column-gap: 1.2em;
