@@ -41,27 +41,18 @@
       "fontSizes": [
         {
           "slug": "small",
-          "name": "小：13-14px",
-          "fluid": {
-            "min": "13px",
-            "max": "14px"
-          }
+          "size": "clamp(13px, 3.5vw, 14px)",
+          "name": "小：13-14px"
         },
         {
           "slug": "medium",
-          "name": "中：15-16px",
-          "fluid": {
-            "min": "15px",
-            "max": "16px"
-          }
+          "size": "clamp(15px, 4vw, 16px)",
+          "name": "中：15-16px"
         },
         {
           "slug": "large",
-          "name": "大：17-18px",
-          "fluid": {
-            "min": "17px",
-            "max": "18px"
-          }
+          "size": "clamp(17px, 4.5vw, 18px)",
+          "name": "大：17-18px"
         }
       ]
     }
