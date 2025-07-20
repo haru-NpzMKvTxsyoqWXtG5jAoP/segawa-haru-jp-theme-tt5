@@ -70,12 +70,6 @@ a[href*="haru-gallery-item-wide"] {
   content: " ";
 }
 
-/* 投稿ページのタグを折り返し対応 */
-.haru-post-tag {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3em;
-}
 
 /* =============================================
    ユーティリティクラス
@@ -636,7 +630,8 @@ a[href*="haru-gallery-item-wide"] {
 /* タクソノミーリスト共通 */
 .haru-gallery-tag-list,
 .haru-scrap-category-list,
-.haru-scrap-tag-list {
+.haru-scrap-tag-list,
+.haru-post-tag {
   display: flex;
   flex-wrap: wrap;
   gap: var(--haru-element-gap);
@@ -645,57 +640,48 @@ a[href*="haru-gallery-item-wide"] {
   padding: 0;
 }
 
-/* タクソノミーリンク共通（明るい背景想定） */
+/* ベースタクソノミーリンク（色・ホバー共通） */
 .haru-gallery-tag-list a,
 .haru-scrap-category-list a,
-.haru-scrap-tag-list a {
+.haru-scrap-tag-list a,
+.haru-post-tag a {
   display: inline-block;
-  text-decoration: none;
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   color: var(--wp--preset--color--haru-black);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .haru-gallery-tag-list a:hover,
 .haru-scrap-category-list a:hover,
-.haru-scrap-tag-list a:hover {
+.haru-scrap-tag-list a:hover,
+.haru-post-tag a:hover {
   background-color: var(--wp--preset--color--haru-black);
   color: var(--wp--preset--color--haru-green);
 }
 
-/* フォーカス時のアウトライン（共通） */
-.haru-gallery-tag-list a:focus-visible,
-.haru-scrap-category-list a:focus-visible,
-.haru-scrap-tag-list a:focus-visible {
-  outline: 2px solid var(--wp--preset--color--haru-green);
-  outline-offset: 2px;
+/* ============ タグ系（丸い） ============ */
+.haru-gallery-tag-list a,
+.haru-scrap-tag-list a,
+.haru-post-tag a {
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 0.8px solid var(--wp--preset--color--haru-black);
+  line-height: 1.2;
 }
 
-/* ============ ギャラリータグ一覧（丸い）（個別設定） ============ */
+/* ギャラリータグ（太めborder+大きめ） */
 .haru-gallery-tag-list a {
-  padding: clamp(0.12rem, 0.4vw, 0.25rem) clamp(0.4rem, 1vw, 0.6rem);
-  border-radius: clamp(20px, 4vw, 50px);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 300;
 }
 
-/* ============ スクラップ（個別設定） ============ */
-/* カテゴリーリンク（四角） */
+/* ============ カテゴリ（四角） ============ */
 .haru-scrap-category-list a {
   padding: clamp(0.15rem, 0.4vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
   border-radius: var(--haru-element-border-radius);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-size: clamp(1.125rem, 4vw, 1.5rem);
   font-weight: 500;
-}
-
-/* タグリンク（丸い） */
-.haru-scrap-tag-list a {
-  padding: 5px 10px;
-  border-radius: 20px;
-  border: 1px solid var(--wp--preset--color--haru-black);
-  font-weight: 400;
-  line-height: 2.8;
-  text-decoration: none;
 }
 
 /* =============================================
