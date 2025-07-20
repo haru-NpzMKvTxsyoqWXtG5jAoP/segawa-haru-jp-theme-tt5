@@ -710,11 +710,15 @@ a[href*="haru-gallery-item-wide"] {
   width: auto !important;
 }
 
-/* パターン内SVGのサファリ対応 */
-.wp-block-pattern .haru-footer-logo,
-.wp-site-blocks .wp-block-pattern .haru-footer-logo {
-  display: flex !important;
-  justify-content: flex-start !important;
+/* パターンが吐く中央寄せを全フッターで打ち消す */
+footer .wp-block-group.is-layout-flex[style*="justify-content:center"]{
+  justify-content:flex-start !important;   /* ← Safari でも左端確定 */
+}
+
+/* ロゴをブロック要素化＋右側 auto で左へ固定 */
+.haru-footer-logo{
+  display:block !important;
+  margin-inline-end:auto;   /* 他の要素はそのまま中央／右寄り */
 }
 
 /* ナビメニュー */
