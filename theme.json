@@ -6,7 +6,7 @@
     "color": {
       "custom": false,
       "palette": [
-        { "slug": "haru-green", "color": "#00e68c", "name": "Haru Green" },
+        { "slug": "haru-green", "color": "#00dc8c", "name": "Haru Green" },
         { "slug": "haru-black", "color": "#000000", "name": "Haru Black" },
         { "slug": "haru-back-black", "color": "#1a1a1a", "name": "Haru Back Black" },
         { "slug": "haru-white", "color": "#f9f9f9", "name": "Haru White" },
@@ -29,7 +29,7 @@
             {
               "fontFamily": "Noto Sans JP",
               "fontStyle": "normal",
-              "fontWeight": "100 900",
+              "fontWeight": "300 500",
               "src": [
                 "local('Noto Sans JP')",
                 "url('https://fonts.gstatic.com/s/notosansjp/v54/-F6jfjtqLzI2JPCgQBnw7HFYwQgP-FVxhw.woff2')"
@@ -41,18 +41,27 @@
       "fontSizes": [
         {
           "slug": "small",
-          "size": "clamp(13px, 3.5vw, 14px)",
-          "name": "小：13-14px"
+          "name": "小：13-14px",
+          "fluid": {
+            "min": "13px",
+            "max": "14px"
+          }
         },
         {
           "slug": "medium",
-          "size": "clamp(15px, 4vw, 16px)",
-          "name": "中：15-16px"
+          "name": "中：15-16px",
+          "fluid": {
+            "min": "15px",
+            "max": "16px"
+          }
         },
         {
           "slug": "large",
-          "size": "clamp(17px, 4.5vw, 18px)",
-          "name": "大：17-18px"
+          "name": "大：17-18px",
+          "fluid": {
+            "min": "17px",
+            "max": "18px"
+          }
         }
       ]
     }
