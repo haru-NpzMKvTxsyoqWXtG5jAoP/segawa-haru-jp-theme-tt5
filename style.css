@@ -70,7 +70,9 @@ a:hover {
 /* ホバーアニメ付き要素は透明度変化を除外 */
 .wp-block-button__link:hover,
 .haru-service-card:hover a,
-.haru-scrap-card:hover a {
+.haru-scrap-card:hover a,
+.haru-gallery-grid .wp-block-post-featured-image a:hover,
+.haru-gallery-tag-list a:hover {
   opacity: 1;
 }
 
@@ -672,14 +674,6 @@ a[href*="haru-gallery-item-wide"] {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/*
-.haru-gallery-tag-list a:hover,
-.haru-scrap-category-list a:hover,
-.haru-scrap-tag-list a:hover {
-  background-color: var(--wp--preset--color--haru-black);
-  color: var(--wp--preset--color--haru-green);
-}
-*/
 
 /* ============ タグ系（丸い） ============ */
 .haru-gallery-tag-list a,
@@ -691,10 +685,17 @@ a[href*="haru-gallery-item-wide"] {
   font-weight: 300;
 }
 
-/* ギャラリータグ（太めborder+大きめ） */
+/* ============ ギャラリータグ（丸い） ============ */
+/* 太めborder+大きめサイズ */
 .haru-gallery-tag-list a {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
+}
+
+/* 反転ホバーアニメ */
+.haru-gallery-tag-list a:hover {
+  background-color: var(--wp--preset--color--haru-black);
+  color: var(--wp--preset--color--haru-green);
 }
 
 /* ============ カテゴリ（四角） ============ */
