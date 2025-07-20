@@ -710,21 +710,6 @@ a[href*="haru-gallery-item-wide"] {
   width: auto !important;
 }
 
-/* ── ❶  Safari対応：フッター全体のCenterレイアウトを無効化 ── */
-footer .wp-block-group.is-layout-flex,
-footer .wp-block-group[style*="justify-content" i] {
-  justify-content: flex-start !important;
-}
-
-/* ── ❷  Safari対応：ロゴを確実に左端に固定 ── */
-.haru-footer-logo,
-footer svg.haru-footer-logo,
-footer .haru-footer-logo svg {
-  display: block !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-  text-align: left !important;
-}
 
 /* ナビメニュー */
 .haru-footer-container .wp-block-navigation-item__content {
