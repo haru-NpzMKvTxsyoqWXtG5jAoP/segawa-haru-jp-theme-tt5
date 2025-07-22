@@ -27,7 +27,7 @@ function haru_enqueue_assets() {
         true
     );
 }
-add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
+add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets', 20 );
 
 
 // ============================================== 
@@ -38,31 +38,23 @@ add_action( 'wp_enqueue_scripts', 'haru_enqueue_assets' );
  * ショートコード [haru_gallery_tags] で使用
  */
 function haru_gallery_tags_render() {
-    /* 1時間だけキャッシュ（無駄クエリ削減）*/
-    $tags = get_transient( 'gallery_tags_cache' );
-    if ( false === $tags ) {
-        /* WordPressらしい安全な方法でタグを取得 */
-        $tags = get_terms( array(
-            'taxonomy'   => 'post_tag',
-            'hide_empty' => true,
-            'object_ids' => get_posts( array(
-                'category_name'  => 'gallery',
-                'fields'         => 'ids',
-                'posts_per_page' => 1000, // 実用的な上限
-                'post_status'    => 'publish',
-                'no_found_rows'  => true,
-            ) ),
-            'orderby'    => 'name',
-            'order'      => 'ASC',
-        ) );
-        
-        if ( is_wp_error( $tags ) ) {
-            $tags = array();
-        }
-        
-        set_transient( 'gallery_tags_cache', $tags, HOUR_IN_SECONDS );
-    }
-
+    $post_ids = get_posts( array(
+        'category_name'  => 'gallery',
+        'fields'         => 'ids',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'no_found_rows'  => true,
+    ) );
+    
+    if ( empty( $post_ids ) ) return '';
+    
+    $tags = get_terms( array(
+        'taxonomy'   => 'post_tag',
+        'hide_empty' => true,
+        'object_ids' => $post_ids,
+        'orderby'    => 'name',
+    ) );
+    
     if ( is_wp_error( $tags ) || empty( $tags ) ) return '';
 
     $out = '<ul class="haru-gallery-tag-list">';
@@ -87,15 +79,3 @@ function haru_gallery_tags_render() {
 // ==============================================
 add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
 
-// ============================================== 
-//  キャッシュクリア機能
-// ==============================================
-/**
- * 投稿更新時にギャラリータグキャッシュをクリア
- */
-function haru_clear_gallery_tags_cache() {
-    delete_transient( 'gallery_tags_cache' );
-}
-add_action( 'save_post', 'haru_clear_gallery_tags_cache' );
-add_action( 'deleted_post', 'haru_clear_gallery_tags_cache' );
-add_action( 'set_object_terms', 'haru_clear_gallery_tags_cache' );

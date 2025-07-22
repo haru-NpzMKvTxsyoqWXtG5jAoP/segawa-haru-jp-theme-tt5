@@ -1,0 +1,4 @@
+# フォントファイルの長期キャッシュ設定
+<FilesMatch "\.woff2$">
+  Header set Cache-Control "public,max-age=31536000,immutable"
+</FilesMatch>

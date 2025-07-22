@@ -15,9 +15,10 @@
 ## 技術スタック
 
 ### フォント
-- **Noto Sans JP**: システムフォントとして使用
-- **GDPR 対応**: 外部 CDN 不使用
+- **Noto Sans JP**: セルフホスト配信（300, 400, 500, 700）
+- **GDPR 対応**: 外部 CDN 不使用、完全プライバシー保護
 - **フォントサイズ**: theme.json で clamp() による完全レスポンシブ
+- **パフォーマンス**: font-display: swap + 自動preload対応
 
 ### CSS 設計
 - **CSS 変数**: 一貫性のあるデザインシステム
@@ -45,13 +46,13 @@
 
 ### フリップカード
 - **3D 回転**: CSS transforms
-- **アクセシブル**: キーボード操作対応
+- **WCAG 4.1.2 準拠**: role="button", aria-pressed, 動的 aria-label
+- **キーボード操作**: Enter/Space キー対応
 
 ## 最適化実装
 
 ### パフォーマンス
-- **トランジェント キャッシュ**: ギャラリータグ一覧（1時間）
-- **自動キャッシュクリア**: 投稿更新時
+- **軽量クエリ**: fields=ids + no_found_rows で最適化
 - **エラーハンドリング**: ファイル存在チェック
 
 ### セキュリティ
@@ -59,7 +60,8 @@
 - **外部依存最小化**: セルフホスト方針
 
 ### アクセシビリティ
-- **SVG**: role="img" + aria-labelledby
+- **WCAG 4.1.2**: フリップカードで Name, Role, Value 実装
+- **動的 aria-label**: 状態に応じて「裏面を表示」「表面を表示」
 - **フォーカス管理**: focus-visible 対応
 - **キーボード**: 全機能操作可能
 
@@ -68,10 +70,17 @@
 theme-root/
 ├── functions.php      # 機能拡張
 ├── style.css         # メインスタイル
-├── theme.json        # テーマ設定
+├── theme.json        # テーマ設定（フォント定義含む）
+├── fonts/            # Noto Sans JP セルフホスト（3.8MB）
+│   ├── noto-sans-jp-300.woff2
+│   ├── noto-sans-jp-400.woff2
+│   ├── noto-sans-jp-500.woff2
+│   └── noto-sans-jp-700.woff2
 ├── js/
 │   └── flip-card.js  # フリップカード機能
-└── *.svg.html        # SVG ロゴファイル
+└── custom-html/      # カスタムHTML用SVGファイル
+    ├── harusegawa-title-logo-svg_customHTML.txt
+    └── *.svg.html
 ```
 
 ## 重要な実装詳細

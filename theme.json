@@ -43,6 +43,32 @@
           "size": "clamp(17px, 4.5vw, 18px)",
           "name": "大：17-18px"
         }
+      ],
+      "fontFace": [
+        {
+          "fontFamily": "Noto Sans JP",
+          "fontWeight": "300",
+          "src": ["file:./fonts/noto-sans-jp-300.woff2"],
+          "fontDisplay": "swap"
+        },
+        {
+          "fontFamily": "Noto Sans JP",
+          "fontWeight": "400",
+          "src": ["file:./fonts/noto-sans-jp-400.woff2"],
+          "fontDisplay": "swap"
+        },
+        {
+          "fontFamily": "Noto Sans JP",
+          "fontWeight": "500",
+          "src": ["file:./fonts/noto-sans-jp-500.woff2"],
+          "fontDisplay": "swap"
+        },
+        {
+          "fontFamily": "Noto Sans JP",
+          "fontWeight": "700",
+          "src": ["file:./fonts/noto-sans-jp-700.woff2"],
+          "fontDisplay": "swap"
+        }
       ]
     }
   },
