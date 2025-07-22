@@ -1,9 +1,4 @@
-# フォントファイルの長期キャッシュ設定
-<FilesMatch "\.woff2$">
-  Header set Cache-Control "public,max-age=31536000,immutable"
-</FilesMatch>
-
-# EWWW IO WebP 配信設定
+# EWWW IO WebP 配信設定（WordPress自動生成より上に配置）
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{HTTP_ACCEPT} image/webp
@@ -18,3 +13,8 @@
     </FilesMatch>
 </IfModule>
 AddType image/webp .webp
+
+# フォントファイルの長期キャッシュ設定
+<FilesMatch "\.woff2$">
+  Header set Cache-Control "public,max-age=31536000,immutable"
+</FilesMatch>
