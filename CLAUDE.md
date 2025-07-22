@@ -53,6 +53,8 @@
 
 ### パフォーマンス
 - **軽量クエリ**: fields=ids + no_found_rows で最適化
+- **WebP 画像配信**: EWWW IO連携で30-50%軽量化
+- **フォントキャッシュ**: .htaccess で1年間長期キャッシュ
 - **エラーハンドリング**: ファイル存在チェック
 
 ### セキュリティ
@@ -71,6 +73,8 @@ theme-root/
 ├── functions.php      # 機能拡張
 ├── style.css         # メインスタイル
 ├── theme.json        # テーマ設定（フォント定義含む）
+├── .htaccess         # WebP配信・フォントキャッシュ設定
+├── .gitattributes    # フォントファイルのバイナリ指定
 ├── fonts/            # Noto Sans JP セルフホスト（3.8MB）
 │   ├── noto-sans-jp-300.woff2
 │   ├── noto-sans-jp-400.woff2
