@@ -660,6 +660,78 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
+   価格表（CSS Grid）
+============================================= */
+.haru-price-table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: 2px solid var(--wp--preset--color--haru-green);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.haru-price-header {
+  grid-column: 1 / -1; /* 全幅 */
+  background: var(--wp--preset--color--haru-green);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--wp--preset--font-size--large);
+}
+
+.haru-time-cell {
+  background: var(--wp--preset--color--haru-gray);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: var(--wp--preset--font-size--large);
+  grid-row: span 2; /* 2行分の高さ */
+}
+
+.haru-price-row {
+  background: var(--wp--preset--color--haru-green);
+  color: white;
+  padding: 1rem;
+  border-bottom: 1px solid var(--wp--preset--color--haru-black);
+}
+
+.haru-price-row:last-child {
+  border-bottom: none;
+}
+
+.haru-price-main {
+  font-size: var(--wp--preset--font-size--large);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.haru-price-detail {
+  font-size: var(--wp--preset--font-size--medium);
+  margin-bottom: 0.5rem;
+}
+
+.haru-price-note {
+  font-size: var(--wp--preset--font-size--small);
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .haru-price-table {
+    grid-template-columns: 1fr;
+  }
+  
+  .haru-time-cell {
+    grid-row: auto; /* スマホでは通常の1行 */
+    padding: 1rem;
+  }
+}
+
+/* =============================================
    共通タクソノミー一覧スタイル
 ============================================= */
 /* タクソノミーリスト共通 */
