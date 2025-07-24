@@ -3,10 +3,10 @@
 
     <!-- 1行目（2行結合セル） -->
     <div class="hr-table-cell hr-left-cell hr-cell-bg-gray hr-cell-span-2 hr-cell-vcenter">受講料/1時間</div>
-    <div class="hr-table-cell hr-cell-vcenter"><span class="hr-price">¥4,000</span><br>延長/15分毎+¥1,000</div>
+    <div class="hr-table-cell"><span class="hr-price">¥4,000</span><br>延長/15分毎+¥1,000</div>
 
     <!-- 2行目（1時間セルは1行目で2行分なので省略） -->
-    <div class="hr-table-cell hr-cell-vcenter">20時間以上受講すると<br><span class="hr-price">¥3,000</span><br>延長/15分毎+¥750<br>※前回から1年空くとリセットされます。</div>
+    <div class="hr-table-cell">20時間以上受講すると<br><span class="hr-price">¥3,000</span><br>延長/15分毎+¥750<br>※前回から1年空くとリセットされます。</div>
 
     <!-- 3行目 -->
     <div class="hr-table-cell hr-left-cell hr-cell-bg-gray">川崎駅からの往復交通費</div>
