@@ -66,7 +66,7 @@ a:hover {
 }
 /* ホバーアニメ付き要素は透明度変化を除外 */
 .haru-button:hover,
-.haru-button-wide:hover,
+.haru-wide-button:hover,
 .haru-service-card:hover a,
 .haru-scrap-card:hover a,
 .haru-gallery-grid .wp-block-post-featured-image a:hover,
@@ -175,40 +175,15 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* 色反転ボタン（黒背景用） */
-.haru-button-reverse .haru-button {
+.haru-button-reverse .wp-block-button__link {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
   color: var(--wp--preset--color--haru-black);
   background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
 
-.haru-button-reverse .haru-button:focus-visible {
+.haru-button-reverse .wp-block-button__link:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-white);
-}
-
-/* ワイドボタン（完全独立） */
-.haru-button-wide {
-  -webkit-appearance: none;
-  appearance: none;
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  border-radius: 0;
-  padding: 15px 20px;
-  font-family: var(--wp--preset--font-family--noto-sans-jp);
-  font-size: clamp(2rem, 7vw, 4rem);
-  font-weight: 700;
-  letter-spacing: 2px;
-  cursor: pointer;
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
-  color: var(--wp--preset--color--haru-white);
-  background: linear-gradient(to left, var(--wp--preset--color--haru-black) 50%, transparent 50%) right / 200% 100%;
-  transition: background-position var(--haru-hover-duration), color var(--haru-hover-duration);
-}
-
-.haru-button-wide:focus-visible {
-  background-position: left;
-  color: var(--wp--preset--color--haru-black);
 }
 
 /* =============================================
@@ -839,7 +814,7 @@ body.archive {
   /* ボタンアニメーション */
   .wpcf7-submit:hover,
   .haru-button:hover,
-  .haru-button-wide:hover {
+  .haru-wide-button:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-black);
   }
