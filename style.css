@@ -65,7 +65,8 @@ a:hover {
   opacity: 0.6;
 }
 /* ホバーアニメ付き要素は透明度変化を除外 */
-.wp-block-button__link:hover,
+.haru-button:hover,
+.haru-wide-button:hover,
 .haru-service-card:hover a,
 .haru-scrap-card:hover a,
 .haru-gallery-grid .wp-block-post-featured-image a:hover,
@@ -148,8 +149,8 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* ベースボタン（共通設定） */
 .wpcf7-submit,
-.wp-block-button__link,
-.hr-wide-button {
+.haru-button,
+.haru-wide-button {
   /* --- リセット & 共通スタイル --- */
   -webkit-appearance: none;
   appearance: none;
@@ -167,22 +168,22 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .wpcf7-submit:focus-visible,
-.wp-block-button__link:focus-visible,
-.hr-wide-button:focus-visible {
+.haru-button:focus-visible,
+.haru-wide-button:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-black);
 }
 
 /* ============ 標準ボタン（個別設定） ============ */
 .wpcf7-submit,
-.wp-block-button__link {
+.haru-button {
   border-radius: 50px;
   min-width: clamp(140px, 50vw, 180px);
   font-size: var(--wp--preset--font-size--medium);
 }
 
 /* ============ ワイドボタン（個別設定） ============ */
-.hr-wide-button {
+.haru-wide-button {
   border-radius: 0;
   width: 100%;
   min-width: unset;
@@ -191,13 +192,13 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* ============ 色反転ボタン（個別設定） ============ */
-.haru-button-reverse .wp-block-button__link {
+.haru-button-reverse .haru-button {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
   color: var(--wp--preset--color--haru-black);
   background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
 
-.haru-button-reverse .wp-block-button__link:focus-visible {
+.haru-button-reverse .haru-button:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-white);
 }
@@ -829,13 +830,13 @@ body.archive {
   
   /* ボタンアニメーション */
   .wpcf7-submit:hover,
-  .wp-block-button__link:hover,
-  .hr-wide-button:hover {
+  .haru-button:hover,
+  .haru-wide-button:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-black);
   }
   
-  .haru-button-reverse .wp-block-button__link:hover {
+  .haru-button-reverse .haru-button:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-white);
   }
