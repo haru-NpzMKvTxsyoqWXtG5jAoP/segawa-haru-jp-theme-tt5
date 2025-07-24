@@ -2,7 +2,7 @@
     <div class="hr-table-head">サービス内容</div>
 
     <!-- 1行目（2行結合セル） -->
-    <div class="hr-table-cell hr-left-cell hr-cell-bg-gray hr-cell-span-2 hr-cell-vcenter">受講料/1時間</div>
+    <div class="hr-table-cell hr-left-cell hr-cell-bg-gray hr-cell-span-2">受講料/1時間</div>
     <div class="hr-table-cell"><span class="hr-price">¥4,000</span><br>延長/15分毎+¥1,000</div>
 
     <!-- 2行目（1時間セルは1行目で2行分なので省略） -->

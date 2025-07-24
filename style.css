@@ -749,12 +749,6 @@ a[href*="haru-gallery-item-wide"] {
   font-weight: 700;
 }
 
-/* セル内垂直中央揃え */
-.hr-cell-vcenter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 /* 最小高さ指定（オプション） */
 .hr-cell-min-height {
