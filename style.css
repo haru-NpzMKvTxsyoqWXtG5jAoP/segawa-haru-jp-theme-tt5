@@ -639,7 +639,7 @@ a[href*="haru-gallery-item-wide"] {
 /* サービスキャッチコピー */
 .haru-service-catchcopy {
   font-size: var(--wp--preset--font-size--large);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* サービスポイント */
