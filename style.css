@@ -660,9 +660,10 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
-   価格表（CSS Grid）
+   価格表（CSS Grid）- ユーティリティ設計
 ============================================= */
-.haru-price-table {
+/* テーブル本体 */
+.haru-table {
   display: grid;
   grid-template-columns: auto 1fr;
   border: 2px solid var(--wp--preset--color--haru-black);
@@ -671,8 +672,9 @@ a[href*="haru-gallery-item-wide"] {
   background: var(--wp--preset--color--haru-white);
 }
 
-.haru-price-header {
-  grid-column: 1 / -1; /* 全幅 */
+/* ヘッダー（全幅） */
+.haru-table-header {
+  grid-column: 1 / -1;
   background: var(--wp--preset--color--haru-green);
   color: white;
   padding: 1rem;
@@ -681,79 +683,46 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--wp--preset--font-size--large);
 }
 
-.haru-time-cell {
-  background: var(--wp--preset--color--haru-gray);
+/* 基本セル */
+.haru-table-cell {
+  background: var(--wp--preset--color--haru-white);
   color: var(--wp--preset--color--haru-black);
   padding: 1rem;
+  border-bottom: 1px solid var(--wp--preset--color--haru-black);
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+/* セル背景色バリエーション */
+.haru-table-cell.haru-bg-gray {
+  background: var(--wp--preset--color--haru-gray);
+}
+
+/* セル位置・サイズ調整 */
+.haru-table-cell.haru-left-cell {
+  border-right: 1px solid var(--wp--preset--color--haru-black);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 500;
   font-size: var(--wp--preset--font-size--large);
-  border-right: 1px solid var(--wp--preset--color--haru-black);
-  border-bottom: 1px solid var(--wp--preset--color--haru-black);
-  grid-row: span 2; /* 2行分の高さを維持 */
 }
 
-.haru-price-row {
-  background: var(--wp--preset--color--haru-white);
-  color: var(--wp--preset--color--haru-black);
-  padding: 1rem;
-  border-bottom: 1px solid var(--wp--preset--color--haru-black);
+.haru-table-cell.haru-span-2 {
+  grid-row: span 2;
 }
 
-.haru-price-row:last-child {
+/* 最後の行のボーダー除去 */
+.haru-table-cell:last-child {
   border-bottom: none;
 }
 
-.haru-price-main {
-  font-size: var(--wp--preset--font-size--large);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.haru-price-detail {
-  font-size: var(--wp--preset--font-size--medium);
-  margin-bottom: 0.5rem;
-}
-
-.haru-price-note {
-  font-size: var(--wp--preset--font-size--small);
-  opacity: 0.8;
-  margin-top: 0.5rem;
-}
-
-/* 追加情報行（交通費・飲食代など） */
-.haru-info-cell {
-  background: var(--wp--preset--color--haru-white);
-  color: var(--wp--preset--color--haru-black);
-  padding: 1rem;
-  font-size: var(--wp--preset--font-size--medium);
-  font-weight: 500;
-  border-right: 1px solid var(--wp--preset--color--haru-black);
-  border-bottom: 1px solid var(--wp--preset--color--haru-black);
-}
-
-.haru-info-row {
-  background: var(--wp--preset--color--haru-white);
-  color: var(--wp--preset--color--haru-black);
-  padding: 1rem;
-  font-size: var(--wp--preset--font-size--medium);
-  border-bottom: 1px solid var(--wp--preset--color--haru-black);
-}
-
-.haru-info-row:last-child {
-  border-bottom: none;
-}
-
-/* スマホ対応：左列は常に表示 */
+/* スマホ対応 */
 @media (max-width: 600px) {
-  .haru-price-table {
-    grid-template-columns: auto 1fr; /* 左列は維持 */
+  .haru-table {
+    grid-template-columns: auto 1fr;
   }
   
-  .haru-time-cell,
-  .haru-info-cell {
+  .haru-table-cell.haru-left-cell {
     padding: 0.8rem;
     font-size: var(--wp--preset--font-size--medium);
   }

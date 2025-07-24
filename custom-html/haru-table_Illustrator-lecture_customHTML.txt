@@ -1,0 +1,19 @@
+<div class="haru-table">
+    <div class="haru-table-header">サービス内容</div>
+
+    <!-- 1行目 -->
+    <div class="haru-table-cell haru-left-cell haru-bg-gray haru-span-2">1時間</div>
+    <div class="haru-table-cell">¥4,000<br>延長/15分毎+¥1,000</div>
+
+    <!-- 2行目 -->
+    <!-- 1時間セルは上の行で2行分 -->
+    <div class="haru-table-cell">累計20時間後 / ¥3,000<br>延長/15分毎+¥750<br>※前回から1年空くとリセットされます。</div>
+
+    <!-- 3行目 -->
+    <div class="haru-table-cell haru-left-cell">川崎駅からの往復交通費</div>
+    <div class="haru-table-cell">初回無料</div>
+
+    <!-- 4行目 -->
+    <div class="haru-table-cell haru-left-cell">発生した飲食代</div>
+    <div class="haru-table-cell">各自お支払い</div>
+</div>
