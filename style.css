@@ -171,8 +171,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* ============ 標準ボタン（個別設定） ============ */
 .wpcf7-submit,
-.haru-button,
-.haru-button-reverse {
+.haru-button {
   display: block;
   margin: 0 auto;
   border-radius: 50px;
@@ -202,6 +201,11 @@ a[href*="haru-gallery-item-wide"] {
 
 /* ============ 色反転ボタン（個別設定） ============ */
 .haru-button-reverse {
+  display: inline-block;
+  border-radius: 50px;
+  min-width: clamp(140px, 50vw, 180px);
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: 500;
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
   color: var(--wp--preset--color--haru-black);
   background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
