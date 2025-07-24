@@ -150,7 +150,8 @@ a[href*="haru-gallery-item-wide"] {
 /* ベースボタン（共通設定） */
 .wpcf7-submit,
 .haru-button,
-.haru-wide-button {
+.haru-wide-button,
+.haru-button-reverse {
   /* --- リセット & 共通スタイル --- */
   -webkit-appearance: none;
   appearance: none;
@@ -158,28 +159,34 @@ a[href*="haru-gallery-item-wide"] {
   font-family: var(--wp--preset--font-family--noto-sans-jp);
   letter-spacing: 2px;
   cursor: pointer;
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
-  color: var(--wp--preset--color--haru-white);
-  background: linear-gradient(to left, var(--wp--preset--color--haru-black) 50%, transparent 50%) right / 200% 100%;
   transition: background-position var(--haru-hover-duration), color var(--haru-hover-duration);
 }
 
 .wpcf7-submit:focus-visible,
 .haru-button:focus-visible,
-.haru-wide-button:focus-visible {
+.haru-wide-button:focus-visible,
+.haru-button-reverse:focus-visible {
   background-position: left;
-  color: var(--wp--preset--color--haru-black);
 }
 
 /* ============ 標準ボタン（個別設定） ============ */
 .wpcf7-submit,
-.haru-button {
+.haru-button,
+.haru-button-reverse {
   display: block;
   margin: 0 auto;
   border-radius: 50px;
   min-width: clamp(140px, 50vw, 180px);
   font-size: var(--wp--preset--font-size--medium);
   font-weight: 500;
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  color: var(--wp--preset--color--haru-white);
+  background: linear-gradient(to left, var(--wp--preset--color--haru-black) 50%, transparent 50%) right / 200% 100%;
+}
+
+.wpcf7-submit:focus-visible,
+.haru-button:focus-visible {
+  color: var(--wp--preset--color--haru-black);
 }
 
 /* ============ ワイドボタン（個別設定） ============ */
@@ -194,13 +201,13 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* ============ 色反転ボタン（個別設定） ============ */
-.haru-button-reverse .haru-button {
+.haru-button-reverse {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
   color: var(--wp--preset--color--haru-black);
   background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
 }
 
-.haru-button-reverse .haru-button:focus-visible {
+.haru-button-reverse:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-white);
 }
@@ -838,7 +845,7 @@ body.archive {
     color: var(--wp--preset--color--haru-black);
   }
   
-  .haru-button-reverse .haru-button:hover {
+  .haru-button-reverse:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-white);
   }
