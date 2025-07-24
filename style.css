@@ -154,11 +154,8 @@ a[href*="haru-gallery-item-wide"] {
   /* --- リセット & 共通スタイル --- */
   -webkit-appearance: none;
   appearance: none;
-  display: block;
-  margin: 0 auto;
   padding: 15px 20px;
   font-family: var(--wp--preset--font-family--noto-sans-jp);
-  font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
@@ -177,13 +174,18 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ 標準ボタン（個別設定） ============ */
 .wpcf7-submit,
 .haru-button {
+  display: block;
+  margin: 0 auto;
   border-radius: 50px;
   min-width: clamp(140px, 50vw, 180px);
   font-size: var(--wp--preset--font-size--medium);
+  font-weight: 500;
 }
 
 /* ============ ワイドボタン（個別設定） ============ */
 .haru-wide-button {
+  display: block;
+  margin: 0 auto;
   border-radius: 0;
   width: 100%;
   min-width: unset;
