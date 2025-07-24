@@ -1,0 +1,1 @@
+<a href="リンク先URL" class="haru-service-card__overlay-link">詳細へ</a>

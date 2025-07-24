@@ -405,6 +405,15 @@ a[href*="haru-gallery-item-wide"] {
   margin-bottom: var(--haru-card-padding);
 }
 
+/* オーバーレイリンク */
+.haru-service-card__overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  text-indent: -9999px;
+  display: block;
+}
+
 /* ============ スクラップカード（個別設定） ============ */
 /* 最大6列 */
 @media (min-width: 1800px) {
