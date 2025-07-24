@@ -65,8 +65,7 @@ a:hover {
   opacity: 0.6;
 }
 /* ホバーアニメ付き要素は透明度変化を除外 */
-.haru-button:hover,
-.haru-wide-button:hover,
+.wp-block-button__link:hover,
 .haru-service-card:hover a,
 .haru-scrap-card:hover a,
 .haru-gallery-grid .wp-block-post-featured-image a:hover,
@@ -813,13 +812,12 @@ body.archive {
   
   /* ボタンアニメーション */
   .wpcf7-submit:hover,
-  .haru-button:hover,
-  .haru-wide-button:hover {
+  .wp-block-button__link:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-black);
   }
   
-  .haru-button-reverse:hover {
+  .haru-button-reverse .wp-block-button__link:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-white);
   }
