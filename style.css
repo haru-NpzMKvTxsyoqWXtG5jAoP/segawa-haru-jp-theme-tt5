@@ -665,9 +665,10 @@ a[href*="haru-gallery-item-wide"] {
 .haru-price-table {
   display: grid;
   grid-template-columns: auto 1fr;
-  border: 2px solid var(--wp--preset--color--haru-green);
+  border: 2px solid var(--wp--preset--color--haru-black);
   overflow: hidden;
   border-radius: 0;
+  background: var(--wp--preset--color--haru-white);
 }
 
 .haru-price-header {
@@ -681,19 +682,21 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .haru-time-cell {
-  background: var(--wp--preset--color--haru-gray);
-  padding: 2rem 1rem;
+  background: var(--wp--preset--color--haru-white);
+  color: var(--wp--preset--color--haru-black);
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 500;
   font-size: var(--wp--preset--font-size--large);
-  grid-row: span 2; /* 2行分の高さ */
+  border-right: 1px solid var(--wp--preset--color--haru-black);
+  border-bottom: 1px solid var(--wp--preset--color--haru-black);
 }
 
 .haru-price-row {
-  background: var(--wp--preset--color--haru-green);
-  color: white;
+  background: var(--wp--preset--color--haru-white);
+  color: var(--wp--preset--color--haru-black);
   padding: 1rem;
   border-bottom: 1px solid var(--wp--preset--color--haru-black);
 }
@@ -715,19 +718,43 @@ a[href*="haru-gallery-item-wide"] {
 
 .haru-price-note {
   font-size: var(--wp--preset--font-size--small);
-  opacity: 0.9;
+  opacity: 0.8;
   margin-top: 0.5rem;
 }
 
-/* スマホ対応 */
+/* 追加情報行（交通費・飲食代など） */
+.haru-info-cell {
+  background: var(--wp--preset--color--haru-white);
+  color: var(--wp--preset--color--haru-black);
+  padding: 1rem;
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: 500;
+  border-right: 1px solid var(--wp--preset--color--haru-black);
+  border-bottom: 1px solid var(--wp--preset--color--haru-black);
+}
+
+.haru-info-row {
+  background: var(--wp--preset--color--haru-white);
+  color: var(--wp--preset--color--haru-black);
+  padding: 1rem;
+  font-size: var(--wp--preset--font-size--medium);
+  border-bottom: 1px solid var(--wp--preset--color--haru-black);
+}
+
+.haru-info-row:last-child {
+  border-bottom: none;
+}
+
+/* スマホ対応：左列は常に表示 */
 @media (max-width: 600px) {
   .haru-price-table {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr; /* 左列は維持 */
   }
   
-  .haru-time-cell {
-    grid-row: auto; /* スマホでは通常の1行 */
-    padding: 1rem;
+  .haru-time-cell,
+  .haru-info-cell {
+    padding: 0.8rem;
+    font-size: var(--wp--preset--font-size--medium);
   }
 }
 
