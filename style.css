@@ -146,18 +146,17 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    共通ボタンスタイル
 ============================================= */
+/* ベースボタン（共通設定） */
 .wpcf7-submit,
-.wp-block-button__link {
-  /* --- リセット & スタイル --- */
+.wp-block-button__link,
+.hr-wide-button {
+  /* --- リセット & 共通スタイル --- */
   -webkit-appearance: none;
   appearance: none;
-  border-radius: 50px;
   display: block;
   margin: 0 auto;
-  min-width: clamp(140px, 50vw, 180px);
   padding: 15px 20px;
   font-family: var(--wp--preset--font-family--noto-sans-jp);
-  font-size: var(--wp--preset--font-size--medium);
   font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
@@ -168,12 +167,30 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .wpcf7-submit:focus-visible,
-.wp-block-button__link:focus-visible {
+.wp-block-button__link:focus-visible,
+.hr-wide-button:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-black);
 }
 
-/* 色反転ボタン（黒背景用） */
+/* ============ 標準ボタン（個別設定） ============ */
+.wpcf7-submit,
+.wp-block-button__link {
+  border-radius: 50px;
+  min-width: clamp(140px, 50vw, 180px);
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+/* ============ ワイドボタン（個別設定） ============ */
+.hr-wide-button {
+  border-radius: 0;
+  width: 100%;
+  min-width: unset;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+}
+
+/* ============ 色反転ボタン（個別設定） ============ */
 .haru-button-reverse .wp-block-button__link {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
   color: var(--wp--preset--color--haru-black);
@@ -706,6 +723,7 @@ a[href*="haru-gallery-item-wide"] {
 
 .hr-price {
   font-size: var(--wp--preset--font-size--large);
+  font-weight: 700;
 }
 
 /* =============================================
@@ -811,7 +829,8 @@ body.archive {
   
   /* ボタンアニメーション */
   .wpcf7-submit:hover,
-  .wp-block-button__link:hover {
+  .wp-block-button__link:hover,
+  .hr-wide-button:hover {
     background-position: left;
     color: var(--wp--preset--color--haru-black);
   }
