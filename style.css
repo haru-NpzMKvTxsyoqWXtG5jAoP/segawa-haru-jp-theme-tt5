@@ -90,13 +90,13 @@ a[href*="haru-gallery-item-wide"] {
    ユーティリティクラス
 ============================================= */
 /* bodyのパディングを打ち消す */
-.haru-no-pad {
+.hr-no-pad {
   margin-left: calc(var(--wp--style--root--padding-left) * -1);
   margin-right: calc(var(--wp--style--root--padding-right) * -1);
 }
 
 /* bodyのパディングをつける */
-.haru-pad{
+.hr-pad{
   margin-left : var(--wp--style--root--padding-left);
   margin-right: var(--wp--style--root--padding-right);
 }
@@ -302,10 +302,10 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* 丸の色 */
-.haru-sec-t-bullet.haru-bullet-l-cyan::before { color: var(--wp--preset--color--haru-light-cyan); }
-.haru-sec-t-bullet.haru-bullet-l-yellow::before { color: var(--wp--preset--color--haru-light-yellow); }
-.haru-sec-t-bullet.haru-bullet-l-orange::before { color: var(--wp--preset--color--haru-light-orange); }
-.haru-sec-t-bullet.haru-bullet-l-pink::before { color: var(--wp--preset--color--haru-light-pink); }
+.haru-bullet-l-cyan::before { color: var(--wp--preset--color--haru-light-cyan); }
+.haru-bullet-l-yellow::before { color: var(--wp--preset--color--haru-light-yellow); }
+.haru-bullet-l-orange::before { color: var(--wp--preset--color--haru-light-orange); }
+.haru-bullet-l-pink::before { color: var(--wp--preset--color--haru-light-pink); }
 
 /* 帯付き */
 .haru-section-title-back-color {
@@ -660,16 +660,16 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
-   テーブルユーティリティ
+   テーブル　ユーティリティクラス
 ============================================= */
-.haru-table {
+.hr-table {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: clamp(120px, 25vw, 200px) 1fr;
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   background: var(--wp--preset--color--haru-white);
 }
 
-.haru-table-head {
+.hr-table-head {
   grid-column: 1 / -1;
   background: var(--wp--preset--color--haru-black);
   color: var(--wp--preset--color--haru-gray);
@@ -679,23 +679,29 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--wp--preset--font-size--large);
 }
 
-.haru-table-cell {
+.hr-table-cell {
   padding: var(--haru-card-padding);
   border-bottom: 1px solid var(--wp--preset--color--haru-black);
   font-size: var(--wp--preset--font-size--medium);
 }
 
-.haru-left-cell {
+.hr-left-cell {
   border-right: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-weight: 500;
 }
 
-.haru-cell-span-2 {
+.hr-cell-span-2 {
   grid-row: span 2;
+  display: flex;
+  align-items: center;
 }
 
-.haru-cell-bg-gray {
+.hr-cell-bg-gray {
   background: var(--wp--preset--color--haru-gray);
+}
+
+.hr-last-row {
+  border-bottom: none;
 }
 
 /* =============================================
