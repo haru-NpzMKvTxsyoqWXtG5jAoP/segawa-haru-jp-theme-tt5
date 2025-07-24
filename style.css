@@ -633,6 +633,7 @@ a[href*="haru-gallery-item-wide"] {
 .haru-service-title {
   font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 700;
+  line-height: 1.1;
 }
 
 /* サービスキャッチコピー */
