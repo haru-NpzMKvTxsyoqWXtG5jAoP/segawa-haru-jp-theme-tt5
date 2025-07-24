@@ -148,7 +148,7 @@ a[href*="haru-gallery-item-wide"] {
    共通ボタンスタイル
 ============================================= */
 .wpcf7-submit,
-.haru-button {
+.wp-block-button__link {
   /* --- リセット & スタイル --- */
   -webkit-appearance: none;
   appearance: none;
@@ -169,7 +169,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .wpcf7-submit:focus-visible,
-.haru-button:focus-visible {
+.wp-block-button__link:focus-visible {
   background-position: left;
   color: var(--wp--preset--color--haru-black);
 }
