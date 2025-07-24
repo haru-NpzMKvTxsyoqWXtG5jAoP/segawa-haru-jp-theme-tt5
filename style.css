@@ -642,6 +642,13 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サービスポイントコンテナ */
 .haru-service-point-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* サービスポイント */
+.haru-service-point {
   background: var(--wp--preset--color--haru-white);
   padding: var(--haru-card-padding);
 }
@@ -660,7 +667,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
-   テーブル　ユーティリティクラス
+   価格表テーブル　ユーティリティクラス
 ============================================= */
 .hr-table {
   display: grid;
