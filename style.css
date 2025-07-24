@@ -701,12 +701,6 @@ a[href*="haru-gallery-item-wide"] {
   grid-template-rows: auto repeat(3, 1fr) auto;
 }
 
-/* 均等パターンのセルは垂直中央揃え */
-.hr-table-equal-2 .hr-table-cell,
-.hr-table-equal-3 .hr-table-cell {
-  align-self: center;
-}
-
 /* テーブルヘッダー */
 .hr-table-head {
   grid-column: 1 / -1;
