@@ -703,7 +703,7 @@ a[href*="haru-gallery-item-wide"] {
 .fee-table th,
 .fee-table td {
   padding: var(--haru-card-padding);
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  border-bottom: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   word-break: break-word;
   hyphens: auto;
 }
@@ -712,12 +712,12 @@ a[href*="haru-gallery-item-wide"] {
   background: var(--wp--preset--color--haru-gray);
   font-weight: 500;
   text-align: left;
+  border-right: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
 }
 
 /* rowspan 見出しを縦中央 */
 .fee-table th[rowspan] {
-  display: flex;
-  align-items: center;
+  vertical-align: middle;
 }
 
 /* セル内縦中央＋行間 */
