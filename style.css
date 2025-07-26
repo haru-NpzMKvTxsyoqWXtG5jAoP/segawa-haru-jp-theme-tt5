@@ -676,81 +676,74 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
-   価格表テーブル　ユーティリティクラス
+   料金表 共通
 ============================================= */
-/* ベーステーブル */
-.hr-table {
-  display: grid;
-  grid-template-columns: clamp(140px, 30vw, 220px) 1fr;
+.fee-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: var(--wp--preset--font-size--medium);
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
-  background: var(--wp--preset--color--haru-white);
 }
 
-/* デフォルト（高さ自動） */
-.hr-table-auto {
-  grid-template-rows: auto;
+/* 左列：120-220px 可変 */
+.fee-table col:first-child {
+  width: clamp(120px, 30vw, 220px);
 }
 
-/* 2行均等パターン */
-.hr-table-equal-2 {
-  grid-template-rows: auto repeat(2, 1fr) auto auto;
-}
-
-/* 3行均等パターン */
-.hr-table-equal-3 {
-  grid-template-rows: auto repeat(3, 1fr) auto;
-}
-
-/* テーブルヘッダー */
-.hr-table-head {
-  grid-column: 1 / -1;
+.fee-table caption {
   background: var(--wp--preset--color--haru-black);
   color: var(--wp--preset--color--haru-gray);
   padding: var(--haru-card-padding);
-  text-align: center;
   font-weight: 700;
+  text-align: center;
   font-size: var(--wp--preset--font-size--large);
 }
 
-/* テーブルセル */
-.hr-table-cell {
+.fee-table th,
+.fee-table td {
   padding: var(--haru-card-padding);
-  border-bottom: 1px solid var(--wp--preset--color--haru-black);
-  font-size: var(--wp--preset--font-size--medium);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  word-break: break-word;
+  hyphens: auto;
 }
 
-/* 左セル */
-.hr-left-cell {
-  border-right: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+.fee-table th {
+  background: var(--wp--preset--color--haru-gray);
   font-weight: 500;
+  text-align: left;
 }
 
-/* 2行結合セル */
-.hr-cell-span-2 {
-  grid-row: span 2;
+/* rowspan 見出しを縦中央 */
+.fee-table th[rowspan] {
   display: flex;
   align-items: center;
 }
 
-/* グレー背景セル */
-.hr-cell-bg-gray {
-  background: var(--wp--preset--color--haru-gray);
+/* セル内縦中央＋行間 */
+.vc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25em;
 }
 
-/* 最後の行（枠線なし） */
-.hr-last-row {
-  border-bottom: none;
-}
-
-/* 価格表示 */
-.hr-price {
+.price {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
+  margin: 0;
 }
 
-/* 最小高さ指定（オプション） */
-.hr-cell-min-height {
-  min-height: 80px;
+.note {
+  margin: 0;
+  font-size: var(--wp--preset--font-size--small);
+}
+
+/* 幅 300px 未満だけ横スクロール保険 */
+@media (max-width: 299px) {
+  .table-wrap {
+    overflow-x: auto;
+  }
 }
 
 /* =============================================
