@@ -678,7 +678,7 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    料金表 共通
 ============================================= */
-.fee-table {
+.hr-table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
@@ -687,11 +687,11 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* 左列：120-220px 可変 */
-.fee-table col:first-child {
+.hr-table col:first-child {
   width: clamp(120px, 30vw, 220px);
 }
 
-.fee-table caption {
+.hr-table caption {
   background: var(--wp--preset--color--haru-black);
   color: var(--wp--preset--color--haru-gray);
   padding: var(--haru-card-padding);
@@ -700,51 +700,49 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--wp--preset--font-size--large);
 }
 
-.fee-table th,
-.fee-table td {
+.hr-table th,
+.hr-table td {
   padding: var(--haru-card-padding);
   border-bottom: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   word-break: break-word;
   hyphens: auto;
 }
 
-.fee-table th {
+.hr-table th {
   background: var(--wp--preset--color--haru-gray);
   font-weight: 500;
   text-align: left;
   border-right: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
 }
 
+.hr-table td {
+  background: var(--wp--preset--color--haru-white);
+}
+
 /* rowspan 見出しを縦中央 */
-.fee-table th[rowspan] {
+.hr-table th[rowspan] {
   vertical-align: middle;
 }
 
 /* セル内縦中央＋行間 */
-.vc {
+.hr-vc {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.25em;
 }
 
-.price {
+.hr-price {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
   margin: 0;
 }
 
-.note {
+.hr-note {
   margin: 0;
   font-size: var(--wp--preset--font-size--small);
 }
 
-/* 幅 300px 未満だけ横スクロール保険 */
-@media (max-width: 299px) {
-  .table-wrap {
-    overflow-x: auto;
-  }
-}
 
 /* =============================================
    共通タクソノミー一覧スタイル
