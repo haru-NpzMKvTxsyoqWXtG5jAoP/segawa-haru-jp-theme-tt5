@@ -678,6 +678,7 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    料金表 共通
 ============================================= */
+/* 基本テーブル設定 */
 .hr-table {
   width: 100%;
   table-layout: fixed;
@@ -686,7 +687,6 @@ a[href*="haru-gallery-item-wide"] {
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
 }
 
-/* 左列：120-220px 可変 */
 .hr-table col:first-child {
   width: clamp(120px, 30vw, 220px);
 }
@@ -700,12 +700,12 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--wp--preset--font-size--large);
 }
 
+/* セル共通設定 */
 .hr-table th,
 .hr-table td {
   padding: var(--haru-card-padding);
   border-bottom: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   word-break: break-word;
-  hyphens: auto;
 }
 
 .hr-table th {
@@ -719,17 +719,14 @@ a[href*="haru-gallery-item-wide"] {
   background: var(--wp--preset--color--haru-white);
 }
 
-/* rowspan 見出しを縦中央 */
+/* 特殊セル設定 */
 .hr-table th[rowspan] {
   vertical-align: middle;
 }
 
-/* セル内縦中央＋行間 */
-.hr-vc {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.25em;
+/* コンテンツ要素設定 */
+.hr-table p {
+  margin: 0;
 }
 
 .hr-price {
@@ -743,15 +740,18 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--wp--preset--font-size--small);
 }
 
-/* 均等50:50＆中身縦中央 */
+/* 均等分割システム */
 .hr-split {
   display: grid;
-  grid-template-rows: 1fr 1fr;        /* ← 2 行を完全 1fr:1fr */
-  padding: 0;                          /* 外側tdのパディング無効化 */
+  grid-template-rows: 1fr 1fr;
+}
+
+.hr-table .hr-split {
+  padding: 0;
 }
 
 .hr-split .pane {
-  display: flex;                      /* 中身を縦中央 */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   padding: var(--haru-card-padding);
@@ -760,11 +760,6 @@ a[href*="haru-gallery-item-wide"] {
 
 .hr-split .pane:first-child {
   border-top: none;
-}
-
-/* pane 内のすべての段落は余白ゼロにする */
-.hr-split .pane p {
-  margin: 0;
 }
 
 
