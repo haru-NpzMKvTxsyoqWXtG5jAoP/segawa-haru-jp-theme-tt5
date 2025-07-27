@@ -762,6 +762,11 @@ a[href*="haru-gallery-item-wide"] {
   border-top: none;
 }
 
+/* pane 内のすべての段落は余白ゼロにする */
+.hr-split .pane p {
+  margin: 0;
+}
+
 
 /* =============================================
    共通タクソノミー一覧スタイル
