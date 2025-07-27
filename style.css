@@ -680,13 +680,13 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* 基本テーブル設定 */
 .hr-table {
-  --table-border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  --hr-table-border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   width: 100%;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
   font-size: var(--wp--preset--font-size--medium);
-  border: var(--table-border);
+  border: var(--hr-table-border);
   border-bottom: none;
 }
 
@@ -706,14 +706,14 @@ a[href*="haru-gallery-item-wide"] {
 .hr-table th,
 .hr-table td {
   padding: var(--haru-card-padding);
-  border-bottom: var(--table-border);
+  border-bottom: var(--hr-table-border);
   overflow-wrap: break-word;
 }
 
 .hr-table th {
   background: var(--wp--preset--color--haru-gray);
   text-align: left;
-  border-right: var(--table-border);
+  border-right: var(--hr-table-border);
 }
 
 .hr-table td {
@@ -745,7 +745,7 @@ a[href*="haru-gallery-item-wide"] {
   flex-direction: column;
   justify-content: center;
   padding: var(--haru-card-padding);
-  border-top: var(--table-border);
+  border-top: var(--hr-table-border);
 }
 
 .hr-split .hr-pane:first-child {
