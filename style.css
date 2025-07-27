@@ -712,6 +712,7 @@ a[href*="haru-gallery-item-wide"] {
 
 .hr-table th {
   background: var(--wp--preset--color--haru-gray);
+  font-weight: 400;
   text-align: left;
   border-right: var(--hr-table-border);
 }
