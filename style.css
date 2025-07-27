@@ -686,6 +686,7 @@ a[href*="haru-gallery-item-wide"] {
   border-spacing: 0;
   font-size: var(--wp--preset--font-size--medium);
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  border-bottom: none;
 }
 
 .hr-table caption {
