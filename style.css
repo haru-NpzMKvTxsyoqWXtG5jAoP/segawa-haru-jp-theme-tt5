@@ -750,7 +750,7 @@ a[href*="haru-gallery-item-wide"] {
   padding: 0;
 }
 
-.hr-split .pane {
+.hr-split .hr-pane {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -758,7 +758,7 @@ a[href*="haru-gallery-item-wide"] {
   border-top: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
 }
 
-.hr-split .pane:first-child {
+.hr-split .hr-pane:first-child {
   border-top: none;
 }
 
