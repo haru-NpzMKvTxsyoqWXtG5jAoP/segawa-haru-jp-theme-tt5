@@ -707,7 +707,6 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .hr-table th {
-  width: clamp(120px, 30vw, 220px);
   background: var(--wp--preset--color--haru-gray);
   font-weight: 500;
   text-align: left;
@@ -739,7 +738,7 @@ a[href*="haru-gallery-item-wide"] {
 /* 均等分割システム */
 .hr-split {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr;
 }
 
 .hr-table .hr-split {
