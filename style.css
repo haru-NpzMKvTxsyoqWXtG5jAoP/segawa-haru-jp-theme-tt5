@@ -717,21 +717,22 @@ a[href*="haru-gallery-item-wide"] {
   background: var(--wp--preset--color--haru-white);
 }
 
-/* 特殊セル設定 */
-
 /* コンテンツ要素設定 */
 .hr-table p {
+  margin: 0;
+}
+
+.hr-price,
+.hr-note {
   margin: 0;
 }
 
 .hr-price {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
-  margin: 0;
 }
 
 .hr-note {
-  margin: 0;
   font-size: var(--wp--preset--font-size--small);
 }
 
