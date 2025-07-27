@@ -745,16 +745,15 @@ a[href*="haru-gallery-item-wide"] {
 
 /* 均等50:50＆中身縦中央 */
 .hr-split {
-  display: flex;
-  flex-direction: column;   /* 縦割り */
-  padding: 0;               /* 外側tdのパディング無効化 */
+  display: grid;
+  grid-template-rows: 1fr 1fr;        /* ← 2 行を完全 1fr:1fr */
+  padding: 0;                          /* 外側tdのパディング無効化 */
 }
 
 .hr-split .pane {
-  flex: 1 0 0;              /* 高さを完全1:1 */
-  display: flex;
+  display: flex;                      /* 中身を縦中央 */
   flex-direction: column;
-  justify-content: center;  /* 中身縦中央 */
+  justify-content: center;
   padding: var(--haru-card-padding);
   border-top: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
 }
