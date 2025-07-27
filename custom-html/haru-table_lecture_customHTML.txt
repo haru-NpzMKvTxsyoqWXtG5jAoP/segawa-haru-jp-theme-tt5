@@ -1,11 +1,10 @@
 <table class="hr-table">
   <caption>サービス内容</caption>
-  <colgroup><col><col></colgroup>
 
   <tbody>
     <tr>
-      <th rowspan="2">受講料/1時間</th>
-      <td rowspan="2" class="hr-split">
+      <th scope="row">受講料/1時間</th>
+      <td class="hr-split">
         <div class="hr-pane">
           <p class="hr-price">¥4,000</p>
           <p class="hr-note">延長/15分毎+¥1,000</p>
@@ -19,7 +18,7 @@
       </td>
     </tr>
 
-    <tr><th>川崎駅からの往復交通費</th><td>初回無料</td></tr>
-    <tr><th>発生した飲食代</th><td>各自お支払い</td></tr>
+    <tr><th scope="row">川崎駅からの往復交通費</th><td>初回無料</td></tr>
+    <tr><th scope="row">発生した飲食代</th><td>各自お支払い</td></tr>
   </tbody>
 </table>
