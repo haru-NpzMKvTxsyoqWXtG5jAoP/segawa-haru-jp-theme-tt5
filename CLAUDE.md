@@ -99,6 +99,57 @@ theme-root/
 - **外部リクエスト**: 完全に除去
 - **プライバシー**: ユーザー IP 送信なし
 
+### 料金表コンポーネント（.hr-table）
+**技術実装の核心:**
+- `border-collapse: separate` + `border-spacing: 0` でボーダー重なり問題を根本解決
+- `grid-auto-rows: 1fr` で将来的な行数拡張に対応
+- CSS変数 `--hr-table-border` でボーダー定義を一元管理
+- colgroup による列幅制御とセル装飾の完全分離
+
+**HTML構造設計:**
+- セマンティックテーブル（table + caption + colgroup + tbody）
+- `scope="row"` でアクセシビリティ配慮
+- インラインstyle完全除去（CSS分離徹底）
+- thead「項目/内容」は冗長と判断し採用せず
+
+**均等分割システム:**
+- `.hr-split`（Grid）で高さの均等分割
+- `.hr-pane`（Flexbox）で縦中央配置と内容整理
+- `border-top` による視覚的境界線（構造とデザインの役割分離）
+
+**重要な設計判断:**
+- ❌ border-collapse: collapse → 線が重なって太くなる
+- ✅ border-collapse: separate → 各セル独立、隙間0で統一感
+- ❌ rowspan使用 → 空行必要、構造複雑
+- ✅ Grid内部分割 → シンプル、拡張容易
+
+**絶対禁止事項（テーブル特有）:**
+- 勝手なfont-size指定（large、small等）
+- 勝手なfont-weight調整（500等）
+- HTMLへのstyle属性混在
+- 冗長なCSS記述（.hr-table p で包括可能なmargin指定等）
+
+**拡張ガイドライン:**
+- 行数増加：HTML の .hr-pane 追加のみ（CSS変更不要）
+- ボーダー変更：--hr-table-border 変数のみ修正
+- 列幅調整：colgroup の CSS のみ変更
+
+**失敗から学んだ教訓:**
+- thead視覚隠しCSS → 無駄な複雑化（theadそのものが不要だった）
+- 横スクロール対策 → body min-width で既に対応済みだった
+- 複数の冗長CSS → .hr-table p { margin: 0; } で包括対応可能
+
+**技術的詳細メモ:**
+- `overflow-wrap: break-word` で日本語長文の自然な改行
+- `table-layout: fixed` でレンダリング最適化
+- CSS変数は必ず hr- プレフィックス（--hr-table-border等）
+- セル内Grid+Flexboxは異なる責務（高さ分割 vs 縦中央配置）
+
+**アクセシビリティ配慮:**
+- caption でテーブル目的明示
+- scope="row" で行見出し識別
+- thead は必要十分性で判断（自明な場合は省略可）
+
 ## 絶対禁止事項：その場しのぎ解決策
 
 **問題解決の原則:**
