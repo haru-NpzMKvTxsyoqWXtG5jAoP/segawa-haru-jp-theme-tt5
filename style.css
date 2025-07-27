@@ -743,6 +743,23 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--wp--preset--font-size--small);
 }
 
+/* 均等50:50用ユーティリティ */
+.hr-split {
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* 既存のtdパディングを無効化 */
+}
+
+.hr-split .pane {
+  flex: 1; /* 高さ1:1の均等分割 */
+  padding: var(--haru-card-padding);
+  border-top: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+}
+
+.hr-split .pane:first-child {
+  border-top: none;
+}
+
 
 /* =============================================
    共通タクソノミー一覧スタイル

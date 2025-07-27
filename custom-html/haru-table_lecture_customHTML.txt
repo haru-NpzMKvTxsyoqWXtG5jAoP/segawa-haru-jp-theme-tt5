@@ -5,19 +5,20 @@
   <tbody>
     <tr>
       <th rowspan="2">受講料/1時間</th>
-      <td class="hr-vc">
-        <p class="hr-price">¥4,000</p>
-        <p class="hr-note">延長/15分毎+¥1,000</p>
+      <td rowspan="2" class="hr-split">
+        <div class="pane">
+          <p class="hr-price">¥4,000</p>
+          <p class="hr-note">延長/15分毎+¥1,000</p>
+        </div>
+        <div class="pane">
+          <p>20時間以上受講すると</p>
+          <p class="hr-price">¥3,000</p>
+          <p class="hr-note">延長/15分毎+¥750</p>
+          <p class="hr-note">※前回から1年空くとリセットされます。</p>
+        </div>
       </td>
     </tr>
-    <tr>
-      <td class="hr-vc">
-        <p>20時間以上受講すると</p>
-        <p class="hr-price">¥3,000</p>
-        <p class="hr-note">延長/15分毎+¥750</p>
-        <p class="hr-note">※前回から1年空くとリセットされます。</p>
-      </td>
-    </tr>
+    <tr></tr>
 
     <tr><th>川崎駅からの往復交通費</th><td>初回無料</td></tr>
     <tr><th>発生した飲食代</th><td>各自お支払い</td></tr>
