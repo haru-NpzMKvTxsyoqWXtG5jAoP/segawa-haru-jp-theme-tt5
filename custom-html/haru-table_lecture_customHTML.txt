@@ -1,7 +1,7 @@
 <table class="hr-table">
   <caption>サービス内容</caption>
   <colgroup>
-    <col style="width: clamp(120px, 30vw, 220px)">
+    <col>
     <col>
   </colgroup>
 

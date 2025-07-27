@@ -680,13 +680,18 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* 基本テーブル設定 */
 .hr-table {
+  --table-border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   width: 100%;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
   font-size: var(--wp--preset--font-size--medium);
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  border: var(--table-border);
   border-bottom: none;
+}
+
+.hr-table col:first-child {
+  width: clamp(120px, 30vw, 220px);
 }
 
 .hr-table caption {
@@ -695,22 +700,20 @@ a[href*="haru-gallery-item-wide"] {
   padding: var(--haru-card-padding);
   font-weight: 700;
   text-align: center;
-  font-size: var(--wp--preset--font-size--large);
 }
 
 /* セル共通設定 */
 .hr-table th,
 .hr-table td {
   padding: var(--haru-card-padding);
-  border-bottom: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  border-bottom: var(--table-border);
   overflow-wrap: break-word;
 }
 
 .hr-table th {
   background: var(--wp--preset--color--haru-gray);
-  font-weight: 500;
   text-align: left;
-  border-right: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  border-right: var(--table-border);
 }
 
 .hr-table td {
@@ -722,18 +725,9 @@ a[href*="haru-gallery-item-wide"] {
   margin: 0;
 }
 
-.hr-price,
-.hr-note {
-  margin: 0;
-}
-
 .hr-price {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
-}
-
-.hr-note {
-  font-size: var(--wp--preset--font-size--small);
 }
 
 /* 均等分割システム */
@@ -751,7 +745,7 @@ a[href*="haru-gallery-item-wide"] {
   flex-direction: column;
   justify-content: center;
   padding: var(--haru-card-padding);
-  border-top: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
+  border-top: var(--table-border);
 }
 
 .hr-split .hr-pane:first-child {
