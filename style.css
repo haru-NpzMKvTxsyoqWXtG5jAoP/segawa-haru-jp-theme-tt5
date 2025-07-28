@@ -661,7 +661,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サービスファーストビューカラム */
 .haru-ser-fv-column {
-  gap: 1vw 1vw;
+  gap: 1rem clamp(1.5rem, 3vw, 2.5rem);
 }
 
 /* サービス内容コンテナ */
