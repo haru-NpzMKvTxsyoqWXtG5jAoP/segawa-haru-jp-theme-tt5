@@ -656,11 +656,18 @@ a[href*="haru-gallery-item-wide"] {
 /* サービスファーストビューコンテナ */
 .haru-ser-fv-container {
   max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* サービスファーストビューカラム */
+.haru-ser-fv-column {
+  gap: 1vw 1vw;
 }
 
 /* サービス内容コンテナ */
 .haru-ser-container {
   max-width: 800px;
+  margin: 0 auto;
 }
 
 /* サービスタイトル（キャッチコピーより大きめ） */
