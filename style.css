@@ -727,7 +727,7 @@ a[href*="haru-gallery-item-wide"] {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--wp--preset--color--haru-green);
+  white-space: nowrap;
 }
 
 /* 見出し・本文を右カラムに固定 */
@@ -735,6 +735,12 @@ a[href*="haru-gallery-item-wide"] {
 .haru-ser-flow-step > p {
   grid-column: 2;
   margin: 0;   /* Gutenbergが付ける余白を打ち消し */
+}
+
+/* フロー見出しのスタイル */
+.haru-step-title {
+  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-weight: 700;
 }
 
 /* =============================================
