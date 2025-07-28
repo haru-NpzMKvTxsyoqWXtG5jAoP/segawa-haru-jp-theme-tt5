@@ -14,6 +14,7 @@ Template: twentytwentyfive
   --haru-hover-transition: transform 0.2s ease-out;
   --haru-hover-duration: 0.3s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
+  --haru-heading-size: clamp(1.125rem, 4vw, 1.5rem);
 }
 
 /* 最小幅設定（極端に狭い画面での横スクロール対応） */
@@ -407,7 +408,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サービス名 */
 .haru-service-card h3 {
-  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-size: var(--haru-heading-size);
   font-weight: 700;
   margin-top: var(--haru-card-padding);
   margin-bottom: var(--haru-card-padding);
@@ -453,7 +454,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タイトル */
 .haru-scrap-card .wp-block-post-title a {
-  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-size: var(--haru-heading-size);
   /* カードの高さが行数で変わらないようにする */
   line-height: 1.2; /* 1行の高さ、明示的に指定 */
   min-height: 2.4em; /* 2行分 = 1.2 × 2 */
@@ -696,7 +697,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* サービスポイント見出し */
 .haru-ser-poi-con-head {
-  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-size: var(--haru-heading-size);
   font-weight: 700;
   margin-top: var(--haru-card-padding);
   margin-bottom: var(--haru-card-padding);
@@ -721,12 +722,13 @@ a[href*="haru-gallery-item-wide"] {
   counter-increment: flow-step;             /* 自動で +1 */
 }
 
-/* 番号セル（ゼロ埋め 01,02…） */
+/* 番号セル（ゼロ埋め01,02…） */
 .haru-ser-flow-step::before {
   content: counter(flow-step, decimal-leading-zero);
-  font-size: 2rem;
+  font-size: var(--haru-heading-size);
   font-weight: 700;
   line-height: 1;
+  color: var(--wp--preset--color--haru-green);
   white-space: nowrap;
 }
 
@@ -734,12 +736,12 @@ a[href*="haru-gallery-item-wide"] {
 .haru-ser-flow-step .haru-step-title,
 .haru-ser-flow-step > p {
   grid-column: 2;
-  margin: 0;   /* Gutenbergが付ける余白を打ち消し */
+  margin: 0;   /* Gutenbergが付ける余白打ち消し */
 }
 
 /* フロー見出しのスタイル */
 .haru-step-title {
-  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-size: var(--haru-heading-size);
   font-weight: 700;
 }
 
@@ -874,7 +876,7 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-category-list a {
   padding: clamp(0.15rem, 0.4vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
   border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
-  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-size: var(--haru-heading-size);
   font-weight: 500;
 }
 
