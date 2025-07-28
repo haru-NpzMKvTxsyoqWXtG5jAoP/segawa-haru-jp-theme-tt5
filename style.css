@@ -640,7 +640,7 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* サービスファーストビュー */
 .haru-se-fv {
-  background: linear-gradient(90deg, var(--wp--preset--color--haru-light-yellow) 100%, var(--wp--preset--color--haru-light-cyan) 0%);
+  background: linear-gradient(90deg, var(--wp--preset--color--haru-light-yellow) 0%, rgba(125, 255, 200, 0.3) 100%);
 }
 
 /* サービスタイトル（キャッチコピーより大きめ） */
