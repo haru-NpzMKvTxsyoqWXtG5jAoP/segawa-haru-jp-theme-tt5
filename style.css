@@ -638,6 +638,11 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    サービス詳細ページ
 ============================================= */
+/* サービスファーストビュー */
+.haru-se-fv {
+  background: linear-gradient(90deg, var(--wp--preset--color--haru-light-yellow) 100%, var(--wp--preset--color--haru-light-cyan) 0%);
+}
+
 /* サービスタイトル（キャッチコピーより大きめ） */
 .haru-service-title {
   font-size: clamp(3rem, 10vw, 6rem);
@@ -657,9 +662,8 @@ a[href*="haru-gallery-item-wide"] {
   background: var(--wp--preset--color--haru-white);
   padding: var(--haru-card-padding);
 }
-
 .haru-service-point:not(:last-child) {
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 3px;
 }
 
 /* サービスポイント見出し */
