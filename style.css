@@ -653,6 +653,16 @@ a[href*="haru-gallery-item-wide"] {
   background: linear-gradient(90deg, #FFFFAA 0%, #14F096 100%);
 }
 
+/* サービスファーストビューコンテナ */
+.haru-ser-fv-container {
+  max-width: 1300px;
+}
+
+/* サービス内容コンテナ */
+.haru-ser-container {
+  max-width: 800px;
+}
+
 /* サービスタイトル（キャッチコピーより大きめ） */
 .haru-service-title {
   font-size: clamp(3rem, 10vw, 6rem);
