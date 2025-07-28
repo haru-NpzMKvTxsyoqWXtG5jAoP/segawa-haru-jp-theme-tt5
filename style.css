@@ -720,7 +720,7 @@ a[href*="haru-gallery-item-wide"] {
   grid-template-columns: min-content 1fr;
   gap: 0.5rem 1rem;
   counter-increment: flow-step;
-  margin-block: 2rem;
+  margin-block: 1rem;
 }
 
 /* 番号セル（ゼロ埋め01,02…） */
