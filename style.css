@@ -717,9 +717,10 @@ a[href*="haru-gallery-item-wide"] {
 /* 子セクションを2カラムGrid化 */
 .haru-ser-flow-step {
   display: grid;
-  grid-template-columns: min-content 1fr;   /* ①番号 ②テキスト */
+  grid-template-columns: min-content 1fr;
   gap: 0.5rem 1rem;
-  counter-increment: flow-step;             /* 自動で +1 */
+  counter-increment: flow-step;
+  margin-block: 2rem;
 }
 
 /* 番号セル（ゼロ埋め01,02…） */
@@ -728,7 +729,6 @@ a[href*="haru-gallery-item-wide"] {
   font-size: var(--haru-heading-size);
   font-weight: 700;
   line-height: 1;
-  color: var(--wp--preset--color--haru-green);
   white-space: nowrap;
 }
 
