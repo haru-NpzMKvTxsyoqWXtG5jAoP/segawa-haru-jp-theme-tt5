@@ -961,13 +961,13 @@ body.archive {
 }
 
 /* =====================================
-   写真加工ページ専用スタイル
+   写真加工ページ
    ===================================== */
 
-/* ギャラリーキャプション調整 */
-.haru-retouch-gallery.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
-  background: linear-gradient(0deg, rgba(249, 249, 249, 0.4), rgba(249, 249, 249, 0)) !important;
-  text-shadow: none !important;
-  font-size: var(--wp--preset--font-size--medium) !important;
-  padding: 0.5em !important;
+/* サンプルギャラリー キャプション調整 */
+.haru-retouch-gallery .wp-block-image figcaption {
+  background: linear-gradient(0deg, rgba(249, 249, 249, 0.4), rgba(249, 249, 249, 0));
+  text-shadow: 0 0 20px var(--wp--preset--color--haru-white);
+  font-size: var(--wp--preset--font-size--medium);
+  padding: 0.5em;
 }
