@@ -965,7 +965,7 @@ body.archive {
    ===================================== */
 
 /* ギャラリーキャプション調整 */
-.haru-retouch-gallery.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
-  color: var(--wp--preset--color--haru-white) !important;
+.haru-retouch-gallery.wp-block-gallery.has-nested-images figure.wp-block-image mark {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)) !important;
   text-shadow: none !important;
 }
