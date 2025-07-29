@@ -772,6 +772,14 @@ a[href*="haru-gallery-item-wide"] {
   text-align: center;
 }
 
+.hr-table-section {
+  background: var(--wp--preset--color--haru-gray);
+  color: var(--wp--preset--color--haru-black);
+  padding: var(--haru-card-padding);
+  font-weight: 700;
+  text-align: center;
+}
+
 /* セル共通設定 */
 .hr-table th,
 .hr-table td {
