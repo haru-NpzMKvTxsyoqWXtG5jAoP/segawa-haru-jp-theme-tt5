@@ -748,7 +748,7 @@ a[href*="haru-gallery-item-wide"] {
 /* =============================================
    料金表
 ============================================= */
-/* 基本テーブル設定 */
+/* 基本テーブルスタイル */
 .hr-table {
   --hr-table-border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   width: 100%;
@@ -759,28 +759,31 @@ a[href*="haru-gallery-item-wide"] {
   border: var(--hr-table-border);
   border-bottom: none;
 }
-
 .hr-table col:first-child {
   width: clamp(120px, 30vw, 220px);
 }
 
+/* ヘッダー共通スタイル */
+.hr-table caption,
+.hr-table .hr-table-section {
+  padding: var(--haru-card-padding);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ヘッダー個別スタイル */
 .hr-table caption {
   background: var(--wp--preset--color--haru-black);
   color: var(--wp--preset--color--haru-gray);
-  padding: var(--haru-card-padding);
-  font-weight: 700;
-  text-align: center;
 }
 
-.hr-table-section {
-  background: var(--wp--preset--color--haru-gray);
-  color: var(--wp--preset--color--haru-black);
-  padding: var(--haru-card-padding);
-  font-weight: 700;
-  text-align: center;
+.hr-table .hr-table-section {
+  background: #909090;
+  color: var(--wp--preset--color--haru-white);
+  border-right: none;
 }
 
-/* セル共通設定 */
+/* セル */
 .hr-table th,
 .hr-table td {
   padding: var(--haru-card-padding);
@@ -799,7 +802,7 @@ a[href*="haru-gallery-item-wide"] {
   background: var(--wp--preset--color--haru-white);
 }
 
-/* コンテンツ要素設定 */
+/* コンテンツ要素 */
 .hr-table p {
   margin: 0;
 }
