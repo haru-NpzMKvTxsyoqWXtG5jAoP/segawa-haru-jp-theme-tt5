@@ -1,0 +1,37 @@
+<table class="hr-table">
+  <caption>サービス内容</caption>
+  <colgroup>
+    <col>
+    <col>
+  </colgroup>
+
+  <tbody>
+    <tr>
+      <th scope="row">写真修正/画像加工</th>
+      <td>
+        <p class="hr-price">要見積もり</p>
+        <p>参考価格</p>
+        <p>写真のカラー化 ¥4,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">制作着手後のキャンセル</th>
+      <td>進行度合いに応じて料金をいただいております。</td>
+    </tr>
+
+    <tr>
+      <th colspan="2" class="hr-table-section">追加オプション</th>
+    </tr>
+    
+    <tr>
+      <th scope="row">編集可能PSDデータ納品</th>
+      <td>制作料の10%</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">お急ぎ料金</th>
+      <td>制作料の20%</td>
+    </tr>
+  </tbody>
+</table>

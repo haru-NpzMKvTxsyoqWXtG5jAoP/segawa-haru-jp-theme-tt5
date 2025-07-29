@@ -1,0 +1,101 @@
+<table class="hr-table">
+  <caption>サービス内容</caption>
+  <colgroup>
+    <col>
+    <col>
+  </colgroup>
+
+  <tbody>
+    <tr>
+      <th scope="row">ハガキDM</th>
+      <td>
+        <p class="hr-price">片面/¥20,000</p>
+        <p>両面+¥8,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">フライヤー（A4/B4）</th>
+      <td>
+        <p class="hr-price">片面/¥23,000</p>
+        <p>両面+¥13,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">ポスター（A3以下）</th>
+      <td>
+        <p class="hr-price">¥30,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">三つ折りリーフレット</th>
+      <td>
+        <p class="hr-price">¥35,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">名刺/カード</th>
+      <td>
+        <p class="hr-price">片面/¥15,000</p>
+        <p>両面+¥5,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">修正料</th>
+      <td>
+        <p>基本無料</p>
+        <p>大幅な修正 ¥要相談</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">制作着手後のキャンセル</th>
+      <td>進行度合いに応じて料金をいただいております。</td>
+    </tr>
+
+    <tr>
+      <th colspan="2" class="hr-table-section">追加オプション</th>
+    </tr>
+    
+    <tr>
+      <th scope="row">入稿データ作成</th>
+      <td>
+        <p>+¥2,000</p>
+        <p>※文字校正は行いません。</p>
+        <p>※印刷の発注はお客様ご自身にお願いしています。</p>
+        <p>※特殊印刷加工の場合 ¥要相談</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">編集データ納品</th>
+      <td>
+        <p>¥2,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">テキスト変更で追加作成</th>
+      <td>¥3,000～要見積</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">地図制作</th>
+      <td>¥4,000～要見積</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">QRコード作成</th>
+      <td>¥1,000</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">お急ぎ料金</th>
+      <td>制作料の20%</td>
+    </tr>
+  </tbody>
+</table>

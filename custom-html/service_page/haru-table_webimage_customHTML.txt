@@ -1,0 +1,55 @@
+<table class="hr-table">
+  <caption>サービス内容</caption>
+  <colgroup>
+    <col>
+    <col>
+  </colgroup>
+
+  <tbody>
+    <tr>
+      <th scope="row">制作料</th>
+      <td>
+        <p class="hr-price">¥8,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">修正料</th>
+      <td>
+        <p>基本無料</p>
+        <p>大幅な修正 ¥要相談</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">制作着手後のキャンセル</th>
+      <td>進行度合いに応じて料金をいただいております。</td>
+    </tr>
+
+    <tr>
+      <th colspan="2" class="hr-table-section">追加オプション</th>
+    </tr>
+    
+    <tr>
+      <th scope="row">編集データ納品</th>
+      <td>
+        <p>¥2,000</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">アニメーション</th>
+      <td>¥要見積</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">リサイズ</th>
+      <td>¥2,000</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">お急ぎ料金</th>
+      <td>制作料の20%</td>
+    </tr>
+  </tbody>
+</table>

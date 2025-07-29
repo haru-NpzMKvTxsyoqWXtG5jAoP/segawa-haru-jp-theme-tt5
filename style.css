@@ -231,7 +231,6 @@ a[href*="haru-gallery-item-wide"] {
   }
 }
 
-
 /* =============================================
    スクラップブックロゴ - アニメーション
 ============================================= */
@@ -286,7 +285,6 @@ a[href*="haru-gallery-item-wide"] {
   opacity: 0;
   animation: slideFromLeft 0.4s ease-out 1.2s forwards;
 }
-
 
 /* =============================================
    セクションタイトル
@@ -962,5 +960,12 @@ body.archive {
   }
 }
 
+/* =====================================
+   写真加工ページ専用スタイル
+   ===================================== */
 
-
+/* ギャラリーキャプション調整 */
+.haru-retouch-gallery.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+  color: var(--wp--preset--color--haru-white) !important;
+  text-shadow: none !important;
+}
