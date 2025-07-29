@@ -7,25 +7,25 @@
 
   <tbody>
     <tr>
-      <th scope="row">イラスト制作</th>
+      <th scope="row">制作料</th>
       <td>
         <p class="hr-price">要見積もり</p>
         <p>参考価格</p>
-        <p>人物全身+小物：16,000円</p>
+        <p>人物全身+小物 ¥16,000</p>
       </td>
     </tr>
     
     <tr>
-      <th scope="row">制作の修正</th>
+      <th scope="row">修正料</th>
       <td>
         <p>基本無料</p>
-        <p>大幅な修正の場合+¥要相談</p>
+        <p>大幅な修正 ¥要相談</p>
       </td>
     </tr>
     
     <tr>
       <th scope="row">制作着手後のキャンセル</th>
-      <td>+進行度合いに応じて料金をいただいております。</td>
+      <td>進行度合いに応じて料金をいただいております。</td>
     </tr>
     
     <tr>
@@ -39,12 +39,12 @@
     
     <tr>
       <th scope="row">お急ぎ料金</th>
-      <td>+制作料金の20%</td>
+      <td>制作料の20%</td>
     </tr>
     
     <tr>
       <th scope="row">二次使用</th>
-      <td>+制作料金の50%</td>
+      <td>制作料の50%</td>
     </tr>
   </tbody>
 </table>
