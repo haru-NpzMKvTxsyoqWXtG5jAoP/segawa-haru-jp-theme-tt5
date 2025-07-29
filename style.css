@@ -966,7 +966,7 @@ body.archive {
    ===================================== */
 
 /* サンプルギャラリー 間隔 */
-.haru-retouch-gallery {
+.haru-retouch-gallery.wp-block-gallery {
   gap: var(--haru-content-gap);
 }
 
