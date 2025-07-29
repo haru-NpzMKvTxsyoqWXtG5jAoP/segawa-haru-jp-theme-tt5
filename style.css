@@ -9,7 +9,6 @@ Template: twentytwentyfive
 :root {
   /* レイアウト変数（WordPressに定義がないもののみ） */
   --haru-element-gap: 1px;
-  --haru-content-gap: 3px;
   --haru-border-width: 1px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
@@ -691,7 +690,7 @@ a[href*="haru-gallery-item-wide"] {
   padding: var(--haru-card-padding);
 }
 .haru-service-point:not(:last-child) {
-  margin-bottom: var(--haru-content-gap);
+  margin-bottom: 3px;
 }
 
 /* サービスポイント見出し */
@@ -900,8 +899,8 @@ a[href*="haru-gallery-item-wide"] {
 
 /* フッターロゴの高さ統一 */
 .haru-footer-logo {
-  height: clamp(3rem, 6vw, 4.5rem) !important;
-  width: auto !important;
+  height: clamp(3rem, 6vw, 4.5rem);
+  width: auto;
 }
 
 /* ナビメニュー */
@@ -961,14 +960,9 @@ body.archive {
   }
 }
 
-/* =====================================
+/* =============================================
    写真加工ページ
-   ===================================== */
-
-/* サンプルギャラリー 間隔 */
-.haru-retouch-gallery.wp-block-gallery {
-  gap: var(--haru-content-gap);
-}
+============================================= */
 
 /* サンプルギャラリー キャプション調整 */
 .haru-retouch-gallery.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
