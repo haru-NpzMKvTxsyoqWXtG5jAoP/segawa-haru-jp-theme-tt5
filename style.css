@@ -106,8 +106,8 @@ a[href*="haru-gallery-item-wide"] {
 
 /* bodyのパディングをつける */
 .hr-pad{
-  margin-left : var(--wp--style--root--padding-left) !important;
-  margin-right: var(--wp--style--root--padding-right) !important;
+  padding-left : var(--wp--style--root--padding-left) !important;
+  padding-right: var(--wp--style--root--padding-right) !important;
 }
 
 /* =============================================
