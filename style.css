@@ -994,21 +994,17 @@ body.archive {
 
 /* H1見出し */
 .haru-privacy-policy h1 {
-  margin-bottom: var(--haru-space-large);
+  margin-bottom: var(--haru-space-small);
 }
 
 /* H2見出し */
 .haru-privacy-policy h2 {
-  font-size: var(--haru-heading-size);
+  font-size: var(--wp--preset--font-size--large);
   font-weight: 700;
-  margin-bottom: var(--haru-space-small);
+  margin-bottom: 0.6rem;
 }
 
-/* 段落 */
-.haru-privacy-policy p {
+/* 段落（最後以外） */
+.haru-privacy-policy > p:not(:last-of-type) {
   margin-bottom: var(--haru-space-medium);
-}
-/* 最後の段落は下マージンなし */
-.haru-privacy-policy p:last-child {
-  margin-bottom: 0;
 }
