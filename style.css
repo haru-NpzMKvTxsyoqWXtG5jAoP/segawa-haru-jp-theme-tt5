@@ -1006,5 +1006,5 @@ body.archive {
 
 /* 段落（最後以外） */
 .haru-privacy-policy > p:not(:last-of-type) {
-  margin-bottom: var(--haru-space-medium);
+  margin-bottom: var(--haru-space-small);
 }
