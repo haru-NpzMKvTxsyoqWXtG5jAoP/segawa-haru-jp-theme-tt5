@@ -187,9 +187,9 @@ a[href*="haru-gallery-item-wide"] {
 
 /* 色反転ボタン（黒背景用） */
 .haru-button-reverse .wp-block-button__link {
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-gray);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-white);
   color: var(--wp--preset--color--haru-black);
-  background: linear-gradient(to left, var(--wp--preset--color--haru-gray) 50%, transparent 50%) right / 200% 100%;
+  background: linear-gradient(to left, var(--wp--preset--color--haru-white) 50%, transparent 50%) right / 200% 100%;
 }
 
 .haru-button-reverse .wp-block-button__link:focus-visible {
@@ -490,7 +490,7 @@ a[href*="haru-gallery-item-wide"] {
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
   font-size: var(--wp--preset--font-size--medium);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 /* タグが多い場合は複数行 */
@@ -747,7 +747,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
-   料金表
+   表
 ============================================= */
 /* 基本テーブルスタイル */
 .hr-table {
@@ -775,7 +775,7 @@ a[href*="haru-gallery-item-wide"] {
 /* ヘッダー個別スタイル */
 .hr-table caption {
   background: var(--wp--preset--color--haru-black);
-  color: var(--wp--preset--color--haru-gray);
+  color: var(--wp--preset--color--haru-white);
 }
 
 .hr-table .hr-table-section {
@@ -976,7 +976,7 @@ body.archive {
 }
 
 /* =============================================
-   プライバシーポリシー ページ リーガルにも使用
+   プライバシーポリシー ページ(リーガルにも一部使用)
 ============================================= */
 
 /* コンテナ */
