@@ -971,3 +971,19 @@ body.archive {
   font-size: var(--wp--preset--font-size--medium);
   padding: 0.5em;
 }
+
+/* =====================================
+   プライバシーポリシーページ
+   ===================================== */
+
+/* コンテナ */
+.haru-privacy-policy {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 見出し */
+.haru-privacy-policy h2 {
+  font-size: var(--haru-heading-size);
+  font-weight: 700;
+}
