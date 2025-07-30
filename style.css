@@ -983,6 +983,7 @@ body.archive {
 .haru-privacy-policy {
   max-width: 800px;
   margin: 0 auto;
+  padding-top: var(--haru-space-large);
 }
 
 /* マージンリセット */
@@ -1001,7 +1002,6 @@ body.archive {
 .haru-privacy-policy h2 {
   font-size: var(--wp--preset--font-size--large);
   font-weight: 700;
-  margin-bottom: 0.6rem;
 }
 
 /* 段落（最後以外） */
