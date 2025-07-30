@@ -9,6 +9,9 @@ Template: twentytwentyfive
 :root {
   /* レイアウト変数（WordPressに定義がないもののみ） */
   --haru-element-gap: 1px;
+  --haru-space-small: clamp(0.7rem, 1.3vw, 1rem);
+  --haru-space-medium: clamp(2rem, 4vw, 3rem);
+  --haru-space-large: clamp(3rem, 7vw, 6rem);
   --haru-border-width: 1px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
@@ -114,15 +117,15 @@ a[href*="haru-gallery-item-wide"] {
    レスポンシブスペーサー
 ============================================= */
 .haru-spacer-large {
-  height: clamp(3rem, 7vw, 6rem) !important;
+  height: var(--haru-space-large) !important;
 }
 
 .haru-spacer-medium {
-  height: clamp(2rem, 4vw, 3rem) !important;
+  height: var(--haru-space-medium) !important;
 }
 
 .haru-spacer-small {
-  height: clamp(0.7rem, 1.3vw, 1rem) !important;
+  height: var(--haru-space-small) !important;
 }
 
 /* =============================================
@@ -982,8 +985,30 @@ body.archive {
   margin: 0 auto;
 }
 
-/* 見出し */
+/* マージンリセット */
+.haru-privacy-policy h1,
+.haru-privacy-policy h2,
+.haru-privacy-policy p {
+  margin: 0;
+}
+
+/* H1見出し */
+.haru-privacy-policy h1 {
+  margin-bottom: var(--haru-space-large);
+}
+
+/* H2見出し */
 .haru-privacy-policy h2 {
   font-size: var(--haru-heading-size);
   font-weight: 700;
+  margin-bottom: var(--haru-space-small);
+}
+
+/* 段落 */
+.haru-privacy-policy p {
+  margin-bottom: var(--haru-space-medium);
+}
+/* 最後の段落は下マージンなし */
+.haru-privacy-policy p:last-child {
+  margin-bottom: 0;
 }
