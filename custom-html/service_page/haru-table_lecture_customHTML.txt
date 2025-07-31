@@ -4,7 +4,7 @@
     <col>
     <col>
   </colgroup>
-
+  
   <tbody>
     <tr>
       <th scope="row">受講料/1時間</th>
@@ -22,6 +22,10 @@
       </td>
     </tr>
 
+    <tr>
+      <th colspan="2" class="hr-table-section">対面の場合</th>
+    </tr>
+    
     <tr><th scope="row">川崎駅からの往復交通費</th><td>初回無料</td></tr>
     <tr><th scope="row">発生した飲食代</th><td>各自お支払い</td></tr>
   </tbody>
