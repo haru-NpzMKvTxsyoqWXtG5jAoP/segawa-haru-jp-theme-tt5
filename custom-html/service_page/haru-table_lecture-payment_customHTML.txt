@@ -7,9 +7,6 @@
   
   <tbody>
     <tr>
-      <th colspan="2" class="hr-table-section">お支払い方法</th>
-    </tr>
-    <tr>
       <td colspan="2">現金 / PayPay / クレジットカード / 銀行振込</td>
     </tr>
   </tbody>
