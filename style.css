@@ -786,8 +786,10 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .hr-table .hr-caption-pay {
-  background: #90EE90;
+  background: #7bffc4;
   color: var(--wp--preset--color--haru-black);
+  border: var(--hr-table-border);
+  border-bottom: none;
 }
 
 /* セル */
