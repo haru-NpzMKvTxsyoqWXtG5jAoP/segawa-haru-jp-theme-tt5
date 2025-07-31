@@ -18,6 +18,7 @@ Template: twentytwentyfive
   --haru-hover-duration: 0.3s ease-out;
   --haru-card-padding: clamp(0.5rem, 1.5vw + 0.25rem, 1rem);
   --haru-heading-size: clamp(1.125rem, 4vw, 1.5rem);
+  --haru-error-color: #fe446a;
 }
 
 /* 最小幅設定（極端に狭い画面での横スクロール対応） */
@@ -580,8 +581,8 @@ a[href*="haru-gallery-item-wide"] {
 
 /* --- エラー時 --- */
 .wpcf7-form .wpcf7-not-valid {
-  border: var(--haru-border-width) solid #fe446a !important;
-  color: #fe446a;
+  border: var(--haru-border-width) solid var(--haru-error-color) !important;
+  color: var(--haru-error-color);
 }
 /* フォーカス時は文字色を元に戻す */
 .wpcf7-form .wpcf7-not-valid:focus {
@@ -589,7 +590,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 /* エラー時のプレースホルダー */
 .wpcf7-form .wpcf7-not-valid::placeholder {
-  color: #fe446a;
+  color: var(--haru-error-color);
   opacity: 0.7;
 }
 
@@ -633,8 +634,8 @@ a[href*="haru-gallery-item-wide"] {
 
 /* 送信エラー時（赤背景） */
 .wpcf7 form.invalid .wpcf7-response-output {
-  background-color: #fe446a;
-  color: white;
+  background-color: var(--haru-error-color);
+  color: var(--wp--preset--color--haru-white);
   border: none;
 }
 
@@ -791,7 +792,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .hr-table .hr-caption-pay {
-  background: #7bffc4;
+  background: var(--wp--preset--color--haru-light-cyan);
   color: var(--wp--preset--color--haru-black);
 }
 
@@ -862,12 +863,13 @@ a[href*="haru-gallery-item-wide"] {
   padding: 0;
 }
 
-/* ベースタクソノミーリンク（色・ホバー共通） */
+/* ベースタクソノミーリンク（色・ホバー・ボーダー共通） */
 .haru-gallery-tag-list a,
 .haru-scrap-category-list a,
 .haru-scrap-tag-list a {
   display: inline-block;
   color: var(--wp--preset--color--haru-black);
+  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -877,14 +879,12 @@ a[href*="haru-gallery-item-wide"] {
 .haru-scrap-tag-list a {
   padding: 4px 10px;
   border-radius: 50px;
-  border: 0.8px solid var(--wp--preset--color--haru-black);
   line-height: 1.2;
 }
 
 /* ============ ギャラリータグ（丸い） ============ */
-/* 太めborder+大きめサイズ */
+/* 大きめサイズ */
 .haru-gallery-tag-list a {
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
 }
 
@@ -897,7 +897,6 @@ a[href*="haru-gallery-item-wide"] {
 /* ============ カテゴリ（四角） ============ */
 .haru-scrap-category-list a {
   padding: clamp(0.15rem, 0.4vw, 0.3rem) clamp(0.4rem, 1vw, 0.6rem);
-  border: var(--haru-border-width) solid var(--wp--preset--color--haru-black);
   font-size: var(--haru-heading-size);
   font-weight: 500;
 }
