@@ -536,6 +536,12 @@ a[href*="haru-gallery-item-wide"] {
   overflow: hidden;
 }
 
+/* めくるマークの位置合わせ */
+.haru-flip-mark {
+  margin-bottom: -16px;
+  margin-right: -12px;
+}
+
 /* =============================================
    コンタクトフォーム7
 ============================================= */
