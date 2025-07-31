@@ -1,5 +1,5 @@
 <table class="hr-table">
-  <caption>お支払い方法</caption>
+  <caption class="hr-caption-pay">お支払い方法</caption>
   <colgroup>
     <col>
     <col>
