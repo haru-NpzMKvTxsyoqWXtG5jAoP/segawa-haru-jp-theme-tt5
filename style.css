@@ -628,12 +628,14 @@ a[href*="haru-gallery-item-wide"] {
 /* 送信成功時（シアン背景） */
 .wpcf7 form.sent .wpcf7-response-output {
   background-color: var(--wp--preset--color--haru-light-cyan);
+  border: none;
 }
 
 /* 送信エラー時（赤背景） */
 .wpcf7 form.invalid .wpcf7-response-output {
   background-color: #fe446a;
   color: white;
+  border: none;
 }
 
 /* 送信中のボタン無効化 */
