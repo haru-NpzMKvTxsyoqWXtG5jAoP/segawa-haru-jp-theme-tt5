@@ -113,6 +113,11 @@ a[href*="haru-gallery-item-wide"] {
   margin-right: var(--wp--style--root--padding-right);
 }
 
+/* bodyの上パディングをつける(現在homeのページジャンプ用ブロックに使用) */
+.hr-pad-top{
+  padding-top : var(--wp--style--root--padding-top);
+}
+
 /* =============================================
    レスポンシブスペーサー
 ============================================= */
