@@ -48,7 +48,7 @@
 - **3D 回転**: CSS transforms
 - **WCAG 4.1.2 準拠**: role="button", aria-pressed, 動的 aria-label
 - **キーボード操作**: Enter/Space キー対応
-- **高さ統一**: ブロックエディタの「寸法」→「最小の高さ」で500px設定（CSS不要）
+- **高さ統一**: ブロックエディタの「寸法」→「最小の高さ」で530px程度に設定（CSS不要）
 
 ## 最適化実装
 
@@ -76,15 +76,29 @@ theme-root/
 ├── theme.json        # テーマ設定（フォント定義含む）
 ├── .htaccess         # WebP配信・フォントキャッシュ設定
 ├── .gitattributes    # フォントファイルのバイナリ指定
+├── .gitignore        # Git除外設定
 ├── fonts/            # Noto Sans JP セルフホスト（2.8MB）
 │   ├── noto-sans-jp-400.woff2
 │   ├── noto-sans-jp-500.woff2
 │   └── noto-sans-jp-700.woff2
 ├── js/
 │   └── flip-card.js  # フリップカード機能
-└── custom-html/      # カスタムHTML用SVGファイル
-    ├── harusegawa-title-logo-svg_customHTML.txt
-    └── *.svg.html
+└── custom-html/      # カスタムHTML・テーブル・SVGファイル
+    ├── haru-legal-notice_html.txt            # リーガルノーティス
+    ├── haru-service-card_link_customHTML.txt # サービスカード
+    ├── haru-service-privacy_html.txt         # プライバシーポリシー
+    ├── service_page/                         # サービスページ用テーブル
+    │   ├── haru-table_illustration_customHTML.txt
+    │   ├── haru-table_lecture-payment_customHTML.txt
+    │   ├── haru-table_lecture_customHTML.txt
+    │   ├── haru-table_photo-retouching_customHTML.txt
+    │   ├── haru-table_print-design_customHTML.txt
+    │   └── haru-table_webimage_customHTML.txt
+    └── svg/                                  # SVGファイル
+        ├── harusegawa-footer-logo-svg_customHTML.html
+        ├── harusegawa-footer-scrap-logo-svg_customHTML.html
+        ├── harusegawa-scrapbook-logo-svg_customHTML.txt
+        └── harusegawa-title-logo-svg_customHTML.txt
 ```
 
 ## 重要な実装詳細
