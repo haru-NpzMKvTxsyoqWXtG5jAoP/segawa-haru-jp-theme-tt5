@@ -48,6 +48,7 @@
 - **3D 回転**: CSS transforms
 - **WCAG 4.1.2 準拠**: role="button", aria-pressed, 動的 aria-label
 - **キーボード操作**: Enter/Space キー対応
+- **高さ統一**: ブロックエディタの「寸法」→「最小の高さ」で500px設定（CSS不要）
 
 ## 最適化実装
 
