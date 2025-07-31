@@ -283,7 +283,7 @@ a[href*="haru-gallery-item-wide"] {
    キャッチコピー
 ============================================= */
 .haru-catchcopy {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 3.5rem);
   font-weight: 700;
   opacity: 0;
   animation: slideFromLeft 0.4s ease-out 1.2s forwards;
@@ -785,6 +785,7 @@ a[href*="haru-gallery-item-wide"] {
 
 .hr-table .hr-caption-pay {
   background: #7bffc4;
+  color: var(--wp--preset--color--haru-black);
 }
 
 /* セル */
