@@ -543,34 +543,41 @@ a[href*="haru-gallery-item-wide"] {
 
 /* =============== 追加 ==================== */
 
-/* フリップカード カスタムHTML用 追加スタイル */
-.haru-flip-card-content {
+/* フリップカード カスタムHTML用 Grid一本設計 */
+
+/* === 共通：カード表面・裏面 === */
+.haru-flip-card-front,
+.haru-flip-card-back {
   background: var(--wp--preset--color--haru-white);
   min-height: 533px;
   width: 320px;
   max-width: 100%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 3%;
+  box-sizing: border-box;
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
 }
 
-.haru-flip-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.haru-flip-card-content {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
   gap: 3%;
-  margin-bottom: 3%;
+}
+
+/* === 表面スタイル === */
+
+/* 上部画像エリア：2列Grid */
+.haru-flip-card-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
 }
 
 .haru-flip-card-logo {
-  flex: 1;
   margin-top: -1px;
   margin-left: -1px;
-}
-
-.haru-flip-card-profile {
-  flex: 1;
 }
 
 .haru-flip-card-logo img,
@@ -581,6 +588,7 @@ a[href*="haru-gallery-item-wide"] {
   object-fit: cover;
 }
 
+/* 区切り線 */
 .haru-flip-card-separator {
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -588,11 +596,7 @@ a[href*="haru-gallery-item-wide"] {
   opacity: 0.6;
 }
 
-.haru-flip-card-description {
-  padding: 3%;
-  flex-grow: 1;
-}
-
+/* 説明文 */
 .haru-flip-card-description p {
   margin: 0 0 1em 0;
   line-height: 1.6;
@@ -602,25 +606,17 @@ a[href*="haru-gallery-item-wide"] {
   margin-bottom: 0;
 }
 
+/* フッター：タイトル + 矢印 */
 .haru-flip-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 3%;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 10%;
-}
-
-.haru-flip-card-title {
-  flex: 1;
+  align-items: end;
 }
 
 .haru-flip-card-title p {
   margin: 0;
   line-height: 1.4;
-}
-
-.haru-flip-card-arrow {
-  flex-shrink: 0;
 }
 
 .haru-flip-card-arrow svg {
@@ -629,13 +625,13 @@ a[href*="haru-gallery-item-wide"] {
   fill: var(--wp--preset--color--haru-green);
 }
 
-/* 裏面専用スタイル */
-.haru-flip-card-main {
-  flex-grow: 1;
-}
+/* === 裏面スタイル === */
 
-.haru-flip-card-tools {
-  padding: 3%;
+/* メインコンテンツエリア */
+.haru-flip-card-main {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  gap: 3%;
 }
 
 .haru-flip-card-tools p {
@@ -643,38 +639,37 @@ a[href*="haru-gallery-item-wide"] {
   line-height: 1.6;
 }
 
+/* 下部フッター */
 .haru-flip-card-footer-back {
-  padding: 3%;
-}
-
-.haru-flip-card-tags {
-  margin-bottom: 3%;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 3%;
 }
 
 .haru-flip-card-tags-text {
   font-size: var(--wp--preset--font-size--small);
-  margin: 0 0 3% 0;
+  margin: 0;
   line-height: 1.4;
 }
 
 .haru-flip-card-sns-status {
-  margin: 0 0 1% 0;
+  margin: 0;
 }
 
+/* 最下部：SNS + 矢印 */
 .haru-flip-card-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.haru-flip-card-social {
-  flex: 1;
-}
-
-.haru-flip-card-icons {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 10%;
-  align-items: flex-end;
+  align-items: end;
+}
+
+/* SNSアイコン：横並びGrid */
+.haru-flip-card-icons {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  justify-content: start;
 }
 
 .haru-flip-card-icons img {
