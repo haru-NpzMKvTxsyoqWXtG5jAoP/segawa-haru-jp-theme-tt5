@@ -47,12 +47,6 @@
       "fontFace": [
         {
           "fontFamily": "Noto Sans JP",
-          "fontWeight": "300",
-          "src": ["file:./fonts/noto-sans-jp-300.woff2"],
-          "fontDisplay": "swap"
-        },
-        {
-          "fontFamily": "Noto Sans JP",
           "fontWeight": "400",
           "src": ["file:./fonts/noto-sans-jp-400.woff2"],
           "fontDisplay": "swap"

@@ -15,7 +15,7 @@
 ## 技術スタック
 
 ### フォント
-- **Noto Sans JP**: セルフホスト配信（300, 400, 500, 700）
+- **Noto Sans JP**: セルフホスト配信（400, 500, 700）
 - **GDPR 対応**: 外部 CDN 不使用、完全プライバシー保護
 - **フォントサイズ**: theme.json で clamp() による完全レスポンシブ
 - **パフォーマンス**: font-display: swap + 自動preload対応
@@ -76,8 +76,7 @@ theme-root/
 ├── theme.json        # テーマ設定（フォント定義含む）
 ├── .htaccess         # WebP配信・フォントキャッシュ設定
 ├── .gitattributes    # フォントファイルのバイナリ指定
-├── fonts/            # Noto Sans JP セルフホスト（3.8MB）
-│   ├── noto-sans-jp-300.woff2
+├── fonts/            # Noto Sans JP セルフホスト（2.8MB）
 │   ├── noto-sans-jp-400.woff2
 │   ├── noto-sans-jp-500.woff2
 │   └── noto-sans-jp-700.woff2

@@ -450,7 +450,6 @@ a[href*="haru-gallery-item-wide"] {
 }
 .haru-scrap-card .taxonomy-post_tag a {
   font-size: var(--wp--preset--font-size--small);
-  font-weight: 300;
 }
 
 /* タイトル */
@@ -490,7 +489,6 @@ a[href*="haru-gallery-item-wide"] {
 /* タグとタイトルのテキスト */
 .haru-gallery-grid a {
   font-size: var(--wp--preset--font-size--medium);
-  font-weight: 400;
   line-height: 1.2;
 }
 /* タグが多い場合は複数行 */
@@ -787,7 +785,6 @@ a[href*="haru-gallery-item-wide"] {
 
 .hr-table .hr-caption-pay {
   background: #7bffc4;
-  color: var(--wp--preset--color--haru-black);
 }
 
 /* セル */
@@ -874,7 +871,6 @@ a[href*="haru-gallery-item-wide"] {
   border-radius: 50px;
   border: 0.8px solid var(--wp--preset--color--haru-black);
   line-height: 1.2;
-  font-weight: 300;
 }
 
 /* ============ ギャラリータグ（丸い） ============ */
