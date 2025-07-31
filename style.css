@@ -537,7 +537,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* めくるマークの位置合わせ */
-.haru-flip-mark {
+.haru-flip-card .haru-flip-mark {
   margin-bottom: -16px;
   margin-right: -12px;
 }
