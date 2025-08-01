@@ -245,51 +245,6 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* =============================================
-   スクラップブックロゴ - アニメーション
-============================================= */
-/*
-.haru-scrap-logo {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-}
-
-.haru-scrap-logo svg {
-  fill: #151515;
-}
-*/
-
-/* 初期状態：隠す */
-/*
-.harusegawa-left-group,
-.haru-scrap-logo .letter-s, .haru-scrap-logo .letter-c, .haru-scrap-logo .letter-r, .haru-scrap-logo .letter-a, 
-.haru-scrap-logo .letter-p, .haru-scrap-logo .letter-b, .haru-scrap-logo .letter-o, .haru-scrap-logo .letter-o2, 
-.haru-scrap-logo .letter-k {
-  opacity: 0;
-}
-*/
-
-/* 左側：回転しているHARUSEGAWAグループ：まとめてスッと入る */
-/*
-.harusegawa-left-group { 
-  animation: slideFromLeft 0.4s ease-out 0.1s forwards; 
-}
-*/
-
-/* 右側：scrapbook：1文字ずつスライドイン */
-/*
-.haru-scrap-logo .letter-s { animation: slideFromLeft 0.4s ease-out 0.6s forwards; }
-.haru-scrap-logo .letter-c { animation: slideFromLeft 0.4s ease-out 0.7s forwards; }
-.haru-scrap-logo .letter-r { animation: slideFromLeft 0.4s ease-out 0.8s forwards; }
-.haru-scrap-logo .letter-a { animation: slideFromLeft 0.4s ease-out 0.9s forwards; }
-.haru-scrap-logo .letter-p { animation: slideFromLeft 0.4s ease-out 1.0s forwards; }
-.haru-scrap-logo .letter-b { animation: slideFromLeft 0.4s ease-out 1.1s forwards; }
-.haru-scrap-logo .letter-o { animation: slideFromLeft 0.4s ease-out 1.2s forwards; }
-.haru-scrap-logo .letter-o2 { animation: slideFromLeft 0.4s ease-out 1.3s forwards; }
-.haru-scrap-logo .letter-k { animation: slideFromLeft 0.4s ease-out 1.4s forwards; }
-*/
-
-/* =============================================
    キャッチコピー
 ============================================= */
 .haru-catchcopy {
@@ -383,10 +338,10 @@ a[href*="haru-gallery-item-wide"] {
 }
 /* 画像拡大アニメ（全デバイス） */
 .haru-gallery-grid a:hover img,
-.haru-gallery-grid a:focus-visible img {
-  transform: scale(var(--haru-hover-scale));
-}
+.haru-gallery-grid a:focus-visible img,
+.haru-service-card:hover img,
 .haru-service-card:focus-visible img,
+.haru-scrap-card:hover .wp-post-image,
 .haru-scrap-card:focus-visible .wp-post-image {
   transform: scale(var(--haru-hover-scale));
 }
@@ -877,7 +832,6 @@ a[href*="haru-gallery-item-wide"] {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-
 /* ============ タグ系（丸い） ============ */
 .haru-gallery-tag-list a,
 .haru-scrap-tag-list a {
@@ -967,12 +921,6 @@ body.archive {
   .haru-scrap-card:hover::before {
     left: 0;
     opacity: 1;
-  }
-  
-  /* カード画像拡大 */
-  .haru-service-card:hover img,
-  .haru-scrap-card:hover .wp-post-image {
-    transform: scale(var(--haru-hover-scale));
   }
 }
 
