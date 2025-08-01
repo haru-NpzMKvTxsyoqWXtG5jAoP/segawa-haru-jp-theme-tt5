@@ -100,8 +100,8 @@ a[href*="haru-gallery-item-wide"] {
 ============================================= */
 /* bodyの左右パディングを打ち消す */
 .hr-no-pad {
-  margin-left: calc(var(--wp--style--root--padding-left) * -1) !important;
-  margin-right: calc(var(--wp--style--root--padding-right) * -1) !important;
+  margin-left: calc(var(--wp--style--root--padding-left) * -1);
+  margin-right: calc(var(--wp--style--root--padding-right) * -1);
 }
 /* bodyの上パディングを打ち消す */
 .hr-no-pad-top {
