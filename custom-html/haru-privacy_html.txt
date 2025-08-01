@@ -10,6 +10,9 @@
   <h2>アクセス解析ツールについて</h2>
   <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。<br>このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。</p>
   
+  <h2>reCAPTCHAについて</h2>
+  <p>このサイトはreCAPTCHAによって保護されており、Googleの<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="haru-link-underline">プライバシーポリシー</a>と<a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="haru-link-underline">利用規約</a>が適用されます。</p>
+  
   <h2>免責事項</h2>
   <p>当サイトからリンクやバナーなどによって他のサイトに移動された場合、<br>移動先サイトで提供される情報、サービス等について一切の責任を負いません。当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、誤情報が入り込んだり、情報が古くなっていることもございます。<br>当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p>
   

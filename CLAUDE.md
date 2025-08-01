@@ -74,6 +74,7 @@ theme-root/
 ├── functions.php      # 機能拡張
 ├── style.css         # メインスタイル
 ├── theme.json        # テーマ設定（フォント定義含む）
+├── CLAUDE.md         # プロジェクト説明書（実際はclaude.md）
 ├── .htaccess         # WebP配信・フォントキャッシュ設定
 ├── .gitattributes    # フォントファイルのバイナリ指定
 ├── .gitignore        # Git除外設定
@@ -86,7 +87,7 @@ theme-root/
 └── custom-html/      # カスタムHTML・テーブル・SVGファイル
     ├── haru-legal-notice_html.txt            # リーガルノーティス
     ├── haru-service-card_link_customHTML.txt # サービスカード
-    ├── haru-service-privacy_html.txt         # プライバシーポリシー
+    ├── haru-privacy_html.txt                 # プライバシーポリシー
     ├── service_page/                         # サービスページ用テーブル
     │   ├── haru-table_illustration_customHTML.txt
     │   ├── haru-table_lecture-payment_customHTML.txt

@@ -64,6 +64,10 @@ a:focus:not(:focus-visible),
 a {
   text-decoration: none !important;
 }
+/* 特定リンクのみ下線表示 */
+.haru-link-underline {
+  text-decoration: underline !important;
+}
 
 /* 全リンクホバー（透明度変化） */
 a:hover {
