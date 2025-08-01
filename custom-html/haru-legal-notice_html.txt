@@ -1,4 +1,4 @@
-<div class="haru-page-container">
+<main class="haru-page-container">
   <h1 class="haru-section-title haru-sec-t-bullet haru-bullet-l-cyan">LEGAL NOTICE</h1>
   
   <table class="hr-table">
@@ -60,4 +60,4 @@
     </tr>
   </tbody>
 </table>
-</div>
+</main>
