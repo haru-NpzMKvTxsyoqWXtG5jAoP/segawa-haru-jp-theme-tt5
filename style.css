@@ -780,7 +780,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .hr-price {
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 700;
 }
 
