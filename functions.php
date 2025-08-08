@@ -88,6 +88,9 @@ add_shortcode( 'haru_gallery_tags', 'haru_gallery_tags_render' );
 if ( ! defined( 'HARU_META_DESCRIPTION_LENGTH' ) ) {
     define( 'HARU_META_DESCRIPTION_LENGTH', 120 );
 }
+if ( ! defined( 'HARU_DEFAULT_OGP_IMAGE' ) ) {
+    define( 'HARU_DEFAULT_OGP_IMAGE', 'images/harusegawa_ogp.png' );
+}
 
 // SEO機能の有効/無効を制御（将来プラグイン導入時に便利）
 function haru_seo_enabled() {
@@ -144,6 +147,27 @@ function haru_get_meta_description() {
     return '';
 }
 
+// OGP画像を取得（優先順位：アイキャッチ画像→サイトアイコン→デフォルト画像）
+function haru_get_ogp_image() {
+    // 投稿・固定ページのアイキャッチ画像
+    if ( is_singular() ) {
+        $post_id = get_queried_object_id();
+        $thumbnail_url = $post_id ? get_the_post_thumbnail_url( $post_id, 'full' ) : '';
+        if ( $thumbnail_url ) {
+            return $thumbnail_url;
+        }
+    }
+    
+    // サイトアイコン（1200px以上を要求）
+    $site_icon_url = get_site_icon_url( 1200 );
+    if ( $site_icon_url ) {
+        return $site_icon_url;
+    }
+    
+    // デフォルト画像
+    return get_theme_file_uri( HARU_DEFAULT_OGP_IMAGE );
+}
+
 // SEOタグを出力
 function haru_output_seo_tags() {
     // SEO機能が無効の場合は何もしない
@@ -165,6 +189,36 @@ function haru_output_seo_tags() {
     if ( $description !== '' ) {
         echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
     }
+    
+    // OGPタグの準備
+    $og_title = wp_get_document_title();
+    $og_description = haru_get_meta_description();
+    $og_image = haru_get_ogp_image();
+    
+    // ページネーション対応を含むURL取得
+    if ( is_paged() ) {
+        $og_url = get_pagenum_link( get_query_var( 'paged' ) );
+    } else {
+        $og_url = is_front_page() ? home_url( '/' ) : get_permalink();
+    }
+    $og_url = set_url_scheme( $og_url, 'https' );
+    
+    // ページタイプの判定
+    $og_type = ( is_front_page() || is_home() || is_archive() ) ? 'website' : 'article';
+    
+    // サイト名
+    $og_site_name = get_bloginfo( 'name' );
+    
+    // OGPタグ出力
+    echo "\n<!-- Open Graph -->\n";
+    echo '<meta property="og:title" content="' . esc_attr( $og_title ) . '">' . "\n";
+    if ( $og_description !== '' ) {
+        echo '<meta property="og:description" content="' . esc_attr( $og_description ) . '">' . "\n";
+    }
+    echo '<meta property="og:image" content="' . esc_url( $og_image ) . '">' . "\n";
+    echo '<meta property="og:url" content="' . esc_url( $og_url ) . '">' . "\n";
+    echo '<meta property="og:type" content="' . esc_attr( $og_type ) . '">' . "\n";
+    echo '<meta property="og:site_name" content="' . esc_attr( $og_site_name ) . '">' . "\n";
 }
 add_action( 'wp_head', 'haru_output_seo_tags', 5 );
 
