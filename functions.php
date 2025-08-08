@@ -219,6 +219,15 @@ function haru_output_seo_tags() {
     echo '<meta property="og:url" content="' . esc_url( $og_url ) . '">' . "\n";
     echo '<meta property="og:type" content="' . esc_attr( $og_type ) . '">' . "\n";
     echo '<meta property="og:site_name" content="' . esc_attr( $og_site_name ) . '">' . "\n";
+    
+    // Twitterカード
+    echo "\n<!-- Twitter Card -->\n";
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr( $og_title ) . '">' . "\n";
+    if ( $og_description !== '' ) {
+        echo '<meta name="twitter:description" content="' . esc_attr( $og_description ) . '">' . "\n";
+    }
+    echo '<meta name="twitter:image" content="' . esc_url( $og_image ) . '">' . "\n";
 }
 add_action( 'wp_head', 'haru_output_seo_tags', 5 );
 
