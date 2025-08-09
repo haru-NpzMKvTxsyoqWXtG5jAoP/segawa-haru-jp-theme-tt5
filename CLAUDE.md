@@ -179,3 +179,109 @@ theme-root/
 - ✅ CSSが効かない → なぜ効かないのか根本原因を特定
 - ❌ レイアウト崩れ → 別の方法で見た目だけ修正
 - ✅ レイアウト崩れ → 構造的な問題を見直して根本解決
+
+## SEO/OGP実装（2025年1月実装）
+
+### 概要
+SEOプラグインに依存せず、functions.phpで基本的なSEO機能を実装。軽量かつ保守性の高い設計。
+
+### 実装機能
+1. **meta description**
+   - トップページ: サイトのキャッチフレーズ
+   - 投稿/固定ページ: 抜粋優先、なければ本文から120文字自動生成
+   - アーカイブページ: 出力しない
+
+2. **OGPタグ**
+   - og:title, og:description, og:image, og:url, og:type, og:site_name
+   - 画像の優先順位: アイキャッチ → サイトアイコン → デフォルト画像
+   - アーカイブページでも出力（SNSシェア対応）
+
+3. **Twitterカード**
+   - summary_large_imageで大きな画像表示
+   - OGPと同じ値を使用して一貫性確保
+
+### 技術的ポイント
+- **`haru_seo_enabled()`フィルター**: 将来的にSEOプラグイン導入時は`add_filter('haru_seo_enabled', '__return_false')`で無効化可能
+- **`has_excerpt()`で手動抜粋判定**: `get_the_excerpt()`は自動生成するため不適切
+- **`get_post_field('post_content')`**: フィルターが走らない生データ取得
+- **再定義ガード**: 定数の二重定義エラー防止
+- **不要コンテキスト除外**: 管理画面、フィード、埋め込み、JSON APIでは出力しない
+- **固定ページの抜粋有効化**: `add_post_type_support('page', 'excerpt')`
+
+### デフォルトOGP画像
+- パス: `images/harusegawa_ogp.png`（1200×630px）
+- テーマ内に配置してGit管理
+
+### 拡張可能性
+- 構造化データ（JSON-LD）
+- og:image:width/height
+- article:published_time/modified_time
+
+## noindex設定について
+
+### 現在の状況（2025年8月）
+WordPressが以下を自動で処理しているため、テーマ側での実装は不要：
+
+1. **検索結果ページ**
+   - WordPress 5.7以降、`wp_robots_noindex_search()`が自動でnoindex出力
+   - URLパターン: `?s=keyword`
+   - テーマでの対応: 不要
+
+2. **添付ファイルページ**
+   - 現在404で無効化されている（プラグインまたは設定による）
+   - URLパターン: `?attachment_id=123`
+   - noindex不要（そもそもページが存在しない）
+
+3. **404ページ**
+   - HTTPステータス404により自動的に検索エンジンから除外
+   - 明示的なnoindex不要
+
+### 結論
+現状でSEO的に理想的な状態。追加のnoindex実装は不要。
+
+## パンくずリスト（2025年8月実装）
+
+### 概要
+構造化データ対応のパンくずリストをショートコードで実装。視覚的ナビゲーションとSEO対策を両立。
+
+### 実装内容
+1. **ショートコード**: `[haru_breadcrumbs]` で任意位置に設置
+2. **HTML構造**: セマンティックな `<nav><ol>` 構造
+3. **構造化データ**: 
+   - Microdata属性（itemprop, itemscope）
+   - JSON-LD の `BreadcrumbList` を同時出力
+4. **アクセシビリティ**: aria-label、aria-current属性
+
+### 階層設計
+```
+トップページ: 非表示
+
+固定ページ:
+Home > ページ名
+Home > 親ページ > ページ名（階層がある場合）
+
+投稿（スクラップブック）:
+Home > Scrapbook > GALLERY > 投稿名
+
+カテゴリ/タグアーカイブ:
+Home > カテゴリ名/タグ名
+
+検索結果:
+Home > 検索結果
+
+404:
+Home > 404 Not Found
+```
+
+### 技術的実装
+- **カテゴリーベース対応**: `get_option('category_base')`が'scrapbook'の場合、固定ページへのリンクを挿入
+- **パフォーマンス**: `get_page_by_path()`による軽量クエリ
+- **レスポンシブ**: flexboxで自動折り返し
+- **区切り文字**: CSS疑似要素で「›」を表示
+
+### 使用方法
+WordPressエディタで「ショートコード」ブロックを追加し、`[haru_breadcrumbs]` を入力。
+推奨位置：
+- ヘッダー直下
+- ページタイトルの上部
+- コンテンツエリアの最上部

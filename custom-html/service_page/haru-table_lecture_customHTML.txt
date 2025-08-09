@@ -17,7 +17,7 @@
           <p>20時間以上受講すると</p>
           <p class="hr-price">¥3,000</p>
           <p class="hr-note">延長/15分毎 ¥750</p>
-          <p class="hr-note">※前回から1年空くとリセットされます。</p>
+          <p class="hr-note">※前回から半年空くとリセットされます。</p>
         </div>
       </td>
     </tr>

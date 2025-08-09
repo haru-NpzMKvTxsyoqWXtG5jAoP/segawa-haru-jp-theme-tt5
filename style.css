@@ -969,3 +969,43 @@ body.archive {
 .haru-page-container > p:not(:last-of-type) {
   margin-bottom: var(--haru-space-small);
 }
+
+/* =============================================
+   パンくずリスト
+============================================= */
+.haru-breadcrumbs {
+  font-size: var(--wp--preset--font-size--small);
+  margin-bottom: var(--haru-space-small);
+}
+
+.haru-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.haru-breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+
+/* 区切り文字 */
+.haru-breadcrumbs li + li::before {
+  content: "›";
+  margin: 0 0.5rem;
+  color: #999;
+}
+
+.haru-breadcrumbs a {
+  text-decoration: none;
+  color: var(--wp--preset--color--haru-black);
+}
+
+/* 現在のページ */
+.haru-breadcrumbs li[aria-current="page"] {
+  font-weight: 500;
+  color: #666;
+}

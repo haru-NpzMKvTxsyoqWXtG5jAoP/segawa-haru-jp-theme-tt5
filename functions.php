@@ -236,3 +236,147 @@ add_filter( 'document_title_separator', function() {
     return '|';
 });
 
+
+// ============================================== 
+//  パンくずリスト
+// ==============================================
+
+// パンくず用: まず配列化
+function haru_breadcrumb_items() {
+    $items = [];
+    $items[] = ['url' => home_url('/'), 'label' => 'Home'];
+
+    if ( is_front_page() ) return $items;
+
+    // ブログトップ（固定ページを投稿ページに設定している場合）
+    if ( is_home() ) {
+        $title = get_the_title( get_option('page_for_posts') );
+        $items[] = ['url' => '', 'label' => $title ?: 'ブログ'];
+        return $items;
+    }
+
+    if ( is_singular() ) {
+        $post = get_queried_object();
+
+        if ( $post->post_type === 'post' ) {
+            // カテゴリーベースが'scrapbook'の場合、固定ページを挿入
+            $category_base = get_option('category_base');
+            if ( $category_base === 'scrapbook' ) {
+                $scrapbook_page = get_page_by_path('scrapbook');
+                if ( $scrapbook_page ) {
+                    $items[] = [
+                        'url' => get_permalink($scrapbook_page),
+                        'label' => get_the_title($scrapbook_page)
+                    ];
+                }
+            }
+            
+            // カテゴリー階層
+            $cats = get_the_category( $post->ID );
+            if ( $cats ) {
+                $primary = $cats[0]; // 必要なら"主要カテゴリ"の決め方を後で調整
+                $parents = array_reverse( get_ancestors($primary->term_id, 'category') );
+                foreach ( $parents as $tid ) {
+                    $t = get_term($tid, 'category');
+                    if ( ! is_wp_error($t) ) {
+                        $items[] = ['url' => get_term_link($t), 'label' => $t->name];
+                    }
+                }
+                $items[] = ['url' => get_term_link($primary), 'label' => $primary->name];
+            }
+        } elseif ( is_post_type_hierarchical($post->post_type) && $post->post_parent ) {
+            // 階層型の固定ページ
+            $anc = array_reverse( get_post_ancestors($post) );
+            foreach ( $anc as $pid ) {
+                $items[] = ['url' => get_permalink($pid), 'label' => get_the_title($pid)];
+            }
+        } elseif ( $post->post_type !== 'post' && $post->post_type !== 'page' ) {
+            // カスタム投稿タイプ
+            $obj = get_post_type_object($post->post_type);
+            if ( $obj && ! empty($obj->has_archive) ) {
+                $items[] = ['url' => get_post_type_archive_link($post->post_type), 'label' => $obj->labels->name];
+            }
+        }
+
+        $items[] = ['url' => '', 'label' => get_the_title($post)];
+    }
+    elseif ( is_category() || is_tax() ) {
+        $term = get_queried_object();
+        $parents = array_reverse( get_ancestors($term->term_id, $term->taxonomy) );
+        foreach ( $parents as $tid ) {
+            $t = get_term($tid, $term->taxonomy);
+            if ( ! is_wp_error($t) ) {
+                $items[] = ['url' => get_term_link($t), 'label' => $t->name];
+            }
+        }
+        $items[] = ['url' => '', 'label' => $term->name];
+    }
+    elseif ( is_post_type_archive() ) {
+        $obj = get_queried_object();
+        $items[] = ['url' => '', 'label' => $obj->labels->name];
+    }
+    elseif ( is_search() ) {
+        $items[] = ['url' => '', 'label' => '検索結果'];
+    }
+    elseif ( is_author() ) {
+        $a = get_queried_object();
+        $items[] = ['url' => '', 'label' => '著者: ' . $a->display_name];
+    }
+    elseif ( is_date() ) {
+        $items[] = ['url' => '', 'label' => 'アーカイブ'];
+    }
+    elseif ( is_404() ) {
+        $items[] = ['url' => '', 'label' => '404 Not Found'];
+    }
+
+    // ページ送り
+    $paged = max( get_query_var('paged'), get_query_var('page') );
+    if ( $paged && $paged > 1 ) {
+        $items[] = ['url' => '', 'label' => 'ページ ' . intval($paged)];
+    }
+
+    return $items;
+}
+
+// 表示 + JSON-LD
+function haru_render_breadcrumbs() {
+    if ( is_front_page() ) return ''; // トップでは出さない
+    $items = haru_breadcrumb_items();
+
+    // 見えるパンくず（Microdataは最小限）
+    $html  = '<nav class=\"haru-breadcrumbs\" aria-label=\"パンくず\">';
+    $html .= '<ol itemscope itemtype=\"https://schema.org/BreadcrumbList\">';
+    $pos = 1; $last = count($items);
+    foreach ( $items as $i ) {
+        $label = esc_html( wp_strip_all_tags( $i['label'] ) );
+        $url   = $i['url'];
+        $html .= '<li itemprop=\"itemListElement\" itemscope itemtype=\"https://schema.org/ListItem\"'
+              .  ( $pos === $last ? ' aria-current=\"page\"' : '' ) . '>';
+        if ( $url && $pos !== $last ) {
+            $html .= '<a itemprop=\"item\" href=\"' . esc_url($url) . '\"><span itemprop=\"name\">' . $label . '</span></a>';
+        } else {
+            $html .= '<span itemprop=\"name\">' . $label . '</span>';
+        }
+        $html .= '<meta itemprop=\"position\" content=\"' . intval($pos) . '\" /></li>';
+        $pos++;
+    }
+    $html .= '</ol></nav>';
+
+    // JSON-LD
+    $pos = 1; $list = [];
+    foreach ( $items as $i ) {
+        $entry = ['@type' => 'ListItem', 'position' => $pos++, 'name' => wp_strip_all_tags($i['label'])];
+        if ( ! empty($i['url']) ) $entry['item'] = $i['url'];
+        $list[] = $entry;
+    }
+    $json = [
+        '@context' => 'https://schema.org',
+        '@type'    => 'BreadcrumbList',
+        'itemListElement' => $list,
+    ];
+    $html .= '<script type="application/ld+json">' . wp_json_encode($json, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) . '</script>';
+
+    return $html;
+}
+add_shortcode('haru_breadcrumbs', 'haru_render_breadcrumbs');
+
