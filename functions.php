@@ -123,13 +123,7 @@ function haru_trim_for_description( $text, $length = HARU_META_DESCRIPTION_LENGT
 
 // meta description を生成
 function haru_get_meta_description() {
-    // トップページ：サイトのキャッチフレーズ
-    if ( is_front_page() ) {
-        $description = get_bloginfo( 'description', 'display' );
-        return $description ? haru_trim_for_description( $description ) : '';
-    }
-    
-    // 投稿・固定ページ
+    // 投稿・固定ページ（HOMEページの固定ページ含む）
     if ( is_singular() ) {
         $post = get_queried_object();
         
@@ -141,6 +135,12 @@ function haru_get_meta_description() {
         // 本文から生成（生データを取得）
         $content = $post ? get_post_field( 'post_content', $post ) : '';
         return $content ? haru_trim_for_description( $content ) : '';
+    }
+    
+    // トップページ（固定ページ以外）：サイトのキャッチフレーズ
+    if ( is_front_page() ) {
+        $description = get_bloginfo( 'description', 'display' );
+        return $description ? haru_trim_for_description( $description ) : '';
     }
     
     // アーカイブページ：出力しない
@@ -230,4 +230,9 @@ function haru_output_seo_tags() {
     echo '<meta name="twitter:image" content="' . esc_url( $og_image ) . '">' . "\n";
 }
 add_action( 'wp_head', 'haru_output_seo_tags', 5 );
+
+// タイトルの区切り文字を「|」に変更
+add_filter( 'document_title_separator', function() {
+    return '|';
+});
 

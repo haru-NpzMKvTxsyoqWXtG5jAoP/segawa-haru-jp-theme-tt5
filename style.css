@@ -69,18 +69,10 @@ a {
   text-decoration: underline !important;
 }
 
-/* 全リンクホバー（透明度変化） */
-a:hover {
-  opacity: 0.7;
-}
-/* ホバーアニメ付き要素は透明度変化を除外 */
-.wp-block-button__link:hover,
-.haru-service-card:hover a,
-.haru-scrap-card:hover a,
-.haru-gallery-grid .wp-block-post-featured-image a:hover,
-.haru-gallery-tag-list a:hover {
-  opacity: 1;
-}
+/* 全リンクホバー（透明度変化） - PC/タッチで制御 */
+/* a:hover は後述のメディアクエリ内で定義 */
+/* ホバーアニメ付き要素は透明度変化を除外 - PC/タッチで制御 */
+/* 後述のメディアクエリ内で定義 */
 
 /* 内部用タグを全サイトで非表示 */
 a[href*="haru-gallery-item-wide"] {
@@ -336,15 +328,13 @@ a[href*="haru-gallery-item-wide"] {
 .haru-gallery-grid img {
   transition: var(--haru-hover-transition);
 }
-/* 画像拡大アニメ（全デバイス） */
-.haru-gallery-grid a:hover img,
+/* 画像拡大アニメ - キーボードフォーカス時のみ（全デバイス） */
 .haru-gallery-grid a:focus-visible img,
-.haru-service-card:hover img,
 .haru-service-card:focus-visible img,
-.haru-scrap-card:hover .wp-post-image,
 .haru-scrap-card:focus-visible .wp-post-image {
   transform: scale(var(--haru-hover-scale));
 }
+/* :hover 効果は後述のメディアクエリ内で制御 */
 
 /* カード間の隙間調整 */
 .haru-service-cards-container,
@@ -780,7 +770,7 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 .hr-price {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.375rem, 2.75vw, 1.625rem);
   font-weight: 700;
 }
 
@@ -846,11 +836,7 @@ a[href*="haru-gallery-item-wide"] {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
 }
 
-/* 反転ホバーアニメ */
-.haru-gallery-tag-list a:hover {
-  background-color: var(--wp--preset--color--haru-black);
-  color: var(--wp--preset--color--haru-beige);
-}
+/* 反転ホバーアニメ - 後述のメディアクエリ内で制御 */
 
 /* ============ カテゴリ（四角） ============ */
 .haru-scrap-category-list a {
@@ -921,6 +907,69 @@ body.archive {
   .haru-scrap-card:hover::before {
     left: 0;
     opacity: 1;
+  }
+}
+
+/* =============================================
+   ホバー効果のデバイス別制御
+============================================= */
+/* PC・マウス操作時のみホバー効果を有効化 */
+@media (hover: hover) {
+  /* 全リンクホバー（透明度変化） */
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  /* ホバーアニメ付き要素は透明度変化を除外 */
+  .wp-block-button__link:hover,
+  .haru-service-card:hover a,
+  .haru-scrap-card:hover a,
+  .haru-gallery-grid .wp-block-post-featured-image a:hover,
+  .haru-gallery-tag-list a:hover {
+    opacity: 1;
+  }
+  
+  /* 画像拡大アニメ */
+  .haru-gallery-grid a:hover img,
+  .haru-service-card:hover img,
+  .haru-scrap-card:hover .wp-post-image {
+    transform: scale(var(--haru-hover-scale));
+  }
+  
+  /* タグリスト反転ホバーアニメ */
+  .haru-gallery-tag-list a:hover {
+    background-color: var(--wp--preset--color--haru-black);
+    color: var(--wp--preset--color--haru-beige);
+  }
+}
+
+/* タッチデバイスでタップ時のみ効果を有効化 */
+@media (hover: none) {
+  /* 全リンクタップ（透明度変化） */
+  a:active {
+    opacity: 0.7;
+  }
+  
+  /* タップアニメ付き要素は透明度変化を除外 */
+  .wp-block-button__link:active,
+  .haru-service-card:active a,
+  .haru-scrap-card:active a,
+  .haru-gallery-grid .wp-block-post-featured-image a:active,
+  .haru-gallery-tag-list a:active {
+    opacity: 1;
+  }
+  
+  /* 画像拡大アニメ */
+  .haru-gallery-grid a:active img,
+  .haru-service-card:active img,
+  .haru-scrap-card:active .wp-post-image {
+    transform: scale(var(--haru-hover-scale));
+  }
+  
+  /* タグリスト反転タップアニメ */
+  .haru-gallery-tag-list a:active {
+    background-color: var(--wp--preset--color--haru-black);
+    color: var(--wp--preset--color--haru-beige);
   }
 }
 
