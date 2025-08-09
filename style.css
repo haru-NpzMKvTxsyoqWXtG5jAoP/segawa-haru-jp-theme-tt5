@@ -981,14 +981,15 @@ body.archive {
 .haru-breadcrumbs ol {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 0.5rem;
+  align-items: center;
+  gap: 0;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .haru-breadcrumbs li {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
@@ -997,6 +998,7 @@ body.archive {
   content: "›";
   margin: 0 0.5rem;
   color: #999;
+  display: inline-block;
 }
 
 .haru-breadcrumbs a {
