@@ -11,7 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     flipCard.setAttribute('aria-label', '裏面を表示');
     flipCard.setAttribute('aria-pressed', 'false');
     
-    flipCard.addEventListener('click', function() {
+    flipCard.addEventListener('click', function(e) {
+      // リンクまたはリンク内の要素をクリックした場合は何もしない
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        return;
+      }
+      
       this.classList.toggle('flipped');
       
       // 状態更新（WCAG 4.1.2 準拠）
