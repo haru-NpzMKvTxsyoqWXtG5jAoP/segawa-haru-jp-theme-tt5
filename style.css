@@ -477,12 +477,14 @@ a[href*="haru-gallery-item-wide"] {
   display: grid;
   transform-style: preserve-3d;
   transition: transform 0.5s ease-in-out;
+  transform: translateZ(0); /* Chromeのブラウザバック時の1pxずれ対策 */
 }
 
 .haru-flip-card-front,
 .haru-flip-card-back {
   grid-area: 1 / 1;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari対応 */
 }
 
 .haru-flip-card-back {
