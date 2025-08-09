@@ -943,36 +943,6 @@ body.archive {
   }
 }
 
-/* タッチデバイスでタップ時のみ効果を有効化 */
-@media (hover: none) {
-  /* 全リンクタップ（透明度変化） */
-  a:active {
-    opacity: 0.7;
-  }
-  
-  /* タップアニメ付き要素は透明度変化を除外 */
-  .wp-block-button__link:active,
-  .haru-service-card:active a,
-  .haru-scrap-card:active a,
-  .haru-gallery-grid .wp-block-post-featured-image a:active,
-  .haru-gallery-tag-list a:active {
-    opacity: 1;
-  }
-  
-  /* 画像拡大アニメ */
-  .haru-gallery-grid a:active img,
-  .haru-service-card:active img,
-  .haru-scrap-card:active .wp-post-image {
-    transform: scale(var(--haru-hover-scale));
-  }
-  
-  /* タグリスト反転タップアニメ */
-  .haru-gallery-tag-list a:active {
-    background-color: var(--wp--preset--color--haru-black);
-    color: var(--wp--preset--color--haru-beige);
-  }
-}
-
 /* =============================================
    写真加工 ページ
 ============================================= */
