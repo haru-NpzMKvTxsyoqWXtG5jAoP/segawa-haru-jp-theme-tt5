@@ -281,7 +281,12 @@ function haru_breadcrumb_items() {
             // カテゴリー階層
             $cats = get_the_category( $post->ID );
             if ( $cats ) {
-                $primary = $cats[0]; // 必要なら"主要カテゴリ"の決め方を後で調整
+                // 階層が深いカテゴリを優先（より具体的なカテゴリを選択）
+                usort($cats, function($a, $b) {
+                    return count(get_ancestors($b->term_id, 'category')) - count(get_ancestors($a->term_id, 'category'));
+                });
+                $primary = $cats[0]; // 最も階層が深いカテゴリ
+                
                 $parents = array_reverse( get_ancestors($primary->term_id, 'category') );
                 foreach ( $parents as $tid ) {
                     $t = get_term($tid, 'category');
