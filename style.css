@@ -994,11 +994,6 @@ body.archive {
   margin: 0 0.25rem;
 }
 
-.haru-breadcrumbs a {
-  text-decoration: none;
-  color: var(--wp--preset--color--haru-black);
-}
-
 /* 現在のページ */
 .haru-breadcrumbs li[aria-current="page"] {
   font-weight: 500;
