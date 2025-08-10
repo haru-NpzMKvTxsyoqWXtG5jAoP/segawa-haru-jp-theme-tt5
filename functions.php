@@ -192,14 +192,14 @@ function haru_output_seo_tags() {
     
     // OGPタグの準備
     $og_title = wp_get_document_title();
-    $og_description = haru_get_meta_description();
+    $og_description = $description; // 重複計算を避ける
     $og_image = haru_get_ogp_image();
     
-    // ページネーション対応を含むURL取得
-    if ( is_paged() ) {
-        $og_url = get_pagenum_link( get_query_var( 'paged' ) );
-    } else {
-        $og_url = is_front_page() ? home_url( '/' ) : get_permalink();
+    // 正規URLを取得（カテゴリ、タグ、検索、ページ送りなどにも対応）
+    $og_url = wp_get_canonical_url();
+    if ( ! $og_url ) {
+        // フォールバック（404ページなど）
+        $og_url = home_url( add_query_arg( null, null ) );
     }
     $og_url = set_url_scheme( $og_url, 'https' );
     
