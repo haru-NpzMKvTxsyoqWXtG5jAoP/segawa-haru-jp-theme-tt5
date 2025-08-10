@@ -55,6 +55,10 @@
 ### パフォーマンス
 - **軽量クエリ**: fields=ids + no_found_rows で最適化
 - **WebP 画像配信**: EWWW IO連携で30-50%軽量化
+- **画像運用方針**:
+  - 重要画像（サービス/プロフィール）: JPG/PNGでアップロード → EWWWが自動WebP変換
+  - ブログ記事画像: 最初からWebPでアップロード（2025年8月以降）
+  - EWWWのメリット: メタデータ自動削除、.htaccess自動設定、画像最適化
 - **フォントキャッシュ**: .htaccess で1年間長期キャッシュ
 - **エラーハンドリング**: ファイル存在チェック
 
@@ -82,6 +86,8 @@ theme-root/
 │   ├── noto-sans-jp-400.woff2
 │   ├── noto-sans-jp-500.woff2
 │   └── noto-sans-jp-700.woff2
+├── images/           # 画像ファイル
+│   └── harusegawa_icon_2.png  # Person構造化データ用アイコン（800×800px）
 ├── js/
 │   └── flip-card.js  # フリップカード機能
 └── custom-html/      # カスタムHTML・テーブル・SVGファイル
@@ -179,6 +185,26 @@ theme-root/
 - ✅ CSSが効かない → なぜ効かないのか根本原因を特定
 - ❌ レイアウト崩れ → 別の方法で見た目だけ修正
 - ✅ レイアウト崩れ → 構造的な問題を見直して根本解決
+
+## パフォーマンス最適化の判断基準
+
+### 実装済みの最適化
+- ✅ WebP画像変換（EWWW IO）
+- ✅ フォントのセルフホスト
+- ✅ font-display: swap
+- ✅ キャッシュバスティング
+- ✅ 軽量クエリ（fields=ids）
+- ✅ Contact Form 7の条件付き読み込み（2025年8月実装）
+  - フロントページ以外でCF7のCSS/JSを完全除外
+  - reCAPTCHAスクリプトも同様に制御
+  - ページ読み込み速度の改善
+
+### 実装を見送った最適化
+**フォントのプリロード（2025年8月検討）**
+- Noto Sans JPは各500KB〜1MBと重い
+- 使わないウェイトをプリロードすると逆効果
+- 現状の`font-display: swap`で十分最適化されている
+- 結論：必要ない実装はしない
 
 ## SEO/OGP実装（2025年1月実装）
 
@@ -351,3 +377,41 @@ WordPressエディタで「ショートコード」ブロックを追加し、`[
 - 添付ファイルページ（画像単体ページ）を親記事へ301リダイレクト
 - 親記事がない場合はトップページへリダイレクト
 - SEO的に無意味なページのインデックスを防止
+
+## Contact Form 7最適化（2025年8月実装）
+
+### 概要
+Contact Form 7のアセット（CSS/JavaScript）をフォームが存在するページのみで読み込むように最適化。
+
+### 実装内容
+1. **デフォルト無効化**
+   - `wpcf7_load_js`と`wpcf7_load_css`フィルターで全ページでの読み込みを停止
+   
+2. **条件付き読み込み**
+   - フロントページ（トップページ）でのみCF7のアセットを読み込み
+   - フォーム位置：`https://segawa-haru.jp/#contact`
+   
+3. **reCAPTCHA制御**
+   - フロントページ以外では`google-recaptcha`と`wpcf7-recaptcha`スクリプトを除外
+   - 優先度100で確実に除外
+
+### 効果
+- ブログ記事、ギャラリー、固定ページなどでCF7関連ファイルが一切読み込まれない
+- ページ読み込み速度の向上
+- ネットワークリクエストの削減
+
+### 将来の拡張
+現在はシンプル版（`is_front_page()`判定）で実装。将来フォームを他のページに追加する場合は、自動検出版への切り替えが必要：
+
+```php
+// 自動検出版：ショートコードまたはブロックの存在を判定
+function haru_cf7_should_load(): bool {
+    if ( ! is_singular() ) return false;
+    $id = get_queried_object_id();
+    $has_sc = has_shortcode(get_post_field('post_content', $id), 'contact-form-7');
+    $has_block = function_exists('has_block') && has_block('contact-form-7/contact-form-selector', $id);
+    return $has_sc || $has_block;
+}
+```
+
+この関数を使って`is_front_page()`の代わりに`haru_cf7_should_load()`で判定すれば、フォームがあるページでのみ自動的にCF7アセットが読み込まれる。
