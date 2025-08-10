@@ -314,3 +314,40 @@ WordPressエディタで「ショートコード」ブロックを追加し、`[
 - **カテゴリ優先順位**: 複数カテゴリの場合、階層が深い（より具体的な）カテゴリを選択
 - **CSS最適化**: `font-size: inherit`で親テーマの上書きを防止
 - **注意**: 段落ブロックではなく「ショートコード」ブロックを使用すること（`<p>`タグ回避）
+
+## Person構造化データ（2025年8月実装）
+
+### 概要
+個人ブランディング強化のため、瀬川晴の人物情報を構造化データとして実装。
+
+### 実装内容
+1. **基本情報**
+   - 名前: 瀬川 晴
+   - 職種: クリエイター
+   - 画像: images/harusegawa_icon_2.png（800×800px）
+
+2. **表記ゆれ対応（alternateName）**
+   - 瀬川晴、せがわはる、セガワハル
+   - Haru Segawa、segawa haru、HARUsegawa
+
+3. **SNSアカウント連携（sameAs）**
+   - Instagram: https://www.instagram.com/haru_segawa
+   - Pinterest: https://jp.pinterest.com/haru_segawa/
+   - Behance: https://www.behance.net/haru_segawa
+
+4. **技術的実装**
+   - @id: `https://segawa-haru.jp/#person` で他の構造化データから参照可能
+   - トップページのみ出力（優先度6）
+   - JSON-LD形式で実装
+
+### 期待される効果
+- Google検索での人物認識向上
+- 指名検索での優位性
+- 将来的なナレッジパネル表示の可能性
+
+## リダイレクト設定（2025年8月実装）
+
+### 添付ファイルページのリダイレクト
+- 添付ファイルページ（画像単体ページ）を親記事へ301リダイレクト
+- 親記事がない場合はトップページへリダイレクト
+- SEO的に無意味なページのインデックスを防止

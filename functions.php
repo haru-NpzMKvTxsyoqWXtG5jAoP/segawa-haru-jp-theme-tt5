@@ -211,6 +211,7 @@ function haru_output_seo_tags() {
     
     // OGPタグ出力
     echo "\n<!-- Open Graph -->\n";
+    echo '<meta property="og:locale" content="ja_JP">' . "\n";
     echo '<meta property="og:title" content="' . esc_attr( $og_title ) . '">' . "\n";
     if ( $og_description !== '' ) {
         echo '<meta property="og:description" content="' . esc_attr( $og_description ) . '">' . "\n";
@@ -414,4 +415,61 @@ function haru_render_breadcrumbs() {
     return $html;
 }
 add_shortcode('haru_breadcrumbs', 'haru_render_breadcrumbs');
+
+
+// ============================================== 
+//  リダイレクト設定
+// ==============================================
+
+// 添付ファイルページを親記事へリダイレクト
+add_action('template_redirect', function(){
+    if (is_attachment()) {
+        $parent = get_post_field('post_parent', get_queried_object_id());
+        wp_redirect($parent ? get_permalink($parent) : home_url('/'), 301);
+        exit;
+    }
+});
+
+
+// ============================================== 
+//  構造化データ（Person）
+// ==============================================
+
+// Person構造化データ（瀬川ハル）
+add_action('wp_head', function () {
+    // トップページのみ
+    if ( ! is_front_page() ) return;
+    
+    $img = get_theme_file_uri('images/harusegawa_icon_2.png');
+    
+    $data = array(
+        '@context'      => 'https://schema.org',
+        '@type'         => 'Person',
+        '@id'           => home_url('/#person'),
+        'name'          => '瀬川 晴',
+        'alternateName' => array(
+            '瀬川晴',
+            'せがわはる',
+            'セガワハル',
+            'Haru Segawa',
+            'segawa haru',
+            'HARUsegawa'
+        ),
+        'url'           => home_url('/'),
+        'image'         => array(
+            '@type' => 'ImageObject',
+            'url'   => $img,
+        ),
+        'jobTitle'      => 'クリエイター',
+        'sameAs'        => array(
+            'https://www.instagram.com/haru_segawa',
+            'https://jp.pinterest.com/haru_segawa/',
+            'https://www.behance.net/haru_segawa',
+        ),
+    );
+    
+    echo '<script type="application/ld+json">' .
+         wp_json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) .
+         '</script>' . "\n";
+}, 6);
 
