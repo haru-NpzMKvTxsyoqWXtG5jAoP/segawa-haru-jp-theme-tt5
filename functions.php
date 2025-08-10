@@ -478,28 +478,14 @@ add_action('wp_head', function () {
 //  Contact Form 7 最適化
 // ==============================================
 
-// CF7のCSS/JSをデフォルトで無効化
-add_filter( 'wpcf7_load_js', '__return_false' );
-add_filter( 'wpcf7_load_css', '__return_false' );
-
-// フロントページでのみCF7のアセットを読み込む
-add_action( 'wp_enqueue_scripts', function() {
-    // 管理画面では何もしない
-    if ( is_admin() ) {
-        return;
+// フロントページ以外でCF7を無効化
+add_action( 'wp', function() {
+    if ( ! is_front_page() ) {
+        // フロントページ以外ではCF7の読み込みを無効化
+        add_filter( 'wpcf7_load_js', '__return_false' );
+        add_filter( 'wpcf7_load_css', '__return_false' );
     }
-    
-    // フロントページでのみ読み込み
-    if ( is_front_page() ) {
-        // CF7のスクリプトとスタイルを手動で読み込む
-        if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
-            wpcf7_enqueue_scripts();
-        }
-        if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
-            wpcf7_enqueue_styles();
-        }
-    }
-}, 9 );
+});
 
 // reCAPTCHAもフロントページ以外では読み込まない
 add_action( 'wp_enqueue_scripts', function() {
@@ -507,6 +493,8 @@ add_action( 'wp_enqueue_scripts', function() {
         // CF7が使うreCAPTCHA関連のスクリプトを除外
         wp_dequeue_script( 'google-recaptcha' );
         wp_dequeue_script( 'wpcf7-recaptcha' );
+        wp_deregister_script( 'google-recaptcha' );
+        wp_deregister_script( 'wpcf7-recaptcha' );
     }
 }, 100 );
 
