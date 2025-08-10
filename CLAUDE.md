@@ -207,6 +207,7 @@ SEOプラグインに依存せず、functions.phpで基本的なSEO機能を実�
 - **再定義ガード**: 定数の二重定義エラー防止
 - **不要コンテキスト除外**: 管理画面、フィード、埋め込み、JSON APIでは出力しない
 - **固定ページの抜粋有効化**: `add_post_type_support('page', 'excerpt')`
+- **og:url生成**: `wp_get_canonical_url()`でカテゴリ・タグ・検索・ページ送りも正確に対応
 
 ### デフォルトOGP画像
 - パス: `images/harusegawa_ogp.png`（1200×630px）
@@ -238,6 +239,23 @@ WordPressが以下を自動で処理しているため、テーマ側での実�
 
 ### 結論
 現状でSEO的に理想的な状態。追加のnoindex実装は不要。
+
+### タグページのnoindex設定（2025年8月実装）
+- `wp_robots`フィルターでタグアーカイブをnoindex設定
+- XMLサイトマップからpost_tagとusersを除外
+- 個人サイトに適した最適化
+
+## XMLサイトマップ（WordPress標準）
+
+### トラブルシューティング
+`/wp-sitemap.xml`がHTMLを返す場合：
+1. **パーマリンク設定を再保存**（設定 > パーマリンク > 変更せず保存）
+2. キャッシュプラグインの除外設定を確認
+3. セキュリティプラグイン（SiteGuard等）の設定確認
+
+### 正常動作の確認
+- `/wp-sitemap.xml`にアクセスして`<?xml`で始まるXMLが表示される
+- Google Search Consoleでサイトマップが正常に認識される
 
 ## パンくずリスト（2025年8月実装）
 
