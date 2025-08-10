@@ -564,11 +564,11 @@ function haru_bubble_render($atts, $content = null) {
     // HTML出力（クラスのみ、スタイル属性なし）
     $html = sprintf(
         '<div class="haru-bubble haru-bubble--%s haru-bubble--%s" aria-label="%sの発言">
-            <img class="haru-bubble__icon" src="%s" alt="%s" width="80" height="80" loading="lazy" decoding="async">
-            <div class="haru-bubble__body">
+            <div class="haru-bubble__avatar">
+                <img class="haru-bubble__icon" src="%s" alt="%s" width="80" height="80" loading="lazy" decoding="async">
                 <div class="haru-bubble__name">%s</div>
-                <div class="haru-bubble__content">%s</div>
             </div>
+            <div class="haru-bubble__content">%s</div>
         </div>',
         esc_attr($pos),
         esc_attr($name),
