@@ -979,30 +979,19 @@ body.archive {
 }
 
 .haru-breadcrumbs ol {
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0;
-  list-style: none !important;
-  list-style-type: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.haru-breadcrumbs ol li {
-  display: inline-block;
-  list-style: none !important;
-  list-style-type: none !important;
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
+  gap: 0.25rem 0.5rem;
 }
 
 /* 区切り文字 */
-.haru-breadcrumbs ol li:not(:first-child)::before {
+.haru-breadcrumbs li + li::before {
   content: "›";
-  margin: 0 0.5rem;
-  color: #999;
-  display: inline-block;
+  opacity: 0.6;
+  margin: 0 0.25rem;
 }
 
 .haru-breadcrumbs a {
