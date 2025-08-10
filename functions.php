@@ -259,10 +259,20 @@ function haru_breadcrumb_items() {
         $post = get_queried_object();
 
         if ( $post->post_type === 'post' ) {
-            // カテゴリーベースが'scrapbook'の場合、固定ページを挿入
-            $category_base = get_option('category_base');
-            if ( $category_base === 'scrapbook' ) {
+            // スクラップブック内の投稿の場合、固定ページを挿入
+            // カテゴリーベースのチェックを一旦外して、投稿URLで判定
+            $permalink = get_permalink($post);
+            if ( strpos($permalink, '/scrapbook/') !== false ) {
+                // 固定ページを複数の方法で探す
                 $scrapbook_page = get_page_by_path('scrapbook');
+                if ( ! $scrapbook_page ) {
+                    // スラッグで見つからない場合、タイトルで探す
+                    $pages = get_pages(['title' => 'SCRAP BOOK']);
+                    if ( $pages ) {
+                        $scrapbook_page = $pages[0];
+                    }
+                }
+                
                 if ( $scrapbook_page ) {
                     $items[] = [
                         'url' => get_permalink($scrapbook_page),
