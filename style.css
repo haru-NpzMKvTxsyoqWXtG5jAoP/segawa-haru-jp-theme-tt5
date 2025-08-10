@@ -984,14 +984,14 @@ body.archive {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 0.25rem 0.5rem;
+  gap: 0.25rem 0; /* 行間のみ、列間はmarginで管理 */
 }
 
 /* 区切り文字 */
 .haru-breadcrumbs li + li::before {
   content: "›";
   opacity: 0.6;
-  margin: 0 0.25rem;
+  margin: 0 0.5rem;
 }
 
 /* 現在のページ */
