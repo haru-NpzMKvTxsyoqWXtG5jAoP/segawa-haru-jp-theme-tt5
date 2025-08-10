@@ -236,15 +236,6 @@ add_filter( 'document_title_separator', function() {
     return '|';
 });
 
-// サイトマップを確実に有効化
-add_filter( 'wp_sitemaps_enabled', '__return_true', 99 );
-
-// 添付ファイルをサイトマップから除外
-add_filter( 'wp_sitemaps_post_types', function( $post_types ) {
-    unset( $post_types['attachment'] );
-    return $post_types;
-});
-
 
 // ============================================== 
 //  パンくずリスト
