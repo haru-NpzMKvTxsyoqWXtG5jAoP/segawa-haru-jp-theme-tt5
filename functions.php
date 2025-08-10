@@ -236,6 +236,20 @@ add_filter( 'document_title_separator', function() {
     return '|';
 });
 
+// タグページをnoindexに設定
+function haru_noindex_for_tags() {
+    if ( is_tag() ) {
+        echo '<meta name="robots" content="noindex,follow">' . "\n";
+    }
+}
+add_action( 'wp_head', 'haru_noindex_for_tags', 1 );
+
+// タグをXMLサイトマップから除外
+add_filter( 'wp_sitemaps_taxonomies', function( $taxonomies ) {
+    unset( $taxonomies['post_tag'] );
+    return $taxonomies;
+});
+
 
 // ============================================== 
 //  パンくずリスト
