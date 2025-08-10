@@ -236,19 +236,28 @@ add_filter( 'document_title_separator', function() {
     return '|';
 });
 
-// タグページをnoindexに設定
-function haru_noindex_for_tags() {
+// タグページをnoindexに設定（WordPress 5.7以降の推奨方法）
+add_filter( 'wp_robots', function( $robots ) {
     if ( is_tag() ) {
-        echo '<meta name="robots" content="noindex,follow">' . "\n";
+        $robots['noindex'] = true;
+        // nofollow を指定しない = follow のまま
     }
-}
-add_action( 'wp_head', 'haru_noindex_for_tags', 1 );
+    return $robots;
+});
 
 // タグをXMLサイトマップから除外
 add_filter( 'wp_sitemaps_taxonomies', function( $taxonomies ) {
     unset( $taxonomies['post_tag'] );
     return $taxonomies;
 });
+
+// ユーザー（著者）サイトマップを除外
+add_filter( 'wp_sitemaps_add_provider', function( $provider, $name ) {
+    if ( 'users' === $name ) {
+        return false;
+    }
+    return $provider;
+}, 10, 2 );
 
 
 // ============================================== 
