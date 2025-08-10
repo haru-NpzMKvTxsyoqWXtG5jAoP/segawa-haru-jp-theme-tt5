@@ -973,13 +973,13 @@ body.archive {
 /* =============================================
    パンくずリスト
 ============================================= */
-.haru-breadcrumbs,
-.haru-breadcrumbs * {
+.haru-breadcrumbs {
   font-size: var(--wp--preset--font-size--small);
+  margin-bottom: var(--haru-space-small);
 }
 
-.haru-breadcrumbs {
-  margin-bottom: var(--haru-space-small);
+.haru-breadcrumbs * {
+  font-size: inherit; /* 親のfont-sizeを継承 */
 }
 
 .haru-breadcrumbs ol {
