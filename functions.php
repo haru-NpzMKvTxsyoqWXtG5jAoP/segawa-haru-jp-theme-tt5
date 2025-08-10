@@ -498,3 +498,86 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 }, 100 );
 
+
+// ============================================== 
+//  吹き出しチャットシステム
+// ==============================================
+
+// キャラクター定義
+function haru_bubble_get_characters() {
+    return array(
+        'user1' => array(
+            'name' => '晴',
+            'file' => 'user1.webp',
+            'positions' => array('left'),
+        ),
+        'user2' => array(
+            'name' => 'ユーザー2',
+            'file' => 'user2.webp',
+            'positions' => array('left', 'right'),
+        ),
+        'user3' => array(
+            'name' => 'ユーザー3',
+            'file' => 'user3.webp',
+            'positions' => array('left', 'right'),
+        ),
+    );
+}
+
+// ショートコード実装
+add_shortcode('bubble', 'haru_bubble_render');
+
+function haru_bubble_render($atts, $content = null) {
+    // パラメータ取得
+    $atts = shortcode_atts(array(
+        'name' => 'user1',
+        'pos' => 'left',
+    ), $atts, 'bubble');
+    
+    // キャラクター情報
+    $characters = haru_bubble_get_characters();
+    
+    // 値の検証
+    $name = sanitize_key($atts['name']);
+    if (!isset($characters[$name])) {
+        $name = 'user1';
+    }
+    
+    $character = $characters[$name];
+    $pos = in_array($atts['pos'], array('left', 'right')) ? $atts['pos'] : 'left';
+    
+    // 位置チェック
+    if (!in_array($pos, $character['positions'])) {
+        $pos = $character['positions'][0];
+    }
+    
+    // コンテンツ処理
+    if (empty($content)) {
+        return '';
+    }
+    $content = do_shortcode($content);
+    $content = wp_kses_post($content);
+    
+    // 画像パス
+    $img_url = get_theme_file_uri('images/chat/' . $character['file']);
+    
+    // HTML出力（クラスのみ、スタイル属性なし）
+    $html = sprintf(
+        '<div class="haru-bubble haru-bubble--%s haru-bubble--%s">
+            <img class="haru-bubble__icon" src="%s" alt="%s" width="80" height="80" loading="lazy" decoding="async">
+            <div class="haru-bubble__body">
+                <div class="haru-bubble__name">%s</div>
+                <div class="haru-bubble__content">%s</div>
+            </div>
+        </div>',
+        esc_attr($pos),
+        esc_attr($name),
+        esc_url($img_url),
+        esc_attr($character['name']),
+        esc_html($character['name']),
+        $content
+    );
+    
+    return $html;
+}
+

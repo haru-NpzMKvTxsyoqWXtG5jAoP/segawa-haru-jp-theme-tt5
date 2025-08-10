@@ -999,3 +999,181 @@ body.archive {
 .haru-breadcrumbs li[aria-current="page"] {
   color: #666;
 }
+
+
+/* ==============================================
+   吹き出しチャットシステム
+============================================== */
+
+/* CSS変数で色管理 */
+:root {
+    /* レイアウト */
+    --haru-bubble-gap: 12px;
+    --haru-bubble-icon-size: 80px;
+    --haru-bubble-radius: 16px;
+    --haru-bubble-padding: 12px 16px;
+    
+    /* キャラクター別の色設定 */
+    --haru-bubble-bg-user1: #FFE4B5;
+    --haru-bubble-border-user1: #FFD700;
+    
+    --haru-bubble-bg-user2: #E6F3FF;
+    --haru-bubble-border-user2: #87CEEB;
+    
+    --haru-bubble-bg-user3: #FFE4E1;
+    --haru-bubble-border-user3: #FFB6C1;
+}
+
+/* 基本レイアウト */
+.haru-bubble {
+    display: grid;
+    grid-template-columns: var(--haru-bubble-icon-size) 1fr;
+    gap: var(--haru-bubble-gap);
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+/* 右配置 */
+.haru-bubble--right {
+    grid-template-columns: 1fr var(--haru-bubble-icon-size);
+}
+
+.haru-bubble--right .haru-bubble__icon {
+    order: 2;
+}
+
+.haru-bubble--right .haru-bubble__body {
+    order: 1;
+    text-align: right;
+}
+
+/* アイコン */
+.haru-bubble__icon {
+    width: var(--haru-bubble-icon-size);
+    height: var(--haru-bubble-icon-size);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 吹き出し本体 */
+.haru-bubble__body {
+    min-width: 0;
+}
+
+/* 名前 */
+.haru-bubble__name {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+/* 吹き出し内容（デフォルト） */
+.haru-bubble__content {
+    position: relative;
+    display: inline-block;
+    padding: var(--haru-bubble-padding);
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: var(--haru-bubble-radius);
+    line-height: 1.7;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+/* キャラクター別の色適用 */
+.haru-bubble--user1 .haru-bubble__content {
+    background: var(--haru-bubble-bg-user1);
+    border-color: var(--haru-bubble-border-user1);
+}
+
+.haru-bubble--user2 .haru-bubble__content {
+    background: var(--haru-bubble-bg-user2);
+    border-color: var(--haru-bubble-border-user2);
+}
+
+.haru-bubble--user3 .haru-bubble__content {
+    background: var(--haru-bubble-bg-user3);
+    border-color: var(--haru-bubble-border-user3);
+}
+
+/* 吹き出しの三角形 */
+.haru-bubble__content::before,
+.haru-bubble__content::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+}
+
+/* 左向き三角形（外枠） */
+.haru-bubble--left .haru-bubble__content::before {
+    left: -12px;
+    border: 12px solid transparent;
+    border-right-color: inherit;
+}
+
+/* 左向き三角形（内側） */
+.haru-bubble--left .haru-bubble__content::after {
+    left: -8px;
+    border: 10px solid transparent;
+    background: none;
+}
+
+/* user1の三角形内側 */
+.haru-bubble--user1.haru-bubble--left .haru-bubble__content::after {
+    border-right-color: var(--haru-bubble-bg-user1);
+}
+
+/* user2の三角形内側 */
+.haru-bubble--user2.haru-bubble--left .haru-bubble__content::after {
+    border-right-color: var(--haru-bubble-bg-user2);
+}
+
+/* user3の三角形内側 */
+.haru-bubble--user3.haru-bubble--left .haru-bubble__content::after {
+    border-right-color: var(--haru-bubble-bg-user3);
+}
+
+/* 右向き三角形（外枠） */
+.haru-bubble--right .haru-bubble__content::before {
+    right: -12px;
+    border: 12px solid transparent;
+    border-left-color: inherit;
+}
+
+/* 右向き三角形（内側） */
+.haru-bubble--right .haru-bubble__content::after {
+    right: -8px;
+    border: 10px solid transparent;
+    background: none;
+}
+
+/* 右向きの三角形内側 */
+.haru-bubble--user2.haru-bubble--right .haru-bubble__content::after {
+    border-left-color: var(--haru-bubble-bg-user2);
+}
+
+.haru-bubble--user3.haru-bubble--right .haru-bubble__content::after {
+    border-left-color: var(--haru-bubble-bg-user3);
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+    :root {
+        --haru-bubble-icon-size: 60px;
+        --haru-bubble-gap: 8px;
+    }
+    
+    .haru-bubble {
+        margin: 1.5rem 0;
+    }
+    
+    .haru-bubble__name {
+        font-size: 0.8125rem;
+    }
+    
+    .haru-bubble__content {
+        font-size: 0.9375rem;
+    }
+}
