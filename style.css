@@ -1033,7 +1033,7 @@ body.archive {
     display: grid;
     grid-template-columns: var(--haru-bubble-icon-size) 1fr;
     gap: var(--haru-bubble-gap);
-    align-items: flex-start;
+    align-items: center;
     margin: 2rem 0;
     --bubble-bg: var(--haru-bubble-bg);
     --bubble-border: var(--haru-bubble-border);
@@ -1107,37 +1107,42 @@ body.archive {
 .haru-bubble__content::after {
     content: "";
     position: absolute;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
 }
 
 /* 左向き三角形（外枠） */
 .haru-bubble--left .haru-bubble__content::before {
-    left: -12px;
-    border: 12px solid transparent;
-    border-right-color: var(--bubble-border);
+    left: -14px; /* ボーダー2px分を考慮 */
+    border-style: solid;
+    border-width: 12px 14px 12px 0;
+    border-color: transparent var(--bubble-border) transparent transparent;
 }
 
 /* 左向き三角形（内側） */
 .haru-bubble--left .haru-bubble__content::after {
-    left: -8px;
-    border: 10px solid transparent;
-    border-right-color: var(--bubble-bg);
-    background: none;
+    left: -10px;
+    border-style: solid;
+    border-width: 10px 12px 10px 0;
+    border-color: transparent var(--bubble-bg) transparent transparent;
 }
 
 /* 右向き三角形（外枠） */
 .haru-bubble--right .haru-bubble__content::before {
-    right: -12px;
-    border: 12px solid transparent;
-    border-left-color: var(--bubble-border);
+    right: -14px;
+    border-style: solid;
+    border-width: 12px 0 12px 14px;
+    border-color: transparent transparent transparent var(--bubble-border);
 }
 
 /* 右向き三角形（内側） */
 .haru-bubble--right .haru-bubble__content::after {
-    right: -8px;
-    border: 10px solid transparent;
-    border-left-color: var(--bubble-bg);
-    background: none;
+    right: -10px;
+    border-style: solid;
+    border-width: 10px 0 10px 12px;
+    border-color: transparent transparent transparent var(--bubble-bg);
 }
 
 /* モバイル対応 */
