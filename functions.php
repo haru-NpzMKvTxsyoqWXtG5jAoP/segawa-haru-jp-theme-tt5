@@ -267,10 +267,7 @@ function haru_breadcrumb_items() {
                 $scrapbook_page = get_page_by_path('scrapbook');
                 if ( ! $scrapbook_page ) {
                     // スラッグで見つからない場合、タイトルで探す
-                    $pages = get_pages(['title' => 'SCRAP BOOK']);
-                    if ( $pages ) {
-                        $scrapbook_page = $pages[0];
-                    }
+                    $scrapbook_page = get_page_by_title('SCRAP BOOK');
                 }
                 
                 if ( $scrapbook_page ) {
