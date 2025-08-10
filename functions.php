@@ -344,20 +344,20 @@ function haru_render_breadcrumbs() {
     $items = haru_breadcrumb_items();
 
     // 見えるパンくず（Microdataは最小限）
-    $html  = '<nav class=\"haru-breadcrumbs\" aria-label=\"パンくず\">';
-    $html .= '<ol itemscope itemtype=\"https://schema.org/BreadcrumbList\">';
+    $html  = '<nav class="haru-breadcrumbs" aria-label="パンくず">';
+    $html .= '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
     $pos = 1; $last = count($items);
     foreach ( $items as $i ) {
         $label = esc_html( wp_strip_all_tags( $i['label'] ) );
         $url   = $i['url'];
-        $html .= '<li itemprop=\"itemListElement\" itemscope itemtype=\"https://schema.org/ListItem\"'
-              .  ( $pos === $last ? ' aria-current=\"page\"' : '' ) . '>';
+        $html .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"'
+              .  ( $pos === $last ? ' aria-current="page"' : '' ) . '>';
         if ( $url && $pos !== $last ) {
-            $html .= '<a itemprop=\"item\" href=\"' . esc_url($url) . '\"><span itemprop=\"name\">' . $label . '</span></a>';
+            $html .= '<a itemprop="item" href="' . esc_url($url) . '"><span itemprop="name">' . $label . '</span></a>';
         } else {
-            $html .= '<span itemprop=\"name\">' . $label . '</span>';
+            $html .= '<span itemprop="name">' . $label . '</span>';
         }
-        $html .= '<meta itemprop=\"position\" content=\"' . intval($pos) . '\" /></li>';
+        $html .= '<meta itemprop="position" content="' . intval($pos) . '" /></li>';
         $pos++;
     }
     $html .= '</ol></nav>';
