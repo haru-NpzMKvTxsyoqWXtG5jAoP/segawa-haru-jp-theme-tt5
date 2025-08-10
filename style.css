@@ -989,7 +989,7 @@ body.archive {
 /* 区切り文字 */
 .haru-breadcrumbs li + li::before {
   content: "›";
-  opacity: 0.6;
+  color: #666;
   margin: 0 0.5rem;
 }
 
