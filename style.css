@@ -977,14 +977,12 @@ body.archive {
   font-size: var(--wp--preset--font-size--small);
   margin-bottom: var(--haru-space-small);
 }
-
 .haru-breadcrumbs * {
   font-size: inherit; /* 親のfont-sizeを継承 */
 }
 
 .haru-breadcrumbs ol {
   display: flex;
-  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
