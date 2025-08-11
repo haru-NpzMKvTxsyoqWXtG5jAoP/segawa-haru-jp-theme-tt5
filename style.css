@@ -1148,7 +1148,7 @@ body.archive {
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
     padding-bottom: 14px;
-    margin-top: var(--haru-space-medium);
+    margin-top: var(--haru-space-large);
     margin-bottom: 1.25rem;
 }
 
@@ -1165,10 +1165,8 @@ body.archive {
 /* ============ 見出し バー ============ */
 .haru-head-bar {
     background-color: var(--wp--preset--color--haru-green);
-    color: var(--wp--preset--color--haru-white);
-    text-align: center;
     padding: 1rem 1.5rem;
-    margin-top: var(--haru-space-medium);
+    margin-top: var(--haru-space-large);
     margin-bottom: 1.25rem;
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
