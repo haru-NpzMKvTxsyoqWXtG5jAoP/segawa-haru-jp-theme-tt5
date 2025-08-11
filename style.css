@@ -1013,8 +1013,13 @@ body.archive {
     --haru-bubble-radius: 16px;
     --haru-bubble-padding: 12px 16px;
     
-    /* 共通の背景色 */
+    /* 三角形サイズ */
+    --haru-bubble-arrow-size: 12px;
+    --haru-bubble-arrow-offset: 14px;
+    
+    /* 色 */
     --haru-bubble-bg: var(--wp--preset--color--haru-white);
+    --haru-bubble-name-color: #666;
     
     /* キャラクター別のボーダー色 */
     --haru-bubble-border: #ddd; /* デフォルト */
@@ -1030,6 +1035,8 @@ body.archive {
     gap: var(--haru-bubble-gap);
     align-items: center;
     margin: 2rem 0;
+    /* カスタムプロパティでボーダー色を管理 */
+    --bubble-border: var(--haru-bubble-border);
 }
 
 /* 右配置 */
@@ -1049,7 +1056,6 @@ body.archive {
     object-fit: cover;
 }
 
-
 /* アバター部分（アイコン＋名前） */
 .haru-bubble__avatar {
     display: flex;
@@ -1061,7 +1067,7 @@ body.archive {
 /* 名前 */
 .haru-bubble__name {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--haru-bubble-name-color);
     font-weight: 500;
     text-align: center;
 }
@@ -1072,7 +1078,7 @@ body.archive {
     display: inline-block;
     padding: var(--haru-bubble-padding);
     background: var(--haru-bubble-bg);
-    border: 2px solid var(--haru-bubble-border);
+    border: 2px solid var(--bubble-border);
     border-radius: var(--haru-bubble-radius);
     line-height: 1.7;
     max-width: 100%;
@@ -1080,16 +1086,16 @@ body.archive {
 }
 
 /* キャラクター別のボーダー色 */
-.haru-bubble--user1 .haru-bubble__content {
-    border-color: var(--haru-bubble-border-user1);
+.haru-bubble--user1 {
+    --bubble-border: var(--haru-bubble-border-user1);
 }
 
-.haru-bubble--user2 .haru-bubble__content {
-    border-color: var(--haru-bubble-border-user2);
+.haru-bubble--user2 {
+    --bubble-border: var(--haru-bubble-border-user2);
 }
 
-.haru-bubble--user3 .haru-bubble__content {
-    border-color: var(--haru-bubble-border-user3);
+.haru-bubble--user3 {
+    --bubble-border: var(--haru-bubble-border-user3);
 }
 
 /* 吹き出しの三角形 */
@@ -1101,56 +1107,49 @@ body.archive {
     transform: translateY(-50%);
     width: 0;
     height: 0;
+    border-style: solid;
 }
 
-/* 左向き三角形（外枠） */
+/* 左向き三角形 */
 .haru-bubble--left .haru-bubble__content::before {
-    left: -14px; /* ボーダー2px分を考慮 */
-    border-style: solid;
-    border-width: 12px 14px 12px 0;
-    border-color: transparent currentColor transparent transparent;
+    left: calc(-1 * var(--haru-bubble-arrow-offset));
+    border-width: var(--haru-bubble-arrow-size) var(--haru-bubble-arrow-offset) var(--haru-bubble-arrow-size) 0;
+    border-color: transparent var(--bubble-border) transparent transparent;
 }
 
-/* 左向き三角形（内側） */
 .haru-bubble--left .haru-bubble__content::after {
-    left: -10px;
-    border-style: solid;
+    left: calc(-10px);
     border-width: 10px 12px 10px 0;
     border-color: transparent var(--haru-bubble-bg) transparent transparent;
 }
 
-/* 右向き三角形（外枠） */
+/* 右向き三角形 */
 .haru-bubble--right .haru-bubble__content::before {
-    right: -14px;
-    border-style: solid;
-    border-width: 12px 0 12px 14px;
-    border-color: transparent transparent transparent currentColor;
+    right: calc(-1 * var(--haru-bubble-arrow-offset));
+    border-width: var(--haru-bubble-arrow-size) 0 var(--haru-bubble-arrow-size) var(--haru-bubble-arrow-offset);
+    border-color: transparent transparent transparent var(--bubble-border);
 }
 
-/* 右向き三角形（内側） */
 .haru-bubble--right .haru-bubble__content::after {
     right: -10px;
-    border-style: solid;
     border-width: 10px 0 10px 12px;
     border-color: transparent transparent transparent var(--haru-bubble-bg);
 }
 
 /* モバイル対応 */
 @media (max-width: 600px) {
-    :root {
+    .haru-bubble {
         --haru-bubble-icon-size: 60px;
         --haru-bubble-gap: 8px;
-    }
-    
-    .haru-bubble {
+        --haru-bubble-padding: 10px 14px;
         margin: 1.5rem 0;
     }
     
     .haru-bubble__name {
-        font-size: 0.8125rem;
+        font-size: 0.7rem;
     }
     
     .haru-bubble__content {
-        font-size: 0.9375rem;
+        font-size: 0.95rem;
     }
 }
