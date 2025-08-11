@@ -1013,6 +1013,9 @@ body.archive {
     /* 三角形サイズ（複数箇所で使用） */
     --haru-bubble-arrow-size: 12px;
     
+    /* ボーダー幅（三角形の計算に使用） */
+    --haru-bubble-border-width: 1.5px;
+    
     /* 背景色（複数箇所で使用） */
     --haru-bubble-bg: var(--wp--preset--color--haru-white);
     
@@ -1074,11 +1077,12 @@ body.archive {
     display: inline-block;
     padding: 12px 16px;
     background: var(--haru-bubble-bg);
-    border: 1.5px solid var(--bubble-border);
+    border: var(--haru-bubble-border-width) solid var(--bubble-border);
     border-radius: 12px;
     line-height: 1.7;
     max-width: 100%;
     word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 /* キャラクター別のボーダー色 */
@@ -1108,27 +1112,27 @@ body.archive {
 
 /* 左向き三角形 */
 .haru-bubble--left .haru-bubble__content::before {
-    left: -13.5px;
-    border-width: var(--haru-bubble-arrow-size) 13.5px var(--haru-bubble-arrow-size) 0;
+    left: calc(-1 * (var(--haru-bubble-arrow-size) + var(--haru-bubble-border-width)));
+    border-width: var(--haru-bubble-arrow-size) calc(var(--haru-bubble-arrow-size) + var(--haru-bubble-border-width)) var(--haru-bubble-arrow-size) 0;
     border-color: transparent var(--bubble-border) transparent transparent;
 }
 
 .haru-bubble--left .haru-bubble__content::after {
-    left: -11px;
-    border-width: 10.5px 12.5px 10.5px 0;
+    left: calc(-1 * (var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)));
+    border-width: calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) var(--haru-bubble-arrow-size) calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) 0;
     border-color: transparent var(--haru-bubble-bg) transparent transparent;
 }
 
 /* 右向き三角形 */
 .haru-bubble--right .haru-bubble__content::before {
-    right: -13.5px;
-    border-width: var(--haru-bubble-arrow-size) 0 var(--haru-bubble-arrow-size) 13.5px;
+    right: calc(-1 * (var(--haru-bubble-arrow-size) + var(--haru-bubble-border-width)));
+    border-width: var(--haru-bubble-arrow-size) 0 var(--haru-bubble-arrow-size) calc(var(--haru-bubble-arrow-size) + var(--haru-bubble-border-width));
     border-color: transparent transparent transparent var(--bubble-border);
 }
 
 .haru-bubble--right .haru-bubble__content::after {
-    right: -11px;
-    border-width: 10.5px 0 10.5px 12.5px;
+    right: calc(-1 * (var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)));
+    border-width: calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) 0 calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) var(--haru-bubble-arrow-size);
     border-color: transparent transparent transparent var(--haru-bubble-bg);
 }
 
