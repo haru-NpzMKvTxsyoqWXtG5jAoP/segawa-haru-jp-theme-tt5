@@ -1007,19 +1007,15 @@ body.archive {
 
 /* CSS変数で色管理 */
 :root {
-    /* レイアウト */
-    --haru-bubble-gap: 12px;
+    /* アイコンサイズ（複数箇所で使用） */
     --haru-bubble-icon-size: 80px;
-    --haru-bubble-radius: 16px;
-    --haru-bubble-padding: 12px 16px;
     
-    /* 三角形サイズ */
+    /* 三角形サイズ（複数箇所で使用） */
     --haru-bubble-arrow-size: 12px;
     --haru-bubble-arrow-offset: 14px;
     
-    /* 色 */
+    /* 背景色（複数箇所で使用） */
     --haru-bubble-bg: var(--wp--preset--color--haru-white);
-    --haru-bubble-name-color: #666;
     
     /* キャラクター別のボーダー色 */
     --haru-bubble-border: #ddd; /* デフォルト */
@@ -1032,7 +1028,7 @@ body.archive {
 .haru-bubble {
     display: grid;
     grid-template-columns: var(--haru-bubble-icon-size) 1fr;
-    gap: var(--haru-bubble-gap);
+    gap: 12px;
     align-items: center;
     margin: 2rem 0;
     /* カスタムプロパティでボーダー色を管理 */
@@ -1067,7 +1063,7 @@ body.archive {
 /* 名前 */
 .haru-bubble__name {
     font-size: 0.75rem;
-    color: var(--haru-bubble-name-color);
+    color: #666;
     font-weight: 500;
     text-align: center;
 }
@@ -1076,10 +1072,10 @@ body.archive {
 .haru-bubble__content {
     position: relative;
     display: inline-block;
-    padding: var(--haru-bubble-padding);
+    padding: 12px 16px;
     background: var(--haru-bubble-bg);
     border: 2px solid var(--bubble-border);
-    border-radius: var(--haru-bubble-radius);
+    border-radius: 16px;
     line-height: 1.7;
     max-width: 100%;
     word-break: break-word;
@@ -1136,20 +1132,3 @@ body.archive {
     border-color: transparent transparent transparent var(--haru-bubble-bg);
 }
 
-/* モバイル対応 */
-@media (max-width: 600px) {
-    .haru-bubble {
-        --haru-bubble-icon-size: 60px;
-        --haru-bubble-gap: 8px;
-        --haru-bubble-padding: 10px 14px;
-        margin: 1.5rem 0;
-    }
-    
-    .haru-bubble__name {
-        font-size: 0.7rem;
-    }
-    
-    .haru-bubble__content {
-        font-size: 0.95rem;
-    }
-}
