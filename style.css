@@ -1051,17 +1051,22 @@ body.archive {
 
 /* アバター部分（アイコン＋名前） */
 .haru-bubble__avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    width: var(--haru-bubble-icon-size);
+    height: var(--haru-bubble-icon-size);
 }
 
 /* 名前 */
 .haru-bubble__name {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 0.75rem;
     color: #666;
     font-weight: 500;
     text-align: center;
+    white-space: nowrap;
 }
 
 /* 吹き出し内容（デフォルト） */
