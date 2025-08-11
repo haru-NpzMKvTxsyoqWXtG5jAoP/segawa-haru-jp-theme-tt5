@@ -95,6 +95,11 @@ a[href*="haru-gallery-item-wide"] {
   content: " ";
 }
 
+/* text-wrap: pretty を無効化 */
+* {
+  text-wrap: initial;
+}
+
 /* =============================================
    ユーティリティクラス
 ============================================= */
@@ -1143,7 +1148,8 @@ body.archive {
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
     padding-bottom: 14px;
-    margin-bottom: 1.5rem;
+    margin-top: var(--haru-space-medium);
+    margin-bottom: 1.25rem;
 }
 
 .haru-head-underline::after {
