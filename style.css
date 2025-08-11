@@ -1118,8 +1118,8 @@ body.archive {
 }
 
 .haru-bubble--left .haru-bubble__content::after {
-    left: calc(-1 * (var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)));
-    border-width: calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) var(--haru-bubble-arrow-size) calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) 0;
+    left: calc(-1 * (var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width) - 0.5px));
+    border-width: calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width) + 0.5px) calc(var(--haru-bubble-arrow-size) + 0.5px) calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width) + 0.5px) 0;
     border-color: transparent var(--haru-bubble-bg) transparent transparent;
 }
 
@@ -1131,8 +1131,8 @@ body.archive {
 }
 
 .haru-bubble--right .haru-bubble__content::after {
-    right: calc(-1 * (var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)));
-    border-width: calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) 0 calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width)) var(--haru-bubble-arrow-size);
+    right: calc(-1 * (var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width) - 0.5px));
+    border-width: calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width) + 0.5px) 0 calc(var(--haru-bubble-arrow-size) - var(--haru-bubble-border-width) + 0.5px) calc(var(--haru-bubble-arrow-size) + 0.5px);
     border-color: transparent transparent transparent var(--haru-bubble-bg);
 }
 
