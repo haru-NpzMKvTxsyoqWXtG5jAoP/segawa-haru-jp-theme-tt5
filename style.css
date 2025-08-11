@@ -1141,7 +1141,7 @@ body.archive {
 .haru-head-underline {
     position: relative;
     font-weight: 700;
-    font-size: var(--haru-heading-size);
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
     padding-bottom: 14px;
     margin-bottom: 1.5rem;
 }
@@ -1159,7 +1159,7 @@ body.archive {
 /* ============ ボーダーボックス ============ */
 .haru-border-box {
     background-color: var(--wp--preset--color--haru-white);
-    border: 1px solid var(--wp--preset--color--haru-black);
+    border: var(--haru-bubble-border-width) solid var(--wp--preset--color--haru-green);
     padding: 12px 16px;
     margin: 1rem 0;
 }
