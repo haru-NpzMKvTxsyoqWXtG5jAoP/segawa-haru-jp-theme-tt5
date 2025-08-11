@@ -1027,7 +1027,7 @@ body.archive {
     display: grid;
     grid-template-columns: var(--haru-bubble-icon-size) 1fr;
     gap: 20px;
-    align-items: start; /* アイコンの頂点で揃える */
+    align-items: center;
     margin: 2rem 0;
 }
 
@@ -1050,20 +1050,22 @@ body.archive {
 
 /* アバター部分（アイコン＋名前） */
 .haru-bubble__avatar {
-    display: grid;
-    grid-template-rows: var(--haru-bubble-icon-size) auto;
-    justify-items: center;
-    align-self: start; /* 上揃えを維持 */
+    position: relative;
+    width: var(--haru-bubble-icon-size);
+    height: var(--haru-bubble-icon-size);
 }
 
 /* 名前 */
 .haru-bubble__name {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 0.75rem;
     color: #666;
     font-weight: 500;
     text-align: center;
     white-space: nowrap;
-    margin-top: 0.25rem;
 }
 
 /* 吹き出し内容（デフォルト） */
@@ -1077,8 +1079,6 @@ body.archive {
     line-height: 1.7;
     max-width: 100%;
     word-break: break-word;
-    /* アイコン中心に三角形が来るよう調整 */
-    margin-top: calc(var(--haru-bubble-icon-size) / 2 - 1.5em);
 }
 
 /* キャラクター別のボーダー色 */
@@ -1095,28 +1095,40 @@ body.archive {
 }
 
 /* 吹き出しの三角形 */
-.haru-bubble__content::before {
+.haru-bubble__content::before,
+.haru-bubble__content::after {
     content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: var(--haru-bubble-arrow-size);
-    height: calc(var(--haru-bubble-arrow-size) * 2);
-    background: var(--haru-bubble-bg);
-    border: 1.5px solid var(--bubble-border);
+    width: 0;
+    height: 0;
+    border-style: solid;
 }
 
 /* 左向き三角形 */
 .haru-bubble--left .haru-bubble__content::before {
-    left: calc(-1 * var(--haru-bubble-arrow-size) + 1px);
-    clip-path: polygon(100% 0, 0 50%, 100% 100%);
-    border-right: none;
+    left: -13.5px;
+    border-width: var(--haru-bubble-arrow-size) 13.5px var(--haru-bubble-arrow-size) 0;
+    border-color: transparent var(--bubble-border) transparent transparent;
+}
+
+.haru-bubble--left .haru-bubble__content::after {
+    left: -11px;
+    border-width: 10.5px 12.5px 10.5px 0;
+    border-color: transparent var(--haru-bubble-bg) transparent transparent;
 }
 
 /* 右向き三角形 */
 .haru-bubble--right .haru-bubble__content::before {
-    right: calc(-1 * var(--haru-bubble-arrow-size) + 1px);
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-    border-left: none;
+    right: -13.5px;
+    border-width: var(--haru-bubble-arrow-size) 0 var(--haru-bubble-arrow-size) 13.5px;
+    border-color: transparent transparent transparent var(--bubble-border);
+}
+
+.haru-bubble--right .haru-bubble__content::after {
+    right: -11px;
+    border-width: 10.5px 0 10.5px 12.5px;
+    border-color: transparent transparent transparent var(--haru-bubble-bg);
 }
 
