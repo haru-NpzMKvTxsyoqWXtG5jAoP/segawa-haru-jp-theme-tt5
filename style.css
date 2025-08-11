@@ -988,14 +988,6 @@ body.archive {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 0;
-}
-
-/* リストアイテムの配置 */
-.haru-breadcrumbs li {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
 }
 
 /* 区切り文字 */
@@ -1003,7 +995,6 @@ body.archive {
   content: "›";
   color: var(--wp--preset--color--haru-gray-text);
   margin: 0 0.5rem;
-  flex-shrink: 0;
 }
 
 /* 現在のページ */
@@ -1013,9 +1004,9 @@ body.archive {
 
 
 /* ==============================================
-   吹き出しシステム
+   記事装飾
 ============================================== */
-
+/* ============ 吹き出しシステム ============ */
 /* CSS変数で色管理 */
 :root {
     /* アイコンサイズ（複数箇所で使用） */
@@ -1146,3 +1137,19 @@ body.archive {
     border-color: transparent transparent transparent var(--haru-bubble-bg);
 }
 
+/* ============ 見出し アンダーライン ============ */
+h2.haru-head-underline {
+    position: relative;
+    font-weight: 700;
+    padding-bottom: 14px;
+}
+
+h2.haru-head-underline::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: var(--wp--preset--color--haru-green);
+}
