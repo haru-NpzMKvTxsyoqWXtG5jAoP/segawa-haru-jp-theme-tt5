@@ -1162,6 +1162,18 @@ body.archive {
     background-color: var(--wp--preset--color--haru-green);
 }
 
+/* ============ 見出し バー ============ */
+.haru-head-bar {
+    background-color: var(--wp--preset--color--haru-green);
+    color: var(--wp--preset--color--haru-white);
+    text-align: center;
+    padding: 1rem 1.5rem;
+    margin-top: var(--haru-space-medium);
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+}
+
 /* ============ ボーダーボックス ============ */
 .haru-border-box {
     background-color: var(--wp--preset--color--haru-white);
