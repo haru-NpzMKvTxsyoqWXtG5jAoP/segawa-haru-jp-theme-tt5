@@ -983,21 +983,32 @@ body.archive {
 
 .haru-breadcrumbs ol {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 0;
+}
+
+/* リストアイテムの配置 */
+.haru-breadcrumbs li {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 /* 区切り文字 */
 .haru-breadcrumbs li + li::before {
   content: "›";
-  color: #666;
+  color: var(--wp--preset--color--haru-gray-text);
   margin: 0 0.5rem;
+  flex-shrink: 0;
 }
 
 /* 現在のページ */
 .haru-breadcrumbs li[aria-current="page"] {
-  color: #666;
+  color: var(--wp--preset--color--haru-gray-text);
 }
 
 
@@ -1011,7 +1022,7 @@ body.archive {
     --haru-bubble-icon-size: 80px;
     
     /* 三角形サイズ（複数箇所で使用） */
-    --haru-bubble-arrow-size: 12px;
+    --haru-bubble-arrow-size: 10px;
     
     /* ボーダー幅（三角形の計算に使用） */
     --haru-bubble-border-width: 1.5px;
@@ -1065,8 +1076,7 @@ body.archive {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.75rem;
-    color: #666;
-    font-weight: 500;
+    color: var(--wp--preset--color--haru-gray-text);
     text-align: center;
     white-space: nowrap;
 }
