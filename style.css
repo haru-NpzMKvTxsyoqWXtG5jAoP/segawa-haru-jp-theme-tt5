@@ -1036,9 +1036,9 @@ body.archive {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子Flowでも同じ間隔を維持（スクラップカードは除外） */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow:not([class*="haru-scrap-card"]) > * + *,
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow:not([class*="haru-scrap-card"]) > * + * {
+/* 入れ子Flowでも同じ間隔を維持 */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
   margin-block-start: var(--haru-post-gap);
 }
 
