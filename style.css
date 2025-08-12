@@ -970,8 +970,8 @@ body.archive {
   font-weight: 700;
 }
 
-/* 段落（最後以外） */
-.haru-page-container > p:not(:last-of-type) {
+/* セクション間の余白 */
+.haru-page-container section:not(:last-child) {
   margin-bottom: var(--haru-space-small);
 }
 
