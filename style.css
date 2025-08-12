@@ -972,7 +972,7 @@ body.archive {
 
 /* セクション間の余白 */
 .haru-page-container section:not(:last-child) {
-  margin-bottom: var(--haru-space-small);
+  margin-bottom: var(--haru-space-medium);
 }
 
 /* =============================================
