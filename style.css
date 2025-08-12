@@ -1027,22 +1027,10 @@ body.archive {
   letter-spacing: var(--haru-post-letter-spacing);
 }
 
-/* 直下ブロックの間隔（Flowレイアウト） */
+/* 直下ブロックの間隔 */
 .single-post .wp-block-post-content > * + *,
 .single-post .entry-content > * + * {
   margin-block-start: var(--haru-post-gap);
-}
-
-/* 入れ子のFlowレイアウトでも同じ間隔を維持 */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
-  margin-block-start: var(--haru-post-gap);
-}
-
-/* Flex/Gridレイアウトはgapで間隔制御 */
-.single-post .wp-block-post-content :where(.is-layout-flex, .is-layout-grid),
-.single-post .entry-content :where(.is-layout-flex, .is-layout-grid) {
-  gap: var(--haru-post-gap);
 }
 
 
