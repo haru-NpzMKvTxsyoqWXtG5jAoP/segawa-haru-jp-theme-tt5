@@ -1029,15 +1029,25 @@ body.archive {
   letter-spacing: var(--haru-post-letter-spacing);
 }
 
-/* 直下ブロックの間隔（スクラップカードと見出し2点は除外） */
-.single-post .wp-block-post-content > *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar) + *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar),
-.single-post .entry-content > *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar) + *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar) {
+/* 直下ブロックの間隔（scrap-cards と 見出し2点は除外） */
+.single-post .wp-block-post-content
+  > *:not(:is(.haru-scrap-cards-container, .haru-head-underline, .haru-head-bar))
+  + *:not(:is(.haru-scrap-cards-container, .haru-head-underline, .haru-head-bar)),
+.single-post .entry-content
+  > *:not(:is(.haru-scrap-cards-container, .haru-head-underline, .haru-head-bar))
+  + *:not(:is(.haru-scrap-cards-container, .haru-head-underline, .haru-head-bar)) {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子のFlowレイアウトでも同じ間隔を維持（スクラップカードと見出し2点は除外） */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container *) > *:not(.haru-head-underline):not(.haru-head-bar) + *:not(.haru-head-underline):not(.haru-head-bar),
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container *) > *:not(.haru-head-underline):not(.haru-head-bar) + *:not(.haru-head-underline):not(.haru-head-bar) {
+/* 入れ子Flowでも同じ間隔（scrap-cards と 見出し2点は除外） */
+.single-post .wp-block-post-content
+  :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container)
+  > *:not(.haru-head-underline):not(.haru-head-bar)
+  + *:not(.haru-head-underline):not(.haru-head-bar),
+.single-post .entry-content
+  :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container)
+  > *:not(.haru-head-underline):not(.haru-head-bar)
+  + *:not(.haru-head-underline):not(.haru-head-bar) {
   margin-block-start: var(--haru-post-gap);
 }
 
