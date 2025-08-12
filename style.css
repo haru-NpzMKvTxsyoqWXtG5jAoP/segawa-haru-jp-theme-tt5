@@ -1014,30 +1014,34 @@ body.archive {
 /* CSS変数定義 */
 :root {
   --haru-post-gap: 1.6rem;
-  --haru-post-pad-left: 3vw;
-  --haru-post-pad-right: 3.2vw;
-  --haru-post-line-height: 1.9;
-  --haru-post-letter-spacing: 0.04em;
 }
 
 /* 本文エリアの基本設定 */
 .single-post .wp-block-post-content,
 .single-post .entry-content {
-  padding-left: var(--haru-post-pad-left);
-  padding-right: var(--haru-post-pad-right);
-  line-height: var(--haru-post-line-height);
-  letter-spacing: var(--haru-post-letter-spacing);
+  padding-left: 3vw;
+  padding-right: 3.2vw;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
 }
 
-/* 直下ブロックの間隔 */
-.single-post .wp-block-post-content > * + *,
-.single-post .entry-content > * + * {
+/* 直下ブロックの間隔（カードと見出しは除外） */
+.single-post .wp-block-post-content 
+  > *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) 
+  + *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)),
+.single-post .entry-content 
+  > *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) 
+  + *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子Flowでも同じ間隔を維持 */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
+/* 入れ子Flowでも同じ間隔を維持（カードと見出しは除外） */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow 
+  > *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) 
+  + *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)),
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow 
+  > *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) 
+  + *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) {
   margin-block-start: var(--haru-post-gap);
 }
 
