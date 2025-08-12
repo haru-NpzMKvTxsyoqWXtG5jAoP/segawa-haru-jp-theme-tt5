@@ -972,7 +972,7 @@ body.archive {
 
 /* セクション間の余白 */
 .haru-page-container section:not(:last-child) {
-  margin-bottom: var(--haru-space-medium);
+  margin-bottom: var(--haru-space-small);
 }
 
 /* =============================================
@@ -1005,6 +1005,44 @@ body.archive {
 /* 現在のページ */
 .haru-breadcrumbs li[aria-current="page"] {
   color: var(--wp--preset--color--haru-gray-text);
+}
+
+
+/* ==============================================
+   投稿記事レイアウト
+============================================== */
+/* CSS変数定義 */
+:root {
+  --haru-post-gap: 1.6rem;
+  --haru-post-pad-x: clamp(1rem, 3.2vw, 2rem);
+  --haru-post-line-height: 1.9;
+  --haru-post-letter-spacing: 0.04em;
+}
+
+/* 本文エリアの基本設定 */
+.single-post .wp-block-post-content,
+.single-post .entry-content {
+  padding-inline: var(--haru-post-pad-x);
+  line-height: var(--haru-post-line-height);
+  letter-spacing: var(--haru-post-letter-spacing);
+}
+
+/* 直下ブロックの間隔（Flowレイアウト） */
+.single-post .wp-block-post-content > * + *,
+.single-post .entry-content > * + * {
+  margin-block-start: var(--haru-post-gap);
+}
+
+/* 入れ子のFlowレイアウトでも同じ間隔を維持 */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
+  margin-block-start: var(--haru-post-gap);
+}
+
+/* Flex/Gridレイアウトはgapで間隔制御 */
+.single-post .wp-block-post-content :where(.is-layout-flex, .is-layout-grid),
+.single-post .entry-content :where(.is-layout-flex, .is-layout-grid) {
+  gap: var(--haru-post-gap);
 }
 
 
