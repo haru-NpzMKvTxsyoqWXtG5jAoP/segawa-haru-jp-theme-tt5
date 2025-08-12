@@ -1172,6 +1172,24 @@ body.archive {
     font-size: clamp(1.25rem, 4vw, 1.75rem);
 }
 
+/* ============ 小見出し ============ */
+.haru-head-s-a {
+    font-size: var(--wp--preset--font-size--large);
+    position: relative;
+    display: inline-block;
+}
+
+.haru-head-s-a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.1em;
+    width: 100%;
+    height: 0.4em;
+    background-color: var(--wp--preset--color--haru-light-pink);
+    z-index: -1;
+}
+
 /* ============ ボーダーボックス ============ */
 .haru-border-box {
     background-color: var(--wp--preset--color--haru-white);
