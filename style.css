@@ -1029,15 +1029,15 @@ body.archive {
   letter-spacing: var(--haru-post-letter-spacing);
 }
 
-/* 直下ブロックの間隔（カードコンテナは除外） */
-.single-post .wp-block-post-content > *:not(.haru-scrap-cards-container) + *:not(.haru-scrap-cards-container),
-.single-post .entry-content > *:not(.haru-scrap-cards-container) + *:not(.haru-scrap-cards-container) {
+/* 直下ブロックの間隔（特殊コンポーネントは除外） */
+.single-post .wp-block-post-content > *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar) + *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar),
+.single-post .entry-content > *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar) + *:not(.haru-scrap-cards-container):not(.haru-head-underline):not(.haru-head-bar) {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子のFlowレイアウトでも同じ間隔を維持 */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
+/* 入れ子のFlowレイアウトでも同じ間隔を維持（スクラップカードは除外） */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container *) > * + *,
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container *) > * + * {
   margin-block-start: var(--haru-post-gap);
 }
 
@@ -1243,8 +1243,3 @@ body.archive {
     z-index: 0;
 }
 
-/* 投稿記事内での見出しマージン確保 */
-.single-post .haru-head-underline,
-.single-post .haru-head-bar {
-    margin-top: var(--haru-space-large);
-}
