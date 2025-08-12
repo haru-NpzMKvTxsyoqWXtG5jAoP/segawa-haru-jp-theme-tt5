@@ -1018,7 +1018,7 @@ body.archive {
 .single-post .wp-block-post-content,
 .single-post .entry-content {
   padding-left: 3vw;
-  padding-right: 3.2vw;
+  padding-right: 3vw;
   line-height: 1.9;
   letter-spacing: 0.04em;
 }
@@ -1036,9 +1036,9 @@ body.archive {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子Flowでも同じ間隔を維持 */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
+/* 入れ子Flowでも同じ間隔を維持（スクラップカードは除外） */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow:not([class*="haru-scrap-card"]) > * + *,
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow:not([class*="haru-scrap-card"]) > * + * {
   margin-block-start: var(--haru-post-gap);
 }
 
