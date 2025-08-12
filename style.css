@@ -1029,25 +1029,15 @@ body.archive {
   letter-spacing: var(--haru-post-letter-spacing);
 }
 
-/* 直下ブロックの間隔（scrap-cards と 見出し2点は除外） */
-.single-post .wp-block-post-content
-  > *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar))
-  + *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar)),
-.single-post .entry-content
-  > *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar))
-  + *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) {
+/* 直下ブロックの間隔 */
+.single-post .wp-block-post-content > * + *,
+.single-post .entry-content > * + * {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子Flowでも同じ間隔（scrap-cards と 見出し2点は除外） */
-.single-post .wp-block-post-content
-  :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container)
-  > *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar))
-  + *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar)),
-.single-post .entry-content
-  :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-cards-container)
-  > *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar))
-  + *:not(:is(.haru-scrap-cards-container, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) {
+/* 入れ子Flowでも同じ間隔を維持 */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow > * + *,
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow > * + * {
   margin-block-start: var(--haru-post-gap);
 }
 
@@ -1197,9 +1187,10 @@ body.archive {
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
     padding-bottom: 14px;
-    margin-top: var(--haru-space-large);
+    margin-top: var(--haru-space-large) !important;
     margin-bottom: 1.25rem;
 }
+
 
 .haru-head-underline::after {
     content: "";
@@ -1215,7 +1206,7 @@ body.archive {
 .haru-head-bar {
     background-color: var(--wp--preset--color--haru-green);
     padding: 1rem 1.5rem;
-    margin-top: var(--haru-space-large);
+    margin-top: var(--haru-space-large) !important;
     margin-bottom: 1.25rem;
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
