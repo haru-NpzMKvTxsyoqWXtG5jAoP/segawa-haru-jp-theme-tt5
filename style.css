@@ -1035,11 +1035,11 @@ body.archive {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子Flowでも同じ間隔を維持（カードと見出しは除外） */
-.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow 
+/* 入れ子Flowでも同じ間隔を維持（カード内部と見出しは除外） */
+.single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-card):not(.haru-scrap-cards-container) 
   > *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) 
   + *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)),
-.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow 
+.single-post .entry-content :where(article, section, .wp-block-group).is-layout-flow:not(.haru-scrap-card):not(.haru-scrap-cards-container) 
   > *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) 
   + *:not(:is(.wp-block-query, .haru-scrap-card, .haru-head-underline, .haru-head-bar)) {
   margin-block-start: var(--haru-post-gap);
