@@ -1015,8 +1015,27 @@ body.archive {
 :root {
   --haru-post-gap: 1.6rem;
 }
+/* コンテナ設定 */
+.single-post .wp-block-post-content,
+.single-post .entry-content {
+  padding-left: 3vw;
+  padding-right: 3.2vw;
+}
 
-/* 直下ブロックの間隔（見出しのみ除外） */
+/* 本文の段落系要素のみ */
+.single-post .wp-block-post-content > p,
+.single-post .wp-block-post-content > ul,
+.single-post .wp-block-post-content > ol,
+.single-post .wp-block-post-content > blockquote,
+.single-post .entry-content > p,
+.single-post .entry-content > ul,
+.single-post .entry-content > ol,
+.single-post .entry-content > blockquote {
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+}
+
+/* 直下ブロックの間隔（見出し2点を除外） */
 .single-post .wp-block-post-content 
   > *:not(:is(.haru-head-underline, .haru-head-bar)) 
   + *:not(:is(.haru-head-underline, .haru-head-bar)),
@@ -1026,7 +1045,7 @@ body.archive {
   margin-block-start: var(--haru-post-gap);
 }
 
-/* 入れ子Flowでも同じ間隔を維持（カード関連は全て除外） */
+/* 入れ子Flowでも同じ間隔を維持（スクラップカードと見出し2点を全て除外） */
 .single-post .wp-block-post-content :where(article, section, .wp-block-group).is-layout-flow:not([class*="haru-scrap-card"]) 
   > *:not(:is(.haru-head-underline, .haru-head-bar)) 
   + *:not(:is(.haru-head-underline, .haru-head-bar)),
@@ -1035,7 +1054,6 @@ body.archive {
   + *:not(:is(.haru-head-underline, .haru-head-bar)) {
   margin-block-start: var(--haru-post-gap);
 }
-
 
 /* ==============================================
    記事装飾
@@ -1182,7 +1200,8 @@ body.archive {
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
     padding-bottom: 14px;
-    margin-top: var(--haru-space-large);
+    /* 投稿記事レイアウトに勝つためimportant */
+    margin-top: var(--haru-space-large) !important;
     margin-bottom: 1.25rem;
 }
 
@@ -1201,7 +1220,8 @@ body.archive {
 .haru-head-bar {
     background-color: var(--wp--preset--color--haru-green);
     padding: 1rem 1.5rem;
-    margin-top: var(--haru-space-large);
+    /* 投稿記事レイアウトに勝つためimportant */
+    margin-top: var(--haru-space-large) !important;
     margin-bottom: 1.25rem;
     font-weight: 700;
     font-size: clamp(1.25rem, 4vw, 1.75rem);
