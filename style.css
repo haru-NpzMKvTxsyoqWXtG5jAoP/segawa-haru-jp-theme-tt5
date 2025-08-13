@@ -1240,6 +1240,7 @@ body.archive {
 /* ============ 記事内テキストリンク ============ */
 .haru-post-link {
     color: var(--wp--preset--color--haru-gray-text);
+    text-decoration: underline !important;
 }
 
 /* ============ ボーダーボックス ============ */
