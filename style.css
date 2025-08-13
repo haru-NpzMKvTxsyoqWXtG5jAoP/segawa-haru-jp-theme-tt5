@@ -1042,6 +1042,11 @@ body.archive {
   margin-block-start: var(--haru-post-gap);
 }
 
+/* 小見出しの直後は狭い間隔（通常の1.6remではなく0.5rem） */
+.haru-head-s-a + * {
+  margin-block-start: 0.5rem !important;
+}
+
 /* ==============================================
    記事装飾
 ============================================== */
