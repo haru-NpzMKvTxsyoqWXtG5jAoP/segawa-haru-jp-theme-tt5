@@ -9,9 +9,9 @@ Template: twentytwentyfive
 :root {
   /* レイアウト変数（WordPressに定義がないもののみ） */
   --haru-element-gap: 1px;
-  --haru-space-small: clamp(0.7rem, 1.3vw, 1rem);
-  --haru-space-medium: clamp(2rem, 4vw, 3rem);
-  --haru-space-large: clamp(3rem, 7vw, 6rem);
+  --haru-space-small: clamp(0.9rem, 2vw, 1.25rem);
+  --haru-space-medium: clamp(2.5rem, 5vw, 3.5rem);
+  --haru-space-large: clamp(4rem, 8vw, 6.5rem);
   --haru-border-width: 1px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
@@ -1241,7 +1241,6 @@ body.archive {
 /* ============ 記事内テキストリンク ============ */
 .haru-post-link {
     color: var(--wp--preset--color--haru-gray-text);
-    text-decoration: underline !important;
 }
 
 /* ============ ボーダーボックス ============ */
