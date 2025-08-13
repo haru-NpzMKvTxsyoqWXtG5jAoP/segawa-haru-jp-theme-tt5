@@ -512,12 +512,12 @@ function haru_bubble_get_characters() {
             'positions' => array('left'),
         ),
         'user2' => array(
-            'name' => 'ユーザー2',
+            'name' => 'ミケネコ',
             'file' => 'user2.webp',
             'positions' => array('left', 'right'),
         ),
         'user3' => array(
-            'name' => 'ユーザー3',
+            'name' => 'ハチワレ',
             'file' => 'user3.webp',
             'positions' => array('left', 'right'),
         ),

@@ -1067,8 +1067,8 @@ body.archive {
     
     /* キャラクター別のボーダー色 */
     --haru-bubble-border-user1: var(--wp--preset--color--haru-green);
-    --haru-bubble-border-user2: #FFB6C1;
-    --haru-bubble-border-user3: #87CEEB;
+    --haru-bubble-border-user2: var(--wp--preset--color--haru-light-pink);
+    --haru-bubble-border-user3: var(--wp--preset--color--haru-light-orange);
 }
 
 /* 基本レイアウト */

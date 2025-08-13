@@ -78,7 +78,7 @@ theme-root/
 ├── functions.php      # 機能拡張
 ├── style.css         # メインスタイル
 ├── theme.json        # テーマ設定（フォント定義含む）
-├── CLAUDE.md         # プロジェクト説明書（実際はclaude.md）
+├── PROJECT.md        # プロジェクト説明書
 ├── .htaccess         # WebP配信・フォントキャッシュ設定
 ├── .gitattributes    # フォントファイルのバイナリ指定
 ├── .gitignore        # Git除外設定
@@ -87,7 +87,12 @@ theme-root/
 │   ├── noto-sans-jp-500.woff2
 │   └── noto-sans-jp-700.woff2
 ├── images/           # 画像ファイル
-│   └── harusegawa_icon_2.png  # Person構造化データ用アイコン（800×800px）
+│   ├── harusegawa_icon_2.png  # Person構造化データ用アイコン（800×800px）
+│   ├── harusegawa_ogp.png     # デフォルトOGP画像（1200×630px）
+│   └── chat/                  # 吹き出しアイコン（80×80px WebP）
+│       ├── user1.webp
+│       ├── user2.webp
+│       └── user3.webp
 ├── js/
 │   └── flip-card.js  # フリップカード機能
 └── custom-html/      # カスタムHTML・テーブル・SVGファイル
@@ -104,7 +109,9 @@ theme-root/
     └── svg/                                  # SVGファイル
         ├── harusegawa-footer-logo-svg_customHTML.html
         ├── harusegawa-footer-scrap-logo-svg_customHTML.html
-        ├── harusegawa-scrapbook-logo-svg_customHTML.txt
+        ├── harusegawa-scrapbook-logo-svg/    # スクラップブックロゴ関連
+        │   ├── harusegawa-scrapbook-logo-svg_customHTML.txt
+        │   └── harusegawa-title-logo-svg_animation_css.txt
         └── harusegawa-title-logo-svg_customHTML.txt
 ```
 
@@ -444,3 +451,37 @@ function haru_cf7_should_load(): bool {
 ```
 
 この関数を使って`is_front_page()`の代わりに`haru_cf7_should_load()`で判定すれば、フォームがあるページでのみ自動的にCF7アセットが読み込まれる。
+
+## 投稿記事レイアウト（2025年8月更新）
+
+### 概要
+投稿記事のレイアウトとタイポグラフィをシンプルに管理。WordPressのデフォルトCSS との戦いを最小限に。
+
+### 実装内容
+1. **コンテナ設定**
+   - パディング: 左右3vw
+   - line-height: 1.9、letter-spacing: 0.04em（記事全体）
+   - カードの日付・タグ部分は`normal`でリセット
+
+2. **ブロック間隔**
+   - 基本間隔: 1.6rem（`--haru-post-gap`）
+   - 全要素に`margin-block-start`で適用
+   - 見出しは独自マージン（`!important`で上書き）
+   - 小見出し後は0.5remに縮小
+
+3. **見出しマージン**
+   - `.haru-head-underline`、`.haru-head-bar`: 上下マージンを`!important`で固定
+   - `.haru-head-s-a`: 小見出しは太字（font-weight: 700）、後続要素との間隔0.5rem
+
+### 技術的ポイント
+- **シンプルな実装**: 複雑な除外セレクタを避け、`!important`で確実に制御
+- **スクラップカード対応**: 入れ子レイアウトではカードを除外
+- **WordPressとの共存**: 論理プロパティ（`margin-block-start`）を活用
+
+## カラーパレット拡張（2025年8月）
+
+### 追加カラー
+- **Haru Green Text** (#00a56e): グリーン系のテキストカラー
+- **Haru Blue Text** (#00aabe): ブルー系のテキストカラー
+
+Haru Gray Text (#666666) のカラーバリエーションとして、視認性の高いテキストカラーを追加。
