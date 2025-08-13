@@ -16,7 +16,8 @@
         { "slug": "haru-light-yellow", "color": "#ffff82", "name": "Haru Light Yellow" },
         { "slug": "haru-light-orange", "color": "#fab95f", "name": "Haru Light Orange" },
         { "slug": "haru-light-pink", "color": "#ffafb4", "name": "Haru Light Pink" },
-        { "slug": "haru-gray-text", "color": "#666666", "name": "Haru Gray Text" }
+        { "slug": "haru-gray-text", "color": "#666666", "name": "Haru Gray Text" },
+        { "slug": "haru-green-text", "color": "#00a56e", "name": "Haru Green Text" }
       ]
     },
 

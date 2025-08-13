@@ -1221,6 +1221,7 @@ body.archive {
 /* ============ 小見出し ============ */
 .haru-head-s-a {
     font-size: var(--wp--preset--font-size--large);
+    font-weight: 700;
     position: relative;
     display: inline-block;
 }
