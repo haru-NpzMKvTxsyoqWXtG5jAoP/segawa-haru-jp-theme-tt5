@@ -1191,7 +1191,7 @@ body.archive {
 .haru-head-underline {
     position: relative;
     font-weight: 700;
-    font-size: clamp(1.35rem, 4vw, 1.75rem);
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
     padding-bottom: 14px;
     /* 投稿記事レイアウトに勝つためimportant */
     margin-top: var(--haru-space-large) !important;
@@ -1216,7 +1216,7 @@ body.archive {
     margin-top: var(--haru-space-large) !important;
     margin-bottom: 1.25rem !important;
     font-weight: 700;
-    font-size: clamp(1.35rem, 4vw, 1.75rem);
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
 }
 
 /* ============ 小見出し ============ */
