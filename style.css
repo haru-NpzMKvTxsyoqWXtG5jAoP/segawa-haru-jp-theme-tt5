@@ -9,9 +9,9 @@ Template: twentytwentyfive
 :root {
   /* レイアウト変数（WordPressに定義がないもののみ） */
   --haru-element-gap: 1px;
-  --haru-space-small: clamp(0.9rem, 2vw, 1.25rem);
-  --haru-space-medium: clamp(2.5rem, 5vw, 3.5rem);
-  --haru-space-large: clamp(4rem, 8vw, 6.5rem);
+  --haru-space-small: clamp(0.8rem, 1.8vw, 1.2rem);
+  --haru-space-medium: clamp(2.2rem, 4.5vw, 3.3rem);
+  --haru-space-large: clamp(3.5rem, 7.5vw, 6.2rem);
   --haru-border-width: 1px;
   --haru-hover-scale: 1.03;
   --haru-hover-transition: transform 0.2s ease-out;
