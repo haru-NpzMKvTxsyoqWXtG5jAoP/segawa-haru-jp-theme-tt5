@@ -424,7 +424,7 @@ a[href*="haru-gallery-item-wide"] {
 
 /* タイトル */
 .haru-scrap-card .wp-block-post-title a {
-  font-size: var(--haru-heading-size);
+  font-size: clamp(1.2rem, 3.5vw, 1.3rem);
   /* カードの高さが行数で変わらないようにする */
   line-height: 1.2; /* 1行の高さ、明示的に指定 */
   min-height: 2.4em; /* 2行分 = 1.2 × 2 */
