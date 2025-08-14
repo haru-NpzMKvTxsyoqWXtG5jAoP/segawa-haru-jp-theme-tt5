@@ -33,11 +33,18 @@
 
 ### カードシステム
 - **サービスカード**: 最大5列、ホバーアニメーション
-- **スクラップカード**: 最大6列、2行省略テキスト
+- **スクラップカード**: 
+  - 最大6列、2行省略テキスト
+  - グリッドレイアウト: `repeat(auto-fill, minmax(min(18rem, 100%), 1fr))`でコード管理
+  - タイトルサイズ: clamp(1.2rem, 3.5vw, 1.3rem)で独自設定
 - **ギャラリーカード**: 最大7列、wide タグで2列分表示
 
 ### レスポンシブスペーサー
 - **3サイズ**: large、medium、small
+- **レスポンシブ値**:
+  - small: clamp(0.8rem, 1.8vw, 1.2rem)
+  - medium: clamp(2.2rem, 4.5vw, 3.3rem)
+  - large: clamp(3.5rem, 7.5vw, 6.2rem)
 - **用途**: WordPress スペーサーブロックの拡張
 
 ### 縦型ヘッダー
@@ -470,8 +477,10 @@ function haru_cf7_should_load(): bool {
    - 小見出し後は0.5remに縮小
 
 3. **見出しマージン**
-   - `.haru-head-underline`、`.haru-head-bar`: 上下マージンを`!important`で固定
-   - `.haru-head-s-a`: 小見出しは太字（font-weight: 700）、後続要素との間隔0.5rem
+   - `.haru-head-underline`、`.haru-head-bar`: 
+     - フォントサイズ: clamp(1.5rem, 4vw, 1.75rem)
+     - 上下マージンを`!important`で固定
+   - `.haru-head-s-a`、`.haru-head-s-b`: 小見出しは太字（font-weight: 700）、後続要素との間隔0.5rem
 
 ### 技術的ポイント
 - **シンプルな実装**: 複雑な除外セレクタを避け、`!important`で確実に制御
@@ -482,6 +491,7 @@ function haru_cf7_should_load(): bool {
 
 ### 追加カラー
 - **Haru Green Text** (#00a56e): グリーン系のテキストカラー
-- **Haru Blue Text** (#00aabe): ブルー系のテキストカラー
+- **Haru Blue Text** (#00789e): ブルー系のテキストカラー（より暗めに調整済み）
+- **Haru Pink Text Color** (#dd77aa): ピンク系のテキストカラー
 
 Haru Gray Text (#666666) のカラーバリエーションとして、視認性の高いテキストカラーを追加。
