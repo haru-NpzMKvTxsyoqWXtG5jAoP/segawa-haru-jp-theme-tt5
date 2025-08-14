@@ -395,6 +395,11 @@ a[href*="haru-gallery-item-wide"] {
 }
 
 /* ============ スクラップカード（個別設定） ============ */
+/* グリッドの最小列幅（コードで管理するためWPのGUI設定を上書き） */
+.haru-scrap-cards-container {
+  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)) !important;
+}
+
 /* 最大6列 */
 @media (min-width: 1800px) {
   .haru-scrap-cards-container {
