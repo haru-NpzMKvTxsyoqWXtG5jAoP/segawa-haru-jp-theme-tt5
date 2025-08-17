@@ -552,6 +552,62 @@ add_filter('query_loop_block_query_vars', function ($query, $block) {
     return $query;
 }, 10, 2);
 
+// ==============================================
+//  関連記事デバッグ（暫定）
+// ==============================================
+
+// 1) haru-related-posts の Query Loop にデバッグ用マーカーを付与
+add_filter('query_loop_block_query_vars', function ($query, $block) {
+    if (is_admin() || !is_singular('post')) {
+        return $query;
+    }
+    $attrs = $block->parsed_block['attrs'] ?? [];
+    $class = $attrs['className'] ?? '';
+    if (!$class || strpos($class, 'haru-related-posts') === false) {
+        return $query;
+    }
+    // WP_Query に無視されるカスタムキーでマーカーを仕込む
+    if (empty($query['haru_related_marker'])) {
+        $query['haru_related_marker'] = uniqid('hrd_', true);
+    }
+    return $query;
+}, 99, 2);
+
+// 2) 実際に WP_Query が走る直前の最終引数を捕捉
+add_action('pre_get_posts', function($q){
+    if (is_admin()) return;
+    // マーカーが付いた Query Loop だけ対象
+    $marker = $q->get('haru_related_marker');
+    if (!$marker) return;
+    // 収集（安全のため必要なキーのみ）
+    $vars = $q->query_vars;
+    $capture = array(
+        'marker'         => $marker,
+        'post_type'      => $vars['post_type'] ?? null,
+        'posts_per_page' => $vars['posts_per_page'] ?? null,
+        'orderby'        => $vars['orderby'] ?? null,
+        'order'          => $vars['order'] ?? null,
+        'post__not_in'   => $vars['post__not_in'] ?? null,
+        'post__in'       => $vars['post__in'] ?? null,
+        'tag__in'        => $vars['tag__in'] ?? null,
+        'category__in'   => $vars['category__in'] ?? null,
+        'tax_query'      => $vars['tax_query'] ?? null,
+    );
+    if (!isset($GLOBALS['haru_related_debug_data'])) {
+        $GLOBALS['haru_related_debug_data'] = array();
+    }
+    $GLOBALS['haru_related_debug_data'][] = $capture;
+}, 1000);
+
+// 3) フッターにHTMLコメントとして出力（フロントのみ）
+add_action('wp_footer', function(){
+    if (is_admin()) return;
+    if (empty($GLOBALS['haru_related_debug_data'])) return;
+    $data = $GLOBALS['haru_related_debug_data'];
+    // JSONにしてコメントで出力（1行）
+    echo "\n<!-- HaruRelatedDebug " . esc_html( wp_json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) ) . " -->\n";
+});
+
 
 // ============================================== 
 //  吹き出しシステム
@@ -635,4 +691,3 @@ function haru_bubble_render($atts, $content = null) {
     
     return $html;
 }
-
