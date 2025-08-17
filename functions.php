@@ -608,6 +608,18 @@ add_action('wp_footer', function(){
     echo "\n<!-- HaruRelatedDebug " . esc_html( wp_json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) ) . " -->\n";
 });
 
+// 4) ブロック直後にもコメントを付ける（フッターが出ない環境向け）
+add_filter('render_block', function($content, $block){
+    if (is_admin() || !is_singular('post')) return $content;
+    if (($block['blockName'] ?? '') !== 'core/query') return $content;
+    $class = $block['attrs']['className'] ?? '';
+    if (!$class || strpos($class, 'haru-related-posts') === false) return $content;
+    $data = $GLOBALS['haru_related_debug_data'] ?? [];
+    if (empty($data)) return $content;
+    $comment = "\n<!-- HaruRelatedDebug " . esc_html( wp_json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) ) . " -->\n";
+    return $content . $comment;
+}, 99, 2);
+
 
 // ============================================== 
 //  吹き出しシステム
