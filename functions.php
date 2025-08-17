@@ -500,6 +500,60 @@ add_action( 'wp_enqueue_scripts', function() {
 
 
 // ============================================== 
+//  関連記事自動表示
+// ==============================================
+
+/**
+ * 関連記事用のクエリループを自動的に調整（安全版）
+ * Query Loop ブロックに CSS クラス「haru-related-posts」を付けると、
+ * 現在の投稿のタグ → なければカテゴリで絞り込み、現在記事を除外する。
+ *
+ * ※ サイトエディター側で「クエリの継承（Inherit）」はオフにしておくこと。
+ */
+add_filter('query_loop_block_query_vars', function ($query, $block) {
+    // 管理画面や投稿詳細以外では何もしない
+    if (is_admin() || !is_singular('post')) {
+        return $query;
+    }
+
+    // 目印クラスが付いた Query Loop のみ対象
+    $attrs = $block->parsed_block['attrs'] ?? [];
+    $class = $attrs['className'] ?? '';
+    if (!$class || strpos($class, 'haru-related-posts') === false) {
+        return $query;
+    }
+
+    $post_id = get_queried_object_id();
+    if (!$post_id) {
+        return $query;
+    }
+
+    // 基本のクエリ調整
+    $query['post_type'] = $query['post_type'] ?? 'post';
+    $query['ignore_sticky_posts'] = true;
+    $query['post__not_in'] = array_unique(array_merge($query['post__not_in'] ?? [], [$post_id]));
+    $query['orderby'] = $query['orderby'] ?? 'date';
+    $query['order']   = $query['order']   ?? 'DESC';
+
+    // 優先度：タグ → カテゴリ → そのまま新着
+    $tag_ids = wp_get_post_terms($post_id, 'post_tag', ['fields' => 'ids']);
+    if (!empty($tag_ids)) {
+        $query['tag__in'] = $tag_ids;
+        return $query;
+    }
+
+    $cat_ids = wp_get_post_terms($post_id, 'category', ['fields' => 'ids']);
+    if (!empty($cat_ids)) {
+        $query['category__in'] = $cat_ids;
+        return $query;
+    }
+
+    // タグ・カテゴリが無い記事はフォールバック（新着）
+    return $query;
+}, 10, 2);
+
+
+// ============================================== 
 //  吹き出しシステム
 // ==============================================
 
