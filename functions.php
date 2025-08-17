@@ -539,16 +539,57 @@ add_filter('query_loop_block_query_vars', function ($query, $block) {
     $tag_ids = wp_get_post_terms($post_id, 'post_tag', ['fields' => 'ids']);
     if (!empty($tag_ids)) {
         $query['tag__in'] = $tag_ids;
+        // デバッグ収集（暫定）
+        $GLOBALS['haru_related_debug_data'][] = array(
+            'source'         => 'vars_hook_tag',
+            'post_id'        => $post_id,
+            'post_type'      => $query['post_type'] ?? null,
+            'posts_per_page' => $query['posts_per_page'] ?? null,
+            'orderby'        => $query['orderby'] ?? null,
+            'order'          => $query['order'] ?? null,
+            'post__not_in'   => $query['post__not_in'] ?? null,
+            'post__in'       => $query['post__in'] ?? null,
+            'tag__in'        => $query['tag__in'] ?? null,
+            'category__in'   => $query['category__in'] ?? null,
+            'tax_query'      => $query['tax_query'] ?? null,
+        );
         return $query;
     }
 
     $cat_ids = wp_get_post_terms($post_id, 'category', ['fields' => 'ids']);
     if (!empty($cat_ids)) {
         $query['category__in'] = $cat_ids;
+        // デバッグ収集（暫定）
+        $GLOBALS['haru_related_debug_data'][] = array(
+            'source'         => 'vars_hook_cat',
+            'post_id'        => $post_id,
+            'post_type'      => $query['post_type'] ?? null,
+            'posts_per_page' => $query['posts_per_page'] ?? null,
+            'orderby'        => $query['orderby'] ?? null,
+            'order'          => $query['order'] ?? null,
+            'post__not_in'   => $query['post__not_in'] ?? null,
+            'post__in'       => $query['post__in'] ?? null,
+            'tag__in'        => $query['tag__in'] ?? null,
+            'category__in'   => $query['category__in'] ?? null,
+            'tax_query'      => $query['tax_query'] ?? null,
+        );
         return $query;
     }
 
     // タグ・カテゴリが無い記事はフォールバック（新着）
+    $GLOBALS['haru_related_debug_data'][] = array(
+        'source'         => 'vars_hook_fallback',
+        'post_id'        => $post_id,
+        'post_type'      => $query['post_type'] ?? null,
+        'posts_per_page' => $query['posts_per_page'] ?? null,
+        'orderby'        => $query['orderby'] ?? null,
+        'order'          => $query['order'] ?? null,
+        'post__not_in'   => $query['post__not_in'] ?? null,
+        'post__in'       => $query['post__in'] ?? null,
+        'tag__in'        => $query['tag__in'] ?? null,
+        'category__in'   => $query['category__in'] ?? null,
+        'tax_query'      => $query['tax_query'] ?? null,
+    );
     return $query;
 }, 10, 2);
 
