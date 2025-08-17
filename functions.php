@@ -536,14 +536,16 @@ add_filter('query_loop_block_query_vars', function ($query, $block) {
     $query['order']   = $query['order']   ?? 'DESC';
 
     // 優先度：タグ → カテゴリ → そのまま新着
-    $tag_ids = wp_get_post_terms($post_id, 'post_tag', ['fields' => 'ids']);
-    if (!empty($tag_ids)) {
+    // wp_get_post_tags を使用（wp_get_post_termsより確実）
+    $tag_ids = wp_get_post_tags($post_id, ['fields' => 'ids']);
+    if (!empty($tag_ids) && !is_wp_error($tag_ids)) {
         $query['tag__in'] = $tag_ids;
         return $query;
     }
 
-    $cat_ids = wp_get_post_terms($post_id, 'category', ['fields' => 'ids']);
-    if (!empty($cat_ids)) {
+    // カテゴリも同様に取得
+    $cat_ids = wp_get_post_categories($post_id, ['fields' => 'ids']);
+    if (!empty($cat_ids) && !is_wp_error($cat_ids)) {
         $query['category__in'] = $cat_ids;
         return $query;
     }
