@@ -56,7 +56,8 @@ html::-webkit-scrollbar-thumb {
 a:focus:not(:focus-visible),
 .wpcf7-form-control:focus:not(:focus-visible),
 .wpcf7-form input:focus:not(:focus-visible),
-.haru-flip-card:focus:not(:focus-visible) {
+.haru-flip-card:focus:not(:focus-visible),
+.wp-block-details summary:focus:not(:focus-visible) {
   outline: none;
 }
 
