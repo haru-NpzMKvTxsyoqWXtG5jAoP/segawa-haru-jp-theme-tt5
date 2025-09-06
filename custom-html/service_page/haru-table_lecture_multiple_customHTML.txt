@@ -19,6 +19,11 @@
         </div>
       </td>
     </tr>
+
+    <tr>
+      <th colspan="2" class="hr-table-section">対面の場合</th>
+    </tr>
+    
     <tr><th scope="row">川崎駅からの往復交通費</th><td>人数割り</td></tr>
     <tr><th scope="row">貸しスペース代</th><td>人数割り</td></tr>
     <tr><th scope="row">キャンセルについて</th><td>貸しスペースの予約があるため、キャンセルはご遠慮ください。</td></tr>

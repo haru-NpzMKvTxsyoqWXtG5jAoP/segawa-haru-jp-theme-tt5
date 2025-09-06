@@ -1,0 +1,76 @@
+<table class="hr-table">
+  <caption>オリジナル(WordPressのみ)</caption>
+  <colgroup>
+    <col>
+    <col>
+  </colgroup>
+
+  <tbody>
+    <tr>
+      <th scope="row">制作</th>
+      <td>
+        <p class="hr-price">¥200,000</p>
+        <p>※要見積。デザイン,設計により異なります。</p>
+        <p>・トップページ</p>
+        <p>・下層4ページ</p>
+        <p>・フォーム1つ</p>
+        <p>・内部SEO対策</p>
+        <p>・GA4/GSC</p>
+        <p>・サーバー契約&ドメイン取得のサポート</p>
+        <p>・メール設定</p>
+        <p>・セキュリティ強化（SSL化/ログイン認証強化）</p>
+        <p>・バックアップ設定</p>
+        <p>・画像最適化設定</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">実費</th>
+      <td>ドメイン/サーバー代は別途となります。</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">更新方法のレクチャー</th>
+      <td>
+        <p><strong>累計5時間まで追加料金なしでサポートします。</strong></p>
+        <p>以降：¥4000/1h</p>
+        <p>対面の場合：川崎駅からの往復交通費</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">修正料</th>
+      <td>
+        <p>基本無料</p>
+        <p>大幅な修正/要相談</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">制作着手後のキャンセル</th>
+      <td>進行度合いに応じて料金をいただいております。</td>
+    </tr>
+
+    <tr>
+      <th colspan="2" class="hr-table-section">追加オプション</th>
+    </tr>
+    
+    <tr>
+      <th scope="row">追加1ページ</th>
+      <td>
+        <p class="hr-price">¥20,000</p>
+        <p>※要見積。デザイン,設計により異なります。</p>
+      </td>
+    </tr>
+    
+    <tr>
+      <th scope="row">機能追加</th>
+      <td>要見積</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">お任せ更新</th>
+      <td>要見積</td>
+    </tr>
+  </tbody>
+</table>
